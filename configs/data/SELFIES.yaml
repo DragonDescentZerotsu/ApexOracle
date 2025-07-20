@@ -1,0 +1,6 @@
+train: SELFIES-train #doesn't matter actually, override in dataloader.py
+valid: SELFIES-valid #doesn't matter actually, override in dataloader.py
+tokenizer_name_or_path: SELFIES_DIY
+cache_dir: /data1/fangping/dlm/SELFIES/data #doesn't matter actually, override in dataloader.py
+wrap: True
+streaming: False

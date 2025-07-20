@@ -1,0 +1,7 @@
+train: openwebtext-train
+valid: openwebtext-valid
+#tokenizer_name_or_path: gpt2
+#tokenizer_name_or_path: DIY
+cache_dir: /data1/fangping/mdlm/textdiffusion/data
+wrap: True
+streaming: False

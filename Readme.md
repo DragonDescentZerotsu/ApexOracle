@@ -17,8 +17,8 @@
       <img src='https://img.shields.io/badge/alphaXiv Blog-2507.07862-A42C25?style=flat&logo=arXiv&logoColor=A42C25'></a>
     <a href='https://arxiv.org/pdf/2507.07862'>
       <img src='https://img.shields.io/badge/Paper-PDF-pink?style=flat&logo=arXiv&logoColor=pink'></a>
-    <a href='https://huggingface.co/Kiria-Nozan/ApexOracle'>
-      <img src='https://img.shields.io/badge/HuggingFace-Model-orange?logo=huggingface&style=flat'></a>
+    <!-- <a href='https://huggingface.co/Kiria-Nozan/ApexOracle'>
+      <img src='https://img.shields.io/badge/HuggingFace-Model-orange?logo=huggingface&style=flat'></a> -->  <!-- TODO: HuggingFace 的代码还不 work，先去掉了 -->
     <a href='https://huggingface.co/datasets/Kiria-Nozan/ApexOracle'>
       <img src='https://img.shields.io/badge/HuggingFace-Dataset-green?logo=huggingface&style=flat'></a>
   </p>
@@ -26,9 +26,14 @@
   </p>
 </p>
 
-### Quick start implementation for molecule embedding extraction with our Diffusion Language Model (DLM) can be found at [HuggingFace](https://huggingface.co/Kiria-Nozan/ApexOracle) 🤗
-### Code for pre-training our DLM can be found in folder [DLM_pretrain](./DLM_pretrain)
-### Flexible and accurate transforming between peptides and SMILES/SELFIES: [PepLink✨](./PepLink)
+<!-- ### Quick start implementation for molecule embedding extraction with our Diffusion Language Model (DLM) can be found at [HuggingFace](https://huggingface.co/Kiria-Nozan/ApexOracle) 🤗 -->
+----
+## Content Direction
+- Code for pre-training our DLM can be found in folder [DLM_pretrain](./DLM_pretrain)
+- Flexible and accurate transforming between peptides and SMILES/SELFIES: [PepLink✨](./PepLink)
+- To reproduce the results in the paper, please check folder [ApexOracle](./ApexOracle)
+- To do inference with our pre-trained DLM and predict MICs of peptides, please check folder [mdlm](./mdlm)
+- To do guided generation of peptides against specific pathogens, please check folder [discrete-diffusion-guidance](./discrete-diffusion-guidance)
 
 ### * More content to be updated ❗️
 

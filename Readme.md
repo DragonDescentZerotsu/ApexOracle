@@ -38,7 +38,7 @@
 ## Detailed File Direction
 - Use [mdlm/temp_save_milk_embedding.py](./mdlm/temp_save_milk_embedding.py) to extract molecule embeddings without huggingface.
 - Use [mdlm/temp_judge_generated_mols_MIC.py](./mdlm/temp_judge_generated_mols_MIC.py) to predict MICs of given or generated molecules. Results will be saved as a .csv file.
-- Use [mdlm/temp_judge_mol_mic_with_fig.py](./mdlm/temp_judge_mol_mic_with_fig.py) to predict MICs of given or generated molecules. Molecuels with MIC lower than 15 $\mu mol~l^{-1}$ will be saved as .png files.
+- Use [mdlm/temp_judge_mol_mic_with_fig.py](./mdlm/temp_judge_mol_mic_with_fig.py) to predict MICs of given or generated molecules. Molecuels with MIC lower than 15 $\mu mol~l^{-1}$ will be saved and visualized.
 - Use [discrete-diffusion-guidance/main.py](./discrete-diffusion-guidance/main.py) to do guided generation of peptides against specific pathogens. Change the parameters in [discrete-diffusion-guidance/configs/config.yaml](./discrete-diffusion-guidance/configs/config.yaml) to change the generation settings.
 
 ## Citation

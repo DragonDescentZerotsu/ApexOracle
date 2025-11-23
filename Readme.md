@@ -17,8 +17,8 @@
       <img src='https://img.shields.io/badge/alphaXiv Blog-2507.07862-A42C25?style=flat&logo=arXiv&logoColor=A42C25'></a>
     <a href='https://arxiv.org/pdf/2507.07862'>
       <img src='https://img.shields.io/badge/Paper-PDF-pink?style=flat&logo=arXiv&logoColor=pink'></a>
-    <!-- <a href='https://huggingface.co/Kiria-Nozan/ApexOracle'>
-      <img src='https://img.shields.io/badge/HuggingFace-Model-orange?logo=huggingface&style=flat'></a> -->  <!-- TODO: HuggingFace 的代码还不 work，先去掉了 -->
+    <a href='https://huggingface.co/Kiria-Nozan/ApexOracle'>
+      <img src='https://img.shields.io/badge/HuggingFace-Model-orange?logo=huggingface&style=flat'></a>  
     <a href='https://huggingface.co/datasets/Kiria-Nozan/ApexOracle'>
       <img src='https://img.shields.io/badge/HuggingFace-Dataset-green?logo=huggingface&style=flat'></a>
   </p>
@@ -26,7 +26,7 @@
   </p>
 </p>
 
-<!-- ### Quick start implementation for molecule embedding extraction with our Diffusion Language Model (DLM) can be found at [HuggingFace](https://huggingface.co/Kiria-Nozan/ApexOracle) 🤗 -->
+### Quick start implementation for molecule embedding extraction with our Diffusion Language Model (DLM) can be found at [HuggingFace](https://huggingface.co/Kiria-Nozan/ApexOracle) 🤗
 ----
 ## Content Direction
 - Code for pre-training our DLM can be found in folder [DLM_pretrain](./DLM_pretrain)

@@ -1,0 +1,11 @@
+train: ???  # (Local) Path to CIFAR-10 training data
+valid: ???  # (Local) Path to CIFAR-10 validation data
+label_col: labels
+num_classes: 10
+streaming: False
+size: 1024
+length: 3072
+add_special_tokens: True
+add_mask_token: True
+tokenizer_name_or_path: raw_pixels
+

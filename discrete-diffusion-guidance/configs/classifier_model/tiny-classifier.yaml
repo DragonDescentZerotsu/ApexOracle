@@ -1,0 +1,11 @@
+name: tiny
+type: ddit
+hidden_size: 512
+cond_dim: 128
+length: ${model.length}  # Same length as diffusion model
+n_blocks: 8
+n_heads: 8
+scale_by_sigma: True
+dropout: 0.1
+num_classes: ${data.num_classes}
+pooling: mean

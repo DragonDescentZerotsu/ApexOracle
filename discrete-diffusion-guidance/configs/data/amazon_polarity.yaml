@@ -1,0 +1,10 @@
+train: amazon_polarity
+valid: amazon_polarity
+tokenizer_name_or_path: bert-base-uncased
+cache_dir: /share/kuleshov/ssahoo/textdiffusion/data
+wrap: False
+streaming: False
+override_cache: False
+add_special_tokens: True
+label_col: label
+num_classes: 2

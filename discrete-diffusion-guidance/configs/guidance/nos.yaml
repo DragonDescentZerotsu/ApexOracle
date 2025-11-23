@@ -1,0 +1,6 @@
+method: nos  # nos / nos_antibiotic
+condition: 0
+classifier_checkpoint_path: ''
+num_nos_steps: 1
+nos_step_size: 0.1
+nos_stability_coef: 0.01

@@ -1,0 +1,5 @@
+method: cbg
+condition: 0
+classifier_checkpoint_path: ''
+gamma: 1.0
+use_approx: False  # use first-order approximation

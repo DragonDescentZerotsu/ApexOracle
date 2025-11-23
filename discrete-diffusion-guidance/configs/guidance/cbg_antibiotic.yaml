@@ -1,0 +1,22 @@
+method: cbg_antibiotic_remdm_loop  # nos_antibiotic / cbg_antibiotic / cbg_antibiotic_remdm_loop
+condition: 0
+noise: Ture
+#regressor_checkpoint_path: /data2/tianang/projects/Synergy/Checkpoints/genome_text_learnable_emb/guidance_regressor_non_pad_noise/noise_guidance_all_peptide_epoch_80_of_200.pth # /data2/tianang/projects/Synergy/Checkpoints/genome_text_learnable_emb/guidance_regressor/guidance_best_R2_all_peptide_epoch_12.pth #/data2/tianang/projects/Synergy/Checkpoints/genome_text_learnable_emb/guidance_regressor/noise_guidance_all_peptide_epoch_70_of_100.pth #/data2/tianang/projects/Synergy/Checkpoints/genome_text_learnable_emb/guidance_regressor_non_pad_noise/noise_guidance_all_peptide_epoch_80_of_200.pth
+#regressor_checkpoint_path: /data2/tianang/projects/Synergy/Checkpoints/genome_text_learnable_emb/guidance_regressor/noise_guidance_all_peptide_epoch_80_of_100.pth
+
+regressor_checkpoint_path: /data2/tianang/projects/Synergy/Checkpoints/genome_text_learnable_emb/guidance_regressor_pad_no_mask/noise_guidance_best_R2_all_peptide_epoch_100.pth
+#classifier_checkpoint_path: /data2/tianang/projects/mdlm/checkpoints/last.ckpt
+classifier_checkpoint_path: /data2/tianang/projects/mdlm/cls-guide-pad-no-mask-checkpoints/epoch-epoch=1-step-step=134000-train_loss-train_loss=0.008.ckpt
+
+#regressor_checkpoint_path: /data1/tianang/Projects/Synergy/Checkpoints/genome_text_learnable_emb/guidance_regressor_pad_no_mask/noise_guidance_best_R2_all_peptide_epoch_100.pth
+##classifier_checkpoint_path: /data1/tianang/Projects/mdlm/checkpoints/last.ckpt
+#classifier_checkpoint_path: /data1/tianang/Projects/mdlm/cls-guide-pad-no-mask-checkpoints/epoch-epoch=1-step-step=134000-train_loss-train_loss=0.008.ckpt
+
+gamma: 1.0
+var_gamma:
+  gamma_l: 10.0 #10.0
+  gamma_s: 10.0 #2.0
+cls_guide_weight: 0.0
+reg_guide_weight: 1.0
+use_approx: True  # use first-order approximation
+var_length: False

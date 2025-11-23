@@ -1,0 +1,11 @@
+train: qm9
+valid: qm9
+tokenizer_name_or_path: yairschiff/qm9-tokenizer
+cache_dir: /share/kuleshov/ssahoo/textdiffusion/data
+wrap: False
+streaming: False
+override_cache: False
+add_special_tokens: True
+label_col: qed
+label_col_pctile: 90
+num_classes: 2

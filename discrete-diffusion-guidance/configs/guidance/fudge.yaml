@@ -1,0 +1,5 @@
+method: fudge
+condition: 0
+classifier_checkpoint_path: ''
+topk: 20
+gamma: 1.0

@@ -1,0 +1,6 @@
+method: pplm
+condition: 0
+classifier_checkpoint_path: ''
+num_pplm_steps: 1
+pplm_step_size: 0.1
+pplm_stability_coef: 0.01

@@ -1,0 +1,2 @@
+from huggingface_hub import upload_folder
+upload_folder(folder_path="/data2/tianang/projects/mdlm/huggingface/huggingface_model", repo_id='Kiria-Nozan/ApexOracle', path_in_repo='.', commit_message="initial release")

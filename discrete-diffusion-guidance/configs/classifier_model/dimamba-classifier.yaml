@@ -1,0 +1,14 @@
+name: dimamba
+type: dimamba
+hidden_size: 256
+cond_dim: 128
+length: ${model.length}  # Same length as diffusion model
+n_blocks: 8
+scale_by_sigma: True
+dropout: 0.1
+tie_word_embeddings: False
+bidirectional: True,
+bidirectional_strategy: add
+bidirectional_weight_tie: True
+num_classes: ${data.num_classes}
+pooling: mean

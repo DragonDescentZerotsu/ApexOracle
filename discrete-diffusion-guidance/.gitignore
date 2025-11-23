@@ -1,0 +1,7 @@
+.idea/
+.DS_Store
+.ipynb_checkpoints/
+__pycache__/
+.hf_cache
+outputs/
+watch_folder/

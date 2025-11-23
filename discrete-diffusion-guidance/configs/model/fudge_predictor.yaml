@@ -1,0 +1,4 @@
+name: fudge_predictor
+type: lstm
+hidden_dim: 300
+length: 1024

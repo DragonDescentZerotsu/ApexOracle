@@ -1,0 +1,8 @@
+method: nos_antibiotic  # nos / nos_antibiotic
+condition: 0
+classifier_checkpoint_path: ''
+noise: False
+regressor_checkpoint_path: /data2/tianang/projects/Synergy/Checkpoints/genome_text_learnable_emb/guidance_regressor/guidance_best_R2_all_peptide_epoch_12.pth # /data2/tianang/projects/Synergy/Checkpoints/genome_text_learnable_emb/guidance_regressor/guidance_best_R2_all_peptide_epoch_12.pth #/data2/tianang/projects/Synergy/Checkpoints/genome_text_learnable_emb/guidance_regressor/noise_guidance_all_peptide_epoch_70_of_100.pth
+num_nos_steps: 5
+nos_step_size: 0.1
+nos_stability_coef: 0.01

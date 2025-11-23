@@ -1,0 +1,11 @@
+train: ten_species
+valid: ten_species
+tokenizer_name_or_path: kuleshov-group/caduceus-ps_seqlen-131k_d_model-256_n_layer-16
+cache_dir: /share/kuleshov/ssahoo/textdiffusion/data
+wrap: False
+streaming: False
+override_cache: False
+add_special_tokens: False
+label_col: species_label
+num_classes: 10
+rc_aug: False

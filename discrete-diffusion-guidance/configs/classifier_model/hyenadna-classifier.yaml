@@ -1,0 +1,4 @@
+name: hyena-32k
+type: hyenadna
+hyena_model_name_or_path: ???
+n_layer: 4

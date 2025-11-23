@@ -1,0 +1,159 @@
+{
+  "ckpt_path": null,
+  "config": {
+    "T": 0,
+    "backbone": "dit",
+    "callbacks": {
+      "checkpoint_every_n_steps": {
+        "_target_": "lightning.pytorch.callbacks.ModelCheckpoint",
+        "auto_insert_metric_name": false,
+        "dirpath": "${checkpointing.save_dir}/checkpoints",
+        "every_n_train_steps": 500,
+        "save_last": true,
+        "save_top_k": -1,
+        "verbose": true
+      },
+      "checkpoint_monitor": {
+        "_target_": "lightning.pytorch.callbacks.ModelCheckpoint",
+        "auto_insert_metric_name": false,
+        "dirpath": "${checkpointing.save_dir}/checkpoints",
+        "filename": "best",
+        "mode": "min",
+        "monitor": "val/nll",
+        "save_last": false,
+        "save_top_k": 1,
+        "verbose": true
+      },
+      "learning_rate_monitor": {
+        "_target_": "lightning.pytorch.callbacks.LearningRateMonitor",
+        "logging_interval": "step"
+      }
+    },
+    "checkpointing": {
+      "resume_ckpt_path": "${.save_dir}/checkpoints/last.ckpt",
+      "resume_from_ckpt": true,
+      "save_dir": "${cwd:}"
+    },
+    "data": {
+      "cache_dir": "/share/kuleshov/ssahoo/textdiffusion/data",
+      "streaming": false,
+      "tokenizer_name_or_path": "ibm-research/materials.selfies-ted",
+      "train": "openwebtext",
+      "valid": "wikitext103",
+      "wrap": true
+    },
+    "diffusion": "absorbing_state",
+    "eval": {
+      "checkpoint_path": "/data2/tianang/projects/mdlm/Checkpoints_fangping/1-255000-fine-tune.ckpt",
+      "compute_generative_perplexity": false,
+      "compute_perplexity_on_sanity": false,
+      "disable_ema": false,
+      "gen_ppl_eval_model_name_or_path": "gpt2-large",
+      "generate_samples": true,
+      "perplexity_batch_size": 8
+    },
+    "loader": {
+      "batch_size": "${div_up:${.global_batch_size}, ${eval:${trainer.devices} * ${trainer.num_nodes}}}",
+      "eval_batch_size": "${div_up:${.eval_global_batch_size}, ${eval:${trainer.devices} * ${trainer.num_nodes}}}",
+      "eval_global_batch_size": 512,
+      "global_batch_size": 512,
+      "num_workers": "${eval:\"len(__import__('os').sched_getaffinity(0))\"}",
+      "pin_memory": true
+    },
+    "lr_scheduler": {
+      "_target_": "transformers.get_constant_schedule_with_warmup",
+      "num_warmup_steps": 2500
+    },
+    "mode": "sample_eval",
+    "model": {
+      "cond_dim": 128,
+      "dropout": 0.1,
+      "hidden_size": 768,
+      "length": 1024,
+      "n_blocks": 12,
+      "n_heads": 12,
+      "name": "small",
+      "scale_by_sigma": true,
+      "tie_word_embeddings": false,
+      "type": "ddit"
+    },
+    "noise": {
+      "sigma_max": 20,
+      "sigma_min": 0.0001,
+      "type": "loglinear"
+    },
+    "optim": {
+      "beta1": 0.9,
+      "beta2": 0.999,
+      "eps": 1e-08,
+      "lr": 0.0003,
+      "weight_decay": 0
+    },
+    "parameterization": "subs",
+    "sampling": {
+      "noise_removal": true,
+      "num_sample_batches": 2,
+      "num_sample_log": 2,
+      "num_strides": 1,
+      "predictor": "ddpm_cache",
+      "semi_ar": false,
+      "steps": 128,
+      "stride_length": 1
+    },
+    "seed": 1,
+    "strategy": {
+      "_target_": "lightning.pytorch.strategies.DDPStrategy",
+      "find_unused_parameters": false
+    },
+    "subs_masking": false,
+    "time_conditioning": false,
+    "trainer": {
+      "_target_": "lightning.Trainer",
+      "accelerator": "cuda",
+      "accumulate_grad_batches": "${div_up:${loader.global_batch_size}, ${eval:${trainer.devices} * ${loader.batch_size} * ${trainer.num_nodes}}}",
+      "devices": "${device_count:}",
+      "gradient_clip_val": 1.0,
+      "limit_train_batches": 1.0,
+      "limit_val_batches": 1.0,
+      "log_every_n_steps": 10,
+      "max_steps": 1000000,
+      "num_nodes": 1,
+      "num_sanity_val_steps": 2,
+      "precision": "bf16",
+      "val_check_interval": 10000
+    },
+    "training": {
+      "antithetic_sampling": true,
+      "change_of_variables": false,
+      "ema": 0.9999,
+      "importance_sampling": false,
+      "sampling_eps": 0.001
+    },
+    "wandb": {
+      "group": null,
+      "id": "None_1",
+      "job_type": null,
+      "name": null,
+      "notes": "Mulan for text",
+      "project": "text-diffusion",
+      "tags": [
+        "loglinear",
+        "openwebtext",
+        "wikitext103"
+      ]
+    }
+  },
+  "hidden_size": 768,
+  "mask_index": 4,
+  "max_position_embeddings": 1024,
+  "model_type": "mol_emb_raw",
+  "n_blocks": 12,
+  "n_heads": 12,
+  "noise_schedule_type": "loglinear",
+  "parameterization": "subs",
+  "sigma_max": 20,
+  "sigma_min": 0.0001,
+  "time_conditioning": false,
+  "tokenizer_name_or_path": "ibm-research/materials.selfies-ted",
+  "vocab_size": 3160
+}

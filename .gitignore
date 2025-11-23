@@ -4,6 +4,7 @@ Fangping_correlation/
 paper_figs/
 
 *.pt
+*.zip
 
 run.py
 run_full.py

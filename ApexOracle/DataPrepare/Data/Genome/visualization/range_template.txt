@@ -1,0 +1,149 @@
+DATASET_RANGE
+#Colored/labeled range datasets allow the highlighting of various clades or leaf ranges by using colored boxes or brackets.
+
+#lines starting with a hash sign are comments and ignored during parsing
+#=================================================================#
+#                    MANDATORY SETTINGS                           #
+#=================================================================#
+#select the separator which is used to delimit the data below (TAB,SPACE or COMMA).This separator must be used throughout this file.
+#SEPARATOR TAB
+#SEPARATOR SPACE
+SEPARATOR COMMA
+
+#label is used in the legend table (can be changed later)
+DATASET_LABEL,clustering visualize
+
+#dataset color in the legend table
+COLOR,#d9d2e9
+
+
+#=================================================================#
+#                    OPTIONAL SETTINGS                            #
+#=================================================================#
+
+#=================================================================#
+#        all optional settings can be set or changed later        #
+#           in the web interface (under 'Datasets' tab)           #
+#=================================================================#
+
+#RANGE_TYPE defines how the rages will be visualized:
+   #box: standard colored box/polygon. Various LINE_? fields in the range definition will be used for the border style. 
+   #bracket: a line or bracket outside the tree
+
+RANGE_TYPE,box
+#
+#Box/polygon specific options, used when RANGE_TYPE is 'box'
+#
+
+#specify what the range boxes will cover: 'label','clade' or 'tree'
+RANGE_COVER,label
+
+#simplify or smooth polygons when in unrooted display mode: 'none', 'simplify' or 'smooth'
+UNROOTED_SMOOTH,simplify
+
+#when RANGE_COVER is set to 'clade' or 'tree', you can disable the covering of labels (ie. limiting the boxes to the tree structure only)
+COVER_LABELS,0
+
+#if set to 1, ranges will cover any displayed extrernal datasets as well
+COVER_DATASETS,0
+
+#if set to 1, size of the boxes will be extended to fit their labels
+FIT_LABELS,0
+
+#
+#Bracket specific options, used when RANGE_TYPE is 'bracket'
+#
+
+#bracket style can be: 'none','square' or 'curved'
+BRACKET_STYLE,square
+
+#size of the bracket ends (for 'square' or 'curved' brackets)
+BRACKET_SIZE,20
+
+#shift the bracket position horizontally
+BRACKET_SHIFT,50
+
+#if set to 1, brackets will be displayed behind the last visible external dataset
+BRACKET_BEHIND_DATASETS,1
+
+#
+#Options related to range labels
+#
+
+SHOW_LABELS,1
+
+#the position of the label in the range box (or relative to the bracket): 'top-left','top-center','top-right',
+#                                                                         'center-left','center-center','center-right',
+#                                                                         'bottom-left','bottom-center','bottom-right'
+LABEL_POSITION,bottom-right
+
+#Display the labels vertically. In circular display mode (or with brackets in unrooted display mode), labels will be aligned to the circle
+LABELS_VERTICAL,0
+
+#labels remain straight, regardless of the tree rotation or other rotation parameters
+STRAIGHT_LABELS,0
+
+#rotate all labels by the specified angle
+LABEL_ROTATION,0
+
+#shift all labels horizontally and/or vertically
+LABEL_SHIFT_X,0
+LABEL_SHIFT_Y,0
+
+#add a colored outline to the label font; useful when displaying labels over similarly colored boxes (e.g. black font on a dark box)
+LABEL_OUTLINE_WIDTH,0
+LABEL_OUTLINE_COLOR,#ffffff
+
+#calculate the label color automatically (black or white), based on the darkness of the range color
+LABEL_AUTO_COLOR,0
+
+#multiply the size of all labels by this factor
+LABEL_SIZE_FACTOR,1
+
+#shrink range boxes or brackets vertically, to introduce spacing between neighbouring ranges
+VERTICAL_SHRINK,0
+
+#Each dataset can have a legend, which is defined using LEGEND_XXX fields below
+#For each row in the legend, there should be one shape, color and label.
+#Optionally, you can define an exact legend position using LEGEND_POSITION_X and LEGEND_POSITION_Y. To use automatic legend positioning, do NOT define these values
+#Optionally, shape scaling can be present (LEGEND_SHAPE_SCALES). For each shape, you can define a scaling factor between 0 and 1.
+#To order legend entries horizontally instead of vertically, set LEGEND_HORIZONTAL to 1
+#Shape should be a number between 1 and 6, or any protein domain shape definition.
+#1: square
+#2: circle
+#3: star
+#4: right pointing triangle
+#5: left pointing triangle
+#6: checkmark
+
+#LEGEND_TITLE,Dataset legend
+#LEGEND_SCALE,1
+#LEGEND_POSITION_X,100
+#LEGEND_POSITION_Y,100
+#LEGEND_HORIZONTAL,0
+#LEGEND_SHAPES,1,2,3
+#LEGEND_COLORS,#ff0000,#00ff00,#0000ff
+#LEGEND_LABELS,value1,value2,value3
+#LEGEND_SHAPE_SCALES,1,1,0.5
+
+
+
+#Internal tree nodes can be specified by using IDs directly, or by using the 'last common ancestor' method described in iTOL help pages
+#=================================================================#
+#       Actual data follows after the "DATA" keyword              #
+#=================================================================#
+#the following fields are available in each line:
+
+#START_NODE_ID,END_NODE_ID,FILL_COLOR,GRADIENT_COLOR,LINE_COLOR,LINE_STYLE,LINE_WIDTH,LABEL_TEXT,LABEL_COLOR,LABEL_SIZE_FACTOR,LABEL_STYLE
+
+#The range is defined through START_NODE_ID and END_NODE_ID.
+#If GRADIENT_FILL color is defined, the box will be filled with a gradient from FILL_COLOR to GRADIENT_COLOR.  Brackets will also be visualized as gradients.
+#LINE_COLOR will be used for the box/polygon border, or for the brackets. If not specified, FILL_COLOR will be used instead
+#LINE_STYLE can be 'solid', 'dashed' or 'dotted'
+#LABEL_STYLE can be 'normal', 'bold', 'italic' or 'bold-italic'
+
+DATA
+#Examples
+#a range between leaves 9606 and 184922, filled with a gradient from white (#ffffff) to red (#ff0000), with a 2px dashed black (#000000) border and a blue (#0000ff) italic label
+#9606,184922,#ffffff,#ff0000,#000000,dashed,2,Example range,#0000ff,1,italic
+

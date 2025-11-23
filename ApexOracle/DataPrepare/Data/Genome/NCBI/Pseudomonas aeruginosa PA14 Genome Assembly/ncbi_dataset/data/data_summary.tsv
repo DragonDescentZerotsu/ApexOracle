@@ -1,0 +1,3 @@
+Organism Scientific Name	Organism Common Name	Organism Qualifier	Taxonomy id	Assembly Name	Assembly Accession	Source	Annotation	Level	Contig N50	Size	Submission Date	Gene Count	BioProject	BioSample
+Pseudomonas aeruginosa PA14		strain: PA14	652611	ASM4568925v1	GCA_045689255.1	GenBank		Complete Genome	6541446	6541446	2023-10-24		PRJNA1028549	SAMN37845004
+Pseudomonas aeruginosa PA14		strain: PA14	652611	ASM4568925v1	GCF_045689255.1	RefSeq	GCF_045689255.1-RS_2024_12_05	Complete Genome	6541446	6541446	2024-12-06	6050	PRJNA1028549	SAMN37845004

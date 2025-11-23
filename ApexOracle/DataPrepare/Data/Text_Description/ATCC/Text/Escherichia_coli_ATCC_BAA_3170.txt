@@ -1,0 +1,7 @@
+Species Information: Escherichia coli ATCC BAA-3170 belongs to the species Escherichia coli, a Gram-negative, facultative anaerobic, non-sporulating rod of the Enterobacteriaceae. Cells are typically 2.0 μm × 0.25–1.0 μm, possess a thin peptidoglycan layer and an outer membrane rich in lipopolysaccharide, and ferment lactose; flagella are peritrichous, enabling motility, and the organism exhibits broad metabolic versatility across carbohydrates and amino acids.
+
+Unique Mutations: This strain is distinguished by acquisition of the plasmid-borne mcr-1 gene, encoding a phosphoethanolamine transferase that modifies lipid A in the outer membrane, reducing binding of polymyxin antibiotics and enhancing survival under colistin pressure.
+
+Antibiotic and antimicrobial peptides Resistance: mcr-1–mediated resistance to colistin (MIC 4–6 μg/ml) and polymyxin B (MIC 4 μg/ml) arises from enzymatic addition of phosphoethanolamine to lipid A, decreasing antibiotic affinity for the bacterial surface.
+
+Antibiotic and antimicrobial peptides Sensitivity: None

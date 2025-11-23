@@ -1,0 +1,538 @@
+DATASET_RANGE
+#Colored/labeled range datasets allow the highlighting of various clades or leaf ranges by using colored boxes or brackets.
+
+#lines starting with a hash sign are comments and ignored during parsing
+#=================================================================#
+#                    MANDATORY SETTINGS                           #
+#=================================================================#
+#select the separator which is used to delimit the data below (TAB,SPACE or COMMA).This separator must be used throughout this file.
+#SEPARATOR TAB
+#SEPARATOR SPACE
+SEPARATOR COMMA
+
+#label is used in the legend table (can be changed later)
+DATASET_LABEL,clustering visualize
+
+#dataset color in the legend table
+COLOR,#d9d2e9
+
+
+#=================================================================#
+#                    OPTIONAL SETTINGS                            #
+#=================================================================#
+
+#=================================================================#
+#        all optional settings can be set or changed later        #
+#           in the web interface (under 'Datasets' tab)           #
+#=================================================================#
+
+#RANGE_TYPE defines how the rages will be visualized:
+   #box: standard colored box/polygon. Various LINE_? fields in the range definition will be used for the border style. 
+   #bracket: a line or bracket outside the tree
+
+RANGE_TYPE,box
+#
+#Box/polygon specific options, used when RANGE_TYPE is 'box'
+#
+
+#specify what the range boxes will cover: 'label','clade' or 'tree'
+RANGE_COVER,label
+
+#simplify or smooth polygons when in unrooted display mode: 'none', 'simplify' or 'smooth'
+UNROOTED_SMOOTH,simplify
+
+#when RANGE_COVER is set to 'clade' or 'tree', you can disable the covering of labels (ie. limiting the boxes to the tree structure only)
+COVER_LABELS,0
+
+#if set to 1, ranges will cover any displayed extrernal datasets as well
+COVER_DATASETS,0
+
+#if set to 1, size of the boxes will be extended to fit their labels
+FIT_LABELS,0
+
+#
+#Bracket specific options, used when RANGE_TYPE is 'bracket'
+#
+
+#bracket style can be: 'none','square' or 'curved'
+BRACKET_STYLE,square
+
+#size of the bracket ends (for 'square' or 'curved' brackets)
+BRACKET_SIZE,20
+
+#shift the bracket position horizontally
+BRACKET_SHIFT,50
+
+#if set to 1, brackets will be displayed behind the last visible external dataset
+BRACKET_BEHIND_DATASETS,1
+
+#
+#Options related to range labels
+#
+
+SHOW_LABELS,1
+
+#the position of the label in the range box (or relative to the bracket): 'top-left','top-center','top-right',
+#                                                                         'center-left','center-center','center-right',
+#                                                                         'bottom-left','bottom-center','bottom-right'
+LABEL_POSITION,bottom-right
+
+#Display the labels vertically. In circular display mode (or with brackets in unrooted display mode), labels will be aligned to the circle
+LABELS_VERTICAL,0
+
+#labels remain straight, regardless of the tree rotation or other rotation parameters
+STRAIGHT_LABELS,0
+
+#rotate all labels by the specified angle
+LABEL_ROTATION,0
+
+#shift all labels horizontally and/or vertically
+LABEL_SHIFT_X,0
+LABEL_SHIFT_Y,0
+
+#add a colored outline to the label font; useful when displaying labels over similarly colored boxes (e.g. black font on a dark box)
+LABEL_OUTLINE_WIDTH,0
+LABEL_OUTLINE_COLOR,#ffffff
+
+#calculate the label color automatically (black or white), based on the darkness of the range color
+LABEL_AUTO_COLOR,0
+
+#multiply the size of all labels by this factor
+LABEL_SIZE_FACTOR,1
+
+#shrink range boxes or brackets vertically, to introduce spacing between neighbouring ranges
+VERTICAL_SHRINK,0
+
+#Each dataset can have a legend, which is defined using LEGEND_XXX fields below
+#For each row in the legend, there should be one shape, color and label.
+#Optionally, you can define an exact legend position using LEGEND_POSITION_X and LEGEND_POSITION_Y. To use automatic legend positioning, do NOT define these values
+#Optionally, shape scaling can be present (LEGEND_SHAPE_SCALES). For each shape, you can define a scaling factor between 0 and 1.
+#To order legend entries horizontally instead of vertically, set LEGEND_HORIZONTAL to 1
+#Shape should be a number between 1 and 6, or any protein domain shape definition.
+#1: square
+#2: circle
+#3: star
+#4: right pointing triangle
+#5: left pointing triangle
+#6: checkmark
+
+#LEGEND_TITLE,Dataset legend
+#LEGEND_SCALE,1
+#LEGEND_POSITION_X,100
+#LEGEND_POSITION_Y,100
+#LEGEND_HORIZONTAL,0
+#LEGEND_SHAPES,1,2,3
+#LEGEND_COLORS,#ff0000,#00ff00,#0000ff
+#LEGEND_LABELS,value1,value2,value3
+#LEGEND_SHAPE_SCALES,1,1,0.5
+
+
+
+#Internal tree nodes can be specified by using IDs directly, or by using the 'last common ancestor' method described in iTOL help pages
+#=================================================================#
+#       Actual data follows after the "DATA" keyword              #
+#=================================================================#
+#the following fields are available in each line:
+
+#START_NODE_ID,END_NODE_ID,FILL_COLOR,GRADIENT_COLOR,LINE_COLOR,LINE_STYLE,LINE_WIDTH,LABEL_TEXT,LABEL_COLOR,LABEL_SIZE_FACTOR,LABEL_STYLE
+
+#The range is defined through START_NODE_ID and END_NODE_ID.
+#If GRADIENT_FILL color is defined, the box will be filled with a gradient from FILL_COLOR to GRADIENT_COLOR.  Brackets will also be visualized as gradients.
+#LINE_COLOR will be used for the box/polygon border, or for the brackets. If not specified, FILL_COLOR will be used instead
+#LINE_STYLE can be 'solid', 'dashed' or 'dotted'
+#LABEL_STYLE can be 'normal', 'bold', 'italic' or 'bold-italic'
+
+DATA
+#Examples
+#a range between leaves 9606 and 184922, filled with a gradient from white (#ffffff) to red (#ff0000), with a 2px dashed black (#000000) border and a blue (#0000ff) italic label
+#9606,184922,#ffffff,#ff0000,#000000,dashed,2,Example range,#0000ff,1,italic
+
+'Spiroplasma floricola','Spiroplasma floricola',#e3d0ff
+'Spiroplasma melliferum','Spiroplasma melliferum',#e3d0ff
+'Spiroplasma citri','Spiroplasma citri',#e3d0ff
+'Mycoplasma mycoides','Mycoplasma mycoides',#e3d0ff
+'Mycoplasmopsis fermentans','Mycoplasmopsis fermentans',#e3d0ff
+'Mesomycoplasma hyorhinis','Mesomycoplasma hyorhinis',#e3d0ff
+'Ureaplasma canigenitalium','Ureaplasma canigenitalium',#e3d0ff
+'Ureaplasma urealyticum','Ureaplasma urealyticum',#e3d0ff
+'Mycoplasmoides genitalium','Mycoplasmoides genitalium',#e3d0ff
+'Streptoverticillium verticillium','Streptoverticillium verticillium',#e3d0ff
+'Streptomyces lividans','Streptomyces lividans',#e3d0ff
+'Streptomyces griseus','Streptomyces griseus',#e3d0ff
+'Streptomyces coelicolor','Streptomyces coelicolor',#e3d0ff
+'Acidipropionibacterium thoenii','Acidipropionibacterium thoenii',#e3d0ff
+'Acidipropionibacterium jensenii','Acidipropionibacterium jensenii',#e3d0ff
+'Acidipropionibacterium acidipropionici','Acidipropionibacterium acidipropionici',#e3d0ff
+'Cutibacterium acnes','Cutibacterium acnes',#e3d0ff
+'Propionibacterium freudenreichii','Propionibacterium freudenreichii',#e3d0ff
+'Prescottella equi','Prescottella equi',#e3d0ff
+'Rhodococcoides fascians','Rhodococcoides fascians',#e3d0ff
+'Nocardia farcinica','Nocardia farcinica',#e3d0ff
+'Nocardia asteroides','Nocardia asteroides',#e3d0ff
+'Mycobacteroides abscessus','Mycobacteroides abscessus',#e3d0ff
+'Mycobacteroides chelonae','Mycobacteroides chelonae',#e3d0ff
+'Mycolicibacterium vaccae','Mycolicibacterium vaccae',#e3d0ff
+'Mycolicibacterium smegmatis','Mycolicibacterium smegmatis',#e3d0ff
+'Mycolicibacterium fortuitum','Mycolicibacterium fortuitum',#e3d0ff
+'Mycobacterium xenopi','Mycobacterium xenopi',#e3d0ff
+'Mycobacterium marinum','Mycobacterium marinum',#e3d0ff
+'Mycobacterium kansasii','Mycobacterium kansasii',#e3d0ff
+'Mycobacterium tuberculosis variant bovis BCG','Mycobacterium tuberculosis variant bovis BCG',#e3d0ff
+'Mycobacterium avium','Mycobacterium avium',#e3d0ff
+'Corynebacterium striatum','Corynebacterium striatum',#e3d0ff
+'Corynebacterium jeikeium','Corynebacterium jeikeium',#e3d0ff
+'Corynebacterium pseudodiphtheriticum','Corynebacterium pseudodiphtheriticum',#e3d0ff
+'Corynebacterium xerosis','Corynebacterium xerosis',#e3d0ff
+'Corynebacterium renale','Corynebacterium renale',#e3d0ff
+'Corynebacterium pseudotuberculosis','Corynebacterium pseudotuberculosis',#e3d0ff
+'Corynebacterium glutamicum','Corynebacterium glutamicum',#e3d0ff
+'Corynebacterium diphtheriae','Corynebacterium diphtheriae',#e3d0ff
+'Corynebacterium stationis','Corynebacterium stationis',#e3d0ff
+'Gardnerella vaginalis','Gardnerella vaginalis',#e3d0ff
+'Bifidobacterium longum','Bifidobacterium longum',#e3d0ff
+'Bifidobacterium catenulatum','Bifidobacterium catenulatum',#e3d0ff
+'Bifidobacterium breve','Bifidobacterium breve',#e3d0ff
+'Bifidobacterium adolescentis','Bifidobacterium adolescentis',#e3d0ff
+'Actinotignum schaalii','Actinotignum schaalii',#e3d0ff
+'Actinomyces israelii','Actinomyces israelii',#e3d0ff
+'Actinomyces viscosus','Actinomyces viscosus',#e3d0ff
+'Actinomyces naeslundii','Actinomyces naeslundii',#e3d0ff
+'Microbacterium maritypicum','Microbacterium maritypicum',#e3d0ff
+'Clavibacter michiganensis','Clavibacter michiganensis',#e3d0ff
+'Dermacoccus nishinomiyaensis','Dermacoccus nishinomiyaensis',#e3d0ff
+'Kocuria rhizophila','Kocuria rhizophila',#e3d0ff
+'Pseudarthrobacter oxydans','Pseudarthrobacter oxydans',#e3d0ff
+'Arthrobacter globiformis','Arthrobacter globiformis',#e3d0ff
+'Micrococcus yunnanensis','Micrococcus yunnanensis',#e3d0ff
+'Micrococcus luteus','Micrococcus luteus',#e3d0ff
+'Veillonella parvula','Veillonella parvula',#e3d0ff
+'Thomasclavelia spiroformis','Thomasclavelia spiroformis',#e3d0ff
+'Ruminococcus torques','Ruminococcus torques',#e3d0ff
+'Mediterraneibacter gnavus','Mediterraneibacter gnavus',#e3d0ff
+'Clostridium nexile','Clostridium nexile',#e3d0ff
+'Faecalicatena contorta','Faecalicatena contorta',#e3d0ff
+'Faecalicatena orotica','Faecalicatena orotica',#e3d0ff
+'Blautia obeum','Blautia obeum',#e3d0ff
+'Blautia coccoides','Blautia coccoides',#e3d0ff
+'Clostridium tertium','Clostridium tertium',#e3d0ff
+'Clostridium tetani','Clostridium tetani',#e3d0ff
+'Clostridium sporogenes','Clostridium sporogenes',#e3d0ff
+'Clostridium septicum','Clostridium septicum',#e3d0ff
+'Clostridium perfringens','Clostridium perfringens',#e3d0ff
+'Romboutsia lituseburensis','Romboutsia lituseburensis',#e3d0ff
+'Clostridioides difficile','Clostridioides difficile',#e3d0ff
+'Peptostreptococcus anaerobius','Peptostreptococcus anaerobius',#e3d0ff
+'Parvimonas micra','Parvimonas micra',#e3d0ff
+'Peptoniphilus asaccharolyticus','Peptoniphilus asaccharolyticus',#e3d0ff
+'Exiguobacterium chiriqhucha','Exiguobacterium chiriqhucha',#e3d0ff
+'Listeria fleischmannii','Listeria fleischmannii',#e3d0ff
+'Listeria welshimeri','Listeria welshimeri',#e3d0ff
+'Listeria innocua','Listeria innocua',#e3d0ff
+'Listeria grayi','Listeria grayi',#e3d0ff
+'Listeria seeligeri','Listeria seeligeri',#e3d0ff
+'Listeria monocytogenes','Listeria monocytogenes',#e3d0ff
+'Listeria ivanovii','Listeria ivanovii',#e3d0ff
+'Alicyclobacillus acidoterrestris','Alicyclobacillus acidoterrestris',#e3d0ff
+'Geobacillus lituanicus','Geobacillus lituanicus',#e3d0ff
+'Geobacillus thermoleovorans','Geobacillus thermoleovorans',#e3d0ff
+'Geobacillus kaustophilus','Geobacillus kaustophilus',#e3d0ff
+'Geobacillus stearothermophilus','Geobacillus stearothermophilus',#e3d0ff
+'Paenibacillus macerans','Paenibacillus macerans',#e3d0ff
+'Paenibacillus polymyxa','Paenibacillus polymyxa',#e3d0ff
+'Brevibacillus brevis','Brevibacillus brevis',#e3d0ff
+'Priestia megaterium','Priestia megaterium',#e3d0ff
+'Heyndrickxia coagulans','Heyndrickxia coagulans',#e3d0ff
+'Bacillus tropicus','Bacillus tropicus',#e3d0ff
+'Bacillus pacificus','Bacillus pacificus',#e3d0ff
+'Bacillus paranthracis','Bacillus paranthracis',#e3d0ff
+'Bacillus spizizenii','Bacillus spizizenii',#e3d0ff
+'Bacillus atrophaeus','Bacillus atrophaeus',#e3d0ff
+'Bacillus thuringiensis','Bacillus thuringiensis',#e3d0ff
+'Bacillus subtilis','Bacillus subtilis',#e3d0ff
+'Bacillus pumilus','Bacillus pumilus',#e3d0ff
+'Bacillus licheniformis','Bacillus licheniformis',#e3d0ff
+'Bacillus cereus','Bacillus cereus',#e3d0ff
+'Bacillus anthracis','Bacillus anthracis',#e3d0ff
+'Bacillus amyloliquefaciens','Bacillus amyloliquefaciens',#e3d0ff
+'Planococcus citreus','Planococcus citreus',#e3d0ff
+'Mammaliicoccus sciuri','Mammaliicoccus sciuri',#e3d0ff
+'Staphylococcus pseudintermedius','Staphylococcus pseudintermedius',#e3d0ff
+'Staphylococcus saprophyticus','Staphylococcus saprophyticus',#e3d0ff
+'Staphylococcus auricularis','Staphylococcus auricularis',#e3d0ff
+'Staphylococcus lugdunensis','Staphylococcus lugdunensis',#e3d0ff
+'Staphylococcus warneri','Staphylococcus warneri',#e3d0ff
+'Staphylococcus hominis','Staphylococcus hominis',#e3d0ff
+'Staphylococcus xylosus','Staphylococcus xylosus',#e3d0ff
+'Staphylococcus simulans','Staphylococcus simulans',#e3d0ff
+'Staphylococcus intermedius','Staphylococcus intermedius',#e3d0ff
+'Staphylococcus hyicus','Staphylococcus hyicus',#e3d0ff
+'Staphylococcus haemolyticus','Staphylococcus haemolyticus',#e3d0ff
+'Staphylococcus epidermidis','Staphylococcus epidermidis',#e3d0ff
+'Staphylococcus carnosus','Staphylococcus carnosus',#e3d0ff
+'Staphylococcus aureus','Staphylococcus aureus',#e3d0ff
+'Carnobacterium maltaromaticum','Carnobacterium maltaromaticum',#e3d0ff
+'Carnobacterium gallinarum','Carnobacterium gallinarum',#e3d0ff
+'Carnobacterium divergens','Carnobacterium divergens',#e3d0ff
+'Aerococcus viridans','Aerococcus viridans',#e3d0ff
+'Enterococcus mundtii','Enterococcus mundtii',#e3d0ff
+'Enterococcus durans','Enterococcus durans',#e3d0ff
+'Enterococcus casseliflavus','Enterococcus casseliflavus',#e3d0ff
+'Enterococcus hirae','Enterococcus hirae',#e3d0ff
+'Enterococcus gallinarum','Enterococcus gallinarum',#e3d0ff
+'Enterococcus faecium','Enterococcus faecium',#e3d0ff
+'Enterococcus faecalis','Enterococcus faecalis',#e3d0ff
+'Lactococcus garvieae','Lactococcus garvieae',#e3d0ff
+'Lactococcus cremoris','Lactococcus cremoris',#e3d0ff
+'Lactococcus lactis','Lactococcus lactis',#e3d0ff
+'Streptococcus gallolyticus','Streptococcus gallolyticus',#e3d0ff
+'Streptococcus lutetiensis','Streptococcus lutetiensis',#e3d0ff
+'Streptococcus mitis','Streptococcus mitis',#e3d0ff
+'Streptococcus uberis','Streptococcus uberis',#e3d0ff
+'Streptococcus iniae','Streptococcus iniae',#e3d0ff
+'Streptococcus intermedius','Streptococcus intermedius',#e3d0ff
+'Streptococcus equi','Streptococcus equi',#e3d0ff
+'Streptococcus equinus','Streptococcus equinus',#e3d0ff
+'Streptococcus dysgalactiae','Streptococcus dysgalactiae',#e3d0ff
+'Streptococcus canis','Streptococcus canis',#e3d0ff
+'Streptococcus anginosus','Streptococcus anginosus',#e3d0ff
+'Streptococcus pyogenes','Streptococcus pyogenes',#e3d0ff
+'Streptococcus pneumoniae','Streptococcus pneumoniae',#e3d0ff
+'Streptococcus agalactiae','Streptococcus agalactiae',#e3d0ff
+'Streptococcus sobrinus','Streptococcus sobrinus',#e3d0ff
+'Streptococcus mutans','Streptococcus mutans',#e3d0ff
+'Streptococcus suis','Streptococcus suis',#e3d0ff
+'Streptococcus sanguinis','Streptococcus sanguinis',#e3d0ff
+'Streptococcus salivarius','Streptococcus salivarius',#e3d0ff
+'Streptococcus oralis','Streptococcus oralis',#e3d0ff
+'Streptococcus gordonii','Streptococcus gordonii',#e3d0ff
+'Weissella cibaria','Weissella cibaria',#e3d0ff
+'Companilactobacillus kimchii','Companilactobacillus kimchii',#e3d0ff
+'Companilactobacillus alimentarius','Companilactobacillus alimentarius',#e3d0ff
+'Latilactobacillus sakei','Latilactobacillus sakei',#e3d0ff
+'Limosilactobacillus vaginalis','Limosilactobacillus vaginalis',#e3d0ff
+'Limosilactobacillus fermentum','Limosilactobacillus fermentum',#e3d0ff
+'Limosilactobacillus reuteri','Limosilactobacillus reuteri',#e3d0ff
+'Lactiplantibacillus plantarum','Lactiplantibacillus plantarum',#e3d0ff
+'Lacticaseibacillus rhamnosus','Lacticaseibacillus rhamnosus',#e3d0ff
+'Lacticaseibacillus paracasei','Lacticaseibacillus paracasei',#e3d0ff
+'Lacticaseibacillus casei','Lacticaseibacillus casei',#e3d0ff
+'Levilactobacillus brevis','Levilactobacillus brevis',#e3d0ff
+'Lactobacillus jensenii','Lactobacillus jensenii',#e3d0ff
+'Lactobacillus crispatus','Lactobacillus crispatus',#e3d0ff
+'Lactobacillus gasseri','Lactobacillus gasseri',#e3d0ff
+'Lactobacillus delbrueckii','Lactobacillus delbrueckii',#e3d0ff
+'Lactobacillus acidophilus','Lactobacillus acidophilus',#e3d0ff
+'Pediococcus pentosaceus','Pediococcus pentosaceus',#e3d0ff
+'Pediococcus acidilactici','Pediococcus acidilactici',#e3d0ff
+'Leuconostoc mesenteroides','Leuconostoc mesenteroides',#e3d0ff
+'Rhizoctonia solani','Rhizoctonia solani',#FFFFCC
+'Malassezia sympodialis','Malassezia sympodialis',#FFFFCC
+'Rhodotorula mucilaginosa','Rhodotorula mucilaginosa',#FFFFCC
+'Naganishia albida','Naganishia albida',#FFFFCC
+'Goffeauzyma gastrica','Goffeauzyma gastrica',#FFFFCC
+'Cryptococcus gattii','Cryptococcus gattii',#FFFFCC
+'Cryptococcus neoformans','Cryptococcus neoformans',#FFFFCC
+'Didymella pinodes','Didymella pinodes',#FFFFCC
+'Alternaria alternata','Alternaria alternata',#FFFFCC
+'Pyricularia grisea','Pyricularia grisea',#FFFFCC
+'Colletotrichum acutatum','Colletotrichum acutatum',#FFFFCC
+'Trichoderma virens','Trichoderma virens',#FFFFCC
+'Trichoderma viride','Trichoderma viride',#FFFFCC
+'Fusarium keratoplasticum','Fusarium keratoplasticum',#FFFFCC
+'Fusarium solani','Fusarium solani',#FFFFCC
+'Fusarium graminearum','Fusarium graminearum',#FFFFCC
+'Fusarium oxysporum','Fusarium oxysporum',#FFFFCC
+'Fusarium fujikuroi','Fusarium fujikuroi',#FFFFCC
+'Paracoccidioides lutzii','Paracoccidioides lutzii',#FFFFCC
+'Microsporum canis','Microsporum canis',#FFFFCC
+'Trichophyton mentagrophytes','Trichophyton mentagrophytes',#FFFFCC
+'Trichophyton interdigitale','Trichophyton interdigitale',#FFFFCC
+'Trichophyton rubrum','Trichophyton rubrum',#FFFFCC
+'Paecilomyces fulvus','Paecilomyces fulvus',#FFFFCC
+'Penicillium chrysogenum','Penicillium chrysogenum',#FFFFCC
+'Aspergillus fijiensis','Aspergillus fijiensis',#FFFFCC
+'Aspergillus fumigatus','Aspergillus fumigatus',#FFFFCC
+'Aspergillus brasiliensis','Aspergillus brasiliensis',#FFFFCC
+'Aspergillus nidulans','Aspergillus nidulans',#FFFFCC
+'Aspergillus awamori','Aspergillus awamori',#FFFFCC
+'Aspergillus ustus','Aspergillus ustus',#FFFFCC
+'Aspergillus terreus','Aspergillus terreus',#FFFFCC
+'Aspergillus tubingensis','Aspergillus tubingensis',#FFFFCC
+'Aspergillus oryzae','Aspergillus oryzae',#FFFFCC
+'Aspergillus niger','Aspergillus niger',#FFFFCC
+'Aspergillus flavus','Aspergillus flavus',#FFFFCC
+'Geotrichum candidum','Geotrichum candidum',#FFFFCC
+'Yarrowia lipolytica','Yarrowia lipolytica',#FFFFCC
+'Nakaseomyces glabratus','Nakaseomyces glabratus',#FFFFCC
+'Zygosaccharomyces rouxii','Zygosaccharomyces rouxii',#FFFFCC
+'Zygosaccharomyces bailii','Zygosaccharomyces bailii',#FFFFCC
+'Torulaspora delbrueckii','Torulaspora delbrueckii',#FFFFCC
+'Saccharomyces kudriavzevii','Saccharomyces kudriavzevii',#FFFFCC
+'Saccharomyces cerevisiae','Saccharomyces cerevisiae',#FFFFCC
+'Kluyveromyces marxianus','Kluyveromyces marxianus',#FFFFCC
+'Candidozyma auris','Candidozyma auris',#FFFFCC
+'Clavispora lusitaniae','Clavispora lusitaniae',#FFFFCC
+'Candida dubliniensis','Candida dubliniensis',#FFFFCC
+'Candida tropicalis','Candida tropicalis',#FFFFCC
+'Candida parapsilosis','Candida parapsilosis',#FFFFCC
+'Candida albicans','Candida albicans',#FFFFCC
+'Meyerozyma guilliermondii','Meyerozyma guilliermondii',#FFFFCC
+'Ogataea polymorpha','Ogataea polymorpha',#FFFFCC
+'Komagataella pastoris','Komagataella pastoris',#FFFFCC
+'Pichia inconspicua','Pichia inconspicua',#FFFFCC
+'Pichia kudriavzevii','Pichia kudriavzevii',#FFFFCC
+'Schizosaccharomyces pombe','Schizosaccharomyces pombe',#FFFFCC
+'Fusobacterium varium','Fusobacterium varium',#F9D8E3
+'Fusobacterium nucleatum','Fusobacterium nucleatum',#F9D8E3
+'Alloprevotella tannerae','Alloprevotella tannerae',#F9D8E3
+'Prevotella intermedia','Prevotella intermedia',#F9D8E3
+'Porphyromonas gingivalis','Porphyromonas gingivalis',#F9D8E3
+'Phocaeicola dorei','Phocaeicola dorei',#F9D8E3
+'Phocaeicola vulgatus','Phocaeicola vulgatus',#F9D8E3
+'Bacteroides thetaiotaomicron','Bacteroides thetaiotaomicron',#F9D8E3
+'Bacteroides fragilis','Bacteroides fragilis',#F9D8E3
+'Flavobacterium psychrophilum','Flavobacterium psychrophilum',#F9D8E3
+'Flavobacterium hydatis','Flavobacterium hydatis',#F9D8E3
+'Riemerella anatipestifer','Riemerella anatipestifer',#F9D8E3
+'Elizabethkingia meningoseptica','Elizabethkingia meningoseptica',#F9D8E3
+'Chromobacterium subtsugae','Chromobacterium subtsugae',#F9D8E3
+'Chromobacterium violaceum','Chromobacterium violaceum',#F9D8E3
+'Neisseria mucosa','Neisseria mucosa',#F9D8E3
+'Neisseria meningitidis','Neisseria meningitidis',#F9D8E3
+'Neisseria gonorrhoeae','Neisseria gonorrhoeae',#F9D8E3
+'Delftia acidovorans','Delftia acidovorans',#F9D8E3
+'Achromobacter xylosoxidans','Achromobacter xylosoxidans',#F9D8E3
+'Bordetella pertussis','Bordetella pertussis',#F9D8E3
+'Bordetella bronchiseptica','Bordetella bronchiseptica',#F9D8E3
+'Alcaligenes faecalis','Alcaligenes faecalis',#F9D8E3
+'Paraburkholderia caledonica','Paraburkholderia caledonica',#F9D8E3
+'Cupriavidus necator','Cupriavidus necator',#F9D8E3
+'Ralstonia syzygii','Ralstonia syzygii',#F9D8E3
+'Ralstonia solanacearum','Ralstonia solanacearum',#F9D8E3
+'Burkholderia ubonensis','Burkholderia ubonensis',#F9D8E3
+'Burkholderia cenocepacia','Burkholderia cenocepacia',#F9D8E3
+'Burkholderia stabilis','Burkholderia stabilis',#F9D8E3
+'Burkholderia multivorans','Burkholderia multivorans',#F9D8E3
+'Burkholderia thailandensis','Burkholderia thailandensis',#F9D8E3
+'Burkholderia pseudomallei','Burkholderia pseudomallei',#F9D8E3
+'Burkholderia gladioli','Burkholderia gladioli',#F9D8E3
+'Burkholderia mallei','Burkholderia mallei',#F9D8E3
+'Burkholderia glumae','Burkholderia glumae',#F9D8E3
+'Burkholderia cepacia','Burkholderia cepacia',#F9D8E3
+'Zymomonas mobilis','Zymomonas mobilis',#F9D8E3
+'Paracoccus denitrificans','Paracoccus denitrificans',#F9D8E3
+'Agrobacterium radiobacter','Agrobacterium radiobacter',#F9D8E3
+'Agrobacterium tumefaciens','Agrobacterium tumefaciens',#F9D8E3
+'Brucella melitensis','Brucella melitensis',#F9D8E3
+'Brucella abortus','Brucella abortus',#F9D8E3
+'Mannheimia haemolytica','Mannheimia haemolytica',#F9D8E3
+'Pasteurella aerogenes','Pasteurella aerogenes',#F9D8E3
+'Pasteurella canis','Pasteurella canis',#F9D8E3
+'Pasteurella multocida','Pasteurella multocida',#F9D8E3
+'Glaesserella parasuis','Glaesserella parasuis',#F9D8E3
+'Histophilus somni','Histophilus somni',#F9D8E3
+'Haemophilus ducreyi','Haemophilus ducreyi',#F9D8E3
+'Haemophilus influenzae','Haemophilus influenzae',#F9D8E3
+'Aggregatibacter actinomycetemcomitans','Aggregatibacter actinomycetemcomitans',#F9D8E3
+'Salinivibrio costicola','Salinivibrio costicola',#F9D8E3
+'Aliivibrio fischeri','Aliivibrio fischeri',#F9D8E3
+'Vibrio crassostreae','Vibrio crassostreae',#F9D8E3
+'Vibrio coralliilyticus','Vibrio coralliilyticus',#F9D8E3
+'Vibrio penaeicida','Vibrio penaeicida',#F9D8E3
+'Vibrio anguillarum','Vibrio anguillarum',#F9D8E3
+'Vibrio tapetis','Vibrio tapetis',#F9D8E3
+'Vibrio diabolicus','Vibrio diabolicus',#F9D8E3
+'Vibrio splendidus','Vibrio splendidus',#F9D8E3
+'Vibrio metschnikovii','Vibrio metschnikovii',#F9D8E3
+'Vibrio aestuarianus','Vibrio aestuarianus',#F9D8E3
+'Vibrio mediterranei','Vibrio mediterranei',#F9D8E3
+'Vibrio fluvialis','Vibrio fluvialis',#F9D8E3
+'Vibrio vulnificus','Vibrio vulnificus',#F9D8E3
+'Vibrio parahaemolyticus','Vibrio parahaemolyticus',#F9D8E3
+'Vibrio harveyi','Vibrio harveyi',#F9D8E3
+'Vibrio cholerae','Vibrio cholerae',#F9D8E3
+'Vibrio alginolyticus','Vibrio alginolyticus',#F9D8E3
+'Photobacterium angustum','Photobacterium angustum',#F9D8E3
+'Aeromonas bestiarum','Aeromonas bestiarum',#F9D8E3
+'Aeromonas veronii','Aeromonas veronii',#F9D8E3
+'Aeromonas sobria','Aeromonas sobria',#F9D8E3
+'Aeromonas salmonicida','Aeromonas salmonicida',#F9D8E3
+'Aeromonas hydrophila','Aeromonas hydrophila',#F9D8E3
+'Obesumbacterium proteus','Obesumbacterium proteus',#F9D8E3
+'Edwardsiella ictaluri','Edwardsiella ictaluri',#F9D8E3
+'Edwardsiella tarda','Edwardsiella tarda',#F9D8E3
+'Yersinia mollaretii','Yersinia mollaretii',#F9D8E3
+'Yersinia ruckeri','Yersinia ruckeri',#F9D8E3
+'Yersinia pestis','Yersinia pestis',#F9D8E3
+'Yersinia enterocolitica','Yersinia enterocolitica',#F9D8E3
+'Serratia fonticola','Serratia fonticola',#F9D8E3
+'Serratia marcescens','Serratia marcescens',#F9D8E3
+'Xenorhabdus japonica','Xenorhabdus japonica',#F9D8E3
+'Proteus hauseri','Proteus hauseri',#F9D8E3
+'Proteus vulgaris','Proteus vulgaris',#F9D8E3
+'Proteus mirabilis','Proteus mirabilis',#F9D8E3
+'Morganella morganii','Morganella morganii',#F9D8E3
+'Prodigiosinella aquatilis','Prodigiosinella aquatilis',#F9D8E3
+'Dickeya zeae','Dickeya zeae',#F9D8E3
+'Pectobacterium carotovorum','Pectobacterium carotovorum',#F9D8E3
+'Lelliottia amnigena','Lelliottia amnigena',#F9D8E3
+'Salmonella enterica subsp. enterica serovar Typhimurium','Salmonella enterica subsp. enterica serovar Typhimurium',#F9D8E3
+'Cronobacter muytjensii','Cronobacter muytjensii',#F9D8E3
+'Cronobacter sakazakii','Cronobacter sakazakii',#F9D8E3
+'Shigella sonnei','Shigella sonnei',#F9D8E3
+'Shigella flexneri','Shigella flexneri',#F9D8E3
+'Shigella dysenteriae','Shigella dysenteriae',#F9D8E3
+'Shigella boydii','Shigella boydii',#F9D8E3
+'Raoultella ornithinolytica','Raoultella ornithinolytica',#F9D8E3
+'Raoultella terrigena','Raoultella terrigena',#F9D8E3
+'Escherichia coli','Escherichia coli',#F9D8E3
+'Enterobacter mori','Enterobacter mori',#F9D8E3
+'Enterobacter ludwigii','Enterobacter ludwigii',#F9D8E3
+'Enterobacter hormaechei','Enterobacter hormaechei',#F9D8E3
+'Enterobacter asburiae','Enterobacter asburiae',#F9D8E3
+'Enterobacter cloacae','Enterobacter cloacae',#F9D8E3
+'Klebsiella quasipneumoniae','Klebsiella quasipneumoniae',#F9D8E3
+'Klebsiella michiganensis','Klebsiella michiganensis',#F9D8E3
+'Klebsiella pneumoniae','Klebsiella pneumoniae',#F9D8E3
+'Klebsiella oxytoca','Klebsiella oxytoca',#F9D8E3
+'Klebsiella aerogenes','Klebsiella aerogenes',#F9D8E3
+'Citrobacter werkmanii','Citrobacter werkmanii',#F9D8E3
+'Citrobacter freundii','Citrobacter freundii',#F9D8E3
+'Citrobacter koseri','Citrobacter koseri',#F9D8E3
+'Moraxella catarrhalis','Moraxella catarrhalis',#F9D8E3
+'Acinetobacter baylyi','Acinetobacter baylyi',#F9D8E3
+'Acinetobacter junii','Acinetobacter junii',#F9D8E3
+'Acinetobacter lwoffii','Acinetobacter lwoffii',#F9D8E3
+'Acinetobacter calcoaceticus','Acinetobacter calcoaceticus',#F9D8E3
+'Acinetobacter baumannii','Acinetobacter baumannii',#F9D8E3
+'Fluoribacter dumoffii','Fluoribacter dumoffii',#F9D8E3
+'Legionella oakridgensis','Legionella oakridgensis',#F9D8E3
+'Legionella feeleii','Legionella feeleii',#F9D8E3
+'Legionella micdadei','Legionella micdadei',#F9D8E3
+'Legionella longbeachae','Legionella longbeachae',#F9D8E3
+'Legionella bozemanae','Legionella bozemanae',#F9D8E3
+'Legionella pneumophila','Legionella pneumophila',#F9D8E3
+'Stenotrophomonas maltophilia','Stenotrophomonas maltophilia',#F9D8E3
+'Xanthomonas phaseoli','Xanthomonas phaseoli',#F9D8E3
+'Xanthomonas perforans','Xanthomonas perforans',#F9D8E3
+'Xanthomonas vesicatoria','Xanthomonas vesicatoria',#F9D8E3
+'Xanthomonas arboricola','Xanthomonas arboricola',#F9D8E3
+'Xanthomonas axonopodis','Xanthomonas axonopodis',#F9D8E3
+'Xanthomonas oryzae','Xanthomonas oryzae',#F9D8E3
+'Xanthomonas citri','Xanthomonas citri',#F9D8E3
+'Xanthomonas campestris','Xanthomonas campestris',#F9D8E3
+'Stutzerimonas stutzeri','Stutzerimonas stutzeri',#F9D8E3
+'Pseudomonas paraeruginosa','Pseudomonas paraeruginosa',#F9D8E3
+'Pseudomonas corrugata','Pseudomonas corrugata',#F9D8E3
+'Pseudomonas tolaasii','Pseudomonas tolaasii',#F9D8E3
+'Pseudomonas syringae','Pseudomonas syringae',#F9D8E3
+'Pseudomonas putida','Pseudomonas putida',#F9D8E3
+'Pseudomonas fluorescens','Pseudomonas fluorescens',#F9D8E3
+'Pseudomonas aeruginosa','Pseudomonas aeruginosa',#F9D8E3
+'Leucothrix mucor','Leucothrix mucor',#F9D8E3
+'Piscirickettsia salmonis','Piscirickettsia salmonis',#F9D8E3
+'Francisella tularensis','Francisella tularensis',#F9D8E3
+'Shewanella algae','Shewanella algae',#F9D8E3
+'Pseudoalteromonas carrageenovora','Pseudoalteromonas carrageenovora',#F9D8E3
+'Helicobacter pylori','Helicobacter pylori',#F9D8E3
+'Campylobacter jejuni','Campylobacter jejuni',#F9D8E3

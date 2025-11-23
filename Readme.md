@@ -26,16 +26,18 @@
   </p>
 </p>
 
-### Quick start implementation for molecule embedding extraction with our Diffusion Language Model (DLM) can be found at [HuggingFace](https://huggingface.co/Kiria-Nozan/ApexOracle) 🤗
 ----
 ## Content Direction
+- Quick start implementation for **molecule embedding extraction** with our Diffusion Language Model (DLM) can be found at [HuggingFace](https://huggingface.co/Kiria-Nozan/ApexOracle) 🤗
 - Code for pre-training our DLM can be found in folder [DLM_pretrain](./DLM_pretrain)
 - Flexible and accurate transforming between peptides and SMILES/SELFIES: [PepLink✨](./PepLink)
 - To reproduce the results in the paper, please check folder [ApexOracle](./ApexOracle)
 - To do inference with our pre-trained DLM and predict MICs of peptides, please check folder [mdlm](./mdlm)
 - To do guided generation of peptides against specific pathogens, please check folder [discrete-diffusion-guidance](./discrete-diffusion-guidance)
-
-### * More content to be updated ❗️
+---
+## File Direction
+- Use [mdlm/temp_save_milk_embedding.py](./mdlm/temp_save_milk_embedding.py) to extract molecule embeddings without huggingface.
+- Use [mdlm/main.py](./mdlm/main.py) to do guided generation of peptides against specific pathogens.
 
 ## Citation
 If you find this repo helpful, please cite:

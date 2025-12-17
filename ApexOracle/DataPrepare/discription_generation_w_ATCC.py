@@ -6,10 +6,13 @@ import copy
 from tqdm import tqdm
 
 current_directory = Path(__file__).parent
+dashscope_api_key = os.getenv("DASHSCOPE_API_KEY")
+
+if not dashscope_api_key:
+    raise EnvironmentError("DASHSCOPE_API_KEY environment variable is required.")
 
 client = OpenAI(
-    # 若没有配置环境变量，请用百炼API Key将下行替换为：api_key="sk-xxx",
-    api_key='sk-9f5650f9e4464e07a82a5a73035805c3',  # TODO: 记得清除 API key
+    api_key=dashscope_api_key,
     base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",  # 填写DashScope服务的base_url
 )
 

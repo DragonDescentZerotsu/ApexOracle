@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 import argparse
 import json
@@ -347,9 +348,13 @@ counts_sorted = count[sorted_indices]
 
 # np.savetxt(current_directory / 'Data' / "original_names_in_DBAASP_wo_ATCC.txt", unique_elements_sorted, fmt='%s')
 
+dashscope_api_key = os.getenv("DASHSCOPE_API_KEY")
+
+if not dashscope_api_key:
+    raise EnvironmentError("DASHSCOPE_API_KEY environment variable is required.")
+
 client = OpenAI(
-    # 若没有配置环境变量，请用百炼API Key将下行替换为：api_key="sk-xxx",
-    api_key='sk-325b8ad3d9624c778c31a34245ea202b',  # TODO: 记得清除 API key
+    api_key=dashscope_api_key,
     base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",  # 填写DashScope服务的base_url
 )
 

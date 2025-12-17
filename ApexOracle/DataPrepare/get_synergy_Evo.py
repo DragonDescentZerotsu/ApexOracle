@@ -1,4 +1,5 @@
 import json
+import os
 from pathlib import Path
 from typing import List, Any
 import requests
@@ -212,9 +213,13 @@ for strain in non_overlap_strains:
 print(bateria_strains)
 
 # 看一下这些不同的 strain 是不是都有相对应的 description
+dashscope_api_key = os.getenv("DASHSCOPE_API_KEY")
+
+if not dashscope_api_key:
+    raise EnvironmentError("DASHSCOPE_API_KEY environment variable is required.")
+
 client = OpenAI(
-    # 若没有配置环境变量，请用百炼API Key将下行替换为：api_key="sk-xxx",
-    api_key='sk-325b8ad3d9624c778c31a34245ea202b',  # TODO: 记得清除 API key
+    api_key=dashscope_api_key,
     base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",  # 填写DashScope服务的base_url
 )
 for strain in bateria_strains:

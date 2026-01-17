@@ -1,4 +1,4 @@
-![ApexOracle](./assets/hf.png)
+![ApexOracle](./assets/ApexOracle_1.png)
 <p align="center">
 <h1 align="center"><strong>Predicting and generating antibiotics against future pathogens with ApexOracle</strong></h1>
   <p align="center">

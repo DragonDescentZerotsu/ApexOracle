@@ -21,9 +21,8 @@
       <img src='https://img.shields.io/badge/HuggingFace-Model-orange?logo=huggingface&style=flat'></a>  
     <a href='https://huggingface.co/datasets/Kiria-Nozan/ApexOracle'>
       <img src='https://img.shields.io/badge/HuggingFace-Dataset-green?logo=huggingface&style=flat'></a>
-  </p>
-
-  </p>
+    <a href='https://zenodo.org/records/18750729'>
+      <img src='https://img.shields.io/badge/Zenodo-Model Weights-blue?style=flat&logo=zenodo'></a>
 </p>
 
 ----

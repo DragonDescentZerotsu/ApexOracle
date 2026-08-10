@@ -35,3 +35,8 @@ All five module repositories are public and pinned to immutable commits. No modu
 
 Canonical archive builder is `scripts/build_source_archive.py`. It validates all gitlinks against the lock manifest,
 expands root and module `git archive` streams, and emits a deterministic tarball plus JSON/SHA-256 sidecars.
+
+Release `v0.2.0` publishes `ApexOracle-source-v0.2.0.tar.gz`: 932 files, 36,553,607 bytes, SHA-256
+`895c682ba6ede090dd28e3b5d64f1995c014779c6447ae6abcf593bad78b4fdd`. Two independent builds were byte-identical;
+`scripts/check_source_archive.py` passed. The same release follows an empty-cache download and fresh recursive-clone
+H100 smoke of the compact generation assets.

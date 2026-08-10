@@ -4,6 +4,9 @@ ApexOracle is the lightweight entry point for the modular ApexOracle release. Sc
 independently versioned Git submodules; this repository owns module locks, environment guidance, asset manifests,
 bootstrap checks, and cross-module quickstarts.
 
+The complete public release, including the expanded five-module source archive, is available as
+[v0.2.0](https://github.com/DragonDescentZerotsu/ApexOracle/releases/tag/v0.2.0).
+
 ## Current release status
 
 The in-place conversion from the historical monorepo is complete. All five validated modules are locked:

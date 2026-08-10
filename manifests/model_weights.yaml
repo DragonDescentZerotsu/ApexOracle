@@ -21,10 +21,20 @@
       "weight_sha256": "007c8f34cbc2d5fb4d26b0b5261cd697a4d84d85551b03eb29be492153589341",
       "license": "MIT",
       "scope": "single-member runnable example; paper evaluation uses the frozen seven-member ensemble"
+    },
+    {
+      "id": "apexoracle_generation_compact_baa3170_v1",
+      "status": "released",
+      "provider": "huggingface",
+      "repository": "Kiria-Nozan/ApexOracle-Generation",
+      "revision": "2fb1aa08187eaa359263be6c12c8a41868d8959c",
+      "total_size_bytes": 4059311443,
+      "manifest": "manifest.json",
+      "license": "MIT",
+      "scope": "inference-only 256-step BAA-3170 runtime smoke; not an activity result"
     }
   ],
   "pending": [
-    "DLM generator checkpoint stable URI",
-    "peptide classifier checkpoint stable URI"
+    "full paper condition-bank redistribution decision"
   ]
 }

@@ -42,6 +42,24 @@ a prospective activity claim. Full schema and provenance details are in
 
 ## Guided generation
 
-The Generation, MDLM, Evo-2, and Core code modules are fixed. A compact public
-checkpoint/input asset set and fresh-clone generation smoke remain the final
-gate before a root guided-generation command is advertised here.
+Download the fixed compact BAA-3170 bundle (about 4.06 GB):
+
+```bash
+huggingface-cli download Kiria-Nozan/ApexOracle-Generation \
+  --revision 2fb1aa08187eaa359263be6c12c8a41868d8959c \
+  --local-dir assets/generation-baa3170
+
+python modules/generation/scripts/reproduce/run_paper_mic_peptide.py \
+  --mdlm-root modules/mdlm \
+  --core-root modules/core \
+  --asset-root assets/generation-baa3170 \
+  --output-dir runs/generation-smoke \
+  --strain BAA-3170 \
+  --device 0 \
+  --smoke \
+  --check-asset-hashes
+```
+
+This retains all 256 sampling steps, `15/15` guidance, and the frozen remasking
+schedule while generating one sample. It validates runtime and output
+contracts; it is not deterministic and does not establish activity or yield.

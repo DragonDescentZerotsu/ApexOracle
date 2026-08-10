@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "modules": [
+    {
+      "id": "core",
+      "path": "modules/core",
+      "status": "pending",
+      "url": "https://github.com/DragonDescentZerotsu/ApexOracle-Core.git",
+      "commit": null,
+      "source_repository": "https://github.com/DragonDescentZerotsu/Synergy.git"
+    },
+    {
+      "id": "dlm_pretraining",
+      "path": "modules/dlm_pretrain",
+      "status": "pending",
+      "url": "https://github.com/DragonDescentZerotsu/ApexOracle-DLM-Pretraining.git",
+      "commit": null
+    },
+    {
+      "id": "mdlm",
+      "path": "modules/mdlm",
+      "status": "ready",
+      "url": "https://github.com/DragonDescentZerotsu/ApexOracle-MDLM.git",
+      "commit": "c9d17c7f6f091234aaaebf5f08dbe23542f980c1"
+    },
+    {
+      "id": "evo2",
+      "path": "modules/evo2",
+      "status": "pending",
+      "url": "https://github.com/DragonDescentZerotsu/ApexOracle-Evo2.git",
+      "commit": null
+    },
+    {
+      "id": "generation",
+      "path": "modules/generation",
+      "status": "ready",
+      "url": "https://github.com/DragonDescentZerotsu/ApexOracle-Generation.git",
+      "commit": "de6c1e590c25b2ce36b4ce5c42c5a4fa0dcc7705"
+    }
+  ]
+}

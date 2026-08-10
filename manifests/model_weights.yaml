@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "assets": [
+    {
+      "id": "apexoracle_molecule_embedding_model",
+      "status": "released",
+      "provider": "huggingface",
+      "repository": "Kiria-Nozan/ApexOracle",
+      "revision": "77694f08c1d0664fdb24c5a7bab130c8a3bc2eda",
+      "weight_sha256": "b472f7508aaf0fdab4c935caf221415b48a5f8afd4d104a731c9d72d410c2c44",
+      "license": "MIT"
+    }
+  ],
+  "pending": [
+    "DLM generator checkpoint stable URI",
+    "MIC guidance checkpoint redistribution decision",
+    "peptide classifier checkpoint stable URI"
+  ]
+}

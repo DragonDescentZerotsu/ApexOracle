@@ -26,9 +26,9 @@
     {
       "id": "evo2",
       "path": "modules/evo2",
-      "status": "pending",
+      "status": "ready",
       "url": "https://github.com/DragonDescentZerotsu/ApexOracle-Evo2.git",
-      "commit": null
+      "commit": "2184211acda07b0d5ca865067174ac42f530ad04"
     },
     {
       "id": "generation",

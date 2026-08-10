@@ -42,6 +42,10 @@ python scripts/build_source_archive.py --output ApexOracle-source.tar.gz
 The builder also writes JSON provenance and a SHA-256 sidecar. It does not include Git metadata, model weights,
 datasets, embeddings, caches, or raw outputs.
 
+```bash
+python scripts/check_source_archive.py ApexOracle-source.tar.gz
+```
+
 Each module retains its own environment and license. See `environments/README.md`, `NOTICE`, and the license inside each
 submodule. Model weights and datasets are never stored as Git objects; released and pending assets are recorded under
 `manifests/`.

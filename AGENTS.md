@@ -17,3 +17,5 @@
 - 完整 source archive canonical 入口为 `python scripts/build_source_archive.py --output PATH.tar.gz`；它只展开
   root `HEAD` 与 `manifests/modules.lock.yaml` 的五个固定 commits，输出 archive、JSON manifest 和 SHA-256。
   `--plan-only` 只核验 locks。归档不得包含 `.git`、checkpoint、embedding、dataset、cache 或 raw outputs。
+  归档本身用 `python scripts/check_source_archive.py ARCHIVE.tar.gz` 验收；依赖 Git refs 的 root checkers 只用于
+  recursive clone，不能在刻意移除 `.git` 的解压目录中运行。

@@ -12,7 +12,7 @@
 - `ApexOracle-MDLM` is locked to `c9d17c7f6f091234aaaebf5f08dbe23542f980c1`.
 - `ApexOracle-Evo2` is locked to `2184211acda07b0d5ca865067174ac42f530ad04`; its CPU contracts, package
   archives, remote CI, and Evo2-40B extraction runtime smoke have passed.
-- `ApexOracle-Generation` is locked to `82d5e24d2a2f0ecc024f4d0aa6cf99582bb4c8ad`; compact BAA-3170
+- `ApexOracle-Generation` is locked to `80d9a2cf9b0921f29e4a44edf5557ccac39f5af9`; compact BAA-3170
   inference-only assets are fixed at Hugging Face revision `2fb1aa08187eaa359263be6c12c8a41868d8959c` and have passed
   empty-cache hashes plus a real 256-step H100 smoke.
 - The original `Synergy` repository was renamed in place to public `ApexOracle-Core`, released as `v0.1.0`, and is

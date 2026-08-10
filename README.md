@@ -14,7 +14,7 @@ The in-place conversion from the historical monorepo is complete. All five valid
 | [ApexOracle-DLM-Pretraining](https://github.com/DragonDescentZerotsu/ApexOracle-DLM-Pretraining) | collaborator-developed DLM + 209-descriptor MTR producer | `362ffcc` |
 | [ApexOracle-MDLM](https://github.com/DragonDescentZerotsu/ApexOracle-MDLM) | downstream embedding, guidance heads, and candidate scoring | `c9d17c7` |
 | [ApexOracle-Evo2](https://github.com/DragonDescentZerotsu/ApexOracle-Evo2) | record-aware genome embedding extraction | `2184211` |
-| [ApexOracle-Generation](https://github.com/DragonDescentZerotsu/ApexOracle-Generation) | guided discrete diffusion and remasking | `82d5e24` |
+| [ApexOracle-Generation](https://github.com/DragonDescentZerotsu/ApexOracle-Generation) | guided discrete diffusion and remasking | `80d9a2c` |
 
 Every gitlink is pinned by its full commit in `manifests/modules.lock.yaml`. The public MIC quickstart uses an
 inference-only single member for a runnable smoke; paper metrics continue to require the frozen ensemble.

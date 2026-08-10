@@ -12,9 +12,9 @@
     {
       "id": "dlm_pretraining",
       "path": "modules/dlm_pretrain",
-      "status": "pending",
+      "status": "ready",
       "url": "https://github.com/DragonDescentZerotsu/ApexOracle-DLM-Pretraining.git",
-      "commit": null
+      "commit": "362ffccac79bdd638a4e913c4f17df613da18f36"
     },
     {
       "id": "mdlm",

@@ -10,3 +10,6 @@
 [submodule "modules/dlm_pretrain"]
 	path = modules/dlm_pretrain
 	url = https://github.com/DragonDescentZerotsu/ApexOracle-DLM-Pretraining.git
+[submodule "modules/core"]
+	path = modules/core
+	url = https://github.com/DragonDescentZerotsu/ApexOracle-Core.git

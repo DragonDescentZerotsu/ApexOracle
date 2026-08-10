@@ -4,10 +4,10 @@
     {
       "id": "core",
       "path": "modules/core",
-      "status": "pending",
+      "status": "ready",
       "url": "https://github.com/DragonDescentZerotsu/ApexOracle-Core.git",
-      "commit": null,
-      "source_repository": "https://github.com/DragonDescentZerotsu/Synergy.git"
+      "commit": "8c1def518ac148a878c14f4a39876db59649d43c",
+      "source_repository": "https://github.com/DragonDescentZerotsu/ApexOracle-Core.git"
     },
     {
       "id": "dlm_pretraining",

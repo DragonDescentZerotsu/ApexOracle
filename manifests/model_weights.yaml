@@ -9,11 +9,22 @@
       "revision": "77694f08c1d0664fdb24c5a7bab130c8a3bc2eda",
       "weight_sha256": "b472f7508aaf0fdab4c935caf221415b48a5f8afd4d104a731c9d72d410c2c44",
       "license": "MIT"
+    },
+    {
+      "id": "apexoracle_core_mic_single_member_quickstart",
+      "status": "released",
+      "provider": "huggingface",
+      "repository": "Kiria-Nozan/ApexOracle-Core",
+      "revision": "459026cf4ae4e4e38ce5d2cae16ee3871d0a81df",
+      "filename": "apexoracle_mic_strain_group0_member0_inference.pth",
+      "size_bytes": 2875471564,
+      "weight_sha256": "007c8f34cbc2d5fb4d26b0b5261cd697a4d84d85551b03eb29be492153589341",
+      "license": "MIT",
+      "scope": "single-member runnable example; paper evaluation uses the frozen seven-member ensemble"
     }
   ],
   "pending": [
     "DLM generator checkpoint stable URI",
-    "MIC guidance checkpoint redistribution decision",
     "peptide classifier checkpoint stable URI"
   ]
 }

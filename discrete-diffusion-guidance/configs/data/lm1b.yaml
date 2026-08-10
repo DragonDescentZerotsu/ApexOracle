@@ -1,8 +1,0 @@
-train: lm1b
-valid: lm1b
-tokenizer_name_or_path: bert-base-uncased
-cache_dir: /data2/tianang/projects/discrete-diffusion-guidance/cache_data/lm1b/plain_text/1.0.0/694f4d1f8a28b4eefe3151693c199fd216ab51c4f947fd5b007abe4d774b79e0
-wrap: False
-streaming: False
-override_cache: False
-add_special_tokens: True

@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "assets": [],
+  "pending": [
+    "model-ready MIC tables and frozen splits",
+    "public strain mapping and descriptions",
+    "genome and text embedding redistribution decision",
+    "guided-generation example condition assets"
+  ],
+  "policy": "No data asset is bundled or claimed available until URI, revision, SHA-256, license, and redistribution status are recorded."
+}

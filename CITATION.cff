@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+title: ApexOracle
+message: Please cite the ApexOracle paper and the software release used in your work.
+type: software
+authors:
+  - family-names: Leng
+    given-names: Tianang
+repository-code: https://github.com/DragonDescentZerotsu/ApexOracle
+license: MIT

@@ -1,1 +1,0 @@
-CC(=O)N[C@H]1CSSC[C@@H](C(N)=O)NC(=O)[C@H](C(C)C)NC(=O)[C@H](CCCCN)NC(=O)[C@H](C(C)C)NC(=O)[C@H](CCCN=C(N)N)NC(=O)[C@H](C(C)C)NC(=O)[C@H](CCCCN)NC(=O)[C@H](C(C)C)NC(=O)CNC(=O)[C@H](CO)NC(=O)CNC(=O)[C@H](C(C)C)NC(=O)[C@H](CCCCN)NC(=O)[C@H](C(C)C)NC(=O)[C@H](CCCN=C(N)N)NC(=O)[C@H](C(C)C)NC(=O)[C@H](CCCCN)NC(=O)[C@H](C(C)C)NC1=O

@@ -1,0 +1,7 @@
+ApexOracle super-repository
+Copyright 2025-2026 Tianang Leng and ApexOracle contributors
+
+The root orchestration and documentation files are distributed under the root
+MIT License. Each Git submodule is an independent work with its own license and
+NOTICE files. The root MIT License does not relicense submodule source code,
+model weights, datasets, tokenizers, or other external assets.

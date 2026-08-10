@@ -1,0 +1,6 @@
+[submodule "modules/mdlm"]
+	path = modules/mdlm
+	url = https://github.com/DragonDescentZerotsu/ApexOracle-MDLM.git
+[submodule "modules/generation"]
+	path = modules/generation
+	url = https://github.com/DragonDescentZerotsu/ApexOracle-Generation.git

@@ -49,4 +49,7 @@ H100 smoke of the compact generation assets.
 Release `v0.2.1` is a documentation-only closure: it updates Core/MDLM/Generation status records, moves the already
 released quickstart conditions out of the pending data list, records per-file checkpoint/condition hashes, and emits
 a new expanded source archive. It does not change scientific implementation, public weight revisions, or protocols.
-Exact version-to-commit distinctions are recorded in `docs/RELEASE_PROVENANCE.md`.
+`ApexOracle-source-v0.2.1.tar.gz` contains 933 files, is 36,563,257 bytes, and has SHA-256
+`eba6138903dada6806a212c287327999538196d8282678e6cc9a19b4337cd4f2`; two independent builds were byte-identical
+and `scripts/check_source_archive.py` passed. Exact version-to-commit distinctions are recorded in
+`docs/RELEASE_PROVENANCE.md`.

@@ -25,6 +25,10 @@ The machine-readable current locks are authoritative in `manifests/modules.lock.
 complete scientific release and pins Core `8c1def5`, DLM-Pretraining `362ffcc`, MDLM `c9d17c7`, Evo2 `2184211`,
 and Generation `80d9a2c`.
 
+The `v0.2.1` expanded archive contains 933 files and is 36,563,257 bytes. Its SHA-256 is
+`eba6138903dada6806a212c287327999538196d8282678e6cc9a19b4337cd4f2`; the uploaded JSON and SHA-256 sidecars are
+part of the same GitHub Release. Two independent local builds were byte-identical and the archive checker passed.
+
 ## Source recovery
 
 | Scope | Public recovery ref | Resolved source commit |

@@ -7,6 +7,8 @@
       "provider": "huggingface",
       "repository": "Kiria-Nozan/ApexOracle",
       "revision": "77694f08c1d0664fdb24c5a7bab130c8a3bc2eda",
+      "filename": "model.safetensors",
+      "size_bytes": 388964184,
       "weight_sha256": "b472f7508aaf0fdab4c935caf221415b48a5f8afd4d104a731c9d72d410c2c44",
       "license": "MIT"
     },
@@ -19,6 +21,9 @@
       "filename": "apexoracle_mic_strain_group0_member0_inference.pth",
       "size_bytes": 2875471564,
       "weight_sha256": "007c8f34cbc2d5fb4d26b0b5261cd697a4d84d85551b03eb29be492153589341",
+      "source_checkpoint_size_bytes": 9084185194,
+      "source_checkpoint_sha256": "30ecaa7c122ec6e74521a8e044feed22cd3185801256659d2c3a46a549272d0e",
+      "manifest_sha256": "56384762472c004be655776a0d951027f19eea807dfa0f1a69545b9d89eaf33c",
       "license": "MIT",
       "scope": "single-member runnable example; paper evaluation uses the frozen seven-member ensemble"
     },
@@ -30,6 +35,27 @@
       "revision": "2fb1aa08187eaa359263be6c12c8a41868d8959c",
       "total_size_bytes": 4059311443,
       "manifest": "manifest.json",
+      "manifest_sha256": "ebd18ac5f5401bf7099b198f16b73997ffc31ac9701cfdc83c9cfcb27b005ccf",
+      "files": [
+        {
+          "filename": "checkpoints/dlm_generator_inference.ckpt",
+          "size_bytes": 392008724,
+          "sha256": "2603e875fd1882f45abab52105c275cb94e2f2aa84c7f35beb318c1a8ab80d4a",
+          "source_sha256": "a509b94e3780a0848b3f799ccfe754ed07524169973b08d85fdbc597f0592615"
+        },
+        {
+          "filename": "checkpoints/noisy_mic_guidance_inference.pth",
+          "size_bytes": 3264471216,
+          "sha256": "734079f8b5b2d60146a38aa1c34271f5ba712c2d24515b8a2c25b6ecf7db492e",
+          "source_sha256": "f24faf670b804edebbd4d6530a42c1351b62040046e14ebded67335aefc9c3a4"
+        },
+        {
+          "filename": "checkpoints/noisy_peptide_classifier_inference.ckpt",
+          "size_bytes": 390409713,
+          "sha256": "632091509bbcda82384ffef5cd59ffbef3c38716df319c59db2167cddb7ab7ca",
+          "source_sha256": "40f638ca5668f20a641a538035015b1741ab69cded300cba27f7148cc291945b"
+        }
+      ],
       "license": "MIT",
       "scope": "inference-only 256-step BAA-3170 runtime smoke; not an activity result"
     }

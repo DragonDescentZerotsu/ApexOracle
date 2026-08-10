@@ -6,7 +6,7 @@
       "path": "modules/core",
       "status": "ready",
       "url": "https://github.com/DragonDescentZerotsu/ApexOracle-Core.git",
-      "commit": "8c1def518ac148a878c14f4a39876db59649d43c",
+      "commit": "3b6db2b70bb565cdb4df43e7ba4aafb6e52ca3cc",
       "source_repository": "https://github.com/DragonDescentZerotsu/ApexOracle-Core.git"
     },
     {
@@ -21,7 +21,7 @@
       "path": "modules/mdlm",
       "status": "ready",
       "url": "https://github.com/DragonDescentZerotsu/ApexOracle-MDLM.git",
-      "commit": "c9d17c7f6f091234aaaebf5f08dbe23542f980c1"
+      "commit": "7c0bbd31f2bd9b1cc00c0a153d6987b96a037b6c"
     },
     {
       "id": "evo2",
@@ -35,7 +35,7 @@
       "path": "modules/generation",
       "status": "ready",
       "url": "https://github.com/DragonDescentZerotsu/ApexOracle-Generation.git",
-      "commit": "80d9a2cf9b0921f29e4a44edf5557ccac39f5af9"
+      "commit": "2d648ce61da134faa211ad9fe7f1442ef8a40c60"
     }
   ]
 }

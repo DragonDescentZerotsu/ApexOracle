@@ -2,6 +2,8 @@ cff-version: 1.2.0
 title: ApexOracle
 message: Please cite the ApexOracle paper and the software release used in your work.
 type: software
+version: 0.2.1
+date-released: 2026-08-10
 authors:
   - family-names: Leng
     given-names: Tianang

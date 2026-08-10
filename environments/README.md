@@ -8,8 +8,9 @@ environment:
 - DLM pretraining: ApexOracle-DLM-Pretraining;
 - genome extraction: ApexOracle-Evo2.
 
-Versioned environment profiles will be added only after their owning modules pass fresh-clone installation. Root
-scripts must never silently depend on an author's pre-existing conda environment.
+Each owning module now records the environment used for its fresh-clone or runtime gate. The super-repo intentionally
+does not duplicate those profiles or claim that one environment can run all five modules. Root scripts must never
+silently depend on an author's pre-existing conda environment.
 
 The root CI validates only orchestration contracts under `tests/`. It does not recursively collect each submodule's
 scientific tests; those remain owned by the module's documented environment and CI.

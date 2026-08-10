@@ -4,8 +4,10 @@ ApexOracle is the lightweight entry point for the modular ApexOracle release. Sc
 independently versioned Git submodules; this repository owns module locks, environment guidance, asset manifests,
 bootstrap checks, and cross-module quickstarts.
 
-The complete public release, including the expanded five-module source archive, is available as
-[v0.2.0](https://github.com/DragonDescentZerotsu/ApexOracle/releases/tag/v0.2.0).
+The complete public release is available from
+[GitHub Releases](https://github.com/DragonDescentZerotsu/ApexOracle/releases). `v0.2.0` freezes the validated
+scientific implementation and first expanded five-module archive; `v0.2.1` is a documentation-only closure that
+updates module plans, asset manifests, recovery records, and the expanded archive without changing model behavior.
 
 ## Current release status
 
@@ -13,14 +15,16 @@ The in-place conversion from the historical monorepo is complete. All five valid
 
 | Module | Role | Locked commit |
 | --- | --- | --- |
-| [ApexOracle-Core](https://github.com/DragonDescentZerotsu/ApexOracle-Core) | prediction, training/evaluation contracts, and reproducibility workflows | `8c1def5` |
+| [ApexOracle-Core](https://github.com/DragonDescentZerotsu/ApexOracle-Core) | prediction, training/evaluation contracts, and reproducibility workflows | `3b6db2b` |
 | [ApexOracle-DLM-Pretraining](https://github.com/DragonDescentZerotsu/ApexOracle-DLM-Pretraining) | collaborator-developed DLM + 209-descriptor MTR producer | `362ffcc` |
-| [ApexOracle-MDLM](https://github.com/DragonDescentZerotsu/ApexOracle-MDLM) | downstream embedding, guidance heads, and candidate scoring | `c9d17c7` |
+| [ApexOracle-MDLM](https://github.com/DragonDescentZerotsu/ApexOracle-MDLM) | downstream embedding, guidance heads, and candidate scoring | `7c0bbd3` |
 | [ApexOracle-Evo2](https://github.com/DragonDescentZerotsu/ApexOracle-Evo2) | record-aware genome embedding extraction | `2184211` |
-| [ApexOracle-Generation](https://github.com/DragonDescentZerotsu/ApexOracle-Generation) | guided discrete diffusion and remasking | `80d9a2c` |
+| [ApexOracle-Generation](https://github.com/DragonDescentZerotsu/ApexOracle-Generation) | guided discrete diffusion and remasking | `2d648ce` |
 
 Every gitlink is pinned by its full commit in `manifests/modules.lock.yaml`. The public MIC quickstart uses an
-inference-only single member for a runnable smoke; paper metrics continue to require the frozen ensemble.
+inference-only single member for a runnable smoke; paper metrics continue to require the frozen ensemble. Exact
+release locks, scientific implementation commits, recovery refs, and public asset revisions are separated in
+`docs/RELEASE_PROVENANCE.md`.
 
 ## Clone
 

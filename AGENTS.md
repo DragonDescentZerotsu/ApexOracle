@@ -12,6 +12,8 @@
 - 最终 Core 直接复用当前 `DragonDescentZerotsu/Synergy` repository，并在完整 history audit 后重命名为
   `DragonDescentZerotsu/ApexOracle-Core`；不得建立第二份 Core repository。
 - 当前发布阶段和剩余 gate 记录在 `docs/RELEASE_STATUS.md`；每次新增 module gitlink 或资产时必须同步更新。
+- `docs/RELEASE_PROVENANCE.md` 必须区分 release gitlinks、科学实现验收 commits、恢复 refs 和外部资产
+  revisions；文档-only module commit 不得被误写为重新验证过的科学实现。
 - 发布前运行 `python scripts/check_release_tree.py`、`python scripts/check_module_locks.py` 和
   `python -m pytest -q`；三个入口均通过后才允许更新默认分支。
 - 完整 source archive canonical 入口为 `python scripts/build_source_archive.py --output PATH.tar.gz`；它只展开

@@ -1,11 +1,48 @@
 {
   "schema_version": 1,
-  "assets": [],
+  "assets": [
+    {
+      "id": "apexoracle_core_mic_quickstart_input",
+      "status": "released",
+      "provider": "huggingface",
+      "repository": "Kiria-Nozan/ApexOracle-Core",
+      "revision": "459026cf4ae4e4e38ce5d2cae16ee3871d0a81df",
+      "filename": "example_text_only_dbaasp_2136_atcc_4965.pt",
+      "size_bytes": 1758296,
+      "sha256": "48527beb21111ac45107d2f61bd8262109dd63e4e950ae6d89bc35f63b569f3c",
+      "repository_license": "MIT",
+      "scope": "single text-only condition tensor for the public MIC inference smoke"
+    },
+    {
+      "id": "apexoracle_generation_baa3170_genome_condition",
+      "status": "released",
+      "provider": "huggingface",
+      "repository": "Kiria-Nozan/ApexOracle-Generation",
+      "revision": "2fb1aa08187eaa359263be6c12c8a41868d8959c",
+      "filename": "conditions/genome/Escherichia_coli_ATCC_BAA_3170.pt",
+      "size_bytes": 8193359,
+      "sha256": "729e62e0c6a85f7209242538ab233d630fc4192dc72d26984e83be3ed8f19e42",
+      "repository_license": "MIT",
+      "scope": "BAA-3170 compact guided-generation smoke condition"
+    },
+    {
+      "id": "apexoracle_generation_baa3170_text_condition",
+      "status": "released",
+      "provider": "huggingface",
+      "repository": "Kiria-Nozan/ApexOracle-Generation",
+      "revision": "2fb1aa08187eaa359263be6c12c8a41868d8959c",
+      "filename": "conditions/atcc_text/Escherichia_coli_ATCC_BAA_3170.pt",
+      "size_bytes": 4228431,
+      "sha256": "4d04d68d23273d5e25d567114b5e47c026e9ccac16bcb758e6ae8e3bd2d94134",
+      "repository_license": "MIT",
+      "scope": "BAA-3170 compact guided-generation smoke condition"
+    }
+  ],
   "pending": [
     "model-ready MIC tables and frozen splits",
     "public strain mapping and descriptions",
-    "genome and text embedding redistribution decision",
-    "guided-generation example condition assets"
+    "full genome and text embedding condition-bank redistribution",
+    "full paper guided-generation condition bank"
   ],
   "policy": "No data asset is bundled or claimed available until URI, revision, SHA-256, license, and redistribution status are recorded."
 }

@@ -30,10 +30,23 @@ REQUIRED = (
     "NOTICE",
     "README.md",
     "docs/LEGACY_MONOREPO.md",
+    "docs/RELEASE_PROVENANCE.md",
     "docs/RELEASE_STATUS.md",
+    "manifests/data_assets.yaml",
+    "manifests/model_weights.yaml",
     "manifests/modules.lock.yaml",
     "scripts/check_module_locks.py",
 )
+REQUIRED_MODEL_ASSETS = {
+    "apexoracle_molecule_embedding_model",
+    "apexoracle_core_mic_single_member_quickstart",
+    "apexoracle_generation_compact_baa3170_v1",
+}
+REQUIRED_DATA_ASSETS = {
+    "apexoracle_core_mic_quickstart_input",
+    "apexoracle_generation_baa3170_genome_condition",
+    "apexoracle_generation_baa3170_text_condition",
+}
 
 
 def git(*args: str) -> subprocess.CompletedProcess[str]:
@@ -91,11 +104,24 @@ def main() -> None:
     if tag_commit.returncode or tag_commit.stdout.strip() != LEGACY_COMMIT:
         errors.append("legacy recovery tag does not resolve to the frozen commit")
 
+    model_manifest = json.loads((ROOT / "manifests/model_weights.yaml").read_text())
+    data_manifest = json.loads((ROOT / "manifests/data_assets.yaml").read_text())
+    model_asset_ids = {asset["id"] for asset in model_manifest["assets"]}
+    data_asset_ids = {asset["id"] for asset in data_manifest["assets"]}
+    if missing := sorted(REQUIRED_MODEL_ASSETS - model_asset_ids):
+        errors.append(f"released model assets are missing: {missing}")
+    if missing := sorted(REQUIRED_DATA_ASSETS - data_asset_ids):
+        errors.append(f"released data assets are missing: {missing}")
+    if any("guided-generation example condition assets" == item for item in data_manifest["pending"]):
+        errors.append("released generation conditions remain incorrectly marked pending")
+
     summary = {
         "schema_version": 1,
         "status": "passed" if not errors else "failed",
         "active_file_count": len(files),
         "legacy_commit": LEGACY_COMMIT,
+        "released_model_asset_count": len(model_asset_ids),
+        "released_data_asset_count": len(data_asset_ids),
         "errors": errors,
     }
     print(json.dumps(summary, indent=2, sort_keys=True))

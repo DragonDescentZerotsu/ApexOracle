@@ -2,21 +2,26 @@
 
 ## Verified facts
 
-- The existing `DragonDescentZerotsu/ApexOracle` repository is being converted in place; no second super-repository
-  is being created.
+- The existing `DragonDescentZerotsu/ApexOracle` repository was converted in place; no second super-repository was
+  created.
 - The legacy tree is recoverable from branch `legacy-monorepo` and annotated tag
   `legacy-monorepo-snapshot-2026-08-10`.
 - `ApexOracle-DLM-Pretraining` is locked to `362ffccac79bdd638a4e913c4f17df613da18f36`; its original source
   recovery tag, 56-file manifest, source contracts, remote CI, fresh clone, and H100 joint-objective train/save/load
   smoke have passed.
-- `ApexOracle-MDLM` is locked to `c9d17c7f6f091234aaaebf5f08dbe23542f980c1`.
+- `ApexOracle-MDLM` scientific implementation was validated at
+  `c9d17c7f6f091234aaaebf5f08dbe23542f980c1`; the current documentation-closure lock is
+  `7c0bbd31f2bd9b1cc00c0a153d6987b96a037b6c`.
 - `ApexOracle-Evo2` is locked to `2184211acda07b0d5ca865067174ac42f530ad04`; its CPU contracts, package
   archives, remote CI, and Evo2-40B extraction runtime smoke have passed.
-- `ApexOracle-Generation` is locked to `80d9a2cf9b0921f29e4a44edf5557ccac39f5af9`; compact BAA-3170
+- `ApexOracle-Generation` scientific implementation was validated at
+  `80d9a2cf9b0921f29e4a44edf5557ccac39f5af9`; the current documentation-closure lock is
+  `2d648ce61da134faa211ad9fe7f1442ef8a40c60`. Compact BAA-3170
   inference-only assets are fixed at Hugging Face revision `2fb1aa08187eaa359263be6c12c8a41868d8959c` and have passed
   empty-cache hashes plus a real 256-step H100 smoke.
-- The original `Synergy` repository was renamed in place to public `ApexOracle-Core`, released as `v0.1.0`, and is
-  locked to `8c1def518ac148a878c14f4a39876db59649d43c`. Its 217-test local release gate, wheel/sdist, public-history audit,
+- The original `Synergy` repository was renamed in place to public `ApexOracle-Core`; its scientific release `v0.1.0`
+  is `8c1def518ac148a878c14f4a39876db59649d43c`, and the current documentation-closure lock is
+  `3b6db2b70bb565cdb4df43e7ba4aafb6e52ca3cc`. Its 217-test local release gate, wheel/sdist, public-history audit,
   and fresh Hugging Face MIC inference have passed.
 - The root repository contains no model weights, embeddings, datasets, or raw experiment outputs after conversion.
 
@@ -40,3 +45,8 @@ Release `v0.2.0` publishes `ApexOracle-source-v0.2.0.tar.gz`: 932 files, 36,553,
 `895c682ba6ede090dd28e3b5d64f1995c014779c6447ae6abcf593bad78b4fdd`. Two independent builds were byte-identical;
 `scripts/check_source_archive.py` passed. The same release follows an empty-cache download and fresh recursive-clone
 H100 smoke of the compact generation assets.
+
+Release `v0.2.1` is a documentation-only closure: it updates Core/MDLM/Generation status records, moves the already
+released quickstart conditions out of the pending data list, records per-file checkpoint/condition hashes, and emits
+a new expanded source archive. It does not change scientific implementation, public weight revisions, or protocols.
+Exact version-to-commit distinctions are recorded in `docs/RELEASE_PROVENANCE.md`.

@@ -32,3 +32,6 @@ All five module repositories are public and pinned to immutable commits. No modu
 - weights and data have stable URIs, revisions, SHA-256 values, and redistribution decisions;
 - license/NOTICE, secret, large-file, and broken-link audits pass;
 - a full-source archive expands all fixed submodules.
+
+Canonical archive builder is `scripts/build_source_archive.py`. It validates all gitlinks against the lock manifest,
+expands root and module `git archive` streams, and emits a deterministic tarball plus JSON/SHA-256 sidecars.

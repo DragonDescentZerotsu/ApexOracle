@@ -14,3 +14,6 @@
 - 当前发布阶段和剩余 gate 记录在 `docs/RELEASE_STATUS.md`；每次新增 module gitlink 或资产时必须同步更新。
 - 发布前运行 `python scripts/check_release_tree.py`、`python scripts/check_module_locks.py` 和
   `python -m pytest -q`；三个入口均通过后才允许更新默认分支。
+- 完整 source archive canonical 入口为 `python scripts/build_source_archive.py --output PATH.tar.gz`；它只展开
+  root `HEAD` 与 `manifests/modules.lock.yaml` 的五个固定 commits，输出 archive、JSON manifest 和 SHA-256。
+  `--plan-only` 只核验 locks。归档不得包含 `.git`、checkpoint、embedding、dataset、cache 或 raw outputs。

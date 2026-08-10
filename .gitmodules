@@ -7,3 +7,6 @@
 [submodule "modules/evo2"]
 	path = modules/evo2
 	url = https://github.com/DragonDescentZerotsu/ApexOracle-Evo2.git
+[submodule "modules/dlm_pretrain"]
+	path = modules/dlm_pretrain
+	url = https://github.com/DragonDescentZerotsu/ApexOracle-DLM-Pretraining.git

@@ -18,11 +18,11 @@ def test_module_lock_checker_passes():
     summary = json.loads(completed.stdout)
     assert summary["status"] == "passed"
     assert summary["ready_modules"] == [
+        "modules/dlm_pretrain",
         "modules/evo2",
         "modules/generation",
         "modules/mdlm",
     ]
     assert summary["pending_modules"] == [
         "modules/core",
-        "modules/dlm_pretrain",
     ]

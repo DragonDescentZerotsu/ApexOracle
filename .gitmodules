@@ -4,3 +4,6 @@
 [submodule "modules/generation"]
 	path = modules/generation
 	url = https://github.com/DragonDescentZerotsu/ApexOracle-Generation.git
+[submodule "modules/evo2"]
+	path = modules/evo2
+	url = https://github.com/DragonDescentZerotsu/ApexOracle-Evo2.git

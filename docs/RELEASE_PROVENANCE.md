@@ -24,6 +24,13 @@ immutable `v0.2.3` release lock; the current
 development lock is always the machine-readable `manifests/modules.lock.yaml`. No model weight, embedding tensor,
 prediction protocol, or paper metric changed in this post-release batch.
 
+The 2026-08-11 repository-hygiene closure advances the current Core, MDLM and Generation gitlinks to
+`23be2738a10385ac216db9933f632276c0aa1452`, `26e414bb7fa8aed971eb8370083c67378c5ce95e` and
+`e97029b258df4056a3965d55098b067f45f32dec`. Core/Generation only tighten generated build/cache ignore rules and
+record the completed layout audit. MDLM regenerates its canonical lineage ledger so the already published
+fixed-epsilon scorer rename manifest is included as tracked asset 176. These maintenance commits do not change the
+validated scientific implementations listed below, sampler behavior, model code, configuration, data or weights.
+
 | Module | Default branch | Current `v0.2.3` lock | Validated scientific implementation |
 | --- | --- | --- | --- |
 | ApexOracle-Core | `main` | `1973d2d3cc6b27202a3960c363c207dd030f74e7` | `8c1def518ac148a878c14f4a39876db59649d43c` (`v0.1.0`) |

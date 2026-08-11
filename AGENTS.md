@@ -40,6 +40,15 @@
   suffix、generated cache/build path、repo file-count/total-byte 超限都会使 CI 失败。Paper model-ready tables、
   sample predictions、embeddings 和 checkpoints 必须外置到 Zenodo/Hugging Face，Git 只保留 compact manifest、
   exporter、split IDs、hash 和 recomputation code。
+- **2026-08-11 六仓库文件系统复核：** anti-bloat schema v2 额外拒绝同一仓库内 >=1 KiB exact duplicate 和
+  未登记的顶层目录，并报告每个顶层路径的 file/byte 分布、>=500-line source review candidates 与 80% soft
+  limit alerts。当前六棵发布树均无 nonignored untracked file、无仓库内重复；root/Core/MDLM file-count 与 Evo2
+  bytes 进入软警戒但未越界，处理原则固定在 `docs/REPOSITORY_HYGIENE.md`。DLM-Pretraining 与 downstream
+  MDLM 之间少量相同 upstream runtime 文件只作信息报告，因两者必须独立 clone/install，不得为表面去重建立
+  cross-submodule import。Core 的 16 个 tracked experiment directories 均有 README；本机旧 producer 中的
+  unfinished reviewer files 不得混入 clean public gitlink。该复核同时发现 MDLM fixed-epsilon scorer 改名
+  manifest 未进入 generated lineage ledger；MDLM `26e414b` 已重建四份 ledger outputs，176/176 tracked
+  code/config assets 覆盖且 118 tests 通过，不涉及模型或接口变更。
 - Paper-data capsule 的 machine-readable staging ledger 固定为 `manifests/paper_data_capsule_plan.json`，解释见
   `docs/PAPER_DATA_CAPSULE_PLAN.md`。Classification `random_state=42` folds 与 2026 fixed MIC reconstruction 可作为
   exact frozen assets；2025 strain-wise MIC membership 未恢复，synergy seed-0 仅与 archived counts 一致，二者

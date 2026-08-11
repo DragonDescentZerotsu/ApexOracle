@@ -1,7 +1,10 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "default_max_file_bytes": 1048576,
   "duplicate_scan_min_bytes": 20480,
+  "intra_repository_duplicate_min_bytes": 1024,
+  "source_review_min_lines": 500,
+  "soft_limit_fraction": 0.8,
   "forbidden_suffixes": [
     ".arrow",
     ".bin",
@@ -23,32 +26,97 @@
     "root": {
       "path": ".",
       "max_file_count": 60,
-      "max_total_bytes": 3145728
+      "max_total_bytes": 3145728,
+      "allowed_top_level_directories": [
+        ".github",
+        "assets",
+        "docs",
+        "environments",
+        "manifests",
+        "modules",
+        "quickstarts",
+        "scripts",
+        "tests"
+      ]
     },
     "core": {
       "path": "modules/core",
       "max_file_count": 500,
-      "max_total_bytes": 16777216
+      "max_total_bytes": 16777216,
+      "allowed_top_level_directories": [
+        "assets",
+        "bash",
+        "capsule_fig2",
+        "configs",
+        "docs",
+        "experiments",
+        "reproducibility",
+        "resources",
+        "scripts",
+        "src",
+        "tests"
+      ]
     },
     "dlm_pretraining": {
       "path": "modules/dlm_pretrain",
       "max_file_count": 100,
-      "max_total_bytes": 1048576
+      "max_total_bytes": 1048576,
+      "allowed_top_level_directories": [
+        ".github",
+        "configs",
+        "docs",
+        "manifests",
+        "models",
+        "scripts",
+        "tests"
+      ]
     },
     "mdlm": {
       "path": "modules/mdlm",
       "max_file_count": 275,
-      "max_total_bytes": 4194304
+      "max_total_bytes": 4194304,
+      "allowed_top_level_directories": [
+        "Data",
+        "configs",
+        "docs",
+        "huggingface",
+        "models",
+        "reproducibility",
+        "scripts",
+        "src",
+        "tests"
+      ]
     },
     "evo2": {
       "path": "modules/evo2",
       "max_file_count": 100,
-      "max_total_bytes": 52428800
+      "max_total_bytes": 52428800,
+      "allowed_top_level_directories": [
+        ".github",
+        "apexoracle_evo2",
+        "evo2",
+        "notebooks",
+        "phage_gen",
+        "scripts",
+        "tests"
+      ]
     },
     "generation": {
       "path": "modules/generation",
       "max_file_count": 160,
-      "max_total_bytes": 2097152
+      "max_total_bytes": 2097152,
+      "allowed_top_level_directories": [
+        "configs",
+        "custom_datasets",
+        "docs",
+        "examples",
+        "guidance_eval",
+        "models",
+        "notebooks",
+        "reproducibility",
+        "scripts",
+        "tests"
+      ]
     }
   },
   "large_file_allowlist": {

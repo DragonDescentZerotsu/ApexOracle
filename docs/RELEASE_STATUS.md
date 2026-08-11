@@ -11,19 +11,20 @@
   smoke have passed.
 - `ApexOracle-MDLM` scientific implementation was validated at
   `c9d17c7f6f091234aaaebf5f08dbe23542f980c1`; the current documentation-closure lock is
-  `931e3dc09bfc2501809c03dbd016741406950f5f`.
+  `26e414bb7fa8aed971eb8370083c67378c5ce95e`. The latter only refreshes generated lineage outputs to cover the
+  previously published fixed-epsilon scorer rename manifest; all 118 tests and the ledger stale check pass.
 - `ApexOracle-Evo2` is locked to `2184211acda07b0d5ca865067174ac42f530ad04`; its CPU contracts, package
   archives, remote CI, and Evo2-40B extraction runtime smoke have passed.
 - `ApexOracle-Generation` scientific implementation was validated at
   `80d9a2cf9b0921f29e4a44edf5557ccac39f5af9`; the current documentation-closure lock is
-  `67b593e1a623af3af80c64e263bde527d73d89ef`. Compact BAA-3170
+  `e97029b258df4056a3965d55098b067f45f32dec`. Compact BAA-3170
   inference-only assets are fixed at Hugging Face revision `2fb1aa08187eaa359263be6c12c8a41868d8959c` and have passed
   empty-cache hashes plus a real 256-step H100 smoke.
 - The original `Synergy` repository was renamed in place to public `ApexOracle-Core`; its scientific release `v0.1.0`
   is `8c1def518ac148a878c14f4a39876db59649d43c`; the `v0.2.3` documentation-closure lock is
   `1973d2d3cc6b27202a3960c363c207dd030f74e7`, and post-release `main` is
-  `bc4aa31bb615af19eacb142c9bbddc929cbabd02` for the strain mapping, paper genome list and verified synergy
-  checkpoint replay. The earlier 217-test
+  `23be2738a10385ac216db9933f632276c0aa1452`; scientific additions through `bc4aa31` contain the strain mapping,
+  paper genome list and verified synergy checkpoint replay, while `23be273` only tightens workspace hygiene. The earlier 217-test
   release gate, wheel/sdist, public-history audit and fresh Hugging Face MIC inference passed; the genome-list batch
   passed 211 tests with 4 external-asset skips; the synergy replay closure passed 215 tests with 4 skips.
 - The root repository contains no model weights, embeddings, datasets, or raw experiment outputs after conversion.
@@ -52,6 +53,11 @@
 - The six active trees now have a CI-enforced anti-bloat policy: exact duplicates at or above 20 KiB, unallowlisted
   files above 1 MiB, checkpoint/cache suffixes, generated build/cache paths and per-repository count/byte-limit
   violations fail `scripts/check_repository_bloat.py`. The current audit found no >=20 KiB exact duplicates.
+- The 2026-08-11 filesystem review upgraded that gate to schema v2. Same-repository duplicates now fail from 1 KiB,
+  unexpected top-level directories fail, and top-level distribution, long-source review candidates and 80% soft-limit
+  alerts are visible without changing scientific implementations. All six public trees have zero nonignored untracked
+  files and zero same-repository duplicates; the only smaller cross-tree duplicates are self-contained license/upstream
+  runtime files needed by independently installable modules.
 - `manifests/paper_data_capsule_plan.json` distinguishes exact classification folds, the exact 2026 fixed MIC
   reconstruction, unrecovered 2025 MIC membership, and the count-matched but unproven synergy seed-0 candidate.
   Full tables and predictions remain external-capsule assets rather than Git payloads.

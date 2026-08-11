@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fail on unreviewed growth, generated artifacts, or large exact duplicates."""
+"""Audit repository growth, layout drift, generated artifacts, and duplicates."""
 
 from __future__ import annotations
 
@@ -54,11 +54,15 @@ def main() -> None:
     policy = json.loads(POLICY_PATH.read_text(encoding="utf-8"))
     default_max = int(policy["default_max_file_bytes"])
     duplicate_min = int(policy["duplicate_scan_min_bytes"])
+    intra_repo_duplicate_min = int(policy["intra_repository_duplicate_min_bytes"])
+    source_review_min_lines = int(policy["source_review_min_lines"])
+    soft_limit_fraction = float(policy["soft_limit_fraction"])
     forbidden_suffixes = set(policy["forbidden_suffixes"])
     forbidden_parts = set(policy["forbidden_path_parts"])
     allowlist = policy["large_file_allowlist"]
 
     errors: list[str] = []
+    soft_limit_alerts: list[str] = []
     repository_summaries: dict[str, dict[str, object]] = {}
     hashes: dict[str, list[dict[str, object]]] = defaultdict(list)
 
@@ -67,7 +71,13 @@ def main() -> None:
         paths, tracked = active_files(repo)
         total_bytes = 0
         largest: list[tuple[int, str]] = []
+        large_source_files: list[tuple[int, str]] = []
+        top_level_counts: dict[str, int] = defaultdict(int)
+        top_level_bytes: dict[str, int] = defaultdict(int)
         untracked: list[str] = []
+        allowed_top_level_directories = set(
+            repo_policy["allowed_top_level_directories"]
+        )
 
         for path in paths:
             relative = path.relative_to(repo).as_posix()
@@ -76,8 +86,20 @@ def main() -> None:
             size = len(payload)
             total_bytes += size
             largest.append((size, relative))
+            relative_parts = Path(relative).parts
+            top_level = relative_parts[0]
+            top_level_counts[top_level] += 1
+            top_level_bytes[top_level] += size
             if relative not in tracked:
                 untracked.append(relative)
+
+            if (
+                len(relative_parts) > 1
+                and top_level not in allowed_top_level_directories
+            ):
+                errors.append(
+                    f"{scoped}: unexpected top-level directory {top_level!r}"
+                )
 
             parts = set(Path(relative).parts)
             if parts & forbidden_parts:
@@ -95,7 +117,14 @@ def main() -> None:
                     f"{scoped}: {size} bytes exceeds allowlisted maximum {allowed['max_bytes']}"
                 )
 
-            if size >= duplicate_min:
+            if path.suffix.lower() in {".py", ".sh"}:
+                line_count = payload.count(b"\n")
+                if payload and not payload.endswith(b"\n"):
+                    line_count += 1
+                if line_count >= source_review_min_lines:
+                    large_source_files.append((line_count, relative))
+
+            if size >= intra_repo_duplicate_min:
                 digest = hashlib.sha256(payload).hexdigest()
                 hashes[digest].append(
                     {"repository": repo_id, "path": relative, "size_bytes": size}
@@ -110,6 +139,16 @@ def main() -> None:
             errors.append(
                 f"{repo_id}: {total_bytes} bytes exceeds {repo_policy['max_total_bytes']}"
             )
+        file_fraction = count / int(repo_policy["max_file_count"])
+        byte_fraction = total_bytes / int(repo_policy["max_total_bytes"])
+        if file_fraction >= soft_limit_fraction:
+            soft_limit_alerts.append(
+                f"{repo_id}: file-count utilization is {file_fraction:.1%}"
+            )
+        if byte_fraction >= soft_limit_fraction:
+            soft_limit_alerts.append(
+                f"{repo_id}: byte utilization is {byte_fraction:.1%}"
+            )
         repository_summaries[repo_id] = {
             "file_count": count,
             "tracked_bytes": total_bytes,
@@ -118,16 +157,59 @@ def main() -> None:
                 {"path": path, "size_bytes": size}
                 for size, path in sorted(largest, reverse=True)[:5]
             ],
+            "large_source_files": [
+                {"path": path, "line_count": line_count}
+                for line_count, path in sorted(large_source_files, reverse=True)
+            ],
+            "top_level": {
+                name: {
+                    "file_count": top_level_counts[name],
+                    "tracked_bytes": top_level_bytes[name],
+                }
+                for name in sorted(top_level_counts)
+            },
             "limits": {
                 "max_file_count": int(repo_policy["max_file_count"]),
                 "max_total_bytes": int(repo_policy["max_total_bytes"]),
             },
+            "limit_utilization": {
+                "file_count_fraction": round(file_fraction, 6),
+                "total_bytes_fraction": round(byte_fraction, 6),
+            },
         }
 
-    duplicate_groups = [
-        {"sha256": digest, "files": files}
+    all_duplicate_groups = [
+        {
+            "sha256": digest,
+            "size_bytes": int(files[0]["size_bytes"]),
+            "files": files,
+        }
         for digest, files in sorted(hashes.items())
         if len(files) > 1
+    ]
+    duplicate_groups = [
+        group
+        for group in all_duplicate_groups
+        if int(group["size_bytes"]) >= duplicate_min
+    ]
+    intra_repository_duplicate_groups = [
+        group
+        for group in all_duplicate_groups
+        if any(
+            sum(
+                1
+                for item in group["files"]
+                if item["repository"] == repository
+            )
+            > 1
+            for repository in {item["repository"] for item in group["files"]}
+        )
+    ]
+    informational_cross_repository_duplicates = [
+        group
+        for group in all_duplicate_groups
+        if group not in duplicate_groups
+        and group not in intra_repository_duplicate_groups
     ]
     for group in duplicate_groups:
         locations = [
@@ -136,13 +218,26 @@ def main() -> None:
         errors.append(
             f"exact duplicate >= {duplicate_min} bytes: {', '.join(locations)}"
         )
+    for group in intra_repository_duplicate_groups:
+        locations = [
+            f"{item['repository']}/{item['path']}" for item in group["files"]
+        ]
+        errors.append(
+            "same-repository exact duplicate "
+            f">= {intra_repo_duplicate_min} bytes: {', '.join(locations)}"
+        )
 
     summary = {
-        "schema_version": 1,
+        "schema_version": 2,
         "status": "passed" if not errors else "failed",
         "policy": str(POLICY_PATH.relative_to(ROOT)),
         "repositories": repository_summaries,
         "duplicate_groups": duplicate_groups,
+        "intra_repository_duplicate_groups": intra_repository_duplicate_groups,
+        "informational_cross_repository_duplicates": (
+            informational_cross_repository_duplicates
+        ),
+        "soft_limit_alerts": soft_limit_alerts,
         "errors": errors,
     }
     print(json.dumps(summary, indent=2, sort_keys=True))

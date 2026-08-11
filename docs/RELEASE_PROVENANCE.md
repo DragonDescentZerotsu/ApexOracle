@@ -9,13 +9,14 @@ This document separates four identifiers that must not be conflated:
 
 ## Current documentation closure
 
-`v0.2.1` is a documentation-only patch over the validated `v0.2.0` release. Core, MDLM, and Generation advance to
-commits that close stale plans and status records. DLM-Pretraining and Evo2 are unchanged. No model code, checkpoint,
-condition tensor, protocol, or reference prediction is changed by this patch.
+`v0.2.1` closed stale module plans and status records, but its documentation audit incorrectly stated that no
+ApexOracle Zenodo record existed. The paper had already linked record `15612048`. `v0.2.2` corrects that omission,
+adds the two Zenodo archives and checksums to the data manifest, and advances only the Core documentation lock.
+No model code, checkpoint, condition tensor, protocol, or reference prediction is changed by either patch.
 
-| Module | Default branch | `v0.2.1` lock | Validated scientific implementation |
+| Module | Default branch | Current `v0.2.2` lock | Validated scientific implementation |
 | --- | --- | --- | --- |
-| ApexOracle-Core | `main` | `3b6db2b70bb565cdb4df43e7ba4aafb6e52ca3cc` | `8c1def518ac148a878c14f4a39876db59649d43c` (`v0.1.0`) |
+| ApexOracle-Core | `main` | `19493509d15c7fc8081fcac4b598bcf8e0705191` | `8c1def518ac148a878c14f4a39876db59649d43c` (`v0.1.0`) |
 | ApexOracle-DLM-Pretraining | `main` | `362ffccac79bdd638a4e913c4f17df613da18f36` | same (`v0.1.0`) |
 | ApexOracle-MDLM | `master` | `7c0bbd31f2bd9b1cc00c0a153d6987b96a037b6c` | `c9d17c7f6f091234aaaebf5f08dbe23542f980c1` |
 | ApexOracle-Evo2 | `main` | `2184211acda07b0d5ca865067174ac42f530ad04` | same (`v0.6.0-apexoracle.1`) |
@@ -23,7 +24,8 @@ condition tensor, protocol, or reference prediction is changed by this patch.
 
 The machine-readable current locks are authoritative in `manifests/modules.lock.yaml`. `v0.2.0` remains the first
 complete scientific release and pins Core `8c1def5`, DLM-Pretraining `362ffcc`, MDLM `c9d17c7`, Evo2 `2184211`,
-and Generation `80d9a2c`.
+and Generation `80d9a2c`. `v0.2.1` pins the same science with documentation commits Core `3b6db2b`, MDLM `7c0bbd3`,
+and Generation `2d648ce`.
 
 The `v0.2.1` expanded archive contains 933 files and is 36,563,257 bytes. Its SHA-256 is
 `eba6138903dada6806a212c287327999538196d8282678e6cc9a19b4337cd4f2`; the uploaded JSON and SHA-256 sidecars are
@@ -51,6 +53,7 @@ GitHub's automatically generated source ZIP does not expand submodules.
 | DLM molecule embedding runtime | `Kiria-Nozan/ApexOracle` | `77694f08c1d0664fdb24c5a7bab130c8a3bc2eda` | `manifests/model_weights.yaml` |
 | Core MIC single-member quickstart | `Kiria-Nozan/ApexOracle-Core` | `459026cf4ae4e4e38ce5d2cae16ee3871d0a81df` | model manifest plus `manifests/model_weights.yaml` and `manifests/data_assets.yaml` |
 | Compact BAA-3170 generation smoke | `Kiria-Nozan/ApexOracle-Generation` | `2fb1aa08187eaa359263be6c12c8a41868d8959c` | Hub `manifest.json` plus both root asset manifests |
+| Paper-listed precomputed genome/text embeddings | Zenodo record `15612048` | DOI `10.5281/zenodo.15612048` | `manifests/data_assets.yaml` with Zenodo MD5 and independently verified SHA-256 |
 
 The compact generation release contains three inference-only checkpoints and two condition tensors. Its purpose is
 runtime verification. A complete SELFIES from the smoke is not evidence of deterministic generation, candidate
@@ -62,11 +65,12 @@ yield, antimicrobial activity, or experimental validation.
 - The public generation bundle contains BAA-3170 only; the full paper condition bank is not redistributed here.
 - Full curated training datasets, private assay records, caches, raw outputs, and training checkpoints are not Git
   objects in the super-repository.
-- There is currently no ApexOracle Zenodo record or software DOI; citation metadata must not imply otherwise.
+- Zenodo record `15612048` is an existing CC BY 4.0 dataset containing precomputed genome/text embedding archives.
+  It is a dataset DOI and should not be described as the DOI of the GitHub software snapshot.
 
 ## Documentation audit
 
-The 2026-08-10 final audit checked public default branches, release tags, recovery refs, module locks, Hugging Face
-revisions, per-file quickstart hashes, clone/install boundaries, and source-archive policy. It corrected stale
-"pending" states in Core, MDLM, and Generation, and moved the already released quickstart condition tensors out of
-the pending data list. Validation commands are recorded in `docs/RELEASE_STATUS.md` and each owning module.
+The 2026-08-10 audit checked public default branches, release tags, recovery refs, module locks, Hugging Face
+revisions, per-file quickstart hashes, clone/install boundaries, and source-archive policy. A follow-up against the
+formal manuscript found the omitted Zenodo link and corrected README, citation metadata, Core planning records, and
+the data manifest. Validation commands are recorded in `docs/RELEASE_STATUS.md` and each owning module.

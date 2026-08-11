@@ -19,4 +19,4 @@ def test_release_tree_checker_passes():
     assert summary["status"] == "passed"
     assert summary["legacy_commit"] == "2f29dee9cf6b7750425414f66c1a2d67998cb87f"
     assert summary["released_model_asset_count"] == 3
-    assert summary["released_data_asset_count"] == 3
+    assert summary["released_data_asset_count"] == 5

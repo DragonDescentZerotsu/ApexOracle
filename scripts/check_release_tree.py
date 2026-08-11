@@ -46,6 +46,8 @@ REQUIRED_DATA_ASSETS = {
     "apexoracle_core_mic_quickstart_input",
     "apexoracle_generation_baa3170_genome_condition",
     "apexoracle_generation_baa3170_text_condition",
+    "apexoracle_zenodo_genome_embeddings",
+    "apexoracle_zenodo_text_descriptions",
 }
 
 

@@ -36,12 +36,43 @@
       "sha256": "4d04d68d23273d5e25d567114b5e47c026e9ccac16bcb758e6ae8e3bd2d94134",
       "repository_license": "MIT",
       "scope": "BAA-3170 compact guided-generation smoke condition"
+    },
+    {
+      "id": "apexoracle_zenodo_genome_embeddings",
+      "status": "released",
+      "provider": "zenodo",
+      "record_id": 15612048,
+      "doi": "10.5281/zenodo.15612048",
+      "concept_doi": "10.5281/zenodo.15612047",
+      "publication_date": "2025-06-06",
+      "record_title": "URGE precomputed embeddings",
+      "filename": "Genome_embs.tar.gz",
+      "size_bytes": 2713342423,
+      "md5": "5c8257c9ffcc10dabd6ea2ddc8031e04",
+      "sha256": "59e774945ced8e0b09fa6a11cd51c5f8e78253b2a0e73fa97f8b32e686be2a40",
+      "license": "CC-BY-4.0",
+      "scope": "paper-listed archive of precomputed genome embeddings"
+    },
+    {
+      "id": "apexoracle_zenodo_text_descriptions",
+      "status": "released",
+      "provider": "zenodo",
+      "record_id": 15612048,
+      "doi": "10.5281/zenodo.15612048",
+      "concept_doi": "10.5281/zenodo.15612047",
+      "publication_date": "2025-06-06",
+      "record_title": "URGE precomputed embeddings",
+      "filename": "Text_Description.tar.gz",
+      "size_bytes": 5735670263,
+      "md5": "bec2f58dc11b45bac7192b04d931f6e1",
+      "sha256": "cf642a03ec1e3b0dca1e046712500f453e0ea1d445ca84d0228f43e419a32008",
+      "license": "CC-BY-4.0",
+      "scope": "paper-listed archive of strain descriptions and precomputed text embeddings"
     }
   ],
   "pending": [
     "model-ready MIC tables and frozen splits",
-    "public strain mapping and descriptions",
-    "full genome and text embedding condition-bank redistribution",
+    "standalone public strain mapping for the paper cohort",
     "full paper guided-generation condition bank"
   ],
   "policy": "No data asset is bundled or claimed available until URI, revision, SHA-256, license, and redistribution status are recorded."

@@ -21,9 +21,11 @@
   empty-cache hashes plus a real 256-step H100 smoke.
 - The original `Synergy` repository was renamed in place to public `ApexOracle-Core`; its scientific release `v0.1.0`
   is `8c1def518ac148a878c14f4a39876db59649d43c`, and the current documentation-closure lock is
-  `3b6db2b70bb565cdb4df43e7ba4aafb6e52ca3cc`. Its 217-test local release gate, wheel/sdist, public-history audit,
+  `19493509d15c7fc8081fcac4b598bcf8e0705191`. Its 217-test local release gate, wheel/sdist, public-history audit,
   and fresh Hugging Face MIC inference have passed.
 - The root repository contains no model weights, embeddings, datasets, or raw experiment outputs after conversion.
+- The manuscript-listed Zenodo dataset record `15612048` is public under CC BY 4.0 and contains
+  `Genome_embs.tar.gz` plus `Text_Description.tar.gz`. It is an external data record, so no archive is copied into Git.
 
 ## Module gates
 
@@ -53,3 +55,7 @@ a new expanded source archive. It does not change scientific implementation, pub
 `eba6138903dada6806a212c287327999538196d8282678e6cc9a19b4337cd4f2`; two independent builds were byte-identical
 and `scripts/check_source_archive.py` passed. Exact version-to-commit distinctions are recorded in
 `docs/RELEASE_PROVENANCE.md`.
+
+Release `v0.2.2` corrects the erroneous Zenodo omission in `v0.2.1`, records the paper-listed embedding dataset DOI,
+and adds verified MD5/SHA-256 values for both Zenodo archives. This is a documentation/manifest correction only;
+scientific implementations, public model revisions, and protocols remain unchanged.

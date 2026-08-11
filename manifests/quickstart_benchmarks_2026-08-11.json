@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "measured_at": "2026-08-11",
+  "host": {
+    "os": "Linux 5.15.0-186-generic, glibc 2.35",
+    "cpu": "AMD EPYC 9534 64-Core Processor",
+    "physical_cores": 64,
+    "logical_cpus": 128,
+    "installed_ram_bytes": 810956595200,
+    "gpu": "NVIDIA H100 PCIe",
+    "gpu_total_memory_mib": 81559,
+    "gpu_driver": "580.173.02"
+  },
+  "software": {
+    "python": "3.12.7",
+    "pytorch": "2.6.0+cu126",
+    "cuda_runtime": "12.6"
+  },
+  "benchmarks": [
+    {
+      "id": "mic_cpu_quickstart",
+      "module_revision": "23be2738a10385ac216db9933f632276c0aa1452",
+      "asset_repository": "Kiria-Nozan/ApexOracle-Core",
+      "asset_revision": "459026cf4ae4e4e38ce5d2cae16ee3871d0a81df",
+      "download_from_empty_cache": {
+        "wall_time_seconds": 32.26,
+        "peak_rss_kib": 2205452
+      },
+      "computation": {
+        "device": "cpu",
+        "wall_time_seconds": 7.27,
+        "peak_rss_kib": 6053272,
+        "peak_rss_gib": 5.773
+      },
+      "result": {
+        "prediction_mic_um": 11.796319961547852,
+        "output_sha256": "ad1f0bfe3d77e4058971eeb46409b108449cbcfb74434a98856485c125370f5f"
+      },
+      "status": "passed"
+    },
+    {
+      "id": "generation_h100_quickstart",
+      "module_revision": "e97029b258df4056a3965d55098b067f45f32dec",
+      "asset_repository": "Kiria-Nozan/ApexOracle-Generation",
+      "asset_revision": "2fb1aa08187eaa359263be6c12c8a41868d8959c",
+      "download_from_empty_cache": {
+        "wall_time_seconds": 46.22,
+        "peak_rss_kib": 2853784
+      },
+      "computation": {
+        "device": "one NVIDIA H100 PCIe",
+        "protocol": "BAA-3170, one sample, 256 steps, target length 368",
+        "wall_time_seconds": 40.34,
+        "peak_rss_kib": 6070044,
+        "peak_rss_gib": 5.789,
+        "peak_gpu_memory_mib": 12281,
+        "gpu_sampling_interval_ms": 100
+      },
+      "result": {
+        "run_manifest_sha256": "3dc698836ac4983b37cab9de9675468f756cd122cf627f8c3151f3032757a51e"
+      },
+      "status": "passed"
+    }
+  ],
+  "interpretation": "Download and computation are reported separately. These are single fresh-run operational measurements on the stated host, not throughput guarantees."
+}

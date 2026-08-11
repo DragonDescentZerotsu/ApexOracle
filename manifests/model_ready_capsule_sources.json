@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "capsule_id": "apexoracle_model_ready_public_tables_v1",
+  "zenodo": {
+    "policy": "new_version_of_existing_record",
+    "concept_doi": "10.5281/zenodo.15612047",
+    "previous_version_doi": "10.5281/zenodo.21883954",
+    "new_version_record_id": 21891064,
+    "new_version_doi": "10.5281/zenodo.21891064"
+  },
+  "tables": [
+    {
+      "id": "mic_dbaasp_public_partition",
+      "source_relative_path": "DataPrepare/Data/DBAASP_inhouse_AMP_SELFIES_token_MIC_Evo.csv",
+      "source_size_bytes": 146626408,
+      "source_sha256": "ac1a1967d9e94e169ffc23621f7e78c644753659bd08f7a8e10bb63b574930b2",
+      "source_rows": 120955,
+      "output_relative_path": "tables/mic_dbaasp_model_ready.csv",
+      "partition_rule": "retain rows whose DBAASP_id is numeric",
+      "released_rows": 105237,
+      "excluded_private_rows": 15718,
+      "columns": ["DBAASP_id", "strain_name", "SMILES", "MIC"]
+    },
+    {
+      "id": "small_molecule_classification_model_ready",
+      "source_relative_path": "DataPrepare/Data/small_molecule/processed/small_molecule_Evo_binary_data_SELFIES.csv",
+      "source_size_bytes": 15433528,
+      "source_sha256": "d8e6391bfae3c35fe8d311461565df177fc75044cbc40204bf74f7ecf1fe7f27",
+      "source_rows": 49330,
+      "output_relative_path": "tables/small_molecule_classification_model_ready.csv",
+      "partition_rule": "release the frozen paper model-ready table",
+      "released_rows": 49330,
+      "columns": ["DBAASP_id", "strain_name", "SMILES", "MIC"]
+    },
+    {
+      "id": "synergy_model_ready",
+      "source_relative_path": "DataPrepare/Data/synergistic_pairs_Evo.csv",
+      "source_size_bytes": 2341310,
+      "source_sha256": "ff57e2152159be950a9823f5d94f24c0771b18465bd17cfd11d9d0318db393be",
+      "source_rows": 4285,
+      "output_relative_path": "tables/synergy_model_ready.csv",
+      "partition_rule": "release the frozen DBAASP-derived paper source table",
+      "released_rows": 4285,
+      "columns": ["DBAASP_id", "antibio_id_or_name", "strain_name", "AMP_smiles", "antibiotic_smiles", "FICI"]
+    }
+  ],
+  "compact_release_assets": [
+    {
+      "source_relative_path": "assets/manifests/paper_strain_mapping.json",
+      "output_relative_path": "manifests/paper_strain_mapping.json",
+      "size_bytes": 730151,
+      "sha256": "51db55feb85b991eae1e4ef02cf5e17e23624b4c1f0fcc5c9072d7df5448d8f4"
+    },
+    {
+      "source_relative_path": "experiments/evo2_genome_embeddings/paper_genome_list.csv",
+      "output_relative_path": "manifests/paper_genome_list.csv",
+      "size_bytes": 171749,
+      "sha256": "64323cab44a4a287b0b63e6e60bd7b0270557d5f0ce5715acb651aeb98b1f860"
+    },
+    {
+      "source_relative_path": "experiments/evo2_genome_embeddings/paper_genome_list_manifest.json",
+      "output_relative_path": "manifests/paper_genome_list_manifest.json",
+      "size_bytes": 1088,
+      "sha256": "084f8e1b4256b0a5183169e04353b9d6e4d55859a24814aaae848db1527d0d62"
+    }
+  ]
+}

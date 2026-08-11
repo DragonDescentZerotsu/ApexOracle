@@ -99,13 +99,40 @@ matched the released SHA-256. Internal `SHA256SUMS`, AUPRC/AUROC recomputation,
 exact fold membership, normalized schemas and the no-absolute-path check also
 passed. No prediction table is duplicated into Git.
 
+## Fixed MIC reconstruction capsule
+
+The post-paper fixed strain-wise reconstruction is assembled by:
+
+```bash
+python scripts/build_mic_reconstruction_capsule.py \
+  --source-root /path/to/fixed_strain_retrain \
+  --output /path/outside/git/apexoracle_fixed_mic_reconstruction_v1 \
+  --version-doi VERSION_DOI
+```
+
+The capsule contains all 21 normalized member prediction tables, their
+86,358-row ensemble, frozen metrics, the molecule-cluster bootstrap summary,
+the exact fixed membership, and a member registry. The included standard-library
+checker verifies every file hash, reconstructs each seven-member mean, and
+recomputes R², Spearman and Pearson values.
+
+This capsule is explicitly a **post-paper reconstruction** using the frozen
+`PYTHONHASHSEED=0` deterministic legacy-codepath candidate. It is not presented
+as the unrecovered membership used by the 2025 checkpoints. The normalized
+tables omit molecule structures, token sequences, exact MIC values, source-row
+identifiers, embeddings, checkpoints, optimizer state, and private source
+tables. They retain normalized labels, predictions, hashed molecule identity,
+strain IDs, condition route and a `MIC <= 16 µM` boolean so the reported
+metrics remain independently computable.
+
 ## Execution order
 
 1. **Completed:** release the exact classification fold/prediction capsule as
    Zenodo v2.0.0 and verify all AUPRC/AUROC values from freshly downloaded
    files.
-2. Publish the fixed strain-wise MIC reconstruction with an explicit
-   post-paper label and independently recompute the reported metrics.
+2. **In progress:** build and independently verify the fixed strain-wise MIC
+   reconstruction with an explicit post-paper label, then publish it in the
+   existing Zenodo version series.
 3. Audit species/phylum split lineage before adding their predictions.
 4. Replay the synergy checkpoint family to create sample-level predictions, or
    state that only fold-level metrics can currently be recomputed.

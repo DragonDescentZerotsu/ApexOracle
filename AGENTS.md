@@ -65,6 +65,14 @@
   `64323cab44a4a287b0b63e6e60bd7b0270557d5f0ce5715acb651aeb98b1f860`。清单仅包含保守来源标签、
   当前 filename-matched FASTA 身份、embedding hash 和任务使用标记，不含 sequence、tensor、assay label、
   molecule 或 private row；`current_fasta_*` 不得写成已证明的原始 producer input。
+- **2026-08-11 fixed MIC reconstruction capsule：** Canonical builder 为
+  `python scripts/build_mic_reconstruction_capsule.py --source-root PATH --output OUTSIDE_GIT --version-doi DOI`，
+  独立 standard-library checker 为 `scripts/recompute_mic_reconstruction_metrics.py CAPSULE_ROOT`。公开边界固定
+  为 2026 post-paper fixed-split reconstruction，不得写成未恢复的 2025 exact membership。Capsule 包含 3 groups ×
+  7 members、86,358-row ensemble、normalized labels/predictions、hashed molecule identity、strain ID、route、
+  `MIC <= 16 µM` boolean、frozen metrics/bootstrap、fixed membership 和 member registry；不得包含 molecule
+  structure/token、exact MIC、source row ID、embedding、checkpoint、optimizer state、private source table 或作者
+  绝对路径。每个 member 的 checkpoint hash 若历史 metadata 未记录，必须标为 `not_recorded`，禁止推断。
 - 完整 source archive canonical 入口为 `python scripts/build_source_archive.py --output PATH.tar.gz`；它只展开
   root `HEAD` 与 `manifests/modules.lock.yaml` 的五个固定 commits，输出 archive、JSON manifest 和 SHA-256。
   `--plan-only` 只核验 locks。归档不得包含 `.git`、checkpoint、embedding、dataset、cache 或 raw outputs。

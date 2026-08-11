@@ -11,7 +11,7 @@
 | Reviewer 1, reproducibility | Report compute requirements and runtimes. | Public requirements boundary added in `docs/COMPUTE_REQUIREMENTS.md`; exact wall time and peak RAM/VRAM still need fresh-run capture. | **OPEN** |
 | Reviewer 1, code; Reviewer 2 and Reviewer 3, code availability | The repository was incomplete and lacked Evo-2 extraction, Me-LLaMA extraction, fusion, MIC/classification/synergy heads, and guided generation. | Existing `DragonDescentZerotsu/ApexOracle` was converted in place into a super-repository that pins five public modules. The missing implementations now have public module entry points and immutable gitlinks. | **DONE** |
 | Reviewer 1; Reviewer 2 and Reviewer 3 | Provide click-and-run MIC prediction and guided-generation quickstarts. | Root `quickstarts/README.md` provides a CPU MIC inference example and a compact 256-step BAA-3170 generation smoke using immutable Hugging Face revisions and hashes. | **DONE** |
-| Reviewer 4, minor point 2 | Release the full training-set layout, processed tables, standardized strain mapping, small-molecule and synergy data, frozen splits, preprocessing, and strain-description texts. | Zenodo already releases the paper-listed genome embeddings and strain descriptions. The compact Core strain mapping is public at immutable commit `8751c80`. Model-ready MIC/activity/synergy tables and complete frozen split/prediction capsules remain to be released. | **OPEN (mapping done)** |
+| Reviewer 4, minor point 2 | Release the full training-set layout, processed tables, standardized strain mapping, small-molecule and synergy data, frozen splits, preprocessing, and strain-description texts. | Zenodo already releases the paper-listed genome embeddings and strain descriptions. The compact Core strain mapping is public at immutable commit `8751c80`. Exact classification folds and the post-paper fixed MIC reconstruction can be frozen; the original 2025 MIC/synergy membership was not fully recovered and must remain labeled as a deterministic candidate rather than an exact split. Source-partitioned model-ready tables and prediction capsules remain to be released. | **OPEN (mapping done)** |
 | Reviewer 4, data availability | Which strains were used for Evo-2, and where are strain traits? | The Evo-2 module now provides the extraction CLI; Zenodo record `15612048` contains genome embeddings and strain-description assets. A standalone paper-cohort genome/source list remains to be added to the data capsule. | **OPEN** |
 | Implied by “reproducing the main results” | Must every historical checkpoint be uploaded? | No. Representative inference-only weights support executable quickstarts. Paper-number reproduction will use frozen per-sample predictions, split membership, metric scripts, and a complete checkpoint registry. Raw optimizer-bearing checkpoints remain external. | **POLICY FIXED; CAPSULE OPEN** |
 
@@ -51,13 +51,20 @@ Do not yet say that a reader can regenerate every reported paper value solely
 from public assets. The remaining result-level release items are:
 
 1. model-ready public tables and their redistribution notes;
-2. complete paper split membership;
+2. exact recovered split membership plus explicitly labeled deterministic
+   candidates/reconstructions where the 2025 hash-dependent membership was not
+   recorded;
 3. frozen per-sample predictions for the reported ensembles;
 4. metric/figure recomputation commands and expected hashes;
 5. a complete checkpoint registry for all paper members, including role,
    group/fold/member, source hash, code commit, and prediction hash;
 6. measured wall time and peak RAM/VRAM for the two public quickstarts;
 7. a standalone Evo-2 paper-cohort genome/source manifest.
+
+The release tree is protected by an automated anti-bloat gate. Full model-ready
+tables and sample-level predictions will be archived once in the versioned
+paper-data record and referenced by hashes; they will not be duplicated across
+Git or module repositories.
 
 The complete historical training checkpoints are not a release gate. MIC alone
 uses 21 large source checkpoints, classification contains hundreds of members,
@@ -127,9 +134,13 @@ species, genome/text or text-only route, and embedding filenames. It contains
 1,766 unique source strain labels and 1,769 condition routes, corresponding to
 92,322 routed MIC records before token-length filtering, without exposing MIC
 labels, molecule structures, embedding tensors or private assay rows. The
-remaining model-ready tables, complete split membership, sample-level paper
-predictions, and the standalone Evo-2 genome/source list will be released in a
-versioned paper-data capsule and linked from the root asset manifest.
+remaining source-partitioned model-ready tables, exactly recovered
+classification folds, explicitly labeled deterministic MIC/synergy split
+candidates or reconstructions, sample-level paper predictions, and the
+standalone Evo-2 genome/source list will be released in a versioned paper-data
+capsule and linked from the root asset manifest. We explicitly distinguish
+recovered historical membership from post-paper deterministic reconstruction
+rather than representing the latter as the original 2025 split.
 
 > Before use: the final sentence must be converted to present tense and linked
 > to a stable DOI/revision, or retained explicitly as an unresolved action.
@@ -140,7 +151,8 @@ versioned paper-data capsule and linked from the root asset manifest.
 - [ ] Fresh generation quickstart: record GPU, wall time and peak VRAM.
 - [x] Publish and hash the compact strain mapping from Core.
 - [ ] Publish model-ready data allowed for redistribution.
-- [ ] Publish exact split membership and frozen paper predictions.
+- [ ] Publish exact recovered splits and clearly labeled deterministic
+      candidates/reconstructions with frozen predictions.
 - [ ] Add checkpoint registry and metric/figure recomputation README.
 - [ ] Publish the Evo-2 genome/source manifest.
 - [ ] Replace every future-tense promise above with a verified public link.

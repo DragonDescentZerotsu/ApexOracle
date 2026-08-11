@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "status": "in_preparation",
+  "storage": {
+    "payload": "one versioned external Zenodo paper-data capsule",
+    "git": "schemas, compact manifests, exporters, checksums, expected metrics, and download instructions only",
+    "prohibited_git_payloads": [
+      "full model-ready tables",
+      "sample-level prediction tables above the repository size policy",
+      "embeddings",
+      "checkpoints",
+      "optimizer state",
+      "raw generation attempts",
+      "caches"
+    ]
+  },
+  "model_ready_tables": [
+    {
+      "id": "mic_model_ready",
+      "source_relative_path": "DataPrepare/Data/DBAASP_inhouse_AMP_SELFIES_token_MIC_Evo.csv",
+      "source_size_bytes": 146626408,
+      "source_sha256": "ac1a1967d9e94e169ffc23621f7e78c644753659bd08f7a8e10bb63b574930b2",
+      "source_rows": 121265,
+      "status": "requires_public_private_partition_and_redistribution_audit",
+      "release_note": "The source combines DBAASP-derived and in-house rows; a public capsule must preserve provenance and must not silently publish private assay records."
+    },
+    {
+      "id": "small_molecule_classification_model_ready",
+      "source_relative_path": "DataPrepare/Data/small_molecule/processed/small_molecule_Evo_binary_data_SELFIES.csv",
+      "source_size_bytes": 15433528,
+      "source_sha256": "d8e6391bfae3c35fe8d311461565df177fc75044cbc40204bf74f7ecf1fe7f27",
+      "source_rows": 49330,
+      "status": "requires_source_by_source_redistribution_audit",
+      "release_note": "The deterministic preprocessing code is public; source-dataset terms must be recorded before redistributing the merged table."
+    },
+    {
+      "id": "synergy_model_ready",
+      "source_relative_path": "DataPrepare/Data/synergistic_pairs_Evo.csv",
+      "source_size_bytes": 2341310,
+      "source_sha256": "ff57e2152159be950a9823f5d94f24c0771b18465bd17cfd11d9d0318db393be",
+      "source_rows": 4285,
+      "eligible_rows_after_mapping": 2732,
+      "status": "requires_deterministic_eligible_table_export_and_redistribution_audit"
+    }
+  ],
+  "split_contracts": [
+    {
+      "id": "mic_strainwise_2025",
+      "status": "exact_membership_not_recovered",
+      "public_evidence": "modules/core/experiments/hierarchical_mic/strain/legacy_protocol_manifest.json",
+      "boundary": "The seed-0 membership is a deterministic legacy-codepath candidate. Archived per-fold counts are authoritative, but the candidate must not be described as the exact 2025 membership."
+    },
+    {
+      "id": "mic_strainwise_fixed_reconstruction_2026",
+      "status": "exact_postpaper_reconstruction_ready_for_capsule",
+      "public_evidence": "modules/core/experiments/hierarchical_mic/fixed_strain_retrain/task_manifest.json",
+      "boundary": "All 21 members and sample-level predictions are complete; this is explicitly a new fixed-split reconstruction, not the 2025 membership."
+    },
+    {
+      "id": "mic_specieswise_and_phylumwise",
+      "status": "lineage_audit_required_before_capsule",
+      "boundary": "Do not infer exact historical membership solely from current deterministic clustering code."
+    },
+    {
+      "id": "classification_fivefold",
+      "status": "exact_membership_ready_for_capsule",
+      "public_evidence": "modules/core/configs/antibiotic_classification/legacy_three_strain.yaml",
+      "boundary": "The target-strain folds use KFold(n_splits=5, shuffle=True, random_state=42); final sample-level OOF predictions are locally complete."
+    },
+    {
+      "id": "synergy_threefold_2025_candidate",
+      "status": "seed0_candidate_matches_archived_counts_not_exact_membership",
+      "public_evidence": "modules/core/experiments/synergy/legacy_split_seed0.json",
+      "boundary": "The old logs did not record PYTHONHASHSEED. The seed-0 split matches every archived row count but is not proven to be the exact membership used by the three 2025 processes."
+    }
+  ],
+  "prediction_candidates": [
+    {
+      "id": "mic_fixed_strain_reconstruction_ensemble",
+      "relative_path": "experiments/hierarchical_mic/fixed_strain_retrain/analysis/ensemble_predictions.csv",
+      "size_bytes": 18496228,
+      "sha256": "80f368923d365fb379e049a1bf083773115a2b38cb0e0620a1c58b3e75a8752a",
+      "rows": 86358,
+      "status": "local_complete_external_capsule_only"
+    },
+    {
+      "id": "mic_phylum_ensemble",
+      "relative_path": "experiments/hierarchical_mic/molecule_disjoint/phylum_analysis/ensemble_predictions.csv",
+      "size_bytes": 18820049,
+      "sha256": "2b3ca029bf0c966c30b7fcfd4dd536b3d206e162ac7c5f8c11b5d227de2358c8",
+      "rows": 85824,
+      "status": "local_complete_split_lineage_audit_required"
+    },
+    {
+      "id": "classification_strict_zero_shot",
+      "files": [
+        {"group": 0, "size_bytes": 116141, "rows": 2335, "sha256": "16f86c78d7391559e493fe49650f4382d2b6c3d20efa6cb8ac859607b1005ffe"},
+        {"group": 1, "size_bytes": 390968, "rows": 7684, "sha256": "af1077175e80aa6668efcd9924e5d1dd8e504244eaa4ed1ab2034683e0e2e07a"},
+        {"group": 2, "size_bytes": 2941321, "rows": 39311, "sha256": "1d2cc020a96aa5828093532d161fc08e67c4af15d2233b15e90ed1210d33b130"}
+      ],
+      "status": "local_complete_external_capsule_only"
+    },
+    {
+      "id": "classification_finetuned_10member_oof",
+      "files": [
+        {"group": 0, "size_bytes": 65601, "rows": 2334, "sha256": "ddf9a5edf4ffd8ef05fc4bd46c6c56906fb544f639402581086bd3d1e01873c9"},
+        {"group": 1, "size_bytes": 223789, "rows": 7684, "sha256": "d3b9b4dc0b2ae1fb919bb561208d0d704c52b3460521a9dd2062e3e7cbc12d04"},
+        {"group": 2, "size_bytes": 1140713, "rows": 39310, "sha256": "ec6988a42fb377dadb6c0dfd62eaf7c1571991538a58453c5148fa1a3eb91940"}
+      ],
+      "status": "local_complete_external_capsule_only"
+    },
+    {
+      "id": "classification_chemprop_10member_oof",
+      "files": [
+        {"group": 0, "size_bytes": 224792, "rows": 2334, "sha256": "366e37f38e31afbed46a8afd060a84eef4f7acfcdb034223f878afd47bde2fb5"},
+        {"group": 1, "size_bytes": 826206, "rows": 7684, "sha256": "be875482324a059ebf12d497f631a79bc2c98907c296f01f510f2741450d6543"},
+        {"group": 2, "size_bytes": 5099058, "rows": 39310, "sha256": "3e9afc6bf6218f53f217dacfcd894cbfb9b5291ca4c7a397bc9d54f410d450b0"}
+      ],
+      "status": "local_complete_external_capsule_only"
+    },
+    {
+      "id": "synergy_sample_predictions",
+      "status": "missing_requires_deterministic_checkpoint_replay",
+      "boundary": "Only fold-level archived metrics and a high-confidence checkpoint family are currently frozen; do not claim sample-level paper-result recomputation."
+    }
+  ],
+  "release_gates": [
+    "public/private and source-license partition for each model-ready table",
+    "explicit historical-versus-reconstruction labels for every split",
+    "sample identifiers and schema validation",
+    "independent metric recomputation from every prediction file",
+    "per-file size and SHA-256 manifest",
+    "no absolute author-machine paths in the public capsule",
+    "one external copy only; no payload duplication in Git or submodules"
+  ]
+}

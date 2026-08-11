@@ -32,7 +32,18 @@
   `assets/upenn.png` 两个视觉资产；其他 root binary/data 文件仍由 `python scripts/check_release_tree.py`
   拒绝，不能借 README 美化放宽发布边界。
 - 发布前运行 `python scripts/check_release_tree.py`、`python scripts/check_module_locks.py` 和
-  `python -m pytest -q`；三个入口均通过后才允许更新默认分支。
+  `python scripts/check_repository_bloat.py`、`python -m pytest -q`；四个入口均通过后才允许更新默认分支。
+- Repository anti-bloat policy 固定在 `manifests/repository_size_policy.json`，解释与当前基线见
+  `docs/REPOSITORY_HYGIENE.md`。任何新 tracked file 默认不得超过 1 MiB；只有精确路径、窄 size cap 和
+  明确科学理由的 allowlist 才允许例外。六棵 active trees 中任意 >=20 KiB exact duplicate、checkpoint/cache
+  suffix、generated cache/build path、repo file-count/total-byte 超限都会使 CI 失败。Paper model-ready tables、
+  sample predictions、embeddings 和 checkpoints 必须外置到 Zenodo/Hugging Face，Git 只保留 compact manifest、
+  exporter、split IDs、hash 和 recomputation code。
+- Paper-data capsule 的 machine-readable staging ledger 固定为 `manifests/paper_data_capsule_plan.json`，解释见
+  `docs/PAPER_DATA_CAPSULE_PLAN.md`。Classification `random_state=42` folds 与 2026 fixed MIC reconstruction 可作为
+  exact frozen assets；2025 strain-wise MIC membership 未恢复，synergy seed-0 仅与 archived counts 一致，二者
+  不得写成 exact historical split。任何 model-ready table 必须先按 source/private-public status 分区并完成
+  redistribution record，再进入唯一一份外部 Zenodo capsule；不得复制到 Core 或 root Git。
 - 完整 source archive canonical 入口为 `python scripts/build_source_archive.py --output PATH.tar.gz`；它只展开
   root `HEAD` 与 `manifests/modules.lock.yaml` 的五个固定 commits，输出 archive、JSON manifest 和 SHA-256。
   `--plan-only` 只核验 locks。归档不得包含 `.git`、checkpoint、embedding、dataset、cache 或 raw outputs。

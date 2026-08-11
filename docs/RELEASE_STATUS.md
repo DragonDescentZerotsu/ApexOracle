@@ -31,6 +31,12 @@
   labels, molecule structures, embedding tensors or private assay rows.
 - The manuscript-listed Zenodo dataset record `15612048` is public under CC BY 4.0 and contains
   `Genome_embs.tar.gz` plus `Text_Description.tar.gz`. It is an external data record, so no archive is copied into Git.
+- The six active trees now have a CI-enforced anti-bloat policy: exact duplicates at or above 20 KiB, unallowlisted
+  files above 1 MiB, checkpoint/cache suffixes, generated build/cache paths and per-repository count/byte-limit
+  violations fail `scripts/check_repository_bloat.py`. The current audit found no >=20 KiB exact duplicates.
+- `manifests/paper_data_capsule_plan.json` distinguishes exact classification folds, the exact 2026 fixed MIC
+  reconstruction, unrecovered 2025 MIC membership, and the count-matched but unproven synergy seed-0 candidate.
+  Full tables and predictions remain external-capsule assets rather than Git payloads.
 
 ## Module gates
 

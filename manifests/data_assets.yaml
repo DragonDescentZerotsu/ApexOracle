@@ -84,7 +84,8 @@
     }
   ],
   "pending": [
-    "model-ready MIC tables and frozen splits",
+    "source-partitioned model-ready tables with redistribution records",
+    "exact classification folds and explicitly labeled MIC reconstruction splits",
     "frozen sample-level paper predictions and metric-recomputation capsule",
     "standalone Evo-2 paper-cohort genome/source manifest",
     "full paper guided-generation condition bank"

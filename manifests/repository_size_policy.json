@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "default_max_file_bytes": 1048576,
+  "duplicate_scan_min_bytes": 20480,
+  "forbidden_suffixes": [
+    ".arrow",
+    ".bin",
+    ".ckpt",
+    ".pt",
+    ".pth",
+    ".safetensors"
+  ],
+  "forbidden_path_parts": [
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    "__pycache__",
+    "build",
+    "dist",
+    "wandb"
+  ],
+  "repositories": {
+    "root": {
+      "path": ".",
+      "max_file_count": 60,
+      "max_total_bytes": 3145728
+    },
+    "core": {
+      "path": "modules/core",
+      "max_file_count": 500,
+      "max_total_bytes": 16777216
+    },
+    "dlm_pretraining": {
+      "path": "modules/dlm_pretrain",
+      "max_file_count": 100,
+      "max_total_bytes": 1048576
+    },
+    "mdlm": {
+      "path": "modules/mdlm",
+      "max_file_count": 275,
+      "max_total_bytes": 4194304
+    },
+    "evo2": {
+      "path": "modules/evo2",
+      "max_file_count": 100,
+      "max_total_bytes": 52428800
+    },
+    "generation": {
+      "path": "modules/generation",
+      "max_file_count": 160,
+      "max_total_bytes": 2097152
+    }
+  },
+  "large_file_allowlist": {
+    "root/assets/ApexOracle_1.png": {
+      "max_bytes": 1700000,
+      "reason": "legacy-hash-fixed README banner"
+    },
+    "core/experiments/peplink_validation/peplink_0.1.2/roundtrip_records.csv": {
+      "max_bytes": 4700000,
+      "reason": "reviewer-facing record-level PepLink round-trip validation"
+    },
+    "evo2/notebooks/brca1/41586_2018_461_MOESM3_ESM.xlsx": {
+      "max_bytes": 2300000,
+      "reason": "unchanged upstream Evo-2 notebook asset"
+    },
+    "evo2/notebooks/brca1/GRCh37.p13_chr17.fna.gz": {
+      "max_bytes": 23200000,
+      "reason": "unchanged upstream Evo-2 notebook reference"
+    },
+    "evo2/notebooks/exon_classifier/samplePositions.tsv": {
+      "max_bytes": 2050000,
+      "reason": "unchanged upstream Evo-2 notebook asset"
+    },
+    "evo2/notebooks/sparse_autoencoder/NC_000913.gb": {
+      "max_bytes": 12100000,
+      "reason": "unchanged upstream Evo-2 notebook reference"
+    },
+    "evo2/phage_gen/data/all_generated_phages.fasta": {
+      "max_bytes": 1700000,
+      "reason": "unchanged upstream Evo-2 example data"
+    },
+    "evo2/phage_gen/data/nonviable_generated_phage_genomes.fasta": {
+      "max_bytes": 1650000,
+      "reason": "unchanged upstream Evo-2 example data"
+    }
+  }
+}

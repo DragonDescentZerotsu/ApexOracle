@@ -130,7 +130,10 @@ The release distinguishes runnable inference from recomputation of paper numbers
 weights power the public quickstarts; the planned paper-results capsule uses frozen sample-level predictions, splits,
 checkpoint provenance, and metric scripts instead of requiring every optimizer-bearing historical checkpoint. See
 the [reproducibility scope](docs/REPRODUCIBILITY_SCOPE.md) and
-[compute requirements](docs/COMPUTE_REQUIREMENTS.md).
+[compute requirements](docs/COMPUTE_REQUIREMENTS.md). The external
+[paper-data capsule plan](docs/PAPER_DATA_CAPSULE_PLAN.md) records which splits are exact, reconstructed, or still
+unrecovered; the [repository hygiene policy](docs/REPOSITORY_HYGIENE.md) prevents those assets from being duplicated
+into Git.
 
 > [!IMPORTANT]
 > The public MIC quickstart demonstrates one inference member. The paper metrics use the frozen seven-member

@@ -59,3 +59,6 @@ and `scripts/check_source_archive.py` passed. Exact version-to-commit distinctio
 Release `v0.2.2` corrects the erroneous Zenodo omission in `v0.2.1`, records the paper-listed embedding dataset DOI,
 and adds verified MD5/SHA-256 values for both Zenodo archives. This is a documentation/manifest correction only;
 scientific implementations, public model revisions, and protocols remain unchanged.
+The attached expanded source archive contains 933 files and is 36,561,986 bytes; two independent builds were
+byte-identical, archive validation passed, and its SHA-256 is
+`4123c4c65ec60a1282ffe913fccb479db549b317aedbede317a9532096a86235`.

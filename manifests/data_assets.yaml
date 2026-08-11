@@ -86,10 +86,10 @@
   "pending": [
     "source-partitioned model-ready tables with redistribution records",
     "exact classification folds and explicitly labeled MIC reconstruction splits",
-    "frozen sample-level paper predictions and metric-recomputation capsule",
+    "frozen sample-level paper predictions and metric-recomputation payload in a new version of existing Zenodo concept DOI 10.5281/zenodo.15612047",
     "standalone Evo-2 paper-cohort genome/source manifest",
     "full paper guided-generation condition bank"
   ],
-  "policy": "No data asset is bundled or claimed available until URI, revision, SHA-256, license, and redistribution status are recorded.",
+  "policy": "No data asset is bundled or claimed available until URI, revision, SHA-256, license, and redistribution status are recorded. Paper-data additions use new versions of the existing Zenodo concept DOI 10.5281/zenodo.15612047 rather than a second independent Zenodo project.",
   "reproducibility_scope": "Representative inference assets support executable quickstarts; frozen predictions, splits, and metric scripts support paper-result recomputation without requiring every historical checkpoint."
 }

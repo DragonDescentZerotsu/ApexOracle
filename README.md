@@ -127,8 +127,10 @@ Immutable revisions, file sizes, checksums, licenses, and release scope are reco
 outputs are not stored as Git objects.
 
 The release distinguishes runnable inference from recomputation of paper numbers. Representative inference-only
-weights power the public quickstarts; the planned paper-results capsule uses frozen sample-level predictions, splits,
-checkpoint provenance, and metric scripts instead of requiring every optimizer-bearing historical checkpoint. See
+weights power the public quickstarts; the paper-results payload uses frozen sample-level predictions, splits,
+checkpoint provenance, and metric scripts instead of requiring every optimizer-bearing historical checkpoint. It
+will be added as a new version under the existing Zenodo concept DOI `10.5281/zenodo.15612047`, not as a separate
+Zenodo project; the classification portion is verified locally but is not public yet. See
 the [reproducibility scope](docs/REPRODUCIBILITY_SCOPE.md) and
 [compute requirements](docs/COMPUTE_REQUIREMENTS.md). The external
 [paper-data capsule plan](docs/PAPER_DATA_CAPSULE_PLAN.md) records which splits are exact, reconstructed, or still

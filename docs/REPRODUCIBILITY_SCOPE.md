@@ -40,8 +40,9 @@ full retraining reproduction.
 
 - GitHub: source, manifests, quickstarts and recomputation scripts;
 - Hugging Face: runnable inference-only model assets;
-- Zenodo: versioned paper-data and prediction capsules suitable for DOI-based
-  archival;
+- Zenodo: one version series under the existing ApexOracle concept DOI
+  `10.5281/zenodo.15612047`, containing embedding data plus progressively added
+  paper-data and prediction payloads suitable for DOI-based archival;
 - retained author archive: full historical training checkpoints and raw runs.
 
 No weight or dataset should be described as public until its immutable URI,

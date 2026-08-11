@@ -42,7 +42,13 @@ private assay rows must not be exposed merely because they were present in an
 author workstation table. The small-molecule merge and synergy source likewise
 need source-specific redistribution records.
 
-The release unit will be one Zenodo capsule:
+The release unit will be a new version of the existing ApexOracle Zenodo
+record, not a second independent Zenodo project. The stable concept DOI is
+`10.5281/zenodo.15612047`; the paper-listed first version remains immutable at
+`10.5281/zenodo.15612048`. Each substantial file update receives a new version
+DOI while staying linked under that one concept DOI.
+
+The added paper-data payload uses this layout:
 
 ```text
 paper-data/
@@ -61,10 +67,42 @@ to the external record. In particular, the 18–19 MB MIC prediction tables and
 multi-megabyte classification outputs must not be copied into Core and then
 again into the super-repository.
 
+## Classification capsule staging
+
+The classification payload is assembled by:
+
+```bash
+python scripts/build_classification_capsule.py \
+  --source-root /path/to/preserved/core-workspace \
+  --output /path/outside/git/apexoracle_fig1b_classification_reproduction_v1
+```
+
+The builder validates every source file against
+`manifests/classification_capsule_sources.json`, emits exact eligible split
+membership and nine normalized prediction tables, removes unnecessary SMILES
+and workspace-only columns, and independently recomputes all pooled and
+fold-mean AUPRC/AUROC values. The included checker uses only the Python standard
+library. Archives use fixed file modes, timestamps and root names; two clean
+builds must be byte-identical.
+
+Current local staging is complete but is not yet a public asset:
+
+- archive size: 1,317,922 bytes;
+- SHA-256: `5723656282d641f4bce8bfa3f4500318b2b6fe0573bc187ba3ed7a7240280735`;
+- stable target: the existing Zenodo concept DOI above;
+- remaining action: create a new version draft, reserve its version DOI,
+  rebuild with `--new-version-doi`, upload, download into an empty directory,
+  and re-run `SHA256SUMS` plus the metric checker.
+
+The archive hash above is the reproducible pre-upload build with the version
+DOI explicitly marked `pending_until_published`; it must be replaced in the
+public asset manifest after the version DOI is reserved.
+
 ## Execution order
 
-1. Publish the exact classification fold/prediction capsule and verify all
-   AUPRC/AUROC values from downloaded files.
+1. Add the prepared exact classification fold/prediction capsule as a new
+   version of the existing Zenodo record and verify all AUPRC/AUROC values from
+   freshly downloaded files.
 2. Publish the fixed strain-wise MIC reconstruction with an explicit
    post-paper label and independently recompute the reported metrics.
 3. Audit species/phylum split lineage before adding their predictions.

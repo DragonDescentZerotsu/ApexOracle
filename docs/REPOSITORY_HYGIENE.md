@@ -63,9 +63,11 @@ The following remain external even when public:
 - inference and training checkpoints;
 - optimizer state, W&B data, raw generation attempts and caches.
 
-The intended archival layout is a single versioned Zenodo capsule with
-`tables/`, `splits/`, `predictions/`, `manifests/` and a README. The Git manifest
-records the DOI/revision and per-file hashes; it does not mirror the payload.
+The intended archival layout is one version series under the existing Zenodo
+concept DOI `10.5281/zenodo.15612047`, with `tables/`, `splits/`,
+`predictions/`, `manifests/` and a README. This is not a second Zenodo project.
+The Git manifest records the concept DOI, exact version DOI and per-file hashes;
+it does not mirror the payload.
 
 ## Working-tree rules
 

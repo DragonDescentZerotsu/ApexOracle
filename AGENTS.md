@@ -44,6 +44,15 @@
   exact frozen assets；2025 strain-wise MIC membership 未恢复，synergy seed-0 仅与 archived counts 一致，二者
   不得写成 exact historical split。任何 model-ready table 必须先按 source/private-public status 分区并完成
   redistribution record，再进入唯一一份外部 Zenodo capsule；不得复制到 Core 或 root Git。
+- **2026-08-11 classification capsule staging：** 不新建第二个 Zenodo 项目；所有 paper-data 补充均作为现有
+  concept DOI `10.5281/zenodo.15612047`（首个 version DOI `10.5281/zenodo.15612048`）的新版本发布。
+  Canonical builder 为 `python scripts/build_classification_capsule.py --source-root PATH --output OUTSIDE_GIT`，
+  source ledger 为 `manifests/classification_capsule_sources.json`，独立指标入口为
+  `scripts/recompute_classification_metrics.py`。当前 pre-upload archive 为 1,317,922 bytes、SHA-256
+  `5723656282d641f4bce8bfa3f4500318b2b6fe0573bc187ba3ed7a7240280735`；三个 exact eligible folds、九份
+  normalized predictions、common-cohort AUPRC/AUROC、无绝对路径和两次 byte-identical build 已通过。
+  该资产仍是本地 staging，不得写成已公开；record owner 建立 new-version draft 并 reserve version DOI 后，
+  必须用 `--new-version-doi` 重建，再做 fresh-download SHA256SUMS/metric audit，最后才更新 README/data manifest。
 - 完整 source archive canonical 入口为 `python scripts/build_source_archive.py --output PATH.tar.gz`；它只展开
   root `HEAD` 与 `manifests/modules.lock.yaml` 的五个固定 commits，输出 archive、JSON manifest 和 SHA-256。
   `--plan-only` 只核验 locks。归档不得包含 `.git`、checkpoint、embedding、dataset、cache 或 raw outputs。

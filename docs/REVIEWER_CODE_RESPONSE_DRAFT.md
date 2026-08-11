@@ -11,7 +11,7 @@
 | Reviewer 1, reproducibility | Report compute requirements and runtimes. | Public requirements boundary added in `docs/COMPUTE_REQUIREMENTS.md`; exact wall time and peak RAM/VRAM still need fresh-run capture. | **OPEN** |
 | Reviewer 1, code; Reviewer 2 and Reviewer 3, code availability | The repository was incomplete and lacked Evo-2 extraction, Me-LLaMA extraction, fusion, MIC/classification/synergy heads, and guided generation. | Existing `DragonDescentZerotsu/ApexOracle` was converted in place into a super-repository that pins five public modules. The missing implementations now have public module entry points and immutable gitlinks. | **DONE** |
 | Reviewer 1; Reviewer 2 and Reviewer 3 | Provide click-and-run MIC prediction and guided-generation quickstarts. | Root `quickstarts/README.md` provides a CPU MIC inference example and a compact 256-step BAA-3170 generation smoke using immutable Hugging Face revisions and hashes. | **DONE** |
-| Reviewer 4, minor point 2 | Release the full training-set layout, processed tables, standardized strain mapping, small-molecule and synergy data, frozen splits, preprocessing, and strain-description texts. | Zenodo already releases the paper-listed genome embeddings and strain descriptions. The compact Core strain mapping is public at immutable commit `8751c80`. Exact classification folds and the post-paper fixed MIC reconstruction can be frozen; the original 2025 MIC/synergy membership was not fully recovered and must remain labeled as a deterministic candidate rather than an exact split. Source-partitioned model-ready tables and prediction capsules remain to be released. | **OPEN (mapping done)** |
+| Reviewer 4, minor point 2 | Release the full training-set layout, processed tables, standardized strain mapping, small-molecule and synergy data, frozen splits, preprocessing, and strain-description texts. | Zenodo already releases the paper-listed genome embeddings and strain descriptions. The compact Core strain mapping is public at immutable commit `8751c80`. The exact classification folds and nine normalized prediction tables now pass a deterministic external-capsule build and metric audit; they are staged for a new version of the same Zenodo concept record, but are not public yet. The post-paper fixed MIC reconstruction can also be frozen; the original 2025 MIC/synergy membership was not fully recovered and must remain labeled as a deterministic candidate rather than an exact split. Source-partitioned model-ready tables remain to be released. | **OPEN (mapping public; classification staged)** |
 | Reviewer 4, data availability | Which strains were used for Evo-2, and where are strain traits? | The Evo-2 module now provides the extraction CLI; Zenodo record `15612048` contains genome embeddings and strain-description assets. A standalone paper-cohort genome/source list remains to be added to the data capsule. | **OPEN** |
 | Implied by “reproducing the main results” | Must every historical checkpoint be uploaded? | No. Representative inference-only weights support executable quickstarts. Paper-number reproduction will use frozen per-sample predictions, split membership, metric scripts, and a complete checkpoint registry. Raw optimizer-bearing checkpoints remain external. | **POLICY FIXED; CAPSULE OPEN** |
 
@@ -62,9 +62,12 @@ from public assets. The remaining result-level release items are:
 7. a standalone Evo-2 paper-cohort genome/source manifest.
 
 The release tree is protected by an automated anti-bloat gate. Full model-ready
-tables and sample-level predictions will be archived once in the versioned
-paper-data record and referenced by hashes; they will not be duplicated across
-Git or module repositories.
+tables and sample-level predictions will be archived once in a new version of
+the existing Zenodo concept record and referenced by hashes; they will not be
+duplicated across Git or module repositories. The classification payload is
+already locally staged and verified, but this draft must continue to call it
+unreleased until the new Zenodo version is public and passes a fresh-download
+audit.
 
 The complete historical training checkpoints are not a release gate. MIC alone
 uses 21 large source checkpoints, classification contains hundreds of members,
@@ -150,6 +153,9 @@ rather than representing the latter as the original 2025 split.
 - [ ] Fresh MIC quickstart: record platform, command, wall time and peak RAM.
 - [ ] Fresh generation quickstart: record GPU, wall time and peak VRAM.
 - [x] Publish and hash the compact strain mapping from Core.
+- [x] Build and independently verify the exact classification capsule locally.
+- [ ] Add the classification capsule to a new version of existing Zenodo
+      concept DOI `10.5281/zenodo.15612047` and verify a fresh download.
 - [ ] Publish model-ready data allowed for redistribution.
 - [ ] Publish exact recovered splits and clearly labeled deterministic
       candidates/reconstructions with frozen predictions.

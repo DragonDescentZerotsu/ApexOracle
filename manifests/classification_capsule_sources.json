@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "capsule_id": "apexoracle_fig1b_classification_reproduction_v1",
+  "zenodo": {
+    "policy": "new_version_of_existing_record",
+    "existing_record_id": 15612048,
+    "existing_version_doi": "10.5281/zenodo.15612048",
+    "concept_doi": "10.5281/zenodo.15612047",
+    "new_version_doi": "pending_until_published"
+  },
+  "source_root_contract": "A checkout or preserved experiment workspace containing the listed source_relative_path values",
+  "groups": [
+    {
+      "group": 0,
+      "target": "Escherichia coli BW25113 (#004)",
+      "eligible_rows": 2335,
+      "common_comparison_rows": 2334,
+      "sources": {
+        "apexoracle_strict_zero_shot": {
+          "source_relative_path": "results/fig1b_revision/apexoracle_strict_zero_shot/antibiotic_classification_strict-zero-shot_group_0.csv",
+          "size_bytes": 116141,
+          "sha256": "16f86c78d7391559e493fe49650f4382d2b6c3d20efa6cb8ac859607b1005ffe",
+          "rows": 2335
+        },
+        "apexoracle_finetuned_10member": {
+          "source_relative_path": "results/fig1b_revision/apexoracle_fine_tune_10member/group_0/oof_predictions_all_eligible.csv",
+          "size_bytes": 65631,
+          "sha256": "e3dc1d7de4f260c10bf4baa4e324e10b5e8c8abb2eb6dd0bc97f70a889a4abf6",
+          "rows": 2335,
+          "published_common_cohort_sha256": "ddf9a5edf4ffd8ef05fc4bd46c6c56906fb544f639402581086bd3d1e01873c9"
+        },
+        "chemprop_10member": {
+          "source_relative_path": "results/fig1b_revision/baselines_full_ensemble_no_rdkit/group_0/oof_predictions.csv",
+          "size_bytes": 224792,
+          "sha256": "366e37f38e31afbed46a8afd060a84eef4f7acfcdb034223f878afd47bde2fb5",
+          "rows": 2334
+        }
+      },
+      "expected_common_metrics": {
+        "apexoracle_strict_zero_shot": {
+          "pooled_auprc": 0.5873762941193174,
+          "pooled_auroc": 0.9350158084914183,
+          "fold_mean_auprc": 0.5853667182978982,
+          "fold_mean_auroc": 0.9398191260429671
+        },
+        "apexoracle_finetuned_10member": {
+          "pooled_auprc": 0.690453038394082,
+          "pooled_auroc": 0.9555950767841012,
+          "fold_mean_auprc": 0.7120549699259378,
+          "fold_mean_auroc": 0.958844870458097
+        },
+        "chemprop_10member": {
+          "pooled_auprc": 0.5437782866581662,
+          "pooled_auroc": 0.8707429990966576,
+          "fold_mean_auprc": 0.5453534158171818,
+          "fold_mean_auroc": 0.8593249411289093
+        }
+      }
+    },
+    {
+      "group": 1,
+      "target": "Acinetobacter baumannii ATCC 17978",
+      "eligible_rows": 7684,
+      "common_comparison_rows": 7684,
+      "sources": {
+        "apexoracle_strict_zero_shot": {
+          "source_relative_path": "results/fig1b_revision/apexoracle_strict_zero_shot/antibiotic_classification_strict-zero-shot_group_1.csv",
+          "size_bytes": 390968,
+          "sha256": "af1077175e80aa6668efcd9924e5d1dd8e504244eaa4ed1ab2034683e0e2e07a",
+          "rows": 7684
+        },
+        "apexoracle_finetuned_10member": {
+          "source_relative_path": "results/fig1b_revision/apexoracle_fine_tune_10member/group_1/oof_predictions.csv",
+          "size_bytes": 223789,
+          "sha256": "d3b9b4dc0b2ae1fb919bb561208d0d704c52b3460521a9dd2062e3e7cbc12d04",
+          "rows": 7684,
+          "published_common_cohort_sha256": "d3b9b4dc0b2ae1fb919bb561208d0d704c52b3460521a9dd2062e3e7cbc12d04"
+        },
+        "chemprop_10member": {
+          "source_relative_path": "results/fig1b_revision/baselines_full_ensemble_no_rdkit/group_1/oof_predictions.csv",
+          "size_bytes": 826206,
+          "sha256": "be875482324a059ebf12d497f631a79bc2c98907c296f01f510f2741450d6543",
+          "rows": 7684
+        }
+      },
+      "expected_common_metrics": {
+        "apexoracle_strict_zero_shot": {
+          "pooled_auprc": 0.3209834613059983,
+          "pooled_auroc": 0.7240810949935221,
+          "fold_mean_auprc": 0.3251473658231995,
+          "fold_mean_auroc": 0.7239069725000915
+        },
+        "apexoracle_finetuned_10member": {
+          "pooled_auprc": 0.4163608036720981,
+          "pooled_auroc": 0.8173199495650564,
+          "fold_mean_auprc": 0.4343605652272541,
+          "fold_mean_auroc": 0.821999208253595
+        },
+        "chemprop_10member": {
+          "pooled_auprc": 0.29221397687027806,
+          "pooled_auroc": 0.7728770474736257,
+          "fold_mean_auprc": 0.3035495405640783,
+          "fold_mean_auroc": 0.7758916736782926
+        }
+      }
+    },
+    {
+      "group": 2,
+      "target": "Staphylococcus aureus RN4220",
+      "eligible_rows": 39311,
+      "common_comparison_rows": 39310,
+      "sources": {
+        "apexoracle_strict_zero_shot": {
+          "source_relative_path": "results/fig1b_revision/apexoracle_strict_zero_shot/antibiotic_classification_strict-zero-shot_group_2.csv",
+          "size_bytes": 2941321,
+          "sha256": "1d2cc020a96aa5828093532d161fc08e67c4af15d2233b15e90ed1210d33b130",
+          "rows": 39311
+        },
+        "apexoracle_finetuned_10member": {
+          "source_relative_path": "results/fig1b_revision/apexoracle_fine_tune_10member/group_2/oof_predictions_all_eligible.csv",
+          "size_bytes": 1140742,
+          "sha256": "f11a86f1c41749b98c2f81809e0fae2667db50f6287ecc86628db1f19c036fd6",
+          "rows": 39311,
+          "published_common_cohort_sha256": "ec6988a42fb377dadb6c0dfd62eaf7c1571991538a58453c5148fa1a3eb91940"
+        },
+        "chemprop_10member": {
+          "source_relative_path": "results/fig1b_revision/baselines_full_ensemble_no_rdkit/group_2/oof_predictions.csv",
+          "size_bytes": 5099058,
+          "sha256": "3e9afc6bf6218f53f217dacfcd894cbfb9b5291ca4c7a397bc9d54f410d450b0",
+          "rows": 39310
+        }
+      },
+      "expected_common_metrics": {
+        "apexoracle_strict_zero_shot": {
+          "pooled_auprc": 0.16561716641003135,
+          "pooled_auroc": 0.7674049524137843,
+          "fold_mean_auprc": 0.16630366420857373,
+          "fold_mean_auroc": 0.7667588663988347
+        },
+        "apexoracle_finetuned_10member": {
+          "pooled_auprc": 0.3944239152363174,
+          "pooled_auroc": 0.9468909882597041,
+          "fold_mean_auprc": 0.4012683278703581,
+          "fold_mean_auroc": 0.9530901978974116
+        },
+        "chemprop_10member": {
+          "pooled_auprc": 0.3345853447413296,
+          "pooled_auroc": 0.8987737266579463,
+          "fold_mean_auprc": 0.36616322654213035,
+          "fold_mean_auroc": 0.9433738465806754
+        }
+      }
+    }
+  ],
+  "normalization": {
+    "prediction_columns": [
+      "molecule_id",
+      "label",
+      "prediction",
+      "group",
+      "fold"
+    ],
+    "removed_columns": [
+      "smiles",
+      "target_strain",
+      "mode",
+      "model"
+    ],
+    "split_columns": [
+      "molecule_id",
+      "label",
+      "group",
+      "fold"
+    ],
+    "note": "SMILES and other model-ready features are deliberately excluded; this capsule releases IDs, labels, fixed folds, and predictions only."
+  }
+}

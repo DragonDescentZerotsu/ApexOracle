@@ -2,7 +2,10 @@
   "schema_version": 1,
   "status": "in_preparation",
   "storage": {
-    "payload": "one versioned external Zenodo paper-data capsule",
+    "payload": "one version series under the existing ApexOracle Zenodo concept record",
+    "zenodo_concept_doi": "10.5281/zenodo.15612047",
+    "existing_version_doi": "10.5281/zenodo.15612048",
+    "record_policy": "create a new version of the existing record; do not create a second independent Zenodo project",
     "git": "schemas, compact manifests, exporters, checksums, expected metrics, and download instructions only",
     "prohibited_git_payloads": [
       "full model-ready tables",
@@ -63,7 +66,7 @@
     },
     {
       "id": "classification_fivefold",
-      "status": "exact_membership_ready_for_capsule",
+      "status": "exact_membership_staged_pending_existing_zenodo_record_new_version",
       "public_evidence": "modules/core/configs/antibiotic_classification/legacy_three_strain.yaml",
       "boundary": "The target-strain folds use KFold(n_splits=5, shuffle=True, random_state=42); final sample-level OOF predictions are locally complete."
     },
@@ -98,7 +101,7 @@
         {"group": 1, "size_bytes": 390968, "rows": 7684, "sha256": "af1077175e80aa6668efcd9924e5d1dd8e504244eaa4ed1ab2034683e0e2e07a"},
         {"group": 2, "size_bytes": 2941321, "rows": 39311, "sha256": "1d2cc020a96aa5828093532d161fc08e67c4af15d2233b15e90ed1210d33b130"}
       ],
-      "status": "local_complete_external_capsule_only"
+      "status": "deterministic_normalized_capsule_staged_pending_zenodo_version"
     },
     {
       "id": "classification_finetuned_10member_oof",
@@ -107,7 +110,7 @@
         {"group": 1, "size_bytes": 223789, "rows": 7684, "sha256": "d3b9b4dc0b2ae1fb919bb561208d0d704c52b3460521a9dd2062e3e7cbc12d04"},
         {"group": 2, "size_bytes": 1140713, "rows": 39310, "sha256": "ec6988a42fb377dadb6c0dfd62eaf7c1571991538a58453c5148fa1a3eb91940"}
       ],
-      "status": "local_complete_external_capsule_only"
+      "status": "deterministic_normalized_capsule_staged_pending_zenodo_version"
     },
     {
       "id": "classification_chemprop_10member_oof",
@@ -116,7 +119,7 @@
         {"group": 1, "size_bytes": 826206, "rows": 7684, "sha256": "be875482324a059ebf12d497f631a79bc2c98907c296f01f510f2741450d6543"},
         {"group": 2, "size_bytes": 5099058, "rows": 39310, "sha256": "3e9afc6bf6218f53f217dacfcd894cbfb9b5291ca4c7a397bc9d54f410d450b0"}
       ],
-      "status": "local_complete_external_capsule_only"
+      "status": "deterministic_normalized_capsule_staged_pending_zenodo_version"
     },
     {
       "id": "synergy_sample_predictions",
@@ -124,6 +127,17 @@
       "boundary": "Only fold-level archived metrics and a high-confidence checkpoint family are currently frozen; do not claim sample-level paper-result recomputation."
     }
   ],
+  "classification_staging": {
+    "status": "built_and_locally_verified_not_public",
+    "builder": "scripts/build_classification_capsule.py",
+    "source_manifest": "manifests/classification_capsule_sources.json",
+    "recompute_script": "scripts/recompute_classification_metrics.py",
+    "archive_filename": "apexoracle_fig1b_classification_reproduction_v1.tar.gz",
+    "archive_size_bytes": 1317922,
+    "archive_sha256": "5723656282d641f4bce8bfa3f4500318b2b6fe0573bc187ba3ed7a7240280735",
+    "new_version_doi": "pending_until_published",
+    "release_gate": "reserve the new version DOI under concept DOI 10.5281/zenodo.15612047, rebuild with that DOI, upload, then verify a fresh download"
+  },
   "release_gates": [
     "public/private and source-license partition for each model-ready table",
     "explicit historical-versus-reconstruction labels for every split",

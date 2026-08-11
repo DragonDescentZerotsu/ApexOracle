@@ -37,6 +37,11 @@
 - `manifests/paper_data_capsule_plan.json` distinguishes exact classification folds, the exact 2026 fixed MIC
   reconstruction, unrecovered 2025 MIC membership, and the count-matched but unproven synergy seed-0 candidate.
   Full tables and predictions remain external-capsule assets rather than Git payloads.
+- The exact Fig. 1b classification capsule is locally staged for a new version of the existing Zenodo concept record,
+  not a separate record series. Its deterministic pre-upload archive is 1,317,922 bytes with SHA-256
+  `5723656282d641f4bce8bfa3f4500318b2b6fe0573bc187ba3ed7a7240280735`; all source hashes, fixed folds,
+  normalized prediction schemas and AUPRC/AUROC recomputation checks pass. It remains **unreleased** until the record
+  owner creates the new-version draft, reserves the version DOI, and a fresh download passes the same checks.
 
 ## Module gates
 

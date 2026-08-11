@@ -35,13 +35,16 @@ The public capsule must use explicit labels such as `historical-counts-only`,
 `deterministic-candidate` and `postpaper-reconstruction`. It must never replace
 those distinctions with a generic claim that all original splits are exact.
 
-## Model-ready data boundary
+## Model-ready data release
 
-The current MIC table combines DBAASP-derived and in-house records. Before
-external release it must be partitioned by source and private/public status;
-private assay rows must not be exposed merely because they were present in an
-author workstation table. The small-molecule merge and synergy source likewise
-need source-specific redistribution records.
+Zenodo v5.0.0 releases the public model-ready tables after applying the frozen
+source partition. The combined MIC workstation table contained 120,955 rows:
+105,237 numeric-ID DBAASP-derived rows are released and all 15,718 private
+in-house rows are excluded. The frozen 49,330-row small-molecule classification
+table and 4,285-row synergy source table are also included, together with the
+compact strain mapping and 563-row paper genome list. The capsule states that
+CC BY 4.0 covers the compilation and documentation but does not relicense
+underlying database records.
 
 The release unit will be a new version of the existing ApexOracle Zenodo
 record, not a second independent Zenodo project. The stable concept DOI is
@@ -165,5 +168,34 @@ about the unrecovered 2025 membership.
    and version DOI `10.5281/zenodo.21883954`. Authenticated draft and public
    downloads, internal hashes, seven-member means and all three fold metrics
    were independently verified.
-5. Release source-partitioned model-ready tables only after their data and
-   redistribution status is recorded.
+5. **Completed:** release the source-partitioned public model-ready tables in
+   Zenodo v5.0.0, DOI `10.5281/zenodo.21891064`. The 3,743,537-byte archive has
+   MD5 `e403f6836dd2dccfd2eb8b62addbaad1` and SHA-256
+   `ae0c76febd4e0b4d43fd68c8bf3ddfa27fc2251011f88c5f693d9aa27be95901`.
+   Two builds were byte-identical; authenticated draft and unauthenticated
+   public downloads, internal hashes, row counts, the private-row exclusion and
+   author-path scan passed.
+
+## Result and checkpoint registry
+
+`manifests/paper_result_registry.json` is the compact cross-task index. It
+links classification, the fixed MIC reconstruction and synergy replay to their
+version DOI, archive hash, member count, split status, prediction registry and
+metric checker. Historical checkpoint hashes that were never recorded are
+explicitly labeled `not_recorded`; the registry does not invent hashes or
+present reconstructed membership as the original 2025 membership.
+
+Each downloaded result archive contains its own checker:
+
+```bash
+python recompute_classification_metrics.py --capsule-root . --output /tmp/classification.json
+python recompute_mic_reconstruction_metrics.py .
+python recompute_synergy_metrics.py .
+```
+
+The classification plotting entry point remains
+`modules/core/scripts/reproduce/plot_fig1b_revision.py`; its expected plotted
+values and hashes are frozen in the Core Fig. 1b experiment README and
+`reproducibility/fig1b_reviewer_revision_2026-07-20.json`. MIC and synergy
+capsules are result-table replays and do not claim pixel-identical recreation
+of a composite manuscript figure.

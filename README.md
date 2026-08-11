@@ -121,6 +121,7 @@ implementation commits, release documentation commits, model revisions, and reco
 | Classification reproduction data | [Zenodo v2.0.0](https://doi.org/10.5281/zenodo.21882300) | Exact Fig. 1b folds, nine normalized prediction tables, and metric recomputation |
 | Fixed MIC reconstruction | [Zenodo v3.0.0](https://doi.org/10.5281/zenodo.21883545) | Post-paper fixed split, 21 member tables, 86,358-row ensemble, and independent metric recomputation |
 | Synergy checkpoint replay | [Zenodo v4.0.0](https://doi.org/10.5281/zenodo.21883954) | High-confidence seed-0 split candidate, 21-member probabilities, 2,371 rows, and metric recomputation |
+| Public model-ready tables | [Zenodo v5.0.0](https://doi.org/10.5281/zenodo.21891064) | DBAASP-derived MIC, small-molecule classification and synergy tables; private in-house MIC rows excluded |
 | Peptide MIC candidate scorer | [Zenodo v2.0.0](https://doi.org/10.5281/zenodo.21882300) | All-peptide fixed-`t=1e-3` post-generation scorer; not the Generation sampler checkpoint |
 | Paper strain mapping | [ApexOracle-Core mapping](modules/core/assets/manifests/paper_strain_mapping.json) | Source strain labels to canonical genome+text/text-only condition keys |
 | MIC inference example | [Kiria-Nozan/ApexOracle-Core](https://huggingface.co/Kiria-Nozan/ApexOracle-Core) | Inference-only single-member checkpoint and example condition |
@@ -139,11 +140,14 @@ The exact Fig. 1b classification capsule is public in [Zenodo v2.0.0](https://do
 earlier assets. It is explicitly a post-paper reconstruction, not the unrecovered membership used by the 2025 MIC
 checkpoints. [Zenodo v4.0.0](https://doi.org/10.5281/zenodo.21883954) adds the full 21-member synergy replay; its
 seed-0 split reproduces every archived fold metric to the logged precision but remains labeled a high-confidence
-candidate because the 2025 processes did not record sample-level predictions or `PYTHONHASHSEED`. All versions
+candidate because the 2025 processes did not record sample-level predictions or `PYTHONHASHSEED`.
+[Zenodo v5.0.0](https://doi.org/10.5281/zenodo.21891064) adds source-partitioned public model-ready tables and
+retains all earlier assets; the 15,718 private in-house MIC rows are explicitly excluded. All versions
 belong to the existing concept DOI `10.5281/zenodo.15612047`, not a separate Zenodo
 project. See
 the [reproducibility scope](docs/REPRODUCIBILITY_SCOPE.md) and
-[compute requirements](docs/COMPUTE_REQUIREMENTS.md). The external
+[compute requirements](docs/COMPUTE_REQUIREMENTS.md). Fresh quickstart wall time and peak RAM/VRAM are frozen in
+[`manifests/quickstart_benchmarks_2026-08-11.json`](manifests/quickstart_benchmarks_2026-08-11.json). The external
 [paper-data capsule plan](docs/PAPER_DATA_CAPSULE_PLAN.md) records which splits are exact, reconstructed, or still
 unrecovered; the [repository hygiene policy](docs/REPOSITORY_HYGIENE.md) prevents those assets from being duplicated
 into Git.

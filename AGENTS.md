@@ -99,6 +99,18 @@
   `a40ec811b179782ffd9d2429c2d3d262df0149c3594a286d0f0c666d9c58d70c`。Authenticated draft 与
   unauthenticated public download 一致，fresh extraction 的 7 hashes、7-member means、2,371 rows 与三折
   AUROC/AUPRC 均独立重算通过。Release manifest 为 `manifests/zenodo_release_21883954.json`。
+- **2026-08-11 model-ready 数据与 quickstart benchmark 收口：** 同一 Zenodo concept DOI 的 v5.0.0 已公开，
+  version DOI 为 `10.5281/zenodo.21891064`。Canonical builder 是
+  `python scripts/build_model_ready_capsule.py --source-root PATH --core-root modules/core --output OUTSIDE_GIT`；
+  archive 为 3,743,537 bytes，MD5 `e403f6836dd2dccfd2eb8b62addbaad1`，SHA-256
+  `ae0c76febd4e0b4d43fd68c8bf3ddfa27fc2251011f88c5f693d9aa27be95901`。公开内容为 105,237 条
+  DBAASP-derived MIC、49,330 条 classification、4,285 条 synergy source rows、compact strain mapping 和
+  563-row paper genome list；15,718 条 private in-house MIC rows 已全部排除。两次 build byte-identical，
+  authenticated draft/unauthenticated public download、内部 hash、row count 和作者路径检查通过。Fresh-cache
+  benchmark 已固定在 `manifests/quickstart_benchmarks_2026-08-11.json`：MIC compute 7.27 s / 5.77 GiB peak RSS；
+  Generation 256-step compute 40.34 s / 12,281 MiB peak GPU memory。`manifests/paper_result_registry.json` 对未
+  记录的历史 checkpoint hash 明确标 `not_recorded`，不得推断。公开链接审计已核验 root/五模块 commits、
+  三个 HF model revisions、HF dataset、Zenodo v1--v5 和 concept DOI 均 HTTP 200。
 - 完整 source archive canonical 入口为 `python scripts/build_source_archive.py --output PATH.tar.gz`；它只展开
   root `HEAD` 与 `manifests/modules.lock.yaml` 的五个固定 commits，输出 archive、JSON manifest 和 SHA-256。
   `--plan-only` 只核验 locks。归档不得包含 `.git`、checkpoint、embedding、dataset、cache 或 raw outputs。

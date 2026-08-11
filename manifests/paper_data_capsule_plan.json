@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "status": "in_preparation",
+  "status": "released_with_explicit_historical_boundaries",
   "storage": {
     "payload": "one version series under the existing ApexOracle Zenodo concept record",
     "zenodo_concept_doi": "10.5281/zenodo.15612047",
     "first_version_doi": "10.5281/zenodo.15612048",
-    "latest_version_doi": "10.5281/zenodo.21883954",
+    "latest_version_doi": "10.5281/zenodo.21891064",
     "record_policy": "create a new version of the existing record; do not create a second independent Zenodo project",
     "git": "schemas, compact manifests, exporters, checksums, expected metrics, and download instructions only",
     "prohibited_git_payloads": [
@@ -24,9 +24,11 @@
       "source_relative_path": "DataPrepare/Data/DBAASP_inhouse_AMP_SELFIES_token_MIC_Evo.csv",
       "source_size_bytes": 146626408,
       "source_sha256": "ac1a1967d9e94e169ffc23621f7e78c644753659bd08f7a8e10bb63b574930b2",
-      "source_rows": 121265,
-      "status": "requires_public_private_partition_and_redistribution_audit",
-      "release_note": "The source combines DBAASP-derived and in-house rows; a public capsule must preserve provenance and must not silently publish private assay records."
+      "source_rows": 120955,
+      "status": "public_partition_released_zenodo_21891064",
+      "released_rows": 105237,
+      "excluded_private_rows": 15718,
+      "release_note": "The numeric-ID DBAASP-derived partition is public; every private in-house row is excluded."
     },
     {
       "id": "small_molecule_classification_model_ready",
@@ -34,8 +36,8 @@
       "source_size_bytes": 15433528,
       "source_sha256": "d8e6391bfae3c35fe8d311461565df177fc75044cbc40204bf74f7ecf1fe7f27",
       "source_rows": 49330,
-      "status": "requires_source_by_source_redistribution_audit",
-      "release_note": "The deterministic preprocessing code is public; source-dataset terms must be recorded before redistributing the merged table."
+      "status": "released_zenodo_21891064",
+      "release_note": "The frozen paper model-ready table is public with source-terms and non-relicensing notice."
     },
     {
       "id": "synergy_model_ready",
@@ -44,7 +46,8 @@
       "source_sha256": "ff57e2152159be950a9823f5d94f24c0771b18465bd17cfd11d9d0318db393be",
       "source_rows": 4285,
       "eligible_rows_after_mapping": 2732,
-      "status": "requires_deterministic_eligible_table_export_and_redistribution_audit"
+      "status": "source_table_released_zenodo_21891064",
+      "release_note": "The frozen 4,285-row source table is public; result-level eligible membership remains documented by the synergy replay capsule."
     }
   ],
   "split_contracts": [
@@ -171,6 +174,19 @@
     "release_manifest": "manifests/zenodo_release_21883954.json",
     "historical_boundary": "high-confidence seed-0 candidate; not proven exact 2025 membership",
     "verification": "all 22 checkpoint hashes, two byte-identical GPU replays, authenticated draft and unauthenticated public download hashes, internal SHA256SUMS, seven-member means, and three fold metrics passed"
+  },
+  "model_ready_release": {
+    "status": "released_and_publicly_verified",
+    "builder": "scripts/build_model_ready_capsule.py",
+    "archive_filename": "apexoracle_model_ready_public_tables_v1.tar.gz",
+    "archive_size_bytes": 3743537,
+    "archive_md5": "e403f6836dd2dccfd2eb8b62addbaad1",
+    "archive_sha256": "ae0c76febd4e0b4d43fd68c8bf3ddfa27fc2251011f88c5f693d9aa27be95901",
+    "version_doi": "10.5281/zenodo.21891064",
+    "record_id": 21891064,
+    "release_manifest": "manifests/zenodo_release_21891064.json",
+    "privacy_boundary": "15,718 private in-house MIC rows excluded",
+    "verification": "two byte-identical builds, authenticated draft and unauthenticated public download hashes, internal SHA256SUMS, row counts, partition rule, and absolute-path scan passed"
   },
   "release_gates": [
     "public/private and source-license partition for each model-ready table",

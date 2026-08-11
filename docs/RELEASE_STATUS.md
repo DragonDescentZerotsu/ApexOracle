@@ -50,6 +50,10 @@
   3 folds × 7 members, 2,371 token-filtered predictions, candidate split, checkpoint/prediction hashes and a
   standard-library AUROC/AUPRC checker. Every replayed fold metric rounds to the archived log value; the split is
   therefore a high-confidence historical candidate but remains explicitly unproven as exact 2025 membership.
+- Zenodo v5.0.0, DOI `10.5281/zenodo.21891064`, retains all earlier files and adds the source-partitioned public
+  model-ready data capsule. It contains 105,237 DBAASP-derived MIC rows, 49,330 classification rows, 4,285 synergy
+  source rows, the compact strain mapping and the 563-row paper genome list. All 15,718 private in-house MIC rows
+  are excluded.
 - The six active trees now have a CI-enforced anti-bloat policy: exact duplicates at or above 20 KiB, unallowlisted
   files above 1 MiB, checkpoint/cache suffixes, generated build/cache paths and per-repository count/byte-limit
   violations fail `scripts/check_repository_bloat.py`. The current audit found no >=20 KiB exact duplicates.
@@ -60,7 +64,8 @@
   runtime files needed by independently installable modules.
 - `manifests/paper_data_capsule_plan.json` distinguishes exact classification folds, the exact 2026 fixed MIC
   reconstruction, unrecovered 2025 MIC membership, and the count-matched but unproven synergy seed-0 candidate.
-  Full tables and predictions remain external-capsule assets rather than Git payloads.
+  Full tables and predictions remain external-capsule assets rather than Git payloads. The public model-ready
+  partition is released in Zenodo v5.0.0.
 - The exact Fig. 1b classification capsule is public in Zenodo v2.0.0: 1,317,912 bytes, MD5
   `f663551b545de70277b5e665d2a6dab5`, SHA-256
   `6d053c68ef21afd37d0c7bb76d555c55073513db3785238ace0a7055ea203f68`. Authenticated draft and unauthenticated
@@ -76,6 +81,17 @@
   `a40ec811b179782ffd9d2429c2d3d262df0149c3594a286d0f0c666d9c58d70c`. All 22 source checkpoint hashes were
   recomputed, a second GPU replay produced byte-identical prediction CSVs, and authenticated draft plus public
   download checks passed all seven internal hashes, seven-member means and three fold metrics.
+- The public model-ready capsule is released in Zenodo v5.0.0: 3,743,537 bytes, MD5
+  `e403f6836dd2dccfd2eb8b62addbaad1`, SHA-256
+  `ae0c76febd4e0b4d43fd68c8bf3ddfa27fc2251011f88c5f693d9aa27be95901`. Two deterministic builds were
+  byte-identical; authenticated draft and unauthenticated public downloads matched; internal hashes, row counts,
+  private-row exclusion and the author-path scan passed.
+- Fresh public quickstart measurements are complete. On the recorded host, MIC computation took 7.27 s with
+  5.77 GiB peak RSS; the one-sample 256-step H100 generation computation took 40.34 s with 12,281 MiB peak GPU
+  memory. Download times are reported separately in `manifests/quickstart_benchmarks_2026-08-11.json`.
+- The 2026-08-11 public-link audit returned HTTP 200 for the root commit, all five locked module commits, the three
+  immutable Hugging Face model revisions, the Hugging Face pretraining dataset, Zenodo v1--v5, and the stable Zenodo
+  concept DOI. The concept DOI resolves to the current v5 record as intended; version DOIs remain immutable.
 
 ## Module gates
 

@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "status": "released",
+  "record": {
+    "title": "ApexOracle paper assets: embeddings, MIC scoring, and result-reproduction data",
+    "concept_doi": "10.5281/zenodo.15612047",
+    "version_doi": "10.5281/zenodo.21891064",
+    "record_id": 21891064,
+    "version": "5.0.0",
+    "publication_date": "2026-08-11",
+    "record_license": "CC-BY-4.0",
+    "source_code_license": "MIT",
+    "source_repository": "https://github.com/DragonDescentZerotsu/ApexOracle"
+  },
+  "inherited_assets": {
+    "version": "4.0.0",
+    "version_doi": "10.5281/zenodo.21883954",
+    "release_manifest_filename": "zenodo_release_21883954.json",
+    "release_manifest_size_bytes": 2666,
+    "release_manifest_md5": "a362c47f5efafe5478fa2ff3e1d217c5",
+    "release_manifest_sha256": "be7027ff6eb940ceffafb66f9949f489d31e4132a4c0b240d1432d52b0d7faec",
+    "boundary": "All nine files present before this version are retained unchanged; their roles and hashes are chained through the immutable v4, v3 and v2 manifests."
+  },
+  "new_files": [
+    {
+      "filename": "apexoracle_model_ready_public_tables_v1.tar.gz",
+      "role": "source-partitioned public model-ready MIC, classification and synergy tables with compact strain/genome manifests",
+      "size_bytes": 3743537,
+      "md5": "e403f6836dd2dccfd2eb8b62addbaad1",
+      "sha256": "ae0c76febd4e0b4d43fd68c8bf3ddfa27fc2251011f88c5f693d9aa27be95901",
+      "license": "CC-BY-4.0",
+      "source_builder_revision": "83872233b00285663deeb2388c9f2eb0ff61c16a",
+      "scope": {
+        "mic_dbaasp_rows": 105237,
+        "private_inhouse_mic_rows_excluded": 15718,
+        "classification_rows": 49330,
+        "synergy_source_rows": 4285,
+        "paper_genome_rows": 563,
+        "compact_strain_mapping_included": true,
+        "private_assay_values_included": false,
+        "checkpoints_included": false
+      },
+      "boundaries": [
+        "The combined workstation MIC table was partitioned by the frozen numeric DBAASP identifier rule; all 15,718 private in-house rows were excluded.",
+        "CC BY 4.0 covers the capsule compilation and documentation and does not relicense underlying database records.",
+        "The separate result capsules remain authoritative for exact classification folds, the post-paper MIC reconstruction, and the high-confidence synergy replay boundary."
+      ]
+    }
+  ],
+  "verification": {
+    "two_deterministic_builds_byte_identical": true,
+    "zenodo_md5_matches": true,
+    "authenticated_draft_download_sha256_matches": true,
+    "internal_sha256sums_pass": true,
+    "released_row_counts_recomputed": true,
+    "private_inhouse_partition_excluded": true,
+    "absolute_author_paths_absent": true
+  }
+}

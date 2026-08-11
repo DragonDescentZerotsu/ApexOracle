@@ -7,7 +7,7 @@ different storage and compute requirements.
 | --- | --- | --- |
 | Source reproducibility | Fixed commits for all five modules, environments, tests, expanded source archive | Released |
 | Functional inference reproducibility | Small, real, inference-only assets for MIC prediction and guided generation | Released |
-| Paper-result reproducibility | Frozen sample-level predictions, split membership, checkpoint registry, metric and figure recomputation | Classification, post-paper fixed MIC reconstruction, and high-confidence synergy replay released; exact 2025 MIC/synergy membership remains unproven |
+| Paper-result reproducibility | Frozen sample-level predictions, split membership, explicit checkpoint-status registry, and metric recomputation | Classification, post-paper fixed MIC reconstruction, and high-confidence synergy replay released; exact 2025 MIC/synergy membership remains unproven |
 | Full model rerun/retraining | Every ensemble binary, training dataset, accelerator environment and training run | Not the default public contract |
 
 ## Why every historical checkpoint is not uploaded
@@ -26,8 +26,9 @@ preprocessing code or metric calculation. The release therefore uses:
 2. frozen sample-level ensemble predictions for reported numerical results;
 3. exact split and sample identifiers;
 4. scripts that recompute metrics, statistics, tables and figures;
-5. a registry linking every historical member to role, fold/group/member,
-   source SHA-256, code revision and prediction artifact;
+5. a registry linking every released result family to role, fold/group/member
+   coverage, code revision and prediction artifact, while marking historical
+   checkpoint hashes that were never recorded as `not_recorded`;
 6. optional inference-only ensemble exports when a complete model rerun is
    scientifically necessary and redistribution is practical.
 
@@ -48,3 +49,10 @@ full retraining reproduction.
 No weight or dataset should be described as public until its immutable URI,
 revision, size, checksum, license/redistribution decision and smoke test are
 recorded in the root manifests.
+
+The public model-ready partition is released in Zenodo v5.0.0
+(`10.5281/zenodo.21891064`). It includes the DBAASP-derived MIC partition,
+classification and synergy tables while excluding all 15,718 private in-house
+MIC rows. The cross-task registry is
+`manifests/paper_result_registry.json`; quickstart measurements are in
+`manifests/quickstart_benchmarks_2026-08-11.json`.

@@ -162,6 +162,37 @@
       "scope": "machine-readable v4 addition, inherited-v3 manifest chain, checksums, verification state, and scientific boundaries"
     },
     {
+      "id": "apexoracle_zenodo_model_ready_public_tables",
+      "status": "released",
+      "provider": "zenodo",
+      "record_id": 21891064,
+      "doi": "10.5281/zenodo.21891064",
+      "concept_doi": "10.5281/zenodo.15612047",
+      "publication_date": "2026-08-11",
+      "record_title": "ApexOracle paper assets: embeddings, MIC scoring, and result-reproduction data",
+      "filename": "apexoracle_model_ready_public_tables_v1.tar.gz",
+      "size_bytes": 3743537,
+      "md5": "e403f6836dd2dccfd2eb8b62addbaad1",
+      "sha256": "ae0c76febd4e0b4d43fd68c8bf3ddfa27fc2251011f88c5f693d9aa27be95901",
+      "license": "CC-BY-4.0",
+      "scope": "105,237 DBAASP-derived MIC rows, 49,330 classification rows, 4,285 synergy source rows, compact strain mapping, and the 563-row paper genome list",
+      "boundary": "all 15,718 private in-house MIC rows are excluded; CC BY 4.0 does not relicense underlying database records"
+    },
+    {
+      "id": "apexoracle_zenodo_v5_release_manifest",
+      "status": "released",
+      "provider": "zenodo",
+      "record_id": 21891064,
+      "doi": "10.5281/zenodo.21891064",
+      "concept_doi": "10.5281/zenodo.15612047",
+      "filename": "zenodo_release_21891064.json",
+      "size_bytes": 2708,
+      "md5": "67c8979f926ea41c3a04e3e8178fb75f",
+      "sha256": "0ee3e1262a5c92680b9a35714fa47f03fdb31b220031c144b36176a7bf19b137",
+      "license": "CC-BY-4.0",
+      "scope": "machine-readable v5 addition, inherited-v4 manifest chain, source partition, checksums, verification state, and scientific boundaries"
+    },
+    {
       "id": "apexoracle_core_paper_strain_mapping",
       "status": "released",
       "provider": "github",
@@ -189,7 +220,6 @@
     }
   ],
   "pending": [
-    "source-partitioned model-ready tables with redistribution records",
     "full paper guided-generation condition bank"
   ],
   "policy": "No data asset is bundled or claimed available until URI, revision, SHA-256, license, and redistribution status are recorded. Paper-data additions use new versions of the existing Zenodo concept DOI 10.5281/zenodo.15612047 rather than a second independent Zenodo project.",

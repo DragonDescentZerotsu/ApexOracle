@@ -31,6 +31,45 @@ def test_manifest_uses_existing_zenodo_series_and_excludes_private_rows() -> Non
     )
 
 
+def test_public_release_manifests_close_model_ready_and_result_registry() -> None:
+    assets = json.loads(
+        (ROOT / "manifests/data_assets.yaml").read_text(encoding="utf-8")
+    )
+    released = {record["id"]: record for record in assets["assets"]}
+    model_ready = released["apexoracle_zenodo_model_ready_public_tables"]
+    assert model_ready["record_id"] == 21891064
+    assert model_ready["sha256"] == (
+        "ae0c76febd4e0b4d43fd68c8bf3ddfa27fc2251011f88c5f693d9aa27be95901"
+    )
+    assert "model-ready" not in " ".join(assets["pending"])
+
+    registry = json.loads(
+        (ROOT / "manifests/paper_result_registry.json").read_text(encoding="utf-8")
+    )
+    assert registry["status"] == "complete_for_released_paper_result_capsules"
+    assert [record["id"] for record in registry["results"]] == [
+        "fig1b_classification",
+        "fixed_strainwise_mic_reconstruction",
+        "synergy_replay",
+    ]
+    assert registry["results"][1]["checkpoint_hash_status"] == {
+        "recorded": 7,
+        "not_recorded": 14,
+    }
+    assert registry["results"][2]["checkpoint_hash_status"] == {
+        "recorded": 22,
+        "not_recorded": 0,
+    }
+
+    zenodo = json.loads(
+        (ROOT / "manifests/zenodo_release_21891064.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    assert zenodo["record"]["version_doi"] == "10.5281/zenodo.21891064"
+    assert zenodo["verification"]["private_inhouse_partition_excluded"] is True
+
+
 def test_builder_filters_numeric_mic_ids(tmp_path: Path, monkeypatch) -> None:
     source_root = tmp_path / "source"
     core_root = tmp_path / "core"

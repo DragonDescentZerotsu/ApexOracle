@@ -84,6 +84,7 @@ GitHub's automatically generated source ZIP does not expand submodules.
 | Fixed-`t=1e-3` all-peptide MIC candidate scorer | Zenodo record `21882300` | DOI `10.5281/zenodo.21882300` | Zenodo MD5 plus independent SHA-256 in both root model and release manifests |
 | Fixed-split MIC reconstruction | Zenodo record `21883545` | DOI `10.5281/zenodo.21883545` | `manifests/zenodo_release_21883545.json`, authenticated/public download hashes, 21-member mean reconstruction and 48 metric-row recomputation |
 | High-confidence synergy replay | Zenodo record `21883954` | DOI `10.5281/zenodo.21883954` | `manifests/zenodo_release_21883954.json`, 22 recomputed checkpoint hashes, two byte-identical GPU replays and public-download metric recomputation |
+| Public model-ready tables | Zenodo record `21891064` | DOI `10.5281/zenodo.21891064` | `manifests/zenodo_release_21891064.json`, two byte-identical builds, public-download hashes, row counts and private-row exclusion |
 | Paper strain-label/condition mapping | `DragonDescentZerotsu/ApexOracle-Core` | `8751c80cb86c3382a9fc3c8689666e992c0ee7a9` | `manifests/data_assets.yaml` plus the mapping's embedded source provenance |
 | Paper Evo-2 genome list | `DragonDescentZerotsu/ApexOracle-Core` | `1ab309c3275f21e3f4e7346e8d0340894a7507cc` | 563-row CSV, adjacent JSON manifest and `manifests/data_assets.yaml` |
 
@@ -96,12 +97,13 @@ yield, antimicrobial activity, or experimental validation.
 - The public MIC quickstart is one ensemble member; paper metrics use the frozen seven-member ensemble.
 - The public generation bundle contains BAA-3170 only; the full paper condition bank is not redistributed here.
 - Full curated training datasets, private assay records, caches, raw outputs, and training checkpoints are not Git
-  objects in the super-repository.
+  objects in the super-repository. The public model-ready partitions are external in Zenodo v5.0.0; the private
+  in-house MIC partition remains excluded.
 - Zenodo record `15612048` is the immutable first version containing the paper-listed precomputed genome/text
   embedding archives. Record `21882300` is v2.0.0 in the same concept DOI series and adds classification
   reproduction data plus one canonical candidate scorer. Record `21883545` is v3.0.0 in the same series and adds
   the post-paper fixed-split MIC reconstruction. Record `21883954` is v4.0.0 and adds the high-confidence synergy
-  replay. None of these dataset version DOIs is the DOI of the GitHub
+  replay. Record `21891064` is v5.0.0 and adds the public model-ready tables. None of these dataset version DOIs is the DOI of the GitHub
   software snapshot.
 
 ## Documentation audit

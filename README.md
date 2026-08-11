@@ -31,20 +31,49 @@
   predict antimicrobial activity and guide <em>de novo</em> molecule generation.
 </p>
 
+<p align="center">
+  <a href="#what-apexoracle-does"><strong>Overview</strong></a> ·
+  <a href="#quick-start"><strong>Quick start</strong></a> ·
+  <a href="#modular-release"><strong>Modules</strong></a> ·
+  <a href="#models-and-data"><strong>Models &amp; data</strong></a> ·
+  <a href="#citation"><strong>Citation</strong></a>
+</p>
+
 ---
 
 ## What ApexOracle does
 
-| Predict | Understand pathogens | Generate | Reproduce |
-| --- | --- | --- | --- |
-| MIC, antimicrobial classification, and synergy | Fuse Evo-2 genome representations with phenotype-derived text representations | Guide discrete diffusion toward strain-conditioned candidates | Pin code, model revisions, data assets, and recovery history |
+<table>
+  <tr>
+    <td width="33%" align="center" valign="top">
+      <h3>🔬 Predict</h3>
+      Estimate MIC, antimicrobial classification, and synergy for candidate molecules.
+    </td>
+    <td width="34%" align="center" valign="top">
+      <h3>🧬 Condition on pathogens</h3>
+      Combine Evo-2 genome representations with phenotype-derived text representations.
+    </td>
+    <td width="33%" align="center" valign="top">
+      <h3>✨ Generate</h3>
+      Guide discrete diffusion toward <em>de novo</em>, strain-conditioned candidates.
+    </td>
+  </tr>
+</table>
 
 ApexOracle represents molecules with a diffusion language model (DLM), combines them with complementary pathogen
-representations through cross-attention, and uses task-specific heads for prediction or guidance. The public release
-keeps the five scientific codebases independently maintainable while locking them together in this lightweight
-super-repository.
+representations through cross-attention, and uses task-specific heads for prediction or guidance.
 
-## Start here
+```mermaid
+flowchart LR
+    M["Molecule structure<br/>DLM"] --> F["Multimodal fusion<br/>cross-attention"]
+    G["Pathogen genome<br/>Evo-2"] --> F
+    T["Phenotype context<br/>Me-LLaMA"] --> F
+    F --> P["MIC · antimicrobial class · synergy"]
+    F --> H["Noisy guidance heads"]
+    H --> D["de novo candidates<br/>discrete diffusion"]
+```
+
+## Quick start
 
 ```bash
 git clone --recurse-submodules https://github.com/DragonDescentZerotsu/ApexOracle.git
@@ -101,7 +130,8 @@ outputs are not stored as Git objects.
 > ensemble. Likewise, the compact generation bundle validates the released runtime path; it is not itself an
 > experimental activity result.
 
-## Repository map
+<details>
+<summary><strong>Repository map</strong></summary>
 
 ```text
 ApexOracle/
@@ -117,6 +147,8 @@ ApexOracle/
 ├── scripts/             # bootstrap, validation, and archive tools
 └── docs/                # release status and provenance
 ```
+
+</details>
 
 <details>
 <summary><strong>Release integrity and complete source archive</strong></summary>

@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "status": "released",
+  "record": {
+    "title": "ApexOracle paper assets: embeddings, MIC scoring, and result-reproduction data",
+    "concept_doi": "10.5281/zenodo.15612047",
+    "version_doi": "10.5281/zenodo.21883954",
+    "record_id": 21883954,
+    "version": "4.0.0",
+    "publication_date": "2026-08-11",
+    "record_license": "CC-BY-4.0",
+    "source_code_license": "MIT",
+    "source_repository": "https://github.com/DragonDescentZerotsu/ApexOracle"
+  },
+  "inherited_assets": {
+    "version": "3.0.0",
+    "version_doi": "10.5281/zenodo.21883545",
+    "release_manifest_filename": "zenodo_release_21883545.json",
+    "release_manifest_size_bytes": 4115,
+    "release_manifest_md5": "a1b3f51138d22a5103767b62b39171c5",
+    "release_manifest_sha256": "26d1d287c010919b9d8b35f91d2429a53de948eaf395d5a67fc898c4684281fb",
+    "boundary": "All eight files present before this version are retained unchanged; their roles and hashes are chained through the immutable v3 and v2 manifests."
+  },
+  "new_files": [
+    {
+      "filename": "apexoracle_synergy_replay_v1.tar.gz",
+      "role": "high-confidence three-fold, seven-member synergy checkpoint replay and metric recomputation",
+      "size_bytes": 205983,
+      "md5": "08407d97ab8aee3ea6130e47452aaefb",
+      "sha256": "a40ec811b179782ffd9d2429c2d3d262df0149c3594a286d0f0c666d9c58d70c",
+      "license": "CC-BY-4.0",
+      "source_builder_revision": "9ff9bec3de037f6bfcba3e730b86c71414f1699e",
+      "core_replay_revision": "23e560e11a2ce06c19cc6eb6fe1dd0c0ee9b21f5",
+      "scope": {
+        "folds": 3,
+        "members_per_fold": 7,
+        "prediction_rows": 2371,
+        "member_probabilities_included": true,
+        "exact_fici_values_included": false,
+        "raw_molecule_identifiers_included": false,
+        "checkpoints_included": false
+      },
+      "boundaries": [
+        "The PYTHONHASHSEED=0 split reproduces every archived fold AUROC/AUPRC after rounding to four decimals.",
+        "The split is a high-confidence historical candidate, not proven exact 2025 membership because old runs did not record the hash seed or sample-level predictions.",
+        "Repeated measurements are retained with a stable within-key index and are not deduplicated."
+      ]
+    }
+  ],
+  "verification": {
+    "all_22_checkpoint_hashes_recomputed": true,
+    "second_gpu_replay_prediction_csvs_byte_identical": true,
+    "zenodo_md5_matches": true,
+    "authenticated_draft_download_sha256_matches": true,
+    "internal_sha256sums_pass": true,
+    "seven_member_means_recomputed": true,
+    "three_fold_metrics_recomputed": true,
+    "absolute_author_paths_absent": true
+  }
+}

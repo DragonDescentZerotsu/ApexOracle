@@ -85,6 +85,11 @@
   hashes 已从 bytes 重算，三折 AUROC/AUPRC 四位小数逐项匹配旧日志，第二次 replay 的四个 CSV
   byte-identical。公开边界始终为 high-confidence seed-0 candidate，不得写成 proven exact 2025 membership；
   公开表不得包含 exact FICI、raw molecule ID/structure、embedding、checkpoint、optimizer state 或绝对路径。
+  Capsule 已作为同一 Zenodo concept DOI 的 v4.0.0 发布，version DOI `10.5281/zenodo.21883954`；archive
+  205,983 bytes、MD5 `08407d97ab8aee3ea6130e47452aaefb`、SHA-256
+  `a40ec811b179782ffd9d2429c2d3d262df0149c3594a286d0f0c666d9c58d70c`。Authenticated draft 与
+  unauthenticated public download 一致，fresh extraction 的 7 hashes、7-member means、2,371 rows 与三折
+  AUROC/AUPRC 均独立重算通过。Release manifest 为 `manifests/zenodo_release_21883954.json`。
 - 完整 source archive canonical 入口为 `python scripts/build_source_archive.py --output PATH.tar.gz`；它只展开
   root `HEAD` 与 `manifests/modules.lock.yaml` 的五个固定 commits，输出 archive、JSON manifest 和 SHA-256。
   `--plan-only` 只核验 locks。归档不得包含 `.git`、checkpoint、embedding、dataset、cache 或 raw outputs。

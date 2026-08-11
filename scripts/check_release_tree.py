@@ -55,6 +55,8 @@ REQUIRED_DATA_ASSETS = {
     "apexoracle_zenodo_text_descriptions",
     "apexoracle_zenodo_fixed_mic_reconstruction",
     "apexoracle_zenodo_v3_release_manifest",
+    "apexoracle_zenodo_synergy_replay",
+    "apexoracle_zenodo_v4_release_manifest",
     "apexoracle_core_paper_strain_mapping",
 }
 

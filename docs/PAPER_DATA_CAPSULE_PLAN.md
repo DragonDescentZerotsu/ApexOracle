@@ -157,8 +157,13 @@ about the unrecovered 2025 membership.
 2. **Completed:** release and independently verify the fixed strain-wise MIC
    reconstruction in Zenodo v3.0.0 with an explicit post-paper label.
 3. Audit species/phylum split lineage before adding their predictions.
-4. **In progress:** package the completed, twice-repeated synergy checkpoint
-   replay and its independently recomputable sample-level predictions, while
-   retaining the high-confidence-candidate historical boundary.
+4. **Completed:** release the twice-repeated synergy checkpoint replay and its
+   independently recomputable sample-level predictions in Zenodo v4.0.0 while
+   retaining the high-confidence-candidate historical boundary. The 205,983-byte
+   archive has MD5 `08407d97ab8aee3ea6130e47452aaefb`, SHA-256
+   `a40ec811b179782ffd9d2429c2d3d262df0149c3594a286d0f0c666d9c58d70c`,
+   and version DOI `10.5281/zenodo.21883954`. Authenticated draft and public
+   downloads, internal hashes, seven-member means and all three fold metrics
+   were independently verified.
 5. Release source-partitioned model-ready tables only after their data and
    redistribution status is recorded.

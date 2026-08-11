@@ -22,9 +22,10 @@
 - The original `Synergy` repository was renamed in place to public `ApexOracle-Core`; its scientific release `v0.1.0`
   is `8c1def518ac148a878c14f4a39876db59649d43c`; the `v0.2.3` documentation-closure lock is
   `1973d2d3cc6b27202a3960c363c207dd030f74e7`, and post-release `main` is
-  `1ab309c3275f21e3f4e7346e8d0340894a7507cc` for the strain mapping and paper genome list. The earlier 217-test
+  `bc4aa31bb615af19eacb142c9bbddc929cbabd02` for the strain mapping, paper genome list and verified synergy
+  checkpoint replay. The earlier 217-test
   release gate, wheel/sdist, public-history audit and fresh Hugging Face MIC inference passed; the genome-list batch
-  passed 211 tests with 4 external-asset skips.
+  passed 211 tests with 4 external-asset skips; the synergy replay closure passed 215 tests with 4 skips.
 - The root repository contains no model weights, embeddings, datasets, or raw experiment outputs after conversion.
 - Core publishes a compact paper strain mapping at commit `8751c80`: 1,766 unique source labels, 1,769 condition
   routes and 92,322 routed MIC records before length filtering. It contains condition keys and filenames, not MIC
@@ -44,6 +45,10 @@
   contains 21 normalized member tables, an 86,358-row ensemble, exact reconstruction membership, frozen metrics and
   a standard-library checker; it is explicitly a post-paper reconstruction rather than the unrecovered membership
   used by the 2025 checkpoints.
+- Zenodo v4.0.0, DOI `10.5281/zenodo.21883954`, retains all earlier files and adds the complete synergy replay:
+  3 folds × 7 members, 2,371 token-filtered predictions, candidate split, checkpoint/prediction hashes and a
+  standard-library AUROC/AUPRC checker. Every replayed fold metric rounds to the archived log value; the split is
+  therefore a high-confidence historical candidate but remains explicitly unproven as exact 2025 membership.
 - The six active trees now have a CI-enforced anti-bloat policy: exact duplicates at or above 20 KiB, unallowlisted
   files above 1 MiB, checkpoint/cache suffixes, generated build/cache paths and per-repository count/byte-limit
   violations fail `scripts/check_repository_bloat.py`. The current audit found no >=20 KiB exact duplicates.
@@ -60,6 +65,11 @@
   `25e74abde1f01be57e83b22f6bd1633634284e74257d71f3c71864f7c4b9eebc`. Authenticated draft and unauthenticated
   public downloads matched; a fresh public extraction passed 30 internal hashes, all 21-member ensemble means,
   all 48 recomputed metric rows and the excluded-path/column scan.
+- The synergy replay capsule is public in Zenodo v4.0.0: 205,983 bytes, MD5
+  `08407d97ab8aee3ea6130e47452aaefb`, SHA-256
+  `a40ec811b179782ffd9d2429c2d3d262df0149c3594a286d0f0c666d9c58d70c`. All 22 source checkpoint hashes were
+  recomputed, a second GPU replay produced byte-identical prediction CSVs, and authenticated draft plus public
+  download checks passed all seven internal hashes, seven-member means and three fold metrics.
 
 ## Module gates
 

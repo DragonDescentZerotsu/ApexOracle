@@ -1,4 +1,5 @@
 import importlib.util
+import json
 from pathlib import Path
 
 import pytest
@@ -17,6 +18,21 @@ def load_script(name: str):
 
 
 CHECKER = load_script("recompute_synergy_metrics.py")
+
+
+def test_public_release_manifest_freezes_synergy_capsule() -> None:
+    manifest = json.loads(
+        (ROOT / "manifests/zenodo_release_21883954.json").read_text(encoding="utf-8")
+    )
+    assert manifest["record"]["version_doi"] == "10.5281/zenodo.21883954"
+    asset = manifest["new_files"][0]
+    assert asset["filename"] == "apexoracle_synergy_replay_v1.tar.gz"
+    assert asset["size_bytes"] == 205983
+    assert asset["sha256"] == (
+        "a40ec811b179782ffd9d2429c2d3d262df0149c3594a286d0f0c666d9c58d70c"
+    )
+    assert asset["scope"]["prediction_rows"] == 2371
+    assert asset["scope"]["exact_fici_values_included"] is False
 
 
 def test_binary_metrics_match_perfect_ranking() -> None:

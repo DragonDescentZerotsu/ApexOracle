@@ -131,6 +131,37 @@
       "scope": "machine-readable per-file roles, sizes, checksums, licenses, verification state, and scientific boundaries for Zenodo v3.0.0"
     },
     {
+      "id": "apexoracle_zenodo_synergy_replay",
+      "status": "released",
+      "provider": "zenodo",
+      "record_id": 21883954,
+      "doi": "10.5281/zenodo.21883954",
+      "concept_doi": "10.5281/zenodo.15612047",
+      "publication_date": "2026-08-11",
+      "record_title": "ApexOracle paper assets: embeddings, MIC scoring, and result-reproduction data",
+      "filename": "apexoracle_synergy_replay_v1.tar.gz",
+      "size_bytes": 205983,
+      "md5": "08407d97ab8aee3ea6130e47452aaefb",
+      "sha256": "a40ec811b179782ffd9d2429c2d3d262df0149c3594a286d0f0c666d9c58d70c",
+      "license": "CC-BY-4.0",
+      "scope": "three-fold, seven-member synergy replay with 2,371 privacy-minimized prediction rows and an independent AUROC/AUPRC checker",
+      "boundary": "high-confidence PYTHONHASHSEED=0 historical candidate that reproduces archived fold metrics to logged precision; not proven exact 2025 membership"
+    },
+    {
+      "id": "apexoracle_zenodo_v4_release_manifest",
+      "status": "released",
+      "provider": "zenodo",
+      "record_id": 21883954,
+      "doi": "10.5281/zenodo.21883954",
+      "concept_doi": "10.5281/zenodo.15612047",
+      "filename": "zenodo_release_21883954.json",
+      "size_bytes": 2666,
+      "md5": "a362c47f5efafe5478fa2ff3e1d217c5",
+      "sha256": "be7027ff6eb940ceffafb66f9949f489d31e4132a4c0b240d1432d52b0d7faec",
+      "license": "CC-BY-4.0",
+      "scope": "machine-readable v4 addition, inherited-v3 manifest chain, checksums, verification state, and scientific boundaries"
+    },
+    {
       "id": "apexoracle_core_paper_strain_mapping",
       "status": "released",
       "provider": "github",
@@ -159,7 +190,6 @@
   ],
   "pending": [
     "source-partitioned model-ready tables with redistribution records",
-    "synergy split/prediction payload with an explicit historical-membership boundary",
     "full paper guided-generation condition bank"
   ],
   "policy": "No data asset is bundled or claimed available until URI, revision, SHA-256, license, and redistribution status are recorded. Paper-data additions use new versions of the existing Zenodo concept DOI 10.5281/zenodo.15612047 rather than a second independent Zenodo project.",

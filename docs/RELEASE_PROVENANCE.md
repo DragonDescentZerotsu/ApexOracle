@@ -17,9 +17,10 @@ No model code, checkpoint, condition tensor, protocol, or reference prediction i
 called `clean_non_pad` actually uses fixed `t=1e-3`, not exact `t=0`. The checkpoint bytes and SHA-256 are unchanged;
 only its local canonical path, public profile/CLI terminology, module documentation, and provenance mapping change.
 
-Post-`v0.2.3` `main` advances only the Core gitlink to
-`1ab309c3275f21e3f4e7346e8d0340894a7507cc` to publish the compact paper strain mapping, the 563-row paper genome
-list, and their deterministic exporters. The table below remains the immutable `v0.2.3` release lock; the current
+Post-`v0.2.3` `main` advances the Core gitlink to
+`bc4aa31bb615af19eacb142c9bbddc929cbabd02` to publish the compact paper strain mapping, the 563-row paper genome
+list, their deterministic exporters, and the verified synergy checkpoint replay. The table below remains the
+immutable `v0.2.3` release lock; the current
 development lock is always the machine-readable `manifests/modules.lock.yaml`. No model weight, embedding tensor,
 prediction protocol, or paper metric changed in this post-release batch.
 
@@ -75,6 +76,7 @@ GitHub's automatically generated source ZIP does not expand submodules.
 | Fig. 1b folds, predictions and metric checker | Zenodo record `21882300` | DOI `10.5281/zenodo.21882300` | `manifests/zenodo_release_21882300.json` plus fresh public-download SHA-256 and metric recomputation |
 | Fixed-`t=1e-3` all-peptide MIC candidate scorer | Zenodo record `21882300` | DOI `10.5281/zenodo.21882300` | Zenodo MD5 plus independent SHA-256 in both root model and release manifests |
 | Fixed-split MIC reconstruction | Zenodo record `21883545` | DOI `10.5281/zenodo.21883545` | `manifests/zenodo_release_21883545.json`, authenticated/public download hashes, 21-member mean reconstruction and 48 metric-row recomputation |
+| High-confidence synergy replay | Zenodo record `21883954` | DOI `10.5281/zenodo.21883954` | `manifests/zenodo_release_21883954.json`, 22 recomputed checkpoint hashes, two byte-identical GPU replays and public-download metric recomputation |
 | Paper strain-label/condition mapping | `DragonDescentZerotsu/ApexOracle-Core` | `8751c80cb86c3382a9fc3c8689666e992c0ee7a9` | `manifests/data_assets.yaml` plus the mapping's embedded source provenance |
 | Paper Evo-2 genome list | `DragonDescentZerotsu/ApexOracle-Core` | `1ab309c3275f21e3f4e7346e8d0340894a7507cc` | 563-row CSV, adjacent JSON manifest and `manifests/data_assets.yaml` |
 
@@ -91,7 +93,8 @@ yield, antimicrobial activity, or experimental validation.
 - Zenodo record `15612048` is the immutable first version containing the paper-listed precomputed genome/text
   embedding archives. Record `21882300` is v2.0.0 in the same concept DOI series and adds classification
   reproduction data plus one canonical candidate scorer. Record `21883545` is v3.0.0 in the same series and adds
-  the post-paper fixed-split MIC reconstruction. None of these dataset version DOIs is the DOI of the GitHub
+  the post-paper fixed-split MIC reconstruction. Record `21883954` is v4.0.0 and adds the high-confidence synergy
+  replay. None of these dataset version DOIs is the DOI of the GitHub
   software snapshot.
 
 ## Documentation audit

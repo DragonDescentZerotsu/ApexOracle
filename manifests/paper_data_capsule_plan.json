@@ -5,7 +5,7 @@
     "payload": "one version series under the existing ApexOracle Zenodo concept record",
     "zenodo_concept_doi": "10.5281/zenodo.15612047",
     "first_version_doi": "10.5281/zenodo.15612048",
-    "latest_version_doi": "10.5281/zenodo.21883545",
+    "latest_version_doi": "10.5281/zenodo.21883954",
     "record_policy": "create a new version of the existing record; do not create a second independent Zenodo project",
     "git": "schemas, compact manifests, exporters, checksums, expected metrics, and download instructions only",
     "prohibited_git_payloads": [
@@ -73,9 +73,9 @@
     },
     {
       "id": "synergy_threefold_2025_candidate",
-      "status": "seed0_candidate_matches_archived_counts_not_exact_membership",
+      "status": "seed0_high_confidence_candidate_released_zenodo_21883954",
       "public_evidence": "modules/core/experiments/synergy/legacy_split_seed0.json",
-      "boundary": "The old logs did not record PYTHONHASHSEED. The seed-0 split matches every archived row count but is not proven to be the exact membership used by the three 2025 processes."
+      "boundary": "The seed-0 split matches every archived row count and replayed fold metric to the logged precision, but old logs did not record PYTHONHASHSEED or sample-level predictions, so exact 2025 membership is not claimed."
     }
   ],
   "prediction_candidates": [
@@ -124,8 +124,10 @@
     },
     {
       "id": "synergy_sample_predictions",
-      "status": "missing_requires_deterministic_checkpoint_replay",
-      "boundary": "Only fold-level archived metrics and a high-confidence checkpoint family are currently frozen; do not claim sample-level paper-result recomputation."
+      "status": "released_zenodo_21883954",
+      "rows": 2371,
+      "sha256": "4c0abac1351b7e6c106768c78cd57a9e3691ac8c82c78708ab7730e366a212da",
+      "boundary": "Predictions use the high-confidence seed-0 candidate and reproduce archived fold metrics to logged precision; they are not labeled as proven exact 2025 membership."
     }
   ],
   "classification_release": {
@@ -155,6 +157,20 @@
     "release_manifest": "manifests/zenodo_release_21883545.json",
     "historical_boundary": "post-paper fixed-split reconstruction; not the unrecovered membership used by the 2025 checkpoints",
     "verification": "authenticated draft and unauthenticated public download hashes, internal SHA256SUMS, 21-member means, 48 metric rows, and absolute-path scan passed"
+  },
+  "synergy_replay_release": {
+    "status": "released_and_publicly_verified",
+    "builder": "scripts/build_synergy_replay_capsule.py",
+    "recompute_script": "scripts/recompute_synergy_metrics.py",
+    "archive_filename": "apexoracle_synergy_replay_v1.tar.gz",
+    "archive_size_bytes": 205983,
+    "archive_md5": "08407d97ab8aee3ea6130e47452aaefb",
+    "archive_sha256": "a40ec811b179782ffd9d2429c2d3d262df0149c3594a286d0f0c666d9c58d70c",
+    "version_doi": "10.5281/zenodo.21883954",
+    "record_id": 21883954,
+    "release_manifest": "manifests/zenodo_release_21883954.json",
+    "historical_boundary": "high-confidence seed-0 candidate; not proven exact 2025 membership",
+    "verification": "all 22 checkpoint hashes, two byte-identical GPU replays, authenticated draft and unauthenticated public download hashes, internal SHA256SUMS, seven-member means, and three fold metrics passed"
   },
   "release_gates": [
     "public/private and source-license partition for each model-ready table",

@@ -11,9 +11,9 @@
 | Reviewer 1, reproducibility | Report compute requirements and runtimes. | Public requirements boundary added in `docs/COMPUTE_REQUIREMENTS.md`; exact wall time and peak RAM/VRAM still need fresh-run capture. | **OPEN** |
 | Reviewer 1, code; Reviewer 2 and Reviewer 3, code availability | The repository was incomplete and lacked Evo-2 extraction, Me-LLaMA extraction, fusion, MIC/classification/synergy heads, and guided generation. | Existing `DragonDescentZerotsu/ApexOracle` was converted in place into a super-repository that pins five public modules. The missing implementations now have public module entry points and immutable gitlinks. | **DONE** |
 | Reviewer 1; Reviewer 2 and Reviewer 3 | Provide click-and-run MIC prediction and guided-generation quickstarts. | Root `quickstarts/README.md` provides a CPU MIC inference example and a compact 256-step BAA-3170 generation smoke using immutable Hugging Face revisions and hashes. | **DONE** |
-| Reviewer 4, minor point 2 | Release the full training-set layout, processed tables, standardized strain mapping, small-molecule and synergy data, frozen splits, preprocessing, and strain-description texts. | Zenodo releases the paper-listed genome embeddings and strain descriptions. The compact Core strain mapping is public at immutable commit `8751c80`. Zenodo v2.0.0 (`10.5281/zenodo.21882300`) releases the exact classification folds, nine normalized prediction tables, frozen metrics and an independent metric checker. Zenodo v3.0.0 (`10.5281/zenodo.21883545`) adds the post-paper fixed MIC reconstruction with 21 member tables, an 86,358-row ensemble, exact reconstruction membership and an independent checker. The unrecovered 2025 MIC membership remains explicitly distinct. Source-partitioned model-ready and synergy payloads remain to be released. | **OPEN (mapping, classification and fixed MIC reconstruction public; model-ready/synergy payloads pending)** |
+| Reviewer 4, minor point 2 | Release the full training-set layout, processed tables, standardized strain mapping, small-molecule and synergy data, frozen splits, preprocessing, and strain-description texts. | Zenodo releases the paper-listed genome embeddings and strain descriptions. The compact Core strain mapping is public at immutable commit `8751c80`. Zenodo v2.0.0 (`10.5281/zenodo.21882300`) releases exact classification folds and predictions; v3.0.0 (`10.5281/zenodo.21883545`) adds the post-paper fixed MIC reconstruction; v4.0.0 (`10.5281/zenodo.21883954`) adds the complete 21-member synergy replay and checker. The synergy split reproduces archived fold metrics to logged precision but remains labeled a high-confidence candidate. Source-partitioned model-ready tables remain to be released. | **OPEN (mapping and result capsules public; model-ready tables pending)** |
 | Reviewer 4, data availability | Which strains were used for Evo-2, and where are strain traits? | The Evo-2 module provides the extraction CLI; Zenodo record `15612048` contains genome embeddings and strain-description assets. Core now publishes a 563-row paper genome list with species labels, conservative source identifiers, current filename-matched FASTA identities, embedding hashes, and separate MIC/classification/synergy usage flags. | **DONE** |
-| Implied by “reproducing the main results” | Must every historical checkpoint be uploaded? | No. Representative inference-only weights support executable quickstarts. Classification and the post-paper fixed MIC reconstruction now use frozen per-sample predictions, split membership and metric scripts. Raw optimizer-bearing checkpoints remain external; synergy result assets and the cross-task checkpoint registry remain open. | **POLICY FIXED; PARTIAL RESULT CAPSULES RELEASED** |
+| Implied by “reproducing the main results” | Must every historical checkpoint be uploaded? | No. Representative inference-only weights support executable quickstarts. Classification, the post-paper fixed MIC reconstruction and the high-confidence synergy replay now use frozen per-sample predictions, split membership and metric scripts. Raw optimizer-bearing checkpoints remain external; the cross-task checkpoint registry remains incomplete. | **POLICY FIXED; THREE RESULT CAPSULES RELEASED** |
 
 Reviewer 2 and Reviewer 3 repeated the same repository assessment and
 quickstart request. They should receive equivalent substantive answers rather
@@ -53,6 +53,12 @@ than two different technical claims.
   Public-download hashes, every ensemble mean and all 48 metric rows were
   verified. This is a post-paper reconstruction, not the unrecovered 2025 MIC
   checkpoint membership.
+- Zenodo v4.0.0 (`10.5281/zenodo.21883954`) adds 2,371 sample-level synergy
+  predictions from the complete 3-fold × 7-member checkpoint family and an
+  independent checker. All 22 checkpoint hashes were recomputed, a second GPU
+  replay produced byte-identical CSVs, and each fold AUROC/AUPRC reproduces the
+  archived value to four decimals. The split remains labeled a high-confidence
+  seed-0 candidate rather than proven exact 2025 membership.
 - The canonical all-peptide MIC candidate scorer is also public in Zenodo
   v2.0.0 under the non-misleading filename
   `mic_candidate_scorer_all_peptide_non_pad_t1e-3_epoch13.pth`. It is a
@@ -72,20 +78,18 @@ Do not yet say that a reader can regenerate every reported paper value solely
 from public assets. The remaining result-level release items are:
 
 1. model-ready public tables and their redistribution notes;
-2. the unrecovered 2025 MIC membership boundary and the synergy membership,
-   including an explicitly labeled deterministic candidate where hash-dependent
-   membership was not recorded;
-3. frozen synergy per-sample predictions for the reported ensemble;
-4. remaining synergy metric/figure recomputation commands and expected hashes;
-5. a complete checkpoint registry for all paper members, including role,
+2. the explicit boundary that exact 2025 MIC membership and mathematically
+   proven 2025 synergy membership were not recovered;
+3. any remaining paper figure recomputation commands and expected hashes;
+4. a complete checkpoint registry for all paper members, including role,
    group/fold/member, source hash, code commit, and prediction hash;
-6. measured wall time and peak RAM/VRAM for the two public quickstarts.
+5. measured wall time and peak RAM/VRAM for the two public quickstarts.
 
 The release tree is protected by an automated anti-bloat gate. The Fig. 1b
-classification and fixed MIC reconstruction payloads are archived once in
-Zenodo v2.0.0/v3.0.0 under the existing concept DOI and referenced by hashes;
-they are not duplicated across Git or module repositories. The remaining
-model-ready tables and synergy sample-level predictions will follow the same
+classification, fixed MIC reconstruction and synergy replay payloads are
+archived once in Zenodo v2.0.0/v3.0.0/v4.0.0 under the existing concept DOI and
+referenced by hashes; they are not duplicated across Git or module
+repositories. The remaining model-ready tables will follow the same
 single-record policy.
 
 The complete historical training checkpoints are not a release gate. MIC alone
@@ -129,8 +133,9 @@ Fig. 1b classification folds, sample-level predictions, frozen metrics, and an
 independent metric checker in Zenodo v2.0.0. Zenodo v3.0.0 adds a separately
 labeled post-paper fixed MIC reconstruction with all 21 member prediction
 tables, exact reconstruction membership and metric recomputation. The
-remaining synergy result payload will use the same
-split/provenance/recomputation format. This avoids
+v4.0.0 release adds the complete 21-member synergy replay with sample-level
+predictions, checkpoint provenance and metric recomputation under an explicit
+high-confidence-candidate split boundary. This avoids
 requiring reviewers to download hundreds of gigabytes of duplicated optimizer
 and backbone state while preserving direct recomputation of the reported
 results. We have also added a compute-requirements table and will insert the
@@ -167,9 +172,12 @@ metrics and an independent checker are now public in Zenodo v2.0.0
 (`10.5281/zenodo.21882300`) under the same concept DOI. Zenodo v3.0.0
 (`10.5281/zenodo.21883545`) adds the post-paper fixed MIC reconstruction with
 21 member tables, an 86,358-row ensemble, exact reconstruction membership and
-an independent metric checker. The remaining source-partitioned model-ready
-tables and explicitly bounded synergy split/prediction payload will be released
-in the same versioned paper-data series and linked from the root asset manifest.
+an independent metric checker. Zenodo v4.0.0 (`10.5281/zenodo.21883954`) adds
+the complete 21-member synergy replay, 2,371 sample-level predictions and an
+independent checker; the seed-0 split matches archived counts and metrics but is
+explicitly labeled a high-confidence candidate. The remaining
+source-partitioned model-ready tables will be released in the same versioned
+paper-data series and linked from the root asset manifest.
 We explicitly distinguish
 recovered historical membership from post-paper deterministic reconstruction
 rather than representing the latter as the original 2025 split.
@@ -186,8 +194,8 @@ rather than representing the latter as the original 2025 split.
 - [ ] Publish model-ready data allowed for redistribution.
 - [x] Publish and publicly verify the fixed MIC reconstruction in Zenodo
       v3.0.0 with the post-paper historical boundary.
-- [ ] Publish the remaining synergy membership and clearly labeled
-      deterministic candidate with frozen predictions.
+- [x] Publish and publicly verify the high-confidence synergy replay in Zenodo
+      v4.0.0 with the unproven-exact-membership boundary.
 - [ ] Add checkpoint registry and metric/figure recomputation README.
 - [x] Publish and hash the 563-row paper Evo-2 genome list.
 - [ ] Replace every future-tense promise above with a verified public link.

@@ -79,6 +79,12 @@
   `25e74abde1f01be57e83b22f6bd1633634284e74257d71f3c71864f7c4b9eebc`。Authenticated draft 与
   unauthenticated public download 均匹配，公共下载解包后 30 hashes、21-member ensemble means 和 48 metric
   rows 独立重算通过。Release manifest 为 `manifests/zenodo_release_21883545.json`。
+- **2026-08-11 synergy replay capsule：** Core canonical replay 为
+  `PYTHONHASHSEED=0 PYTHONPATH=src python scripts/reproduce/replay_synergy_checkpoints.py --asset-root PATH --output-dir OUTSIDE_GIT --device cuda:0 --local-files-only`；root builder/checker 为
+  `scripts/build_synergy_replay_capsule.py` 与 `scripts/recompute_synergy_metrics.py`。完整 1 base + 21 member
+  hashes 已从 bytes 重算，三折 AUROC/AUPRC 四位小数逐项匹配旧日志，第二次 replay 的四个 CSV
+  byte-identical。公开边界始终为 high-confidence seed-0 candidate，不得写成 proven exact 2025 membership；
+  公开表不得包含 exact FICI、raw molecule ID/structure、embedding、checkpoint、optimizer state 或绝对路径。
 - 完整 source archive canonical 入口为 `python scripts/build_source_archive.py --output PATH.tar.gz`；它只展开
   root `HEAD` 与 `manifests/modules.lock.yaml` 的五个固定 commits，输出 archive、JSON manifest 和 SHA-256。
   `--plan-only` 只核验 locks。归档不得包含 `.git`、checkpoint、embedding、dataset、cache 或 raw outputs。

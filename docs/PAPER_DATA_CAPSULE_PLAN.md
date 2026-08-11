@@ -157,7 +157,8 @@ about the unrecovered 2025 membership.
 2. **Completed:** release and independently verify the fixed strain-wise MIC
    reconstruction in Zenodo v3.0.0 with an explicit post-paper label.
 3. Audit species/phylum split lineage before adding their predictions.
-4. Replay the synergy checkpoint family to create sample-level predictions, or
-   state that only fold-level metrics can currently be recomputed.
+4. **In progress:** package the completed, twice-repeated synergy checkpoint
+   replay and its independently recomputable sample-level predictions, while
+   retaining the high-confidence-candidate historical boundary.
 5. Release source-partitioned model-ready tables only after their data and
    redistribution status is recorded.

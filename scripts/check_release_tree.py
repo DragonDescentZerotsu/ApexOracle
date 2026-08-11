@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import subprocess
 from pathlib import Path
@@ -19,9 +20,12 @@ FORBIDDEN_ACTIVE_ROOTS = (
     "PepLink",
     "discrete-diffusion-guidance",
     "mdlm",
-    "assets",
 )
 FORBIDDEN_SUFFIXES = (".ckpt", ".pth", ".pt", ".bin", ".xlsx", ".png", ".pdf")
+REQUIRED_VISUAL_ASSETS = {
+    "assets/ApexOracle_1.png": "761da4c0dfbf92bb2e6d4d5f536cc426b8cca159d0946fcd7c798a7e8504b0be",
+    "assets/upenn.png": "b2e94cc500d1687a71f3763752571342c4fca1f6fe77db975e8b7d781d5a3f3f",
+}
 REQUIRED = (
     ".gitmodules",
     "AGENTS.md",
@@ -29,6 +33,7 @@ REQUIRED = (
     "LICENSE",
     "NOTICE",
     "README.md",
+    *REQUIRED_VISUAL_ASSETS,
     "docs/LEGACY_MONOREPO.md",
     "docs/RELEASE_PROVENANCE.md",
     "docs/RELEASE_STATUS.md",
@@ -81,10 +86,22 @@ def main() -> None:
         if (ROOT / root).exists():
             errors.append(f"legacy root remains active: {root}")
     forbidden_files = sorted(
-        path for path in relative if Path(path).suffix.lower() in FORBIDDEN_SUFFIXES
+        path
+        for path in relative
+        if Path(path).suffix.lower() in FORBIDDEN_SUFFIXES
+        and path not in REQUIRED_VISUAL_ASSETS
     )
     if forbidden_files:
         errors.append(f"binary/data files remain active: {forbidden_files}")
+    for path, expected_sha256 in REQUIRED_VISUAL_ASSETS.items():
+        asset_path = ROOT / path
+        if asset_path.is_file():
+            observed_sha256 = hashlib.sha256(asset_path.read_bytes()).hexdigest()
+            if observed_sha256 != expected_sha256:
+                errors.append(
+                    f"README visual asset hash mismatch: {path} "
+                    f"(expected {expected_sha256}, observed {observed_sha256})"
+                )
     oversized = sorted(
         (path.relative_to(ROOT).as_posix(), path.stat().st_size)
         for path in files

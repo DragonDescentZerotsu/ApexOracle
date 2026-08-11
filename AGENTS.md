@@ -16,6 +16,9 @@
   revisions；文档-only module commit 不得被误写为重新验证过的科学实现。
 - 论文 Code availability 已固定 Zenodo embedding dataset DOI `10.5281/zenodo.15612048`；README、
   `CITATION.cff`、`manifests/data_assets.yaml` 与 release provenance 必须保持一致，不得再写成没有 Zenodo record。
+- README 只允许使用从 legacy history 恢复并由 SHA-256 固定的 `assets/ApexOracle_1.png` 与
+  `assets/upenn.png` 两个视觉资产；其他 root binary/data 文件仍由 `python scripts/check_release_tree.py`
+  拒绝，不能借 README 美化放宽发布边界。
 - 发布前运行 `python scripts/check_release_tree.py`、`python scripts/check_module_locks.py` 和
   `python -m pytest -q`；三个入口均通过后才允许更新默认分支。
 - 完整 source archive canonical 入口为 `python scripts/build_source_archive.py --output PATH.tar.gz`；它只展开

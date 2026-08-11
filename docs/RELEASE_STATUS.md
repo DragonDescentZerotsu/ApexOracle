@@ -107,7 +107,8 @@
 - The 2026-08-11 Providencia maintenance advances Core/MDLM locks to `bbaaedf`/`548f65c`. On the combined current
   Core tree, the MIC quickstart plus Providencia focused tests passed 8/8 and the complete suite passed 221 with four
   external-asset skips and 14 existing warnings. MDLM passed 127/127. The public quickstart scripts, immutable HF
-  revisions and expected MIC output are unchanged.
+  revisions and expected MIC output are unchanged. A remote recursive fresh clone checked out all five new locks;
+  module-lock, release-tree and anti-bloat checks, 17 root tests and both Core MIC quickstart tests passed.
 
 ## Module gates
 

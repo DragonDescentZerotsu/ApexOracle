@@ -33,6 +33,12 @@ lineage ledger so the already published
 fixed-epsilon scorer rename manifest is included as tracked asset 176. These maintenance commits do not change the
 validated scientific implementations listed below, sampler behavior, model code, configuration, data or weights.
 
+The later 2026-08-11 Providencia maintenance advances the development locks to Core
+`bbaaedf6030c7606c31db35f285041a715db9249` and MDLM `548f65cbc9f40fb38ae26cbb6d9c6b004bfb4e36`.
+Core adds a compact exact-target/screening/generation capsule without private inventory rows or tensors; MDLM adds a
+generic inventory adapter and table-scoring I/O/provenance fixes. The public quickstart scripts, Hugging Face revisions,
+checkpoint bytes, example tensors and expected MIC prediction are unchanged.
+
 | Module | Default branch | Current `v0.2.3` lock | Validated scientific implementation |
 | --- | --- | --- | --- |
 | ApexOracle-Core | `main` | `1973d2d3cc6b27202a3960c363c207dd030f74e7` | `8c1def518ac148a878c14f4a39876db59649d43c` (`v0.1.0`) |

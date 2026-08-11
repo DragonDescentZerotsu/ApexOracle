@@ -11,8 +11,9 @@
   smoke have passed.
 - `ApexOracle-MDLM` scientific implementation was validated at
   `c9d17c7f6f091234aaaebf5f08dbe23542f980c1`; the current documentation-closure lock is
-  `26e414bb7fa8aed971eb8370083c67378c5ce95e`. The latter only refreshes generated lineage outputs to cover the
-  previously published fixed-epsilon scorer rename manifest; all 118 tests and the ledger stale check pass.
+  `548f65cbc9f40fb38ae26cbb6d9c6b004bfb4e36`. Maintenance through `26e414b` refreshed generated lineage outputs;
+  `548f65c` adds the generic peptide-inventory workflow and peptide-table I/O/provenance fixes. All 127 tests and the
+  179-asset ledger stale check pass.
 - `ApexOracle-Evo2` is locked to `2184211acda07b0d5ca865067174ac42f530ad04`; its CPU contracts, package
   archives, remote CI, and Evo2-40B extraction runtime smoke have passed.
 - `ApexOracle-Generation` scientific implementation was validated at
@@ -24,8 +25,9 @@
 - The original `Synergy` repository was renamed in place to public `ApexOracle-Core`; its scientific release `v0.1.0`
   is `8c1def518ac148a878c14f4a39876db59649d43c`; the `v0.2.3` documentation-closure lock is
   `1973d2d3cc6b27202a3960c363c207dd030f74e7`, and post-release `main` is
-  `23be2738a10385ac216db9933f632276c0aa1452`; scientific additions through `bc4aa31` contain the strain mapping,
-  paper genome list and verified synergy checkpoint replay, while `23be273` only tightens workspace hygiene. The earlier 217-test
+  `bbaaedf6030c7606c31db35f285041a715db9249`; scientific additions through `bc4aa31` contain the strain mapping,
+  paper genome list and verified synergy checkpoint replay, `23be273` tightens workspace hygiene, and `bbaaedf`
+  publishes the Providencia ATCC 29914 screening/generation capsule. The earlier 217-test
   release gate, wheel/sdist, public-history audit and fresh Hugging Face MIC inference passed; the genome-list batch
   passed 211 tests with 4 external-asset skips; the synergy replay closure passed 215 tests with 4 skips.
 - The root repository contains no model weights, embeddings, datasets, or raw experiment outputs after conversion.
@@ -96,12 +98,16 @@
   concept DOI. The concept DOI resolves to the current v5 record as intended; version DOIs remain immutable.
 - The 2026-08-11 local Core-worktree transition did not change any committed super-repo or module content. The
   long-lived super-repo checkout now leaves `modules/core` deinitialized while preserving gitlink
-  `23be2738a10385ac216db9933f632276c0aa1452`; daily Core development remains in the single original Synergy
+  `bbaaedf6030c7606c31db35f285041a715db9249`; daily Core development remains in the single original Synergy
   worktree. A disposable public `--recurse-submodules` clone at root commit
   `7b009091f9f1605b669393ecba8d361979e397fe` checked out all five locked commits, passed 17/17 root tests, passed
   `scripts/check_module_locks.py`, and produced the expected five-module source-archive plan. The temporary clone was
   then moved to the system trash. In the deliberately deinitialized long-lived checkout, three Core-content-dependent
   tests are expected not to constitute a release gate; future full validation must use a disposable recursive clone.
+- The 2026-08-11 Providencia maintenance advances Core/MDLM locks to `bbaaedf`/`548f65c`. On the combined current
+  Core tree, the MIC quickstart plus Providencia focused tests passed 8/8 and the complete suite passed 221 with four
+  external-asset skips and 14 existing warnings. MDLM passed 127/127. The public quickstart scripts, immutable HF
+  revisions and expected MIC output are unchanged.
 
 ## Module gates
 

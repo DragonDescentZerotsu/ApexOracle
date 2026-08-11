@@ -54,6 +54,12 @@
   通过，未改 sampler/config/API。Root 恢复 `manifests/model_ready_capsule_sources.json` 为 Zenodo v5 发布时的
   精确构建输入，tokenizer 前 121,265、超长排除 310 的解释只保留在审计计划 manifest，避免当前 builder
   生成与公开 archive hash 不同的 payload。Super-repo current Generation lock 同步为 `706e06f`。
+- **2026-08-11 Providencia screening 维护：** Core `bbaaedf` 发布 ATCC 29914 exact-asset、screening 与
+  generation capsule，并复用 canonical Evo-2/strain-text producers；MDLM `548f65c` 将 peptide inventory
+  prepare/reporting 收敛为 supplier/strain-neutral API/CLI，修复 `.pt` sidecar、blank peptide、token limit 与
+  condition provenance，同时把 genome scale `1e14` 变为显式 manifest contract。Core 221 passed / 4 skipped、
+  MDLM 127 tests、module ledger 179 assets 与 quickstart 单测通过。Root 只推进两个 gitlink/locks；MIC 与
+  Generation quickstart 脚本、HF revisions、checkpoint/tensor bytes 和协议均未改变。
 - **2026-08-11 Core 本机维护边界：** 日常 Core 开发只在原 `Synergy` 工作区进行；它对应唯一的公开
   `DragonDescentZerotsu/ApexOracle-Core` repository。Super-repo 只长期保存 `modules/core` 的 gitlink、
   `.gitmodules` URL 和 lock commit，不保留第二份长期 Core checkout，也不得用复制目录或文件系统 symlink

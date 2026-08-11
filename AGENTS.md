@@ -73,6 +73,12 @@
   `MIC <= 16 µM` boolean、frozen metrics/bootstrap、fixed membership 和 member registry；不得包含 molecule
   structure/token、exact MIC、source row ID、embedding、checkpoint、optimizer state、private source table 或作者
   绝对路径。每个 member 的 checkpoint hash 若历史 metadata 未记录，必须标为 `not_recorded`，禁止推断。
+  该 capsule 已作为现有 Zenodo concept DOI 的 v3.0.0 发布，version DOI 为
+  `10.5281/zenodo.21883545`；archive 为 40,177,188 bytes、MD5
+  `bbf7e3a1ab36b1bc029163a9e8d3ad30`、SHA-256
+  `25e74abde1f01be57e83b22f6bd1633634284e74257d71f3c71864f7c4b9eebc`。Authenticated draft 与
+  unauthenticated public download 均匹配，公共下载解包后 30 hashes、21-member ensemble means 和 48 metric
+  rows 独立重算通过。Release manifest 为 `manifests/zenodo_release_21883545.json`。
 - 完整 source archive canonical 入口为 `python scripts/build_source_archive.py --output PATH.tar.gz`；它只展开
   root `HEAD` 与 `manifests/modules.lock.yaml` 的五个固定 commits，输出 archive、JSON manifest 和 SHA-256。
   `--plan-only` 只核验 locks。归档不得包含 `.git`、checkpoint、embedding、dataset、cache 或 raw outputs。

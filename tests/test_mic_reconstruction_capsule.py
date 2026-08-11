@@ -35,6 +35,27 @@ def test_metric_helpers_handle_ties() -> None:
     assert metrics == pytest.approx({"r2": 1.0, "spearman": 1.0, "pearson": 1.0})
 
 
+def test_public_release_manifest_freezes_mic_capsule() -> None:
+    manifest = json.loads(
+        (ROOT / "manifests/zenodo_release_21883545.json").read_text(encoding="utf-8")
+    )
+    assert manifest["status"] == "released"
+    assert manifest["record"]["concept_doi"] == "10.5281/zenodo.15612047"
+    assert manifest["record"]["version_doi"] == "10.5281/zenodo.21883545"
+    asset = next(
+        item
+        for item in manifest["files"]
+        if item["filename"] == "apexoracle_fixed_mic_reconstruction_v1.tar.gz"
+    )
+    assert asset["size_bytes"] == 40177188
+    assert asset["sha256"] == (
+        "25e74abde1f01be57e83b22f6bd1633634284e74257d71f3c71864f7c4b9eebc"
+    )
+    assert asset["scope"]["member_prediction_tables"] == 21
+    assert asset["scope"]["ensemble_rows"] == 86358
+    assert asset["scope"]["exact_mic_values_included"] is False
+
+
 def test_small_capsule_removes_exact_mic_and_absolute_paths(tmp_path: Path) -> None:
     source = tmp_path / "source"
     core = tmp_path / "core"

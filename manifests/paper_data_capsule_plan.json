@@ -4,7 +4,8 @@
   "storage": {
     "payload": "one version series under the existing ApexOracle Zenodo concept record",
     "zenodo_concept_doi": "10.5281/zenodo.15612047",
-    "existing_version_doi": "10.5281/zenodo.15612048",
+    "first_version_doi": "10.5281/zenodo.15612048",
+    "latest_version_doi": "10.5281/zenodo.21883545",
     "record_policy": "create a new version of the existing record; do not create a second independent Zenodo project",
     "git": "schemas, compact manifests, exporters, checksums, expected metrics, and download instructions only",
     "prohibited_git_payloads": [
@@ -55,9 +56,9 @@
     },
     {
       "id": "mic_strainwise_fixed_reconstruction_2026",
-      "status": "exact_postpaper_reconstruction_ready_for_capsule",
+      "status": "exact_postpaper_reconstruction_released_zenodo_21883545",
       "public_evidence": "modules/core/experiments/hierarchical_mic/fixed_strain_retrain/task_manifest.json",
-      "boundary": "All 21 members and sample-level predictions are complete; this is explicitly a new fixed-split reconstruction, not the 2025 membership."
+      "boundary": "All 21 members and normalized sample-level predictions are released; this is explicitly a new fixed-split reconstruction, not the 2025 membership."
     },
     {
       "id": "mic_specieswise_and_phylumwise",
@@ -84,7 +85,7 @@
       "size_bytes": 18496228,
       "sha256": "80f368923d365fb379e049a1bf083773115a2b38cb0e0620a1c58b3e75a8752a",
       "rows": 86358,
-      "status": "local_complete_external_capsule_only"
+      "status": "released_zenodo_21883545"
     },
     {
       "id": "mic_phylum_ensemble",
@@ -140,6 +141,20 @@
     "record_id": 21882300,
     "release_manifest": "manifests/zenodo_release_21882300.json",
     "verification": "public download SHA-256, internal SHA256SUMS, metric recomputation, and absolute-path scan passed"
+  },
+  "fixed_mic_reconstruction_release": {
+    "status": "released_and_publicly_verified",
+    "builder": "scripts/build_mic_reconstruction_capsule.py",
+    "recompute_script": "scripts/recompute_mic_reconstruction_metrics.py",
+    "archive_filename": "apexoracle_fixed_mic_reconstruction_v1.tar.gz",
+    "archive_size_bytes": 40177188,
+    "archive_md5": "bbf7e3a1ab36b1bc029163a9e8d3ad30",
+    "archive_sha256": "25e74abde1f01be57e83b22f6bd1633634284e74257d71f3c71864f7c4b9eebc",
+    "version_doi": "10.5281/zenodo.21883545",
+    "record_id": 21883545,
+    "release_manifest": "manifests/zenodo_release_21883545.json",
+    "historical_boundary": "post-paper fixed-split reconstruction; not the unrecovered membership used by the 2025 checkpoints",
+    "verification": "authenticated draft and unauthenticated public download hashes, internal SHA256SUMS, 21-member means, 48 metric rows, and absolute-path scan passed"
   },
   "release_gates": [
     "public/private and source-license partition for each model-ready table",

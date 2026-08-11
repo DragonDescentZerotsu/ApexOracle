@@ -100,6 +100,37 @@
       "scope": "machine-readable per-file roles, sizes, checksums, licenses, protocol labels, and scientific boundaries for Zenodo v2.0.0"
     },
     {
+      "id": "apexoracle_zenodo_fixed_mic_reconstruction",
+      "status": "released",
+      "provider": "zenodo",
+      "record_id": 21883545,
+      "doi": "10.5281/zenodo.21883545",
+      "concept_doi": "10.5281/zenodo.15612047",
+      "publication_date": "2026-08-11",
+      "record_title": "ApexOracle paper assets: embeddings, MIC scoring, and result-reproduction data",
+      "filename": "apexoracle_fixed_mic_reconstruction_v1.tar.gz",
+      "size_bytes": 40177188,
+      "md5": "bbf7e3a1ab36b1bc029163a9e8d3ad30",
+      "sha256": "25e74abde1f01be57e83b22f6bd1633634284e74257d71f3c71864f7c4b9eebc",
+      "license": "CC-BY-4.0",
+      "scope": "post-paper fixed-split strain-wise MIC reconstruction with 21 normalized member predictions, an 86,358-row ensemble, exact reconstruction membership, and an independent metric checker",
+      "boundary": "not the unrecovered membership used by the 2025 MIC checkpoints; exact MIC values, source-row identifiers, structures, checkpoints, embeddings, and private source tables are excluded"
+    },
+    {
+      "id": "apexoracle_zenodo_v3_release_manifest",
+      "status": "released",
+      "provider": "zenodo",
+      "record_id": 21883545,
+      "doi": "10.5281/zenodo.21883545",
+      "concept_doi": "10.5281/zenodo.15612047",
+      "filename": "zenodo_release_21883545.json",
+      "size_bytes": 4115,
+      "md5": "a1b3f51138d22a5103767b62b39171c5",
+      "sha256": "26d1d287c010919b9d8b35f91d2429a53de948eaf395d5a67fc898c4684281fb",
+      "license": "CC-BY-4.0",
+      "scope": "machine-readable per-file roles, sizes, checksums, licenses, verification state, and scientific boundaries for Zenodo v3.0.0"
+    },
+    {
       "id": "apexoracle_core_paper_strain_mapping",
       "status": "released",
       "provider": "github",
@@ -128,7 +159,7 @@
   ],
   "pending": [
     "source-partitioned model-ready tables with redistribution records",
-    "explicitly labeled MIC reconstruction and synergy split/prediction payloads",
+    "synergy split/prediction payload with an explicit historical-membership boundary",
     "full paper guided-generation condition bank"
   ],
   "policy": "No data asset is bundled or claimed available until URI, revision, SHA-256, license, and redistribution status are recorded. Paper-data additions use new versions of the existing Zenodo concept DOI 10.5281/zenodo.15612047 rather than a second independent Zenodo project.",

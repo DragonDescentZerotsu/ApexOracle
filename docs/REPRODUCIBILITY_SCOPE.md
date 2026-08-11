@@ -7,7 +7,7 @@ different storage and compute requirements.
 | --- | --- | --- |
 | Source reproducibility | Fixed commits for all five modules, environments, tests, expanded source archive | Released |
 | Functional inference reproducibility | Small, real, inference-only assets for MIC prediction and guided generation | Released |
-| Paper-result reproducibility | Frozen sample-level predictions, split membership, checkpoint registry, metric and figure recomputation | Classification released; MIC/synergy capsules in preparation |
+| Paper-result reproducibility | Frozen sample-level predictions, split membership, checkpoint registry, metric and figure recomputation | Classification and post-paper fixed MIC reconstruction released; historical 2025 MIC and synergy remain incomplete |
 | Full model rerun/retraining | Every ensemble binary, training dataset, accelerator environment and training run | Not the default public contract |
 
 ## Why every historical checkpoint is not uploaded

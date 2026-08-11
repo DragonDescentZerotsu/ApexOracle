@@ -119,6 +119,7 @@ implementation commits, release documentation commits, model revisions, and reco
 | Genome and text embeddings | [Zenodo 10.5281/zenodo.15612048](https://doi.org/10.5281/zenodo.15612048) | Paper-listed precomputed embedding archives; CC BY 4.0 |
 | Paper Evo-2 genome list | [ApexOracle-Core list](modules/core/experiments/evo2_genome_embeddings/paper_genome_list.csv) | 563 genomes used by paper MIC/classification/synergy tasks, with source and file hashes |
 | Classification reproduction data | [Zenodo v2.0.0](https://doi.org/10.5281/zenodo.21882300) | Exact Fig. 1b folds, nine normalized prediction tables, and metric recomputation |
+| Fixed MIC reconstruction | [Zenodo v3.0.0](https://doi.org/10.5281/zenodo.21883545) | Post-paper fixed split, 21 member tables, 86,358-row ensemble, and independent metric recomputation |
 | Peptide MIC candidate scorer | [Zenodo v2.0.0](https://doi.org/10.5281/zenodo.21882300) | All-peptide fixed-`t=1e-3` post-generation scorer; not the Generation sampler checkpoint |
 | Paper strain mapping | [ApexOracle-Core mapping](modules/core/assets/manifests/paper_strain_mapping.json) | Source strain labels to canonical genome+text/text-only condition keys |
 | MIC inference example | [Kiria-Nozan/ApexOracle-Core](https://huggingface.co/Kiria-Nozan/ApexOracle-Core) | Inference-only single-member checkpoint and example condition |
@@ -132,8 +133,11 @@ outputs are not stored as Git objects.
 The release distinguishes runnable inference from recomputation of paper numbers. Representative inference-only
 weights power the public quickstarts; paper-result recomputation uses frozen sample-level predictions, splits,
 checkpoint provenance, and metric scripts instead of requiring every optimizer-bearing historical checkpoint.
-The exact Fig. 1b classification capsule is public in [Zenodo v2.0.0](https://doi.org/10.5281/zenodo.21882300),
-under the existing concept DOI `10.5281/zenodo.15612047` rather than a separate Zenodo project. See
+The exact Fig. 1b classification capsule is public in [Zenodo v2.0.0](https://doi.org/10.5281/zenodo.21882300).
+[Zenodo v3.0.0](https://doi.org/10.5281/zenodo.21883545) adds a fixed-split MIC reconstruction while retaining all
+earlier assets. It is explicitly a post-paper reconstruction, not the unrecovered membership used by the 2025 MIC
+checkpoints. Both versions belong to the existing concept DOI `10.5281/zenodo.15612047`, not a separate Zenodo
+project. See
 the [reproducibility scope](docs/REPRODUCIBILITY_SCOPE.md) and
 [compute requirements](docs/COMPUTE_REQUIREMENTS.md). The external
 [paper-data capsule plan](docs/PAPER_DATA_CAPSULE_PLAN.md) records which splits are exact, reconstructed, or still

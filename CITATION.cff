@@ -20,11 +20,11 @@ references:
     license: CC-BY-4.0
     url: https://doi.org/10.5281/zenodo.15612048
   - type: data
-    title: "ApexOracle paper assets: pathogen embeddings, MIC candidate scorer, and classification reproduction data"
+    title: "ApexOracle paper assets: embeddings, MIC scoring, and result-reproduction data"
     authors:
       - family-names: Leng
         given-names: Tianang
-    doi: 10.5281/zenodo.21882300
+    doi: 10.5281/zenodo.21883545
     date-released: 2026-08-11
     license: CC-BY-4.0
-    url: https://doi.org/10.5281/zenodo.21882300
+    url: https://doi.org/10.5281/zenodo.21883545

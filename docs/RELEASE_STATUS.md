@@ -39,6 +39,11 @@
   `10.5281/zenodo.15612047`. It retains both embedding archives and adds the exact Fig. 1b classification capsule,
   the canonical fixed-`t=1e-3` all-peptide MIC candidate scorer, and a machine-readable release manifest. The old
   misleading checkpoint filename is absent from the public file list.
+- Zenodo v3.0.0, DOI `10.5281/zenodo.21883545`, remains in that same concept DOI series and retains every v2 file.
+  It adds the 40,177,188-byte fixed strain-wise MIC reconstruction archive and a v3 release manifest. The archive
+  contains 21 normalized member tables, an 86,358-row ensemble, exact reconstruction membership, frozen metrics and
+  a standard-library checker; it is explicitly a post-paper reconstruction rather than the unrecovered membership
+  used by the 2025 checkpoints.
 - The six active trees now have a CI-enforced anti-bloat policy: exact duplicates at or above 20 KiB, unallowlisted
   files above 1 MiB, checkpoint/cache suffixes, generated build/cache paths and per-repository count/byte-limit
   violations fail `scripts/check_repository_bloat.py`. The current audit found no >=20 KiB exact duplicates.
@@ -50,6 +55,11 @@
   `6d053c68ef21afd37d0c7bb76d555c55073513db3785238ace0a7055ea203f68`. Authenticated draft and unauthenticated
   public downloads, internal `SHA256SUMS`, fixed folds, normalized schemas, AUPRC/AUROC recomputation and the
   no-absolute-path gate passed.
+- The fixed MIC reconstruction capsule is public in Zenodo v3.0.0: 40,177,188 bytes, MD5
+  `bbf7e3a1ab36b1bc029163a9e8d3ad30`, SHA-256
+  `25e74abde1f01be57e83b22f6bd1633634284e74257d71f3c71864f7c4b9eebc`. Authenticated draft and unauthenticated
+  public downloads matched; a fresh public extraction passed 30 internal hashes, all 21-member ensemble means,
+  all 48 recomputed metric rows and the excluded-path/column scan.
 
 ## Module gates
 

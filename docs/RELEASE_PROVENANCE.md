@@ -74,6 +74,7 @@ GitHub's automatically generated source ZIP does not expand submodules.
 | Paper-listed precomputed genome/text embeddings | Zenodo record `15612048` | DOI `10.5281/zenodo.15612048` | `manifests/data_assets.yaml` with Zenodo MD5 and independently verified SHA-256 |
 | Fig. 1b folds, predictions and metric checker | Zenodo record `21882300` | DOI `10.5281/zenodo.21882300` | `manifests/zenodo_release_21882300.json` plus fresh public-download SHA-256 and metric recomputation |
 | Fixed-`t=1e-3` all-peptide MIC candidate scorer | Zenodo record `21882300` | DOI `10.5281/zenodo.21882300` | Zenodo MD5 plus independent SHA-256 in both root model and release manifests |
+| Fixed-split MIC reconstruction | Zenodo record `21883545` | DOI `10.5281/zenodo.21883545` | `manifests/zenodo_release_21883545.json`, authenticated/public download hashes, 21-member mean reconstruction and 48 metric-row recomputation |
 | Paper strain-label/condition mapping | `DragonDescentZerotsu/ApexOracle-Core` | `8751c80cb86c3382a9fc3c8689666e992c0ee7a9` | `manifests/data_assets.yaml` plus the mapping's embedded source provenance |
 | Paper Evo-2 genome list | `DragonDescentZerotsu/ApexOracle-Core` | `1ab309c3275f21e3f4e7346e8d0340894a7507cc` | 563-row CSV, adjacent JSON manifest and `manifests/data_assets.yaml` |
 
@@ -89,8 +90,9 @@ yield, antimicrobial activity, or experimental validation.
   objects in the super-repository.
 - Zenodo record `15612048` is the immutable first version containing the paper-listed precomputed genome/text
   embedding archives. Record `21882300` is v2.0.0 in the same concept DOI series and adds classification
-  reproduction data plus one canonical candidate scorer. Neither dataset DOI is the DOI of the GitHub software
-  snapshot.
+  reproduction data plus one canonical candidate scorer. Record `21883545` is v3.0.0 in the same series and adds
+  the post-paper fixed-split MIC reconstruction. None of these dataset version DOIs is the DOI of the GitHub
+  software snapshot.
 
 ## Documentation audit
 

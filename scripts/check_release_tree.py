@@ -53,6 +53,8 @@ REQUIRED_DATA_ASSETS = {
     "apexoracle_generation_baa3170_text_condition",
     "apexoracle_zenodo_genome_embeddings",
     "apexoracle_zenodo_text_descriptions",
+    "apexoracle_zenodo_fixed_mic_reconstruction",
+    "apexoracle_zenodo_v3_release_manifest",
     "apexoracle_core_paper_strain_mapping",
 }
 
@@ -132,8 +134,13 @@ def main() -> None:
         errors.append(f"released model assets are missing: {missing}")
     if missing := sorted(REQUIRED_DATA_ASSETS - data_asset_ids):
         errors.append(f"released data assets are missing: {missing}")
-    if any("guided-generation example condition assets" == item for item in data_manifest["pending"]):
-        errors.append("released generation conditions remain incorrectly marked pending")
+    if any(
+        "guided-generation example condition assets" == item
+        for item in data_manifest["pending"]
+    ):
+        errors.append(
+            "released generation conditions remain incorrectly marked pending"
+        )
 
     summary = {
         "schema_version": 1,

@@ -11,8 +11,9 @@ needed to avoid both overclaiming reproducibility and growing the Git tree.
   fine-tuned 10-member and matched Chemprop sample-level predictions are
   public and hash-frozen in Zenodo v2.0.0.
 - The 2026 fixed strain-wise MIC reconstruction has an exact seed-0 split, all
-  21 trained members and 86,358 sample-level ensemble predictions. It is ready
-  for an external capsule as a post-paper reconstruction.
+  21 trained members and 86,358 sample-level ensemble predictions. Its
+  privacy-minimized external capsule is public in Zenodo v3.0.0 as a post-paper
+  reconstruction.
 - The standardized strain mapping is already public in Core.
 
 ## What cannot be called the exact historical split
@@ -125,14 +126,36 @@ tables. They retain normalized labels, predictions, hashed molecule identity,
 strain IDs, condition route and a `MIC <= 16 µM` boolean so the reported
 metrics remain independently computable.
 
+The released asset is:
+
+- version DOI: `10.5281/zenodo.21883545`;
+- concept DOI: `10.5281/zenodo.15612047`;
+- archive size: 40,177,188 bytes;
+- MD5: `bbf7e3a1ab36b1bc029163a9e8d3ad30`;
+- SHA-256: `25e74abde1f01be57e83b22f6bd1633634284e74257d71f3c71864f7c4b9eebc`;
+- release manifest: `manifests/zenodo_release_21883545.json`.
+
+Two independent pre-release builds were byte-identical before DOI insertion.
+After the version DOI was reserved, the final authenticated draft and
+unauthenticated public downloads matched the final archive hashes. A fresh
+public-download extraction passed all 30 internal hashes, reconstructed every
+seven-member ensemble mean, recomputed all 48 metric rows, and passed the
+author-path and excluded-column scan.
+
+For the pooled 86,358 measurements, the reconstructed ensemble has R²
+`0.463848`. The train-seen and train-unseen subsets contain 60,086 and 26,272
+measurements with R² `0.567177` and `0.094245`, respectively; train-unseen
+Spearman/Pearson correlations are `0.406976/0.412980`. These values describe
+the released post-paper reconstruction and must not be substituted for a claim
+about the unrecovered 2025 membership.
+
 ## Execution order
 
 1. **Completed:** release the exact classification fold/prediction capsule as
    Zenodo v2.0.0 and verify all AUPRC/AUROC values from freshly downloaded
    files.
-2. **In progress:** build and independently verify the fixed strain-wise MIC
-   reconstruction with an explicit post-paper label, then publish it in the
-   existing Zenodo version series.
+2. **Completed:** release and independently verify the fixed strain-wise MIC
+   reconstruction in Zenodo v3.0.0 with an explicit post-paper label.
 3. Audit species/phylum split lineage before adding their predictions.
 4. Replay the synergy checkpoint family to create sample-level predictions, or
    state that only fold-level metrics can currently be recomputed.

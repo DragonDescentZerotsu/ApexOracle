@@ -53,6 +53,7 @@ REQUIRED_DATA_ASSETS = {
     "apexoracle_generation_baa3170_text_condition",
     "apexoracle_zenodo_genome_embeddings",
     "apexoracle_zenodo_text_descriptions",
+    "apexoracle_core_paper_strain_mapping",
 }
 
 

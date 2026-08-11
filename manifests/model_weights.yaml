@@ -62,5 +62,11 @@
   ],
   "pending": [
     "full paper condition-bank redistribution decision"
-  ]
+  ],
+  "policy": {
+    "default_public_assets": "inference-only checkpoints required by runnable quickstarts",
+    "paper_result_reproduction": "frozen sample-level predictions, split membership, metric scripts, and a complete checkpoint registry",
+    "excluded_by_default": "optimizer state, training caches, W&B runs, and duplicated historical backbones",
+    "optional_future_assets": "complete inference-only ensembles may be released when scientifically necessary and practical"
+  }
 }

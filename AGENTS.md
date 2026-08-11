@@ -21,6 +21,13 @@
   分别固定到 `1973d2d3cc6b27202a3960c363c207dd030f74e7`、
   `931e3dc09bfc2501809c03dbd016741406950f5f`、`67b593e1a623af3af80c64e263bde527d73d89ef`；checkpoint
   bytes/SHA 与 Generation sampler 权重均未改变。
+- **2026-08-10 post-`v0.2.3` reviewer reproducibility batch：** Core `main` 已新增 compact paper strain
+  mapping，固定 commit `8751c80cb86c3382a9fc3c8689666e992c0ee7a9`；root `manifests/data_assets.yaml`
+  必须登记其 730,151-byte file、SHA-256 `51db55fe...d8f4` 和 1,766 labels/1,769 routes/92,322 routed rows
+  scope。Reviewer code/data 回复的 canonical working draft 为 `docs/REVIEWER_CODE_RESPONSE_DRAFT.md`；其中
+  `DONE` 与 `OPEN` 必须按 public immutable asset 分开，禁止把 prediction capsule、exact runtime/RAM/VRAM
+  或未发布 model-ready tables 提前写成完成。全 checkpoint 上传不是 release gate；固定政策见
+  `docs/REPRODUCIBILITY_SCOPE.md`。
 - README 只允许使用从 legacy history 恢复并由 SHA-256 固定的 `assets/ApexOracle_1.png` 与
   `assets/upenn.png` 两个视觉资产；其他 root binary/data 文件仍由 `python scripts/check_release_tree.py`
   拒绝，不能借 README 美化放宽发布边界。

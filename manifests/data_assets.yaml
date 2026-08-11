@@ -68,12 +68,27 @@
       "sha256": "cf642a03ec1e3b0dca1e046712500f453e0ea1d445ca84d0228f43e419a32008",
       "license": "CC-BY-4.0",
       "scope": "paper-listed archive of strain descriptions and precomputed text embeddings"
+    },
+    {
+      "id": "apexoracle_core_paper_strain_mapping",
+      "status": "released",
+      "provider": "github",
+      "repository": "DragonDescentZerotsu/ApexOracle-Core",
+      "revision": "8751c80cb86c3382a9fc3c8689666e992c0ee7a9",
+      "filename": "assets/manifests/paper_strain_mapping.json",
+      "size_bytes": 730151,
+      "sha256": "51db55feb85b991eae1e4ef02cf5e17e23624b4c1f0fcc5c9072d7df5448d8f4",
+      "repository_license": "MIT",
+      "source_data_terms": "source dataset terms remain separate; no MIC labels, molecule structures, embedding tensors, or private assay rows are included",
+      "scope": "1,766 paper MIC source strain labels, 1,769 condition routes, and 92,322 routed pre-length-filter MIC record counts"
     }
   ],
   "pending": [
     "model-ready MIC tables and frozen splits",
-    "standalone public strain mapping for the paper cohort",
+    "frozen sample-level paper predictions and metric-recomputation capsule",
+    "standalone Evo-2 paper-cohort genome/source manifest",
     "full paper guided-generation condition bank"
   ],
-  "policy": "No data asset is bundled or claimed available until URI, revision, SHA-256, license, and redistribution status are recorded."
+  "policy": "No data asset is bundled or claimed available until URI, revision, SHA-256, license, and redistribution status are recorded.",
+  "reproducibility_scope": "Representative inference assets support executable quickstarts; frozen predictions, splits, and metric scripts support paper-result recomputation without requiring every historical checkpoint."
 }

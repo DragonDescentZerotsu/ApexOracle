@@ -20,10 +20,15 @@
   inference-only assets are fixed at Hugging Face revision `2fb1aa08187eaa359263be6c12c8a41868d8959c` and have passed
   empty-cache hashes plus a real 256-step H100 smoke.
 - The original `Synergy` repository was renamed in place to public `ApexOracle-Core`; its scientific release `v0.1.0`
-  is `8c1def518ac148a878c14f4a39876db59649d43c`, and the current documentation-closure lock is
-  `1973d2d3cc6b27202a3960c363c207dd030f74e7`. Its 217-test local release gate, wheel/sdist, public-history audit,
-  and fresh Hugging Face MIC inference have passed.
+  is `8c1def518ac148a878c14f4a39876db59649d43c`; the `v0.2.3` documentation-closure lock is
+  `1973d2d3cc6b27202a3960c363c207dd030f74e7`, and post-release `main` is `8751c80cb86c3382a9fc3c8689666e992c0ee7a9`
+  for the strain-mapping exporter/manifest. The earlier 217-test release gate, wheel/sdist, public-history audit and
+  fresh Hugging Face MIC inference passed; the mapping batch independently passed 208 tests with 4 external-asset
+  skips.
 - The root repository contains no model weights, embeddings, datasets, or raw experiment outputs after conversion.
+- Core publishes a compact paper strain mapping at commit `8751c80`: 1,766 unique source labels, 1,769 condition
+  routes and 92,322 routed MIC records before length filtering. It contains condition keys and filenames, not MIC
+  labels, molecule structures, embedding tensors or private assay rows.
 - The manuscript-listed Zenodo dataset record `15612048` is public under CC BY 4.0 and contains
   `Genome_embs.tar.gz` plus `Text_Description.tar.gz`. It is an external data record, so no archive is copied into Git.
 

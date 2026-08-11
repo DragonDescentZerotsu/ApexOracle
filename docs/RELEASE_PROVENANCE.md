@@ -17,6 +17,12 @@ No model code, checkpoint, condition tensor, protocol, or reference prediction i
 called `clean_non_pad` actually uses fixed `t=1e-3`, not exact `t=0`. The checkpoint bytes and SHA-256 are unchanged;
 only its local canonical path, public profile/CLI terminology, module documentation, and provenance mapping change.
 
+Post-`v0.2.3` `main` advances only the Core gitlink to
+`8751c80cb86c3382a9fc3c8689666e992c0ee7a9` to publish the compact paper strain mapping and its deterministic
+exporter. The table below remains the immutable `v0.2.3` release lock; the current development lock is always the
+machine-readable `manifests/modules.lock.yaml`. No model weight, embedding tensor, prediction protocol, or paper
+metric changed in this post-release batch.
+
 | Module | Default branch | Current `v0.2.3` lock | Validated scientific implementation |
 | --- | --- | --- | --- |
 | ApexOracle-Core | `main` | `1973d2d3cc6b27202a3960c363c207dd030f74e7` | `8c1def518ac148a878c14f4a39876db59649d43c` (`v0.1.0`) |
@@ -65,6 +71,7 @@ GitHub's automatically generated source ZIP does not expand submodules.
 | Core MIC single-member quickstart | `Kiria-Nozan/ApexOracle-Core` | `459026cf4ae4e4e38ce5d2cae16ee3871d0a81df` | model manifest plus `manifests/model_weights.yaml` and `manifests/data_assets.yaml` |
 | Compact BAA-3170 generation smoke | `Kiria-Nozan/ApexOracle-Generation` | `2fb1aa08187eaa359263be6c12c8a41868d8959c` | Hub `manifest.json` plus both root asset manifests |
 | Paper-listed precomputed genome/text embeddings | Zenodo record `15612048` | DOI `10.5281/zenodo.15612048` | `manifests/data_assets.yaml` with Zenodo MD5 and independently verified SHA-256 |
+| Paper strain-label/condition mapping | `DragonDescentZerotsu/ApexOracle-Core` | `8751c80cb86c3382a9fc3c8689666e992c0ee7a9` | `manifests/data_assets.yaml` plus the mapping's embedded source provenance |
 
 The compact generation release contains three inference-only checkpoints and two condition tensors. Its purpose is
 runtime verification. A complete SELFIES from the smoke is not evidence of deterministic generation, candidate

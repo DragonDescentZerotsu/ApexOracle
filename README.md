@@ -117,6 +117,7 @@ implementation commits, release documentation commits, model revisions, and reco
 | Molecule DLM weights | [Kiria-Nozan/ApexOracle](https://huggingface.co/Kiria-Nozan/ApexOracle) | Molecule embedding extraction |
 | DLM pretraining data | [Kiria-Nozan/ApexOracle dataset](https://huggingface.co/datasets/Kiria-Nozan/ApexOracle) | Tokenized molecular inputs and descriptor targets |
 | Genome and text embeddings | [Zenodo 10.5281/zenodo.15612048](https://doi.org/10.5281/zenodo.15612048) | Paper-listed precomputed embedding archives; CC BY 4.0 |
+| Paper strain mapping | [ApexOracle-Core mapping](modules/core/assets/manifests/paper_strain_mapping.json) | Source strain labels to canonical genome+text/text-only condition keys |
 | MIC inference example | [Kiria-Nozan/ApexOracle-Core](https://huggingface.co/Kiria-Nozan/ApexOracle-Core) | Inference-only single-member checkpoint and example condition |
 | Guided-generation runtime bundle | [Kiria-Nozan/ApexOracle-Generation](https://huggingface.co/Kiria-Nozan/ApexOracle-Generation) | Compact BAA-3170 smoke assets |
 
@@ -124,6 +125,12 @@ Immutable revisions, file sizes, checksums, licenses, and release scope are reco
 [`manifests/model_weights.yaml`](manifests/model_weights.yaml) and
 [`manifests/data_assets.yaml`](manifests/data_assets.yaml). Model weights, datasets, embeddings, caches, and raw
 outputs are not stored as Git objects.
+
+The release distinguishes runnable inference from recomputation of paper numbers. Representative inference-only
+weights power the public quickstarts; the planned paper-results capsule uses frozen sample-level predictions, splits,
+checkpoint provenance, and metric scripts instead of requiring every optimizer-bearing historical checkpoint. See
+the [reproducibility scope](docs/REPRODUCIBILITY_SCOPE.md) and
+[compute requirements](docs/COMPUTE_REQUIREMENTS.md).
 
 > [!IMPORTANT]
 > The public MIC quickstart demonstrates one inference member. The paper metrics use the frozen seven-member

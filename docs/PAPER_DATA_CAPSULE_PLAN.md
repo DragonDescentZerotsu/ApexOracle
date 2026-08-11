@@ -38,7 +38,9 @@ those distinctions with a generic claim that all original splits are exact.
 ## Model-ready data release
 
 Zenodo v5.0.0 releases the public model-ready tables after applying the frozen
-source partition. The combined MIC workstation table contained 120,955 rows:
+token-length and source partitions. The paper-level merged MIC table contains
+121,265 measurements before tokenization. The frozen model-ready token table
+contains 120,955 rows after excluding 310 structures over 1,024 tokens:
 105,237 numeric-ID DBAASP-derived rows are released and all 15,718 private
 in-house rows are excluded. The frozen 49,330-row small-molecule classification
 table and 4,285-row synergy source table are also included, together with the

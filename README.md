@@ -121,7 +121,7 @@ implementation commits, release documentation commits, model revisions, and reco
 | Classification reproduction data | [Zenodo v2.0.0](https://doi.org/10.5281/zenodo.21882300) | Exact Fig. 1b folds, nine normalized prediction tables, and metric recomputation |
 | Fixed MIC reconstruction | [Zenodo v3.0.0](https://doi.org/10.5281/zenodo.21883545) | Post-paper fixed split, 21 member tables, 86,358-row ensemble, and independent metric recomputation |
 | Synergy checkpoint replay | [Zenodo v4.0.0](https://doi.org/10.5281/zenodo.21883954) | High-confidence seed-0 split candidate, 21-member probabilities, 2,371 rows, and metric recomputation |
-| Public model-ready tables | [Zenodo v5.0.0](https://doi.org/10.5281/zenodo.21891064) | DBAASP-derived MIC, small-molecule classification and synergy tables; private in-house MIC rows excluded |
+| Public model-ready tables | [Zenodo v5.0.0](https://doi.org/10.5281/zenodo.21891064) | DBAASP-derived MIC, small-molecule classification and synergy tables; 310 over-1,024-token MIC rows and all private in-house MIC rows excluded from the model-ready release |
 | Peptide MIC candidate scorer | [Zenodo v2.0.0](https://doi.org/10.5281/zenodo.21882300) | All-peptide fixed-`t=1e-3` post-generation scorer; not the Generation sampler checkpoint |
 | Paper strain mapping | [ApexOracle-Core mapping](modules/core/assets/manifests/paper_strain_mapping.json) | Source strain labels to canonical genome+text/text-only condition keys |
 | MIC inference example | [Kiria-Nozan/ApexOracle-Core](https://huggingface.co/Kiria-Nozan/ApexOracle-Core) | Inference-only single-member checkpoint and example condition |
@@ -142,7 +142,9 @@ checkpoints. [Zenodo v4.0.0](https://doi.org/10.5281/zenodo.21883954) adds the f
 seed-0 split reproduces every archived fold metric to the logged precision but remains labeled a high-confidence
 candidate because the 2025 processes did not record sample-level predictions or `PYTHONHASHSEED`.
 [Zenodo v5.0.0](https://doi.org/10.5281/zenodo.21891064) adds source-partitioned public model-ready tables and
-retains all earlier assets; the 15,718 private in-house MIC rows are explicitly excluded. All versions
+retains all earlier assets. The paper reports 121,265 MIC measurements before token-length filtering; the frozen
+model-ready table contains 120,955 rows after excluding 310 structures over 1,024 tokens, and all 15,718 private
+in-house MIC rows are excluded from the public capsule. All versions
 belong to the existing concept DOI `10.5281/zenodo.15612047`, not a separate Zenodo
 project. See
 the [reproducibility scope](docs/REPRODUCIBILITY_SCOPE.md) and

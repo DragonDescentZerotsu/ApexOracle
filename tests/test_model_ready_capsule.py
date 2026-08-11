@@ -21,6 +21,8 @@ def test_manifest_uses_existing_zenodo_series_and_excludes_private_rows() -> Non
     assert manifest["zenodo"]["previous_version_doi"] == ("10.5281/zenodo.21883954")
     assert manifest["zenodo"]["new_version_doi"] == "10.5281/zenodo.21891064"
     mic = manifest["tables"][0]
+    assert mic["upstream_paper_rows_before_token_filter"] == 121265
+    assert mic["excluded_over_1024_tokens"] == 310
     assert mic["source_rows"] == 120955
     assert mic["released_rows"] == 105237
     assert mic["excluded_private_rows"] == 15718

@@ -103,7 +103,8 @@
   version DOI 为 `10.5281/zenodo.21891064`。Canonical builder 是
   `python scripts/build_model_ready_capsule.py --source-root PATH --core-root modules/core --output OUTSIDE_GIT`；
   archive 为 3,743,537 bytes，MD5 `e403f6836dd2dccfd2eb8b62addbaad1`，SHA-256
-  `ae0c76febd4e0b4d43fd68c8bf3ddfa27fc2251011f88c5f693d9aa27be95901`。公开内容为 105,237 条
+  `ae0c76febd4e0b4d43fd68c8bf3ddfa27fc2251011f88c5f693d9aa27be95901`。论文合并表为 tokenizer 前
+  121,265 条；310 条超过 1,024 tokens 后，model-ready token table 为 120,955 条。公开内容为 105,237 条
   DBAASP-derived MIC、49,330 条 classification、4,285 条 synergy source rows、compact strain mapping 和
   563-row paper genome list；15,718 条 private in-house MIC rows 已全部排除。两次 build byte-identical，
   authenticated draft/unauthenticated public download、内部 hash、row count 和作者路径检查通过。Fresh-cache

@@ -53,7 +53,8 @@
 - Zenodo v5.0.0, DOI `10.5281/zenodo.21891064`, retains all earlier files and adds the source-partitioned public
   model-ready data capsule. It contains 105,237 DBAASP-derived MIC rows, 49,330 classification rows, 4,285 synergy
   source rows, the compact strain mapping and the 563-row paper genome list. All 15,718 private in-house MIC rows
-  are excluded.
+  are excluded. The paper-level 121,265 MIC count precedes tokenization; the released model-ready source contains
+  120,955 rows after the documented exclusion of 310 structures over 1,024 tokens.
 - The six active trees now have a CI-enforced anti-bloat policy: exact duplicates at or above 20 KiB, unallowlisted
   files above 1 MiB, checkpoint/cache suffixes, generated build/cache paths and per-repository count/byte-limit
   violations fail `scripts/check_repository_bloat.py`. The current audit found no >=20 KiB exact duplicates.

@@ -61,7 +61,9 @@ than two different technical claims.
   seed-0 candidate rather than proven exact 2025 membership.
 - Zenodo v5.0.0 (`10.5281/zenodo.21891064`) adds 105,237 DBAASP-derived MIC
   rows, 49,330 classification rows and 4,285 synergy source rows. All 15,718
-  private in-house MIC rows are excluded.
+  private in-house MIC rows are excluded. The paper's 121,265 MIC count is
+  before tokenization; the frozen model-ready table has 120,955 rows after the
+  documented exclusion of 310 structures over 1,024 tokens.
 - The canonical all-peptide MIC candidate scorer is also public in Zenodo
   v2.0.0 under the non-misleading filename
   `mic_candidate_scorer_all_peptide_non_pad_t1e-3_epoch13.pth`. It is a
@@ -185,7 +187,9 @@ explicitly labeled a high-confidence candidate. Zenodo v5.0.0
 (`10.5281/zenodo.21891064`) adds the source-partitioned public model-ready
 tables: 105,237 DBAASP-derived MIC rows, the frozen 49,330-row classification
 table and 4,285-row synergy source table. All 15,718 private in-house MIC rows
-are excluded. The compilation includes source and non-relicensing notices and
+are excluded. The manuscript's 121,265 MIC count precedes tokenization; the
+model-ready source has 120,955 rows after excluding 310 structures over 1,024
+tokens. The compilation includes source and non-relicensing notices and
 is linked from the root asset manifest.
 We explicitly distinguish
 recovered historical membership from post-paper deterministic reconstruction

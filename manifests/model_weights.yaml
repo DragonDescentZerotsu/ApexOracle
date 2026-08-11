@@ -58,6 +58,22 @@
       ],
       "license": "MIT",
       "scope": "inference-only 256-step BAA-3170 runtime smoke; not an activity result"
+    },
+    {
+      "id": "apexoracle_mic_candidate_scorer_all_peptide_fixed_epsilon",
+      "status": "released",
+      "provider": "zenodo",
+      "record_id": 21882300,
+      "doi": "10.5281/zenodo.21882300",
+      "concept_doi": "10.5281/zenodo.15612047",
+      "filename": "mic_candidate_scorer_all_peptide_non_pad_t1e-3_epoch13.pth",
+      "size_bytes": 9168011488,
+      "md5": "c65712310d86091128b5591b234cc401",
+      "weight_sha256": "c0d7c2be49ef179a25a19dcd9c54c592c282b6961e51aff60e95fabc13786802",
+      "license": "CC-BY-4.0",
+      "profile": "fixed_epsilon_non_pad",
+      "t": 0.001,
+      "scope": "all-peptide post-generation MIC candidate scoring; not exact clean t=0, not the Generation sampler checkpoint, and not a validated general small-molecule scorer"
     }
   ],
   "pending": [

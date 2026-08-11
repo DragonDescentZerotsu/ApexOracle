@@ -22,7 +22,7 @@
   <a href="https://github.com/DragonDescentZerotsu/ApexOracle/releases/latest"><img src="https://img.shields.io/github/v/release/DragonDescentZerotsu/ApexOracle?label=release" alt="Latest release"></a>
   <a href="https://huggingface.co/Kiria-Nozan/ApexOracle"><img src="https://img.shields.io/badge/🤗%20Hugging%20Face-DLM-ffcc4d" alt="DLM model"></a>
   <a href="https://huggingface.co/datasets/Kiria-Nozan/ApexOracle"><img src="https://img.shields.io/badge/🤗%20Hugging%20Face-pretraining%20data-8bc34a" alt="Pretraining data"></a>
-  <a href="https://doi.org/10.5281/zenodo.15612048"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.15612048.svg" alt="Embedding data DOI"></a>
+  <a href="https://doi.org/10.5281/zenodo.15612047"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.15612047.svg" alt="ApexOracle data DOI"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-6f42c1" alt="MIT license"></a>
 </p>
 
@@ -117,6 +117,8 @@ implementation commits, release documentation commits, model revisions, and reco
 | Molecule DLM weights | [Kiria-Nozan/ApexOracle](https://huggingface.co/Kiria-Nozan/ApexOracle) | Molecule embedding extraction |
 | DLM pretraining data | [Kiria-Nozan/ApexOracle dataset](https://huggingface.co/datasets/Kiria-Nozan/ApexOracle) | Tokenized molecular inputs and descriptor targets |
 | Genome and text embeddings | [Zenodo 10.5281/zenodo.15612048](https://doi.org/10.5281/zenodo.15612048) | Paper-listed precomputed embedding archives; CC BY 4.0 |
+| Classification reproduction data | [Zenodo v2.0.0](https://doi.org/10.5281/zenodo.21882300) | Exact Fig. 1b folds, nine normalized prediction tables, and metric recomputation |
+| Peptide MIC candidate scorer | [Zenodo v2.0.0](https://doi.org/10.5281/zenodo.21882300) | All-peptide fixed-`t=1e-3` post-generation scorer; not the Generation sampler checkpoint |
 | Paper strain mapping | [ApexOracle-Core mapping](modules/core/assets/manifests/paper_strain_mapping.json) | Source strain labels to canonical genome+text/text-only condition keys |
 | MIC inference example | [Kiria-Nozan/ApexOracle-Core](https://huggingface.co/Kiria-Nozan/ApexOracle-Core) | Inference-only single-member checkpoint and example condition |
 | Guided-generation runtime bundle | [Kiria-Nozan/ApexOracle-Generation](https://huggingface.co/Kiria-Nozan/ApexOracle-Generation) | Compact BAA-3170 smoke assets |
@@ -127,10 +129,10 @@ Immutable revisions, file sizes, checksums, licenses, and release scope are reco
 outputs are not stored as Git objects.
 
 The release distinguishes runnable inference from recomputation of paper numbers. Representative inference-only
-weights power the public quickstarts; the paper-results payload uses frozen sample-level predictions, splits,
-checkpoint provenance, and metric scripts instead of requiring every optimizer-bearing historical checkpoint. It
-will be added as a new version under the existing Zenodo concept DOI `10.5281/zenodo.15612047`, not as a separate
-Zenodo project; the classification portion is verified locally but is not public yet. See
+weights power the public quickstarts; paper-result recomputation uses frozen sample-level predictions, splits,
+checkpoint provenance, and metric scripts instead of requiring every optimizer-bearing historical checkpoint.
+The exact Fig. 1b classification capsule is public in [Zenodo v2.0.0](https://doi.org/10.5281/zenodo.21882300),
+under the existing concept DOI `10.5281/zenodo.15612047` rather than a separate Zenodo project. See
 the [reproducibility scope](docs/REPRODUCIBILITY_SCOPE.md) and
 [compute requirements](docs/COMPUTE_REQUIREMENTS.md). The external
 [paper-data capsule plan](docs/PAPER_DATA_CAPSULE_PLAN.md) records which splits are exact, reconstructed, or still

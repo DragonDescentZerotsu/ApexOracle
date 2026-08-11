@@ -336,12 +336,15 @@ def main() -> None:
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument(
         "--new-version-doi",
-        default="pending_until_published",
-        help="Reserved DOI for the new version, when available",
+        help="Version DOI; defaults to the released DOI in the source manifest",
     )
     args = parser.parse_args()
+    source_manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
+    version_doi = args.new_version_doi or source_manifest["zenodo"][
+        "new_version_doi"
+    ]
     result = build(
-        args.source_root.resolve(), args.output.resolve(), args.new_version_doi
+        args.source_root.resolve(), args.output.resolve(), version_doi
     )
     print(json.dumps(result, indent=2, sort_keys=True))
 

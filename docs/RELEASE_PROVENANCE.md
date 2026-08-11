@@ -38,7 +38,8 @@ and Generation `2d648ce`.
 
 `v0.2.3` advances the same validated science to maintenance commits Core `1973d2d`, MDLM `931e3dc`, and Generation
 `67b593e`. The fixed-epsilon scorer remains an external local asset and is not added to Git or the compact Generation
-Hugging Face bundle.
+Hugging Face bundle. Its canonical bytes are now archived externally in Zenodo v2.0.0; it remains separate from the
+Generation sampler checkpoint.
 
 The `v0.2.1` expanded archive contains 933 files and is 36,563,257 bytes. Its SHA-256 is
 `eba6138903dada6806a212c287327999538196d8282678e6cc9a19b4337cd4f2`; the uploaded JSON and SHA-256 sidecars are
@@ -71,6 +72,8 @@ GitHub's automatically generated source ZIP does not expand submodules.
 | Core MIC single-member quickstart | `Kiria-Nozan/ApexOracle-Core` | `459026cf4ae4e4e38ce5d2cae16ee3871d0a81df` | model manifest plus `manifests/model_weights.yaml` and `manifests/data_assets.yaml` |
 | Compact BAA-3170 generation smoke | `Kiria-Nozan/ApexOracle-Generation` | `2fb1aa08187eaa359263be6c12c8a41868d8959c` | Hub `manifest.json` plus both root asset manifests |
 | Paper-listed precomputed genome/text embeddings | Zenodo record `15612048` | DOI `10.5281/zenodo.15612048` | `manifests/data_assets.yaml` with Zenodo MD5 and independently verified SHA-256 |
+| Fig. 1b folds, predictions and metric checker | Zenodo record `21882300` | DOI `10.5281/zenodo.21882300` | `manifests/zenodo_release_21882300.json` plus fresh public-download SHA-256 and metric recomputation |
+| Fixed-`t=1e-3` all-peptide MIC candidate scorer | Zenodo record `21882300` | DOI `10.5281/zenodo.21882300` | Zenodo MD5 plus independent SHA-256 in both root model and release manifests |
 | Paper strain-label/condition mapping | `DragonDescentZerotsu/ApexOracle-Core` | `8751c80cb86c3382a9fc3c8689666e992c0ee7a9` | `manifests/data_assets.yaml` plus the mapping's embedded source provenance |
 
 The compact generation release contains three inference-only checkpoints and two condition tensors. Its purpose is
@@ -83,8 +86,10 @@ yield, antimicrobial activity, or experimental validation.
 - The public generation bundle contains BAA-3170 only; the full paper condition bank is not redistributed here.
 - Full curated training datasets, private assay records, caches, raw outputs, and training checkpoints are not Git
   objects in the super-repository.
-- Zenodo record `15612048` is an existing CC BY 4.0 dataset containing precomputed genome/text embedding archives.
-  It is a dataset DOI and should not be described as the DOI of the GitHub software snapshot.
+- Zenodo record `15612048` is the immutable first version containing the paper-listed precomputed genome/text
+  embedding archives. Record `21882300` is v2.0.0 in the same concept DOI series and adds classification
+  reproduction data plus one canonical candidate scorer. Neither dataset DOI is the DOI of the GitHub software
+  snapshot.
 
 ## Documentation audit
 

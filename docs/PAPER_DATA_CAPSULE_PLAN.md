@@ -9,7 +9,7 @@ needed to avoid both overclaiming reproducibility and growing the Git tree.
 - The revised Fig. 1b classification folds are deterministic
   `KFold(n_splits=5, shuffle=True, random_state=42)`. The strict-zero-shot,
   fine-tuned 10-member and matched Chemprop sample-level predictions are
-  locally complete and hash-frozen in the plan manifest.
+  public and hash-frozen in Zenodo v2.0.0.
 - The 2026 fixed strain-wise MIC reconstruction has an exact seed-0 split, all
   21 trained members and 86,358 sample-level ensemble predictions. It is ready
   for an external capsule as a post-paper reconstruction.
@@ -67,7 +67,7 @@ to the external record. In particular, the 18–19 MB MIC prediction tables and
 multi-megabyte classification outputs must not be copied into Core and then
 again into the super-repository.
 
-## Classification capsule staging
+## Classification capsule release
 
 The classification payload is assembled by:
 
@@ -85,24 +85,25 @@ fold-mean AUPRC/AUROC values. The included checker uses only the Python standard
 library. Archives use fixed file modes, timestamps and root names; two clean
 builds must be byte-identical.
 
-Current local staging is complete but is not yet a public asset:
+The released asset is:
 
-- archive size: 1,317,922 bytes;
-- SHA-256: `5723656282d641f4bce8bfa3f4500318b2b6fe0573bc187ba3ed7a7240280735`;
-- stable target: the existing Zenodo concept DOI above;
-- remaining action: create a new version draft, reserve its version DOI,
-  rebuild with `--new-version-doi`, upload, download into an empty directory,
-  and re-run `SHA256SUMS` plus the metric checker.
+- version DOI: `10.5281/zenodo.21882300`;
+- concept DOI: `10.5281/zenodo.15612047`;
+- archive size: 1,317,912 bytes;
+- MD5: `f663551b545de70277b5e665d2a6dab5`;
+- SHA-256: `6d053c68ef21afd37d0c7bb76d555c55073513db3785238ace0a7055ea203f68`;
+- release manifest: `manifests/zenodo_release_21882300.json`.
 
-The archive hash above is the reproducible pre-upload build with the version
-DOI explicitly marked `pending_until_published`; it must be replaced in the
-public asset manifest after the version DOI is reserved.
+Both the authenticated draft download and the unauthenticated public download
+matched the released SHA-256. Internal `SHA256SUMS`, AUPRC/AUROC recomputation,
+exact fold membership, normalized schemas and the no-absolute-path check also
+passed. No prediction table is duplicated into Git.
 
 ## Execution order
 
-1. Add the prepared exact classification fold/prediction capsule as a new
-   version of the existing Zenodo record and verify all AUPRC/AUROC values from
-   freshly downloaded files.
+1. **Completed:** release the exact classification fold/prediction capsule as
+   Zenodo v2.0.0 and verify all AUPRC/AUROC values from freshly downloaded
+   files.
 2. Publish the fixed strain-wise MIC reconstruction with an explicit
    post-paper label and independently recompute the reported metrics.
 3. Audit species/phylum split lineage before adding their predictions.

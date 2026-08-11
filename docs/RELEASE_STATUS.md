@@ -31,17 +31,21 @@
   labels, molecule structures, embedding tensors or private assay rows.
 - The manuscript-listed Zenodo dataset record `15612048` is public under CC BY 4.0 and contains
   `Genome_embs.tar.gz` plus `Text_Description.tar.gz`. It is an external data record, so no archive is copied into Git.
+- Zenodo v2.0.0, DOI `10.5281/zenodo.21882300`, is public under the same concept DOI
+  `10.5281/zenodo.15612047`. It retains both embedding archives and adds the exact Fig. 1b classification capsule,
+  the canonical fixed-`t=1e-3` all-peptide MIC candidate scorer, and a machine-readable release manifest. The old
+  misleading checkpoint filename is absent from the public file list.
 - The six active trees now have a CI-enforced anti-bloat policy: exact duplicates at or above 20 KiB, unallowlisted
   files above 1 MiB, checkpoint/cache suffixes, generated build/cache paths and per-repository count/byte-limit
   violations fail `scripts/check_repository_bloat.py`. The current audit found no >=20 KiB exact duplicates.
 - `manifests/paper_data_capsule_plan.json` distinguishes exact classification folds, the exact 2026 fixed MIC
   reconstruction, unrecovered 2025 MIC membership, and the count-matched but unproven synergy seed-0 candidate.
   Full tables and predictions remain external-capsule assets rather than Git payloads.
-- The exact Fig. 1b classification capsule is locally staged for a new version of the existing Zenodo concept record,
-  not a separate record series. Its deterministic pre-upload archive is 1,317,922 bytes with SHA-256
-  `5723656282d641f4bce8bfa3f4500318b2b6fe0573bc187ba3ed7a7240280735`; all source hashes, fixed folds,
-  normalized prediction schemas and AUPRC/AUROC recomputation checks pass. It remains **unreleased** until the record
-  owner creates the new-version draft, reserves the version DOI, and a fresh download passes the same checks.
+- The exact Fig. 1b classification capsule is public in Zenodo v2.0.0: 1,317,912 bytes, MD5
+  `f663551b545de70277b5e665d2a6dab5`, SHA-256
+  `6d053c68ef21afd37d0c7bb76d555c55073513db3785238ace0a7055ea203f68`. Authenticated draft and unauthenticated
+  public downloads, internal `SHA256SUMS`, fixed folds, normalized schemas, AUPRC/AUROC recomputation and the
+  no-absolute-path gate passed.
 
 ## Module gates
 
@@ -83,4 +87,5 @@ Release `v0.2.3` corrects the downstream reporting/candidate scorer terminology 
 canonical `fixed_epsilon_non_pad`. The producer is fixed at `t=1e-3`; it is not exact clean `t=0`. The 9.17 GB
 checkpoint was renamed locally without binary conversion, retaining SHA-256
 `c0d7c2be49ef179a25a19dcd9c54c592c282b6961e51aff60e95fabc13786802`. Generation sampling still uses its
-separate random-time noisy checkpoint; public model revisions and scientific protocols are unchanged.
+separate random-time noisy checkpoint. The canonical scorer is now public in Zenodo v2.0.0 with the same bytes and
+SHA-256; scientific protocols are unchanged.

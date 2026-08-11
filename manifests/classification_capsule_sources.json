@@ -6,7 +6,9 @@
     "existing_record_id": 15612048,
     "existing_version_doi": "10.5281/zenodo.15612048",
     "concept_doi": "10.5281/zenodo.15612047",
-    "new_version_doi": "pending_until_published"
+    "new_version_doi": "10.5281/zenodo.21882300",
+    "new_version_record_id": 21882300,
+    "status": "released"
   },
   "source_root_contract": "A checkout or preserved experiment workspace containing the listed source_relative_path values",
   "groups": [

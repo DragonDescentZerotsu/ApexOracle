@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "status": "released",
+  "record": {
+    "title": "ApexOracle paper assets: pathogen embeddings, MIC candidate scorer, and classification reproduction data",
+    "concept_doi": "10.5281/zenodo.15612047",
+    "version_doi": "10.5281/zenodo.21882300",
+    "record_id": 21882300,
+    "version": "2.0.0",
+    "publication_date": "2026-08-11",
+    "record_license": "CC-BY-4.0",
+    "source_code_license": "MIT",
+    "source_repository": "https://github.com/DragonDescentZerotsu/ApexOracle"
+  },
+  "files": [
+    {
+      "filename": "Genome_embs.tar.gz",
+      "role": "paper-listed precomputed Evo-2 genome embeddings",
+      "size_bytes": 2713342423,
+      "md5": "5c8257c9ffcc10dabd6ea2ddc8031e04",
+      "sha256": "59e774945ced8e0b09fa6a11cd51c5f8e78253b2a0e73fa97f8b32e686be2a40",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "filename": "Text_Description.tar.gz",
+      "role": "paper-listed strain descriptions and precomputed text embeddings",
+      "size_bytes": 5735670263,
+      "md5": "bec2f58dc11b45bac7192b04d931f6e1",
+      "sha256": "cf642a03ec1e3b0dca1e046712500f453e0ea1d445ca84d0228f43e419a32008",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "filename": "mic_candidate_scorer_all_peptide_non_pad_t1e-3_epoch13.pth",
+      "role": "post-generation peptide-candidate MIC reporting and scoring checkpoint",
+      "size_bytes": 9168011488,
+      "md5": "c65712310d86091128b5591b234cc401",
+      "sha256": "c0d7c2be49ef179a25a19dcd9c54c592c282b6961e51aff60e95fabc13786802",
+      "license": "CC-BY-4.0",
+      "protocol": {
+        "profile": "fixed_epsilon_non_pad",
+        "molecule_training_scope": "all-peptide MIC candidate scorer",
+        "sampling": "fixed_epsilon",
+        "t": 0.001,
+        "exact_clean_t0": false,
+        "preserve_padding": false,
+        "epochs": 13
+      },
+      "boundaries": [
+        "This is not the random-time padding-preserved checkpoint used by the Generation sampler.",
+        "It supports peptide-candidate scoring and should not be represented as a validated general small-molecule scorer."
+      ]
+    },
+    {
+      "filename": "apexoracle_fig1b_classification_reproduction_v1.tar.gz",
+      "role": "exact Fig. 1b classification folds, normalized predictions, and metric recomputation",
+      "size_bytes": 1317912,
+      "md5": "f663551b545de70277b5e665d2a6dab5",
+      "sha256": "6d053c68ef21afd37d0c7bb76d555c55073513db3785238ace0a7055ea203f68",
+      "license": "CC-BY-4.0",
+      "source_builder_revision": "f7fe54a60a57be7192a6eea4fd78c23ed7e4b587",
+      "scope": {
+        "targets": 3,
+        "exact_folds": 15,
+        "prediction_tables": 9,
+        "methods": [
+          "ApexOracle strict zero-shot",
+          "ApexOracle fine-tuned 10-member ensemble",
+          "Chemprop 10-member ensemble"
+        ],
+        "model_ready_source_table_included": false,
+        "checkpoints_included": false
+      }
+    }
+  ],
+  "verification": {
+    "zenodo_md5_matches": true,
+    "classification_fresh_download_sha256_matches": true,
+    "classification_internal_sha256sums_pass": true,
+    "classification_metrics_recomputed": true,
+    "absolute_author_paths_absent_from_classification_capsule": true
+  }
+}

@@ -2,7 +2,7 @@ cff-version: 1.2.0
 title: ApexOracle
 message: Please cite the ApexOracle paper and the software release used in your work.
 type: software
-version: 0.2.2
+version: 0.2.3
 date-released: 2026-08-10
 authors:
   - family-names: Leng
@@ -19,3 +19,12 @@ references:
     date-released: 2025-06-06
     license: CC-BY-4.0
     url: https://doi.org/10.5281/zenodo.15612048
+  - type: data
+    title: "ApexOracle paper assets: pathogen embeddings, MIC candidate scorer, and classification reproduction data"
+    authors:
+      - family-names: Leng
+        given-names: Tianang
+    doi: 10.5281/zenodo.21882300
+    date-released: 2026-08-11
+    license: CC-BY-4.0
+    url: https://doi.org/10.5281/zenodo.21882300

@@ -11,7 +11,7 @@
 | Reviewer 1, reproducibility | Report compute requirements and runtimes. | Public requirements boundary added in `docs/COMPUTE_REQUIREMENTS.md`; exact wall time and peak RAM/VRAM still need fresh-run capture. | **OPEN** |
 | Reviewer 1, code; Reviewer 2 and Reviewer 3, code availability | The repository was incomplete and lacked Evo-2 extraction, Me-LLaMA extraction, fusion, MIC/classification/synergy heads, and guided generation. | Existing `DragonDescentZerotsu/ApexOracle` was converted in place into a super-repository that pins five public modules. The missing implementations now have public module entry points and immutable gitlinks. | **DONE** |
 | Reviewer 1; Reviewer 2 and Reviewer 3 | Provide click-and-run MIC prediction and guided-generation quickstarts. | Root `quickstarts/README.md` provides a CPU MIC inference example and a compact 256-step BAA-3170 generation smoke using immutable Hugging Face revisions and hashes. | **DONE** |
-| Reviewer 4, minor point 2 | Release the full training-set layout, processed tables, standardized strain mapping, small-molecule and synergy data, frozen splits, preprocessing, and strain-description texts. | Zenodo already releases the paper-listed genome embeddings and strain descriptions. The compact Core strain mapping is public at immutable commit `8751c80`. The exact classification folds and nine normalized prediction tables now pass a deterministic external-capsule build and metric audit; they are staged for a new version of the same Zenodo concept record, but are not public yet. The post-paper fixed MIC reconstruction can also be frozen; the original 2025 MIC/synergy membership was not fully recovered and must remain labeled as a deterministic candidate rather than an exact split. Source-partitioned model-ready tables remain to be released. | **OPEN (mapping public; classification staged)** |
+| Reviewer 4, minor point 2 | Release the full training-set layout, processed tables, standardized strain mapping, small-molecule and synergy data, frozen splits, preprocessing, and strain-description texts. | Zenodo releases the paper-listed genome embeddings and strain descriptions. The compact Core strain mapping is public at immutable commit `8751c80`. Zenodo v2.0.0 (`10.5281/zenodo.21882300`) now releases the exact classification folds, nine normalized prediction tables, frozen metrics and an independent metric checker; its public download passed checksum and metric audits. The post-paper fixed MIC reconstruction can also be frozen, but the original 2025 MIC/synergy membership was not fully recovered and must remain labeled as a deterministic candidate rather than an exact split. Source-partitioned model-ready tables remain to be released. | **OPEN (mapping and classification public; MIC/synergy tables pending)** |
 | Reviewer 4, data availability | Which strains were used for Evo-2, and where are strain traits? | The Evo-2 module now provides the extraction CLI; Zenodo record `15612048` contains genome embeddings and strain-description assets. A standalone paper-cohort genome/source list remains to be added to the data capsule. | **OPEN** |
 | Implied by “reproducing the main results” | Must every historical checkpoint be uploaded? | No. Representative inference-only weights support executable quickstarts. Paper-number reproduction will use frozen per-sample predictions, split membership, metric scripts, and a complete checkpoint registry. Raw optimizer-bearing checkpoints remain external. | **POLICY FIXED; CAPSULE OPEN** |
 
@@ -42,6 +42,17 @@ than two different technical claims.
   manifests.
 - Zenodo record `10.5281/zenodo.15612048` contains the paper-listed genome and
   strain-description/embedding archives.
+- Zenodo v2.0.0 (`10.5281/zenodo.21882300`) adds the exact Fig. 1b
+  classification folds, nine sample-level prediction tables, frozen reporting
+  metrics, and an independent standard-library metric checker. The public
+  archive passed SHA-256, internal-manifest, schema, metric and absolute-path
+  audits.
+- The canonical all-peptide MIC candidate scorer is also public in Zenodo
+  v2.0.0 under the non-misleading filename
+  `mic_candidate_scorer_all_peptide_non_pad_t1e-3_epoch13.pth`. It is a
+  fixed-epsilon (`t=1e-3`) post-generation scorer, not exact clean `t=0`, not
+  the Generation sampler checkpoint, and not a validated general
+  small-molecule scorer.
 - The source release is MIT licensed at the orchestration and ApexOracle-owned
   code layers; third-party module notices and data licenses remain separate.
 
@@ -51,23 +62,21 @@ Do not yet say that a reader can regenerate every reported paper value solely
 from public assets. The remaining result-level release items are:
 
 1. model-ready public tables and their redistribution notes;
-2. exact recovered split membership plus explicitly labeled deterministic
+2. MIC/synergy membership plus explicitly labeled deterministic
    candidates/reconstructions where the 2025 hash-dependent membership was not
    recorded;
-3. frozen per-sample predictions for the reported ensembles;
+3. frozen MIC/synergy per-sample predictions for the reported ensembles;
 4. metric/figure recomputation commands and expected hashes;
 5. a complete checkpoint registry for all paper members, including role,
    group/fold/member, source hash, code commit, and prediction hash;
 6. measured wall time and peak RAM/VRAM for the two public quickstarts;
 7. a standalone Evo-2 paper-cohort genome/source manifest.
 
-The release tree is protected by an automated anti-bloat gate. Full model-ready
-tables and sample-level predictions will be archived once in a new version of
-the existing Zenodo concept record and referenced by hashes; they will not be
-duplicated across Git or module repositories. The classification payload is
-already locally staged and verified, but this draft must continue to call it
-unreleased until the new Zenodo version is public and passes a fresh-download
-audit.
+The release tree is protected by an automated anti-bloat gate. The Fig. 1b
+classification payload is now archived once in Zenodo v2.0.0 under the
+existing concept DOI and referenced by hashes; it is not duplicated across Git
+or module repositories. The remaining model-ready tables and MIC/synergy
+sample-level predictions will follow the same single-record policy.
 
 The complete historical training checkpoints are not a release gate. MIC alone
 uses 21 large source checkpoints, classification contains hundreds of members,
@@ -105,17 +114,16 @@ expanded source archive with the release.
 
 The runnable quickstarts and reproduction of the reported paper values have
 different storage requirements. We therefore release representative
-inference-only weights for functional verification and are releasing the paper
-evaluation capsule as frozen sample-level predictions, split membership,
-checkpoint provenance, and metric/figure recomputation scripts. This avoids
+inference-only weights for functional verification. We have released the exact
+Fig. 1b classification folds, sample-level predictions, frozen metrics, and an
+independent metric checker in Zenodo v2.0.0; the remaining MIC/synergy result
+payloads will use the same split/provenance/recomputation format. This avoids
 requiring reviewers to download hundreds of gigabytes of duplicated optimizer
 and backbone state while preserving direct recomputation of the reported
 results. We have also added a compute-requirements table and will insert the
 measured wall time and peak RAM/VRAM from fresh runs before submission.
 
-> Before use: change “are releasing” to “have released” only after the paper
-> evaluation capsule is public, and replace the last sentence with exact
-> measured values.
+> Before use: replace the last sentence with exact measured runtime values.
 
 ## Reviewer 4 English response: training data and strain mapping
 
@@ -137,11 +145,14 @@ species, genome/text or text-only route, and embedding filenames. It contains
 1,766 unique source strain labels and 1,769 condition routes, corresponding to
 92,322 routed MIC records before token-length filtering, without exposing MIC
 labels, molecule structures, embedding tensors or private assay rows. The
-remaining source-partitioned model-ready tables, exactly recovered
-classification folds, explicitly labeled deterministic MIC/synergy split
-candidates or reconstructions, sample-level paper predictions, and the
-standalone Evo-2 genome/source list will be released in a versioned paper-data
-capsule and linked from the root asset manifest. We explicitly distinguish
+exact classification folds, nine sample-level prediction tables, frozen
+metrics and an independent checker are now public in Zenodo v2.0.0
+(`10.5281/zenodo.21882300`) under the same concept DOI. The remaining
+source-partitioned model-ready tables, explicitly labeled deterministic
+MIC/synergy split candidates or reconstructions, MIC/synergy sample-level paper
+predictions, and the standalone Evo-2 genome/source list will be released in
+the same versioned paper-data series and linked from the root asset manifest.
+We explicitly distinguish
 recovered historical membership from post-paper deterministic reconstruction
 rather than representing the latter as the original 2025 split.
 
@@ -154,11 +165,12 @@ rather than representing the latter as the original 2025 split.
 - [ ] Fresh generation quickstart: record GPU, wall time and peak VRAM.
 - [x] Publish and hash the compact strain mapping from Core.
 - [x] Build and independently verify the exact classification capsule locally.
-- [ ] Add the classification capsule to a new version of existing Zenodo
-      concept DOI `10.5281/zenodo.15612047` and verify a fresh download.
+- [x] Publish the classification capsule in Zenodo v2.0.0 under existing
+      concept DOI `10.5281/zenodo.15612047` and verify an unauthenticated public
+      download.
 - [ ] Publish model-ready data allowed for redistribution.
-- [ ] Publish exact recovered splits and clearly labeled deterministic
-      candidates/reconstructions with frozen predictions.
+- [ ] Publish the remaining MIC/synergy membership and clearly labeled
+      deterministic candidates/reconstructions with frozen predictions.
 - [ ] Add checkpoint registry and metric/figure recomputation README.
 - [ ] Publish the Evo-2 genome/source manifest.
 - [ ] Replace every future-tense promise above with a verified public link.

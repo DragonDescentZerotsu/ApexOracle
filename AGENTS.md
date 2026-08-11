@@ -44,15 +44,20 @@
   exact frozen assets；2025 strain-wise MIC membership 未恢复，synergy seed-0 仅与 archived counts 一致，二者
   不得写成 exact historical split。任何 model-ready table 必须先按 source/private-public status 分区并完成
   redistribution record，再进入唯一一份外部 Zenodo capsule；不得复制到 Core 或 root Git。
-- **2026-08-11 classification capsule staging：** 不新建第二个 Zenodo 项目；所有 paper-data 补充均作为现有
+- **2026-08-11 classification capsule 发布：** 不新建第二个 Zenodo 项目；所有 paper-data 补充均作为现有
   concept DOI `10.5281/zenodo.15612047`（首个 version DOI `10.5281/zenodo.15612048`）的新版本发布。
   Canonical builder 为 `python scripts/build_classification_capsule.py --source-root PATH --output OUTSIDE_GIT`，
   source ledger 为 `manifests/classification_capsule_sources.json`，独立指标入口为
-  `scripts/recompute_classification_metrics.py`。当前 pre-upload archive 为 1,317,922 bytes、SHA-256
-  `5723656282d641f4bce8bfa3f4500318b2b6fe0573bc187ba3ed7a7240280735`；三个 exact eligible folds、九份
-  normalized predictions、common-cohort AUPRC/AUROC、无绝对路径和两次 byte-identical build 已通过。
-  该资产仍是本地 staging，不得写成已公开；record owner 建立 new-version draft 并 reserve version DOI 后，
-  必须用 `--new-version-doi` 重建，再做 fresh-download SHA256SUMS/metric audit，最后才更新 README/data manifest。
+  `scripts/recompute_classification_metrics.py`。同一系列的 v2.0.0 已公开为 version DOI
+  `10.5281/zenodo.21882300`：classification archive 为 1,317,912 bytes、SHA-256
+  `6d053c68ef21afd37d0c7bb76d555c55073513db3785238ace0a7055ea203f68`；三个 exact eligible folds、九份
+  normalized predictions、common-cohort AUPRC/AUROC、内部 `SHA256SUMS`、无绝对路径、authenticated draft
+  与 unauthenticated public fresh-download 均已通过。该版本同时以 canonical filename 发布 9,168,011,488-byte
+  fixed-`t=1e-3` all-peptide MIC candidate scorer；本地 SHA-256 为
+  `c0d7c2be49ef179a25a19dcd9c54c592c282b6961e51aff60e95fabc13786802`，Zenodo 与本地 MD5 均为
+  `c65712310d86091128b5591b234cc401`。该大权重未完成一次完整 public fresh-download SHA-256，文档不得把
+  server MD5/local SHA 校验升级为该结论。Zenodo 文件清单和边界固定在
+  `manifests/zenodo_release_21882300.json`；旧误导性 checkpoint filename 不得重新出现。
 - 完整 source archive canonical 入口为 `python scripts/build_source_archive.py --output PATH.tar.gz`；它只展开
   root `HEAD` 与 `manifests/modules.lock.yaml` 的五个固定 commits，输出 archive、JSON manifest 和 SHA-256。
   `--plan-only` 只核验 locks。归档不得包含 `.git`、checkpoint、embedding、dataset、cache 或 raw outputs。

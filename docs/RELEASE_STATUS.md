@@ -21,14 +21,18 @@
   empty-cache hashes plus a real 256-step H100 smoke.
 - The original `Synergy` repository was renamed in place to public `ApexOracle-Core`; its scientific release `v0.1.0`
   is `8c1def518ac148a878c14f4a39876db59649d43c`; the `v0.2.3` documentation-closure lock is
-  `1973d2d3cc6b27202a3960c363c207dd030f74e7`, and post-release `main` is `8751c80cb86c3382a9fc3c8689666e992c0ee7a9`
-  for the strain-mapping exporter/manifest. The earlier 217-test release gate, wheel/sdist, public-history audit and
-  fresh Hugging Face MIC inference passed; the mapping batch independently passed 208 tests with 4 external-asset
-  skips.
+  `1973d2d3cc6b27202a3960c363c207dd030f74e7`, and post-release `main` is
+  `1ab309c3275f21e3f4e7346e8d0340894a7507cc` for the strain mapping and paper genome list. The earlier 217-test
+  release gate, wheel/sdist, public-history audit and fresh Hugging Face MIC inference passed; the genome-list batch
+  passed 211 tests with 4 external-asset skips.
 - The root repository contains no model weights, embeddings, datasets, or raw experiment outputs after conversion.
 - Core publishes a compact paper strain mapping at commit `8751c80`: 1,766 unique source labels, 1,769 condition
   routes and 92,322 routed MIC records before length filtering. It contains condition keys and filenames, not MIC
   labels, molecule structures, embedding tensors or private assay rows.
+- Core publishes a 563-row paper Evo-2 genome list at commit `1ab309c`: MIC/classification/synergy use 563/2/100
+  genomes respectively. Each row records a species label, conservative source identifier, current filename-matched
+  FASTA identity and embedding SHA-256. The list contains no sequence or tensor payload and does not represent the
+  current FASTA files as proven byte-identical original producer inputs.
 - The manuscript-listed Zenodo dataset record `15612048` is public under CC BY 4.0 and contains
   `Genome_embs.tar.gz` plus `Text_Description.tar.gz`. It is an external data record, so no archive is copied into Git.
 - Zenodo v2.0.0, DOI `10.5281/zenodo.21882300`, is public under the same concept DOI

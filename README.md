@@ -117,6 +117,7 @@ implementation commits, release documentation commits, model revisions, and reco
 | Molecule DLM weights | [Kiria-Nozan/ApexOracle](https://huggingface.co/Kiria-Nozan/ApexOracle) | Molecule embedding extraction |
 | DLM pretraining data | [Kiria-Nozan/ApexOracle dataset](https://huggingface.co/datasets/Kiria-Nozan/ApexOracle) | Tokenized molecular inputs and descriptor targets |
 | Genome and text embeddings | [Zenodo 10.5281/zenodo.15612048](https://doi.org/10.5281/zenodo.15612048) | Paper-listed precomputed embedding archives; CC BY 4.0 |
+| Paper Evo-2 genome list | [ApexOracle-Core list](modules/core/experiments/evo2_genome_embeddings/paper_genome_list.csv) | 563 genomes used by paper MIC/classification/synergy tasks, with source and file hashes |
 | Classification reproduction data | [Zenodo v2.0.0](https://doi.org/10.5281/zenodo.21882300) | Exact Fig. 1b folds, nine normalized prediction tables, and metric recomputation |
 | Peptide MIC candidate scorer | [Zenodo v2.0.0](https://doi.org/10.5281/zenodo.21882300) | All-peptide fixed-`t=1e-3` post-generation scorer; not the Generation sampler checkpoint |
 | Paper strain mapping | [ApexOracle-Core mapping](modules/core/assets/manifests/paper_strain_mapping.json) | Source strain labels to canonical genome+text/text-only condition keys |

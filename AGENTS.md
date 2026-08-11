@@ -22,7 +22,8 @@
   `931e3dc09bfc2501809c03dbd016741406950f5f`、`67b593e1a623af3af80c64e263bde527d73d89ef`；checkpoint
   bytes/SHA 与 Generation sampler 权重均未改变。
 - **2026-08-10 post-`v0.2.3` reviewer reproducibility batch：** Core `main` 已新增 compact paper strain
-  mapping，固定 commit `8751c80cb86c3382a9fc3c8689666e992c0ee7a9`；root `manifests/data_assets.yaml`
+  mapping，并在后续 paper genome list batch 推进到 commit
+  `1ab309c3275f21e3f4e7346e8d0340894a7507cc`；root `manifests/data_assets.yaml`
   必须登记其 730,151-byte file、SHA-256 `51db55fe...d8f4` 和 1,766 labels/1,769 routes/92,322 routed rows
   scope。Reviewer code/data 回复的 canonical working draft 为 `docs/REVIEWER_CODE_RESPONSE_DRAFT.md`；其中
   `DONE` 与 `OPEN` 必须按 public immutable asset 分开，禁止把 prediction capsule、exact runtime/RAM/VRAM
@@ -51,13 +52,19 @@
   `scripts/recompute_classification_metrics.py`。同一系列的 v2.0.0 已公开为 version DOI
   `10.5281/zenodo.21882300`：classification archive 为 1,317,912 bytes、SHA-256
   `6d053c68ef21afd37d0c7bb76d555c55073513db3785238ace0a7055ea203f68`；三个 exact eligible folds、九份
-  normalized predictions、common-cohort AUPRC/AUROC、内部 `SHA256SUMS`、无绝对路径、authenticated draft
+  normalized predictions、shared-row AUPRC/AUROC、内部 `SHA256SUMS`、无绝对路径、authenticated draft
   与 unauthenticated public fresh-download 均已通过。该版本同时以 canonical filename 发布 9,168,011,488-byte
   fixed-`t=1e-3` all-peptide MIC candidate scorer；本地 SHA-256 为
   `c0d7c2be49ef179a25a19dcd9c54c592c282b6961e51aff60e95fabc13786802`，Zenodo 与本地 MD5 均为
   `c65712310d86091128b5591b234cc401`。该大权重未完成一次完整 public fresh-download SHA-256，文档不得把
   server MD5/local SHA 校验升级为该结论。Zenodo 文件清单和边界固定在
   `manifests/zenodo_release_21882300.json`；旧误导性 checkpoint filename 不得重新出现。
+- **2026-08-11 论文 Evo-2 基因组清单：** 对外统一称为“paper genome list / 论文基因组清单”。Core
+  `1ab309c3275f21e3f4e7346e8d0340894a7507cc` 发布 563-row CSV 与相邻 JSON manifest；MIC、
+  classification、synergy 使用数分别为 563/2/100，CSV size/SHA-256 为 171,749 bytes /
+  `64323cab44a4a287b0b63e6e60bd7b0270557d5f0ce5715acb651aeb98b1f860`。清单仅包含保守来源标签、
+  当前 filename-matched FASTA 身份、embedding hash 和任务使用标记，不含 sequence、tensor、assay label、
+  molecule 或 private row；`current_fasta_*` 不得写成已证明的原始 producer input。
 - 完整 source archive canonical 入口为 `python scripts/build_source_archive.py --output PATH.tar.gz`；它只展开
   root `HEAD` 与 `manifests/modules.lock.yaml` 的五个固定 commits，输出 archive、JSON manifest 和 SHA-256。
   `--plan-only` 只核验 locks。归档不得包含 `.git`、checkpoint、embedding、dataset、cache 或 raw outputs。

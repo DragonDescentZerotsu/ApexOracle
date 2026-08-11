@@ -25,7 +25,7 @@ record `PYTHONHASHSEED`.
   legacy-codepath candidate; archived row counts remain authoritative, but
   exact 2025 strain membership was not recovered.
 - For synergy, the seed-0 manifest matches every archived fold count and the
-  2,732-row eligible cohort, but it is still a high-confidence candidate rather
+  2,732-row eligible set, but it is still a high-confidence candidate rather
   than proof of exact 2025 membership.
 - Species-wise and phylum-wise memberships require a separate lineage audit
   before they enter the capsule.

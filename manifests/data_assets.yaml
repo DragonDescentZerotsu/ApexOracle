@@ -111,12 +111,24 @@
       "repository_license": "MIT",
       "source_data_terms": "source dataset terms remain separate; no MIC labels, molecule structures, embedding tensors, or private assay rows are included",
       "scope": "1,766 paper MIC source strain labels, 1,769 condition routes, and 92,322 routed pre-length-filter MIC record counts"
+    },
+    {
+      "id": "apexoracle_core_paper_genome_list",
+      "status": "released",
+      "provider": "github",
+      "repository": "DragonDescentZerotsu/ApexOracle-Core",
+      "revision": "1ab309c3275f21e3f4e7346e8d0340894a7507cc",
+      "filename": "experiments/evo2_genome_embeddings/paper_genome_list.csv",
+      "size_bytes": 171749,
+      "sha256": "64323cab44a4a287b0b63e6e60bd7b0270557d5f0ce5715acb651aeb98b1f860",
+      "repository_license": "MIT",
+      "source_data_terms": "compact identities and hashes only; no sequences, embeddings, MIC labels, molecule structures, or private assay rows",
+      "scope": "563 genomes used by at least one paper task; MIC/classification/synergy usage counts are 563/2/100, with conservative source labels and current filename-matched FASTA identities"
     }
   ],
   "pending": [
     "source-partitioned model-ready tables with redistribution records",
     "explicitly labeled MIC reconstruction and synergy split/prediction payloads",
-    "standalone Evo-2 paper-cohort genome/source manifest",
     "full paper guided-generation condition bank"
   ],
   "policy": "No data asset is bundled or claimed available until URI, revision, SHA-256, license, and redistribution status are recorded. Paper-data additions use new versions of the existing Zenodo concept DOI 10.5281/zenodo.15612047 rather than a second independent Zenodo project.",

@@ -12,7 +12,7 @@
 | Reviewer 1, code; Reviewer 2 and Reviewer 3, code availability | The repository was incomplete and lacked Evo-2 extraction, Me-LLaMA extraction, fusion, MIC/classification/synergy heads, and guided generation. | Existing `DragonDescentZerotsu/ApexOracle` was converted in place into a super-repository that pins five public modules. The missing implementations now have public module entry points and immutable gitlinks. | **DONE** |
 | Reviewer 1; Reviewer 2 and Reviewer 3 | Provide click-and-run MIC prediction and guided-generation quickstarts. | Root `quickstarts/README.md` provides a CPU MIC inference example and a compact 256-step BAA-3170 generation smoke using immutable Hugging Face revisions and hashes. | **DONE** |
 | Reviewer 4, minor point 2 | Release the full training-set layout, processed tables, standardized strain mapping, small-molecule and synergy data, frozen splits, preprocessing, and strain-description texts. | Zenodo releases the paper-listed genome embeddings and strain descriptions. The compact Core strain mapping is public at immutable commit `8751c80`. Zenodo v2.0.0 (`10.5281/zenodo.21882300`) now releases the exact classification folds, nine normalized prediction tables, frozen metrics and an independent metric checker; its public download passed checksum and metric audits. The post-paper fixed MIC reconstruction can also be frozen, but the original 2025 MIC/synergy membership was not fully recovered and must remain labeled as a deterministic candidate rather than an exact split. Source-partitioned model-ready tables remain to be released. | **OPEN (mapping and classification public; MIC/synergy tables pending)** |
-| Reviewer 4, data availability | Which strains were used for Evo-2, and where are strain traits? | The Evo-2 module now provides the extraction CLI; Zenodo record `15612048` contains genome embeddings and strain-description assets. A standalone paper-cohort genome/source list remains to be added to the data capsule. | **OPEN** |
+| Reviewer 4, data availability | Which strains were used for Evo-2, and where are strain traits? | The Evo-2 module provides the extraction CLI; Zenodo record `15612048` contains genome embeddings and strain-description assets. Core now publishes a 563-row paper genome list with species labels, conservative source identifiers, current filename-matched FASTA identities, embedding hashes, and separate MIC/classification/synergy usage flags. | **DONE** |
 | Implied by “reproducing the main results” | Must every historical checkpoint be uploaded? | No. Representative inference-only weights support executable quickstarts. Paper-number reproduction will use frozen per-sample predictions, split membership, metric scripts, and a complete checkpoint registry. Raw optimizer-bearing checkpoints remain external. | **POLICY FIXED; CAPSULE OPEN** |
 
 Reviewer 2 and Reviewer 3 repeated the same repository assessment and
@@ -53,6 +53,10 @@ than two different technical claims.
   fixed-epsilon (`t=1e-3`) post-generation scorer, not exact clean `t=0`, not
   the Generation sampler checkpoint, and not a validated general
   small-molecule scorer.
+- Core publishes the 563-row paper Evo-2 genome list at immutable commit
+  `1ab309c`. It identifies the genomes used by paper MIC, classification and
+  synergy tasks (563/2/100 respectively), with source labels and FASTA/embedding
+  hashes. It includes no sequences, tensors, assay labels or private rows.
 - The source release is MIT licensed at the orchestration and ApexOracle-owned
   code layers; third-party module notices and data licenses remain separate.
 
@@ -69,8 +73,7 @@ from public assets. The remaining result-level release items are:
 4. metric/figure recomputation commands and expected hashes;
 5. a complete checkpoint registry for all paper members, including role,
    group/fold/member, source hash, code commit, and prediction hash;
-6. measured wall time and peak RAM/VRAM for the two public quickstarts;
-7. a standalone Evo-2 paper-cohort genome/source manifest.
+6. measured wall time and peak RAM/VRAM for the two public quickstarts.
 
 The release tree is protected by an automated anti-bloat gate. The Fig. 1b
 classification payload is now archived once in Zenodo v2.0.0 under the
@@ -137,7 +140,11 @@ paper data are separately versioned but connected by immutable manifests. The
 paper-listed genome embeddings and strain-description/text-embedding archives
 are available from Zenodo record 15612048. The Evo-2 and Me-LLaMA extraction
 entry points are now public in ApexOracle-Evo2 and ApexOracle-Core,
-respectively.
+respectively. ApexOracle-Core also publishes the exact 563-row paper genome
+list, including species labels, conservative source identifiers, current
+filename-matched FASTA identities, embedding SHA-256 values, and separate
+MIC/classification/synergy usage flags. The list does not expose sequences,
+embedding tensors, assay labels, molecule structures or private rows.
 
 We have also added a machine-readable strain mapping that connects each source
 strain label in the paper MIC workflow to its canonical runtime condition key,
@@ -149,9 +156,9 @@ exact classification folds, nine sample-level prediction tables, frozen
 metrics and an independent checker are now public in Zenodo v2.0.0
 (`10.5281/zenodo.21882300`) under the same concept DOI. The remaining
 source-partitioned model-ready tables, explicitly labeled deterministic
-MIC/synergy split candidates or reconstructions, MIC/synergy sample-level paper
-predictions, and the standalone Evo-2 genome/source list will be released in
-the same versioned paper-data series and linked from the root asset manifest.
+MIC/synergy split candidates or reconstructions and MIC/synergy sample-level
+paper predictions will be released in the same versioned paper-data series and
+linked from the root asset manifest.
 We explicitly distinguish
 recovered historical membership from post-paper deterministic reconstruction
 rather than representing the latter as the original 2025 split.
@@ -172,7 +179,7 @@ rather than representing the latter as the original 2025 split.
 - [ ] Publish the remaining MIC/synergy membership and clearly labeled
       deterministic candidates/reconstructions with frozen predictions.
 - [ ] Add checkpoint registry and metric/figure recomputation README.
-- [ ] Publish the Evo-2 genome/source manifest.
+- [x] Publish and hash the 563-row paper Evo-2 genome list.
 - [ ] Replace every future-tense promise above with a verified public link.
 - [ ] Confirm that README, Code Availability, Data Availability, Zenodo and
       Hugging Face links all refer to immutable records.

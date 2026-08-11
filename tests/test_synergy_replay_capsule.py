@@ -31,3 +31,9 @@ def test_tied_binary_metrics_are_supported() -> None:
     scores = [0.5, 0.5]
     assert CHECKER.roc_auc(labels, scores) == pytest.approx(0.5)
     assert CHECKER.average_precision(labels, scores) == pytest.approx(0.5)
+
+
+def test_measurement_identity_scope_includes_fold() -> None:
+    first = (0, "pair", 0)
+    second = (1, "pair", 0)
+    assert first != second

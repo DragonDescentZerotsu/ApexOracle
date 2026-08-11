@@ -90,7 +90,11 @@ def verify(root: Path) -> dict[str, object]:
         raise ValueError("Unexpected prediction schema")
     identities = set()
     for row in rows:
-        identity = (row["pair_identity"], int(row["measurement_index"]))
+        identity = (
+            int(row["fold"]),
+            row["pair_identity"],
+            int(row["measurement_index"]),
+        )
         if identity in identities:
             raise ValueError(f"Duplicate measurement identity: {identity}")
         identities.add(identity)

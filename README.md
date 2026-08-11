@@ -116,14 +116,7 @@ implementation commits, release documentation commits, model revisions, and reco
 | --- | --- | --- |
 | Molecule DLM weights | [Kiria-Nozan/ApexOracle](https://huggingface.co/Kiria-Nozan/ApexOracle) | Molecule embedding extraction |
 | DLM pretraining data | [Kiria-Nozan/ApexOracle dataset](https://huggingface.co/datasets/Kiria-Nozan/ApexOracle) | Tokenized molecular inputs and descriptor targets |
-| Genome and text embeddings | [Zenodo 10.5281/zenodo.15612048](https://doi.org/10.5281/zenodo.15612048) | Paper-listed precomputed embedding archives; CC BY 4.0 |
-| Paper Evo-2 genome list | [ApexOracle-Core list](https://github.com/DragonDescentZerotsu/ApexOracle-Core/blob/23be2738a10385ac216db9933f632276c0aa1452/experiments/evo2_genome_embeddings/paper_genome_list.csv) | 563 genomes used by paper MIC/classification/synergy tasks, with source and file hashes |
-| Classification reproduction data | [Zenodo v2.0.0](https://doi.org/10.5281/zenodo.21882300) | Exact Fig. 1b folds, nine normalized prediction tables, and metric recomputation |
-| Fixed MIC reconstruction | [Zenodo v3.0.0](https://doi.org/10.5281/zenodo.21883545) | Post-paper fixed split, 21 member tables, 86,358-row ensemble, and independent metric recomputation |
-| Synergy checkpoint replay | [Zenodo v4.0.0](https://doi.org/10.5281/zenodo.21883954) | High-confidence seed-0 split candidate, 21-member probabilities, 2,371 rows, and metric recomputation |
-| Public model-ready tables | [Zenodo v5.0.0](https://doi.org/10.5281/zenodo.21891064) | DBAASP-derived MIC, small-molecule classification and synergy tables; 310 over-1,024-token MIC rows and all private in-house MIC rows excluded from the model-ready release |
-| Peptide MIC candidate scorer | [Zenodo v2.0.0](https://doi.org/10.5281/zenodo.21882300) | All-peptide fixed-`t=1e-3` post-generation scorer; not the Generation sampler checkpoint |
-| Paper strain mapping | [ApexOracle-Core mapping](https://github.com/DragonDescentZerotsu/ApexOracle-Core/blob/23be2738a10385ac216db9933f632276c0aa1452/assets/manifests/paper_strain_mapping.json) | Source strain labels to canonical genome+text/text-only condition keys |
+| Complete paper asset bundle | [Zenodo v5.0.0](https://doi.org/10.5281/zenodo.21891064) | Genome/text embeddings, the fixed-`t=1e-3` MIC candidate scorer, result-reproduction capsules, paper genome/strain manifests, and public model-ready tables |
 | MIC inference example | [Kiria-Nozan/ApexOracle-Core](https://huggingface.co/Kiria-Nozan/ApexOracle-Core) | Inference-only single-member checkpoint and example condition |
 | Guided-generation runtime bundle | [Kiria-Nozan/ApexOracle-Generation](https://huggingface.co/Kiria-Nozan/ApexOracle-Generation) | Compact BAA-3170 smoke assets |
 
@@ -135,19 +128,15 @@ outputs are not stored as Git objects.
 The release distinguishes runnable inference from recomputation of paper numbers. Representative inference-only
 weights power the public quickstarts; paper-result recomputation uses frozen sample-level predictions, splits,
 checkpoint provenance, and metric scripts instead of requiring every optimizer-bearing historical checkpoint.
-The exact Fig. 1b classification capsule is public in [Zenodo v2.0.0](https://doi.org/10.5281/zenodo.21882300).
-[Zenodo v3.0.0](https://doi.org/10.5281/zenodo.21883545) adds a fixed-split MIC reconstruction while retaining all
-earlier assets. It is explicitly a post-paper reconstruction, not the unrecovered membership used by the 2025 MIC
-checkpoints. [Zenodo v4.0.0](https://doi.org/10.5281/zenodo.21883954) adds the full 21-member synergy replay; its
-seed-0 split reproduces every archived fold metric to the logged precision but remains labeled a high-confidence
-candidate because the 2025 processes did not record sample-level predictions or `PYTHONHASHSEED`.
-[Zenodo v5.0.0](https://doi.org/10.5281/zenodo.21891064) adds source-partitioned public model-ready tables and
-retains all earlier assets. The paper reports 121,265 MIC measurements before token-length filtering; the frozen
-model-ready table contains 120,955 rows after excluding 310 structures over 1,024 tokens, and all 15,718 private
-in-house MIC rows are excluded from the public capsule. All versions
-belong to the existing concept DOI `10.5281/zenodo.15612047`, not a separate Zenodo
-project. See
-the [reproducibility scope](docs/REPRODUCIBILITY_SCOPE.md) and
+The latest [Zenodo v5.0.0](https://doi.org/10.5281/zenodo.21891064) retains the full version-series payload, so users
+do not need to download earlier versions separately. It includes the exact Fig. 1b classification capsule, the
+post-paper fixed-split MIC reconstruction, the high-confidence synergy replay, and the source-partitioned public
+model-ready tables. The paper reports 121,265 MIC measurements before token-length filtering; the frozen model-ready
+table contains 120,955 rows after excluding 310 structures over 1,024 tokens, and all 15,718 private in-house MIC
+rows are excluded from the public capsule. Immutable v1--v4 DOIs and their incremental release history remain in
+the [release provenance](docs/RELEASE_PROVENANCE.md); all versions belong to the same concept DOI
+`10.5281/zenodo.15612047`, not separate Zenodo projects. See the
+[reproducibility scope](docs/REPRODUCIBILITY_SCOPE.md) and
 [compute requirements](docs/COMPUTE_REQUIREMENTS.md). Fresh quickstart wall time and peak RAM/VRAM are frozen in
 [`manifests/quickstart_benchmarks_2026-08-11.json`](manifests/quickstart_benchmarks_2026-08-11.json). The external
 [paper-data capsule plan](docs/PAPER_DATA_CAPSULE_PLAN.md) records which splits are exact, reconstructed, or still

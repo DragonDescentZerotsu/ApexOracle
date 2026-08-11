@@ -17,7 +17,8 @@
   archives, remote CI, and Evo2-40B extraction runtime smoke have passed.
 - `ApexOracle-Generation` scientific implementation was validated at
   `80d9a2cf9b0921f29e4a44edf5557ccac39f5af9`; the current documentation-closure lock is
-  `e97029b258df4056a3965d55098b067f45f32dec`. Compact BAA-3170
+  `706e06fe8ab6e2f71bffa330c7d9acb309200df9`. The maintenance delta only tightens ignored workspace artifacts and
+  corrects two README links to existing guidance-evaluation scripts. Compact BAA-3170
   inference-only assets are fixed at Hugging Face revision `2fb1aa08187eaa359263be6c12c8a41868d8959c` and have passed
   empty-cache hashes plus a real 256-step H100 smoke.
 - The original `Synergy` repository was renamed in place to public `ApexOracle-Core`; its scientific release `v0.1.0`

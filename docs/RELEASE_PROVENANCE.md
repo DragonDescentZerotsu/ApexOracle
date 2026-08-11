@@ -26,8 +26,10 @@ prediction protocol, or paper metric changed in this post-release batch.
 
 The 2026-08-11 repository-hygiene closure advances the current Core, MDLM and Generation gitlinks to
 `23be2738a10385ac216db9933f632276c0aa1452`, `26e414bb7fa8aed971eb8370083c67378c5ce95e` and
-`e97029b258df4056a3965d55098b067f45f32dec`. Core/Generation only tighten generated build/cache ignore rules and
-record the completed layout audit. MDLM regenerates its canonical lineage ledger so the already published
+`706e06fe8ab6e2f71bffa330c7d9acb309200df9`. Core tightens generated build/cache ignore rules; Generation also
+corrects two README links that still pointed at the pre-cleanup location of its guidance-evaluation scripts. These
+documentation and workspace-hygiene changes record the completed layout audit. MDLM regenerates its canonical
+lineage ledger so the already published
 fixed-epsilon scorer rename manifest is included as tracked asset 176. These maintenance commits do not change the
 validated scientific implementations listed below, sampler behavior, model code, configuration, data or weights.
 

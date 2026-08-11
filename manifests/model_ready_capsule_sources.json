@@ -14,8 +14,6 @@
       "source_relative_path": "DataPrepare/Data/DBAASP_inhouse_AMP_SELFIES_token_MIC_Evo.csv",
       "source_size_bytes": 146626408,
       "source_sha256": "ac1a1967d9e94e169ffc23621f7e78c644753659bd08f7a8e10bb63b574930b2",
-      "upstream_paper_rows_before_token_filter": 121265,
-      "excluded_over_1024_tokens": 310,
       "source_rows": 120955,
       "output_relative_path": "tables/mic_dbaasp_model_ready.csv",
       "partition_rule": "retain rows whose DBAASP_id is numeric",

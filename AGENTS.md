@@ -49,6 +49,11 @@
   unfinished reviewer files 不得混入 clean public gitlink。该复核同时发现 MDLM fixed-epsilon scorer 改名
   manifest 未进入 generated lineage ledger；MDLM `26e414b` 已重建四份 ledger outputs，176/176 tracked
   code/config assets 覆盖且 118 tests 通过，不涉及模型或接口变更。
+- **2026-08-11 发布后维护复核：** Generation `706e06f` 只修正 README 中两个仍指向旧
+  `guidance_eval/` 位置的 shell-script 链接，实际脚本始终位于 `scripts/`；15 tests 与 module release checker
+  通过，未改 sampler/config/API。Root 恢复 `manifests/model_ready_capsule_sources.json` 为 Zenodo v5 发布时的
+  精确构建输入，tokenizer 前 121,265、超长排除 310 的解释只保留在审计计划 manifest，避免当前 builder
+  生成与公开 archive hash 不同的 payload。Super-repo current Generation lock 同步为 `706e06f`。
 - Paper-data capsule 的 machine-readable staging ledger 固定为 `manifests/paper_data_capsule_plan.json`，解释见
   `docs/PAPER_DATA_CAPSULE_PLAN.md`。Classification `random_state=42` folds 与 2026 fixed MIC reconstruction 可作为
   exact frozen assets；2025 strain-wise MIC membership 未恢复，synergy seed-0 仅与 archived counts 一致，二者

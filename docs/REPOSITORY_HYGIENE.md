@@ -11,7 +11,7 @@ The full six-tree audit on 2026-08-11 found:
 
 | Repository | Tracked files | Tracked bytes | Main size driver |
 | --- | ---: | ---: | --- |
-| super-repo root | 49 | 1,916,895 | 1.69 MB hash-fixed README banner plus release/capsule orchestration |
+| super-repo root | 55 | 1,953,345 | 1.69 MB hash-fixed README banner plus release/capsule orchestration |
 | Core | 431 | 13,229,116 | 4.65 MB record-level PepLink reviewer table and compact reviewer evidence |
 | DLM-Pretraining | 68 | 171,562 | source code |
 | MDLM | 224 | 2,451,393 | tokenizer and compact ledgers |
@@ -49,7 +49,7 @@ maintain:
 
 | Repository | Signal | Decision |
 | --- | --- | --- |
-| super-repo root | 49/60 files (81.7%) | Keep new logic parameterized; do not add one script per new asset or Zenodo version. |
+| super-repo root | 55/60 files (91.7%) | No duplicate payload is present. The increase is six compact benchmark/release/registry manifests and tests; keep new logic parameterized and do not add one script per new asset or Zenodo version. |
 | Core | 431/500 files (86.2%) | Reuse an existing experiment directory for the same scientific question; full row tables stay external. |
 | MDLM | 224/275 files (81.5%) | New guidance/scoring variants must be profiles of existing libraries, not copied trainers. |
 | Evo2 | 46,379,792/52,428,800 bytes (88.5%) | Do not add further notebook/data payloads; ApexOracle additions remain source-only. |
@@ -99,9 +99,8 @@ downstream MDLM producer remains a large asset workspace by design. Those
 ignored assets are not evidence of public-repository bloat and must not be
 moved into a submodule merely to make the producer directory look smaller.
 
-Only the Core producer currently contains unfinished nonignored reviewer work;
-it remains separate from the clean public Core gitlink until that work is
-complete. Local `dist/`, `build/` and `*.egg-info/` products are disposable
+Any unfinished local Core reviewer work remains separate from the clean public
+Core gitlink until it is complete. Local `dist/`, `build/` and `*.egg-info/` products are disposable
 packaging outputs, never scientific source. The public Core and Generation
 ignore rules keep regenerated paths out of normal Git status, while the
 anti-bloat checker still rejects them if force-added as tracked content.

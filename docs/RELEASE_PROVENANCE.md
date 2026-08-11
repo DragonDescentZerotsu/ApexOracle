@@ -13,19 +13,26 @@ This document separates four identifiers that must not be conflated:
 ApexOracle Zenodo record existed. The paper had already linked record `15612048`. `v0.2.2` corrects that omission,
 adds the two Zenodo archives and checksums to the data manifest, and advances only the Core documentation lock.
 No model code, checkpoint, condition tensor, protocol, or reference prediction is changed by either patch.
+`v0.2.3` then corrects one misleading downstream scorer name: source inspection shows that the model historically
+called `clean_non_pad` actually uses fixed `t=1e-3`, not exact `t=0`. The checkpoint bytes and SHA-256 are unchanged;
+only its local canonical path, public profile/CLI terminology, module documentation, and provenance mapping change.
 
-| Module | Default branch | Current `v0.2.2` lock | Validated scientific implementation |
+| Module | Default branch | Current `v0.2.3` lock | Validated scientific implementation |
 | --- | --- | --- | --- |
-| ApexOracle-Core | `main` | `19493509d15c7fc8081fcac4b598bcf8e0705191` | `8c1def518ac148a878c14f4a39876db59649d43c` (`v0.1.0`) |
+| ApexOracle-Core | `main` | `1973d2d3cc6b27202a3960c363c207dd030f74e7` | `8c1def518ac148a878c14f4a39876db59649d43c` (`v0.1.0`) |
 | ApexOracle-DLM-Pretraining | `main` | `362ffccac79bdd638a4e913c4f17df613da18f36` | same (`v0.1.0`) |
-| ApexOracle-MDLM | `master` | `7c0bbd31f2bd9b1cc00c0a153d6987b96a037b6c` | `c9d17c7f6f091234aaaebf5f08dbe23542f980c1` |
+| ApexOracle-MDLM | `master` | `931e3dc09bfc2501809c03dbd016741406950f5f` | `c9d17c7f6f091234aaaebf5f08dbe23542f980c1` |
 | ApexOracle-Evo2 | `main` | `2184211acda07b0d5ca865067174ac42f530ad04` | same (`v0.6.0-apexoracle.1`) |
-| ApexOracle-Generation | `main` | `2d648ce61da134faa211ad9fe7f1442ef8a40c60` | `80d9a2cf9b0921f29e4a44edf5557ccac39f5af9` |
+| ApexOracle-Generation | `main` | `67b593e1a623af3af80c64e263bde527d73d89ef` | `80d9a2cf9b0921f29e4a44edf5557ccac39f5af9` |
 
 The machine-readable current locks are authoritative in `manifests/modules.lock.yaml`. `v0.2.0` remains the first
 complete scientific release and pins Core `8c1def5`, DLM-Pretraining `362ffcc`, MDLM `c9d17c7`, Evo2 `2184211`,
 and Generation `80d9a2c`. `v0.2.1` pins the same science with documentation commits Core `3b6db2b`, MDLM `7c0bbd3`,
 and Generation `2d648ce`.
+
+`v0.2.3` advances the same validated science to maintenance commits Core `1973d2d`, MDLM `931e3dc`, and Generation
+`67b593e`. The fixed-epsilon scorer remains an external local asset and is not added to Git or the compact Generation
+Hugging Face bundle.
 
 The `v0.2.1` expanded archive contains 933 files and is 36,563,257 bytes. Its SHA-256 is
 `eba6138903dada6806a212c287327999538196d8282678e6cc9a19b4337cd4f2`; the uploaded JSON and SHA-256 sidecars are

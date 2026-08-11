@@ -11,17 +11,17 @@
   smoke have passed.
 - `ApexOracle-MDLM` scientific implementation was validated at
   `c9d17c7f6f091234aaaebf5f08dbe23542f980c1`; the current documentation-closure lock is
-  `7c0bbd31f2bd9b1cc00c0a153d6987b96a037b6c`.
+  `931e3dc09bfc2501809c03dbd016741406950f5f`.
 - `ApexOracle-Evo2` is locked to `2184211acda07b0d5ca865067174ac42f530ad04`; its CPU contracts, package
   archives, remote CI, and Evo2-40B extraction runtime smoke have passed.
 - `ApexOracle-Generation` scientific implementation was validated at
   `80d9a2cf9b0921f29e4a44edf5557ccac39f5af9`; the current documentation-closure lock is
-  `2d648ce61da134faa211ad9fe7f1442ef8a40c60`. Compact BAA-3170
+  `67b593e1a623af3af80c64e263bde527d73d89ef`. Compact BAA-3170
   inference-only assets are fixed at Hugging Face revision `2fb1aa08187eaa359263be6c12c8a41868d8959c` and have passed
   empty-cache hashes plus a real 256-step H100 smoke.
 - The original `Synergy` repository was renamed in place to public `ApexOracle-Core`; its scientific release `v0.1.0`
   is `8c1def518ac148a878c14f4a39876db59649d43c`, and the current documentation-closure lock is
-  `19493509d15c7fc8081fcac4b598bcf8e0705191`. Its 217-test local release gate, wheel/sdist, public-history audit,
+  `1973d2d3cc6b27202a3960c363c207dd030f74e7`. Its 217-test local release gate, wheel/sdist, public-history audit,
   and fresh Hugging Face MIC inference have passed.
 - The root repository contains no model weights, embeddings, datasets, or raw experiment outputs after conversion.
 - The manuscript-listed Zenodo dataset record `15612048` is public under CC BY 4.0 and contains
@@ -62,3 +62,9 @@ scientific implementations, public model revisions, and protocols remain unchang
 The attached expanded source archive contains 933 files and is 36,561,986 bytes; two independent builds were
 byte-identical, archive validation passed, and its SHA-256 is
 `4123c4c65ec60a1282ffe913fccb479db549b317aedbede317a9532096a86235`.
+
+Release `v0.2.3` corrects the downstream reporting/candidate scorer terminology from historical `clean_non_pad` to
+canonical `fixed_epsilon_non_pad`. The producer is fixed at `t=1e-3`; it is not exact clean `t=0`. The 9.17 GB
+checkpoint was renamed locally without binary conversion, retaining SHA-256
+`c0d7c2be49ef179a25a19dcd9c54c592c282b6961e51aff60e95fabc13786802`. Generation sampling still uses its
+separate random-time noisy checkpoint; public model revisions and scientific protocols are unchanged.

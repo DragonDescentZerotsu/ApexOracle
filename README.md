@@ -153,8 +153,9 @@ ApexOracle/
 <details>
 <summary><strong>Release integrity and complete source archive</strong></summary>
 
-The latest documentation and asset correction is `v0.2.2`; it does not change model behavior or scientific
-protocols. To create a source-only archive that expands all five fixed submodules:
+The latest maintenance release is `v0.2.3`; it corrects the name of a fixed-`t=1e-3` downstream MIC scorer without
+changing checkpoint bytes, model behavior, or scientific protocols. To create a source-only archive that expands
+all five fixed submodules:
 
 ```bash
 python scripts/build_source_archive.py --output ApexOracle-source.tar.gz
@@ -162,7 +163,7 @@ python scripts/check_source_archive.py ApexOracle-source.tar.gz
 ```
 
 The builder emits deterministic JSON provenance and a SHA-256 sidecar. A prebuilt archive is also attached to the
-[GitHub release](https://github.com/DragonDescentZerotsu/ApexOracle/releases/tag/v0.2.2), because GitHub's automatic
+[GitHub release](https://github.com/DragonDescentZerotsu/ApexOracle/releases/tag/v0.2.3), because GitHub's automatic
 source ZIP does not expand submodules.
 
 </details>

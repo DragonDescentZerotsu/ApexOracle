@@ -89,7 +89,7 @@ Already cloned without submodules? Run `./scripts/bootstrap.sh`.
 | Extract Evo-2 genome embeddings | [Genome embedding quickstart](quickstarts/README.md#genome-embedding-extraction) |
 | Run the public MIC inference example | [MIC prediction quickstart](quickstarts/README.md#mic-prediction) |
 | Generate a strain-conditioned candidate | [Guided-generation quickstart](quickstarts/README.md#guided-generation) |
-| Reproduce or extend the scientific workflows | [ApexOracle-Core](modules/core) and its `experiments/` documentation |
+| Reproduce or extend the scientific workflows | [ApexOracle-Core](https://github.com/DragonDescentZerotsu/ApexOracle-Core) and its `experiments/` documentation |
 
 > [!NOTE]
 > Each scientific module retains its validated environment. ApexOracle intentionally does not force DLM
@@ -100,11 +100,11 @@ Already cloned without submodules? Run `./scripts/bootstrap.sh`.
 
 | Module | Responsibility | Public entry point |
 | --- | --- | --- |
-| **ApexOracle-Core** | Prediction, fusion, training/evaluation contracts, and reproducibility workflows | [`modules/core`](modules/core) |
-| **ApexOracle-DLM-Pretraining** | Collaborator-developed DLM + 209-descriptor MTR pretraining producer | [`modules/dlm_pretrain`](modules/dlm_pretrain) |
-| **ApexOracle-MDLM** | Downstream molecular embedding, guidance heads, and candidate scoring | [`modules/mdlm`](modules/mdlm) |
-| **ApexOracle-Evo2** | Record-aware genome embedding extraction | [`modules/evo2`](modules/evo2) |
-| **ApexOracle-Generation** | Guided discrete diffusion, remasking, and paper sampling presets | [`modules/generation`](modules/generation) |
+| **ApexOracle-Core** | Prediction, fusion, training/evaluation contracts, and reproducibility workflows | [GitHub repository](https://github.com/DragonDescentZerotsu/ApexOracle-Core) |
+| **ApexOracle-DLM-Pretraining** | Collaborator-developed DLM + 209-descriptor MTR pretraining producer | [GitHub repository](https://github.com/DragonDescentZerotsu/ApexOracle-DLM-Pretraining) |
+| **ApexOracle-MDLM** | Downstream molecular embedding, guidance heads, and candidate scoring | [GitHub repository](https://github.com/DragonDescentZerotsu/ApexOracle-MDLM) |
+| **ApexOracle-Evo2** | Record-aware genome embedding extraction | [GitHub repository](https://github.com/DragonDescentZerotsu/ApexOracle-Evo2) |
+| **ApexOracle-Generation** | Guided discrete diffusion, remasking, and paper sampling presets | [GitHub repository](https://github.com/DragonDescentZerotsu/ApexOracle-Generation) |
 
 The exact gitlink for every module is fixed in [`manifests/modules.lock.yaml`](manifests/modules.lock.yaml). Scientific
 implementation commits, release documentation commits, model revisions, and recovery refs are kept distinct in the
@@ -117,13 +117,13 @@ implementation commits, release documentation commits, model revisions, and reco
 | Molecule DLM weights | [Kiria-Nozan/ApexOracle](https://huggingface.co/Kiria-Nozan/ApexOracle) | Molecule embedding extraction |
 | DLM pretraining data | [Kiria-Nozan/ApexOracle dataset](https://huggingface.co/datasets/Kiria-Nozan/ApexOracle) | Tokenized molecular inputs and descriptor targets |
 | Genome and text embeddings | [Zenodo 10.5281/zenodo.15612048](https://doi.org/10.5281/zenodo.15612048) | Paper-listed precomputed embedding archives; CC BY 4.0 |
-| Paper Evo-2 genome list | [ApexOracle-Core list](modules/core/experiments/evo2_genome_embeddings/paper_genome_list.csv) | 563 genomes used by paper MIC/classification/synergy tasks, with source and file hashes |
+| Paper Evo-2 genome list | [ApexOracle-Core list](https://github.com/DragonDescentZerotsu/ApexOracle-Core/blob/23be2738a10385ac216db9933f632276c0aa1452/experiments/evo2_genome_embeddings/paper_genome_list.csv) | 563 genomes used by paper MIC/classification/synergy tasks, with source and file hashes |
 | Classification reproduction data | [Zenodo v2.0.0](https://doi.org/10.5281/zenodo.21882300) | Exact Fig. 1b folds, nine normalized prediction tables, and metric recomputation |
 | Fixed MIC reconstruction | [Zenodo v3.0.0](https://doi.org/10.5281/zenodo.21883545) | Post-paper fixed split, 21 member tables, 86,358-row ensemble, and independent metric recomputation |
 | Synergy checkpoint replay | [Zenodo v4.0.0](https://doi.org/10.5281/zenodo.21883954) | High-confidence seed-0 split candidate, 21-member probabilities, 2,371 rows, and metric recomputation |
 | Public model-ready tables | [Zenodo v5.0.0](https://doi.org/10.5281/zenodo.21891064) | DBAASP-derived MIC, small-molecule classification and synergy tables; 310 over-1,024-token MIC rows and all private in-house MIC rows excluded from the model-ready release |
 | Peptide MIC candidate scorer | [Zenodo v2.0.0](https://doi.org/10.5281/zenodo.21882300) | All-peptide fixed-`t=1e-3` post-generation scorer; not the Generation sampler checkpoint |
-| Paper strain mapping | [ApexOracle-Core mapping](modules/core/assets/manifests/paper_strain_mapping.json) | Source strain labels to canonical genome+text/text-only condition keys |
+| Paper strain mapping | [ApexOracle-Core mapping](https://github.com/DragonDescentZerotsu/ApexOracle-Core/blob/23be2738a10385ac216db9933f632276c0aa1452/assets/manifests/paper_strain_mapping.json) | Source strain labels to canonical genome+text/text-only condition keys |
 | MIC inference example | [Kiria-Nozan/ApexOracle-Core](https://huggingface.co/Kiria-Nozan/ApexOracle-Core) | Inference-only single-member checkpoint and example condition |
 | Guided-generation runtime bundle | [Kiria-Nozan/ApexOracle-Generation](https://huggingface.co/Kiria-Nozan/ApexOracle-Generation) | Compact BAA-3170 smoke assets |
 

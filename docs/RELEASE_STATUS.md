@@ -94,6 +94,14 @@
 - The 2026-08-11 public-link audit returned HTTP 200 for the root commit, all five locked module commits, the three
   immutable Hugging Face model revisions, the Hugging Face pretraining dataset, Zenodo v1--v5, and the stable Zenodo
   concept DOI. The concept DOI resolves to the current v5 record as intended; version DOIs remain immutable.
+- The 2026-08-11 local Core-worktree transition did not change any committed super-repo or module content. The
+  long-lived super-repo checkout now leaves `modules/core` deinitialized while preserving gitlink
+  `23be2738a10385ac216db9933f632276c0aa1452`; daily Core development remains in the single original Synergy
+  worktree. A disposable public `--recurse-submodules` clone at root commit
+  `7b009091f9f1605b669393ecba8d361979e397fe` checked out all five locked commits, passed 17/17 root tests, passed
+  `scripts/check_module_locks.py`, and produced the expected five-module source-archive plan. The temporary clone was
+  then moved to the system trash. In the deliberately deinitialized long-lived checkout, three Core-content-dependent
+  tests are expected not to constitute a release gate; future full validation must use a disposable recursive clone.
 
 ## Module gates
 

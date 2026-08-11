@@ -22,6 +22,10 @@ FORBIDDEN_ACTIVE_ROOTS = (
     "mdlm",
 )
 FORBIDDEN_SUFFIXES = (".ckpt", ".pth", ".pt", ".bin", ".xlsx", ".png", ".pdf")
+FORBIDDEN_README_SUBMODULE_LINKS = tuple(
+    f"](modules/{module})"
+    for module in ("core", "dlm_pretrain", "mdlm", "evo2", "generation")
+)
 REQUIRED_VISUAL_ASSETS = {
     "assets/ApexOracle_1.png": "761da4c0dfbf92bb2e6d4d5f536cc426b8cca159d0946fcd7c798a7e8504b0be",
     "assets/upenn.png": "b2e94cc500d1687a71f3763752571342c4fca1f6fe77db975e8b7d781d5a3f3f",
@@ -117,6 +121,15 @@ def main() -> None:
     )
     if oversized:
         errors.append(f"root files exceed {MAX_ROOT_FILE_BYTES} bytes: {oversized}")
+
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    if broken_links := sorted(
+        link for link in FORBIDDEN_README_SUBMODULE_LINKS if link in readme
+    ):
+        errors.append(
+            "README uses relative links that cannot traverse gitlinks: "
+            f"{broken_links}"
+        )
 
     branch = git("rev-parse", LEGACY_BRANCH)
     if branch.returncode:

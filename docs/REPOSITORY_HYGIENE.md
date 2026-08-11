@@ -137,3 +137,43 @@ it does not mirror the payload.
   treated as scientific artifacts.
 - Before every default-branch update run the release-tree, module-lock,
   repository-bloat and test gates.
+
+## Local Core maintenance mode
+
+Core has one maintained development worktree: the original Synergy workspace
+whose remote repository was renamed in place to `ApexOracle-Core`. The
+long-lived super-repository checkout stores only the Core gitlink, public URL
+and immutable lock. It does not need a second expanded `modules/core` checkout.
+Do not replace the gitlink with a copied directory or a filesystem symlink.
+
+After running `git submodule deinit modules/core`, this is expected:
+
+```text
+-23be2738a10385ac216db9933f632276c0aa1452 modules/core
+```
+
+The leading `-` means that the fixed submodule is not initialized in that local
+checkout. It does not mean that the gitlink, lock or remote repository is
+missing. Running `scripts/bootstrap.sh` would initialize it again, so do that
+only in a disposable verification clone when the no-second-checkout maintenance
+mode is intended.
+
+Some root checks require the checked-out contents of all five modules. In a
+deliberately deinitialized working copy, the Core-dependent module-lock,
+source-archive and repository-bloat tests are therefore not a complete release
+gate. Run the authoritative gate in a fresh recursive clone:
+
+```bash
+audit_root=$(mktemp -d /tmp/apexoracle-release-audit.XXXXXX)
+git clone --recurse-submodules \
+  https://github.com/DragonDescentZerotsu/ApexOracle.git \
+  "$audit_root/ApexOracle"
+cd "$audit_root/ApexOracle"
+python -m pytest -q
+python scripts/check_module_locks.py
+python scripts/build_source_archive.py --plan-only
+```
+
+Move that disposable directory to the system trash after verification. Never
+reuse the maintained Core worktree for this gate when it contains unfinished
+reviewer or experiment work, and never commit from the temporary clone.

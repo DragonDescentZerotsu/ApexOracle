@@ -54,6 +54,15 @@
   通过，未改 sampler/config/API。Root 恢复 `manifests/model_ready_capsule_sources.json` 为 Zenodo v5 发布时的
   精确构建输入，tokenizer 前 121,265、超长排除 310 的解释只保留在审计计划 manifest，避免当前 builder
   生成与公开 archive hash 不同的 payload。Super-repo current Generation lock 同步为 `706e06f`。
+- **2026-08-11 Core 本机维护边界：** 日常 Core 开发只在原 `Synergy` 工作区进行；它对应唯一的公开
+  `DragonDescentZerotsu/ApexOracle-Core` repository。Super-repo 只长期保存 `modules/core` 的 gitlink、
+  `.gitmodules` URL 和 lock commit，不保留第二份长期 Core checkout，也不得用复制目录或文件系统 symlink
+  替代 gitlink。`git submodule deinit modules/core` 后 `git submodule status` 的前导 `-` 只表示本机未展开
+  submodule，不表示 gitlink 或远端失效。需要完整 release gate、source archive 或 Core-dependent root tests
+  时，应在 `/tmp` 建立 disposable `git clone --recurse-submodules`，验收后移入回收站；不要为了验收污染或
+  切换含未完成 reviewer 工作的日常 Core worktree。刻意 deinit 的长期 super-repo 工作区中，依赖 Core
+  checkout 的 module-lock、source-archive 与 repository-bloat tests 不作为完整验收结果；完整验收必须来自
+  recursive clone。详细操作和本轮证据见 `docs/REPOSITORY_HYGIENE.md` 与 `docs/RELEASE_STATUS.md`。
 - Paper-data capsule 的 machine-readable staging ledger 固定为 `manifests/paper_data_capsule_plan.json`，解释见
   `docs/PAPER_DATA_CAPSULE_PLAN.md`。Classification `random_state=42` folds 与 2026 fixed MIC reconstruction 可作为
   exact frozen assets；2025 strain-wise MIC membership 未恢复，synergy seed-0 仅与 archived counts 一致，二者

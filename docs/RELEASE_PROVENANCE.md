@@ -52,6 +52,11 @@ complete scientific release and pins Core `8c1def5`, DLM-Pretraining `362ffcc`, 
 and Generation `80d9a2c`. `v0.2.1` pins the same science with documentation commits Core `3b6db2b`, MDLM `7c0bbd3`,
 and Generation `2d648ce`.
 
+The non-release branch `codex/fix-multi-contig-windowing` is a separate future-task line. Its machine-readable lock
+advances only Evo2 to `5c7bc1890b727a740924328d0845fadc8de2c9d6`, whose manifests declare
+`per_record_zero_based_v1`. It does not replace the reviewer/release lock above, and it must not be used to claim
+byte-level reproduction of historical tensors produced with the legacy cross-record global counter.
+
 `v0.2.3` advances the same validated science to maintenance commits Core `1973d2d`, MDLM `931e3dc`, and Generation
 `67b593e`. The fixed-epsilon scorer remains an external local asset and is not added to Git or the compact Generation
 Hugging Face bundle. Its canonical bytes are now archived externally in Zenodo v2.0.0; it remains separate from the

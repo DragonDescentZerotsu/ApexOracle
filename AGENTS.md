@@ -49,6 +49,13 @@
   unfinished reviewer files 不得混入 clean public gitlink。该复核同时发现 MDLM fixed-epsilon scorer 改名
   manifest 未进入 generated lineage ledger；MDLM `26e414b` 已重建四份 ledger outputs，176/176 tracked
   code/config assets 覆盖且 118 tests 通过，不涉及模型或接口变更。
+- **2026-08-24 Evo-2 multi-contig 修复分支：** 历史 reviewer producer 已由 recovery source 确认使用跨
+  record 的全局 `chunk_id`，会在第一条长 contig 后漏掉较短 contig；Core 的
+  `build_saved_tensor_windows()` 只为冻结 tensor 审计保留该兼容语义。新任务统一使用 Evo2 branch
+  `codex/fix-multi-contig-windowing` commit `5c7bc1890b727a740924328d0845fadc8de2c9d6` 的
+  `per_record_zero_based_v1` contract；同名 super-repo branch 只推进 Evo2 gitlink/lock，不改变默认
+  `main`、release tag 或 reviewer recovery refs。Evo2 10 tests、sdist/wheel 和合成 multi-contig smoke
+  已通过；该 branch 尚未重跑 40B GPU runtime smoke。
 - **2026-08-11 发布后维护复核：** Generation `706e06f` 只修正 README 中两个仍指向旧
   `guidance_eval/` 位置的 shell-script 链接，实际脚本始终位于 `scripts/`；15 tests 与 module release checker
   通过，未改 sampler/config/API。Root 恢复 `manifests/model_ready_capsule_sources.json` 为 Zenodo v5 发布时的

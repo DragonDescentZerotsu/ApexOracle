@@ -14,8 +14,12 @@
   `548f65cbc9f40fb38ae26cbb6d9c6b004bfb4e36`. Maintenance through `26e414b` refreshed generated lineage outputs;
   `548f65c` adds the generic peptide-inventory workflow and peptide-table I/O/provenance fixes. All 127 tests and the
   179-asset ledger stale check pass.
-- `ApexOracle-Evo2` is locked to `2184211acda07b0d5ca865067174ac42f530ad04`; its CPU contracts, package
-  archives, remote CI, and Evo2-40B extraction runtime smoke have passed.
+- The released `ApexOracle-Evo2` default branch remains locked to
+  `2184211acda07b0d5ca865067174ac42f530ad04`; its CPU contracts, package archives, remote CI, and Evo2-40B extraction
+  runtime smoke have passed. On the non-release branch `codex/fix-multi-contig-windowing`, the super-repository instead
+  locks Evo2 to `5c7bc1890b727a740924328d0845fadc8de2c9d6`. That commit identifies new artifacts with the
+  `per_record_zero_based_v1` contract and guards the per-contig start reset against the historical cross-record global
+  counter bug. Its 10 CPU tests and package build pass; the 40B runtime smoke has not been rerun for this branch.
 - `ApexOracle-Generation` scientific implementation was validated at
   `80d9a2cf9b0921f29e4a44edf5557ccac39f5af9`; the current documentation-closure lock is
   `706e06fe8ab6e2f71bffa330c7d9acb309200df9`. The maintenance delta only tightens ignored workspace artifacts and

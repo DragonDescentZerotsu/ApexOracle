@@ -1,15 +1,20 @@
 [submodule "modules/mdlm"]
 	path = modules/mdlm
 	url = https://github.com/DragonDescentZerotsu/ApexOracle-MDLM.git
+	branch = virus-extension
 [submodule "modules/generation"]
 	path = modules/generation
 	url = https://github.com/DragonDescentZerotsu/ApexOracle-Generation.git
+	branch = virus-extension
 [submodule "modules/evo2"]
 	path = modules/evo2
 	url = https://github.com/DragonDescentZerotsu/ApexOracle-Evo2.git
+	branch = virus-extension
 [submodule "modules/dlm_pretrain"]
 	path = modules/dlm_pretrain
 	url = https://github.com/DragonDescentZerotsu/ApexOracle-DLM-Pretraining.git
+	branch = virus-extension
 [submodule "modules/core"]
 	path = modules/core
 	url = https://github.com/DragonDescentZerotsu/ApexOracle-Core.git
+	branch = virus-extension

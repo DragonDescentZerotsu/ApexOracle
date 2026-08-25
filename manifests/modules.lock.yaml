@@ -14,28 +14,28 @@
       "path": "modules/dlm_pretrain",
       "status": "ready",
       "url": "https://github.com/DragonDescentZerotsu/ApexOracle-DLM-Pretraining.git",
-      "commit": "362ffccac79bdd638a4e913c4f17df613da18f36"
+      "commit": "6a7cc4be7f30ba9dc807a932fb2fe06176a71e0b"
     },
     {
       "id": "mdlm",
       "path": "modules/mdlm",
       "status": "ready",
       "url": "https://github.com/DragonDescentZerotsu/ApexOracle-MDLM.git",
-      "commit": "548f65cbc9f40fb38ae26cbb6d9c6b004bfb4e36"
+      "commit": "ea8d9c0de3916d2070215a6804f82ad979812d5b"
     },
     {
       "id": "evo2",
       "path": "modules/evo2",
       "status": "ready",
       "url": "https://github.com/DragonDescentZerotsu/ApexOracle-Evo2.git",
-      "commit": "5c7bc1890b727a740924328d0845fadc8de2c9d6"
+      "commit": "d60301b51977e79c051e566099698c132d52d54a"
     },
     {
       "id": "generation",
       "path": "modules/generation",
       "status": "ready",
       "url": "https://github.com/DragonDescentZerotsu/ApexOracle-Generation.git",
-      "commit": "706e06fe8ab6e2f71bffa330c7d9acb309200df9"
+      "commit": "bfff9b98717c4f1487031b028d9c2a5d743add87"
     }
   ]
 }

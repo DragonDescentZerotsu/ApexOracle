@@ -57,6 +57,12 @@ advances only Evo2 to `5c7bc1890b727a740924328d0845fadc8de2c9d6`, whose manifest
 `per_record_zero_based_v1`. It does not replace the reviewer/release lock above, and it must not be used to claim
 byte-level reproduction of historical tensors produced with the legacy cross-record global counter.
 
+The follow-on non-release branch `codex/claude-agents-links` retains that fixed Evo2 implementation and adds only
+colocated `CLAUDE.md -> AGENTS.md` Git symlinks. Core remains at `bbaaedf` because both of its guidance locations
+already had the correct links; DLM-Pretraining, MDLM, Evo2, and Generation use the symlink-only commits `6a7cc4b`,
+`ea8d9c0`, `d60301b`, and `bfff9b9`. These commits change instruction-file discovery only and are not new scientific
+implementation validation points.
+
 `v0.2.3` advances the same validated science to maintenance commits Core `1973d2d`, MDLM `931e3dc`, and Generation
 `67b593e`. The fixed-epsilon scorer remains an external local asset and is not added to Git or the compact Generation
 Hugging Face bundle. Its canonical bytes are now archived externally in Zenodo v2.0.0; it remains separate from the

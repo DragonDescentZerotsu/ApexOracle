@@ -56,6 +56,12 @@
   `per_record_zero_based_v1` contract；同名 super-repo branch 只推进 Evo2 gitlink/lock，不改变默认
   `main`、release tag 或 reviewer recovery refs。Evo2 10 tests、sdist/wheel 和合成 multi-contig smoke
   已通过；该 branch 尚未重跑 40B GPU runtime smoke。
+- **2026-08-24 Codex/Claude 指导文件统一：** non-release branch `codex/claude-agents-links` 从上述
+  multi-contig 修复线继续，super-repo 与五模块共 7/7 个 `AGENTS.md` 同目录均存在相对 Git symlink
+  `CLAUDE.md -> AGENTS.md`。Core root 与 `capsule_fig2/` 两条 link 在既有 `bbaaedf` 已存在；DLM-Pretraining、
+  MDLM、Evo2、Generation 分别只增加 symlink commit `6a7cc4b`、`ea8d9c0`、`d60301b`、`bfff9b9`。
+  `AGENTS.md` 继续作为唯一维护源，不得把 `CLAUDE.md` 改为独立副本；该分支不改变科学代码、资产、协议、
+  默认分支或 release tags。
 - **2026-08-11 发布后维护复核：** Generation `706e06f` 只修正 README 中两个仍指向旧
   `guidance_eval/` 位置的 shell-script 链接，实际脚本始终位于 `scripts/`；15 tests 与 module release checker
   通过，未改 sampler/config/API。Root 恢复 `manifests/model_ready_capsule_sources.json` 为 Zenodo v5 发布时的

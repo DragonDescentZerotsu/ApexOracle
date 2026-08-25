@@ -18,3 +18,7 @@
 	path = modules/core
 	url = https://github.com/DragonDescentZerotsu/ApexOracle-Core.git
 	branch = virus-extension
+[submodule "modules/virus"]
+	path = modules/virus
+	url = https://github.com/DragonDescentZerotsu/ApexOracle-Virus.git
+	branch = virus-extension

@@ -5,7 +5,7 @@ different storage and compute requirements.
 
 | Level | Public contract | Current state |
 | --- | --- | --- |
-| Source reproducibility | Fixed commits for all five modules, environments, tests, expanded source archive | Released |
+| Source reproducibility | Fixed commits for the five paper modules; the non-release Virus extension is separately locked as a sixth module, with environments, tests and expanded source archives | Released for the paper modules; extension under validation |
 | Functional inference reproducibility | Small, real, inference-only assets for MIC prediction and guided generation | Released |
 | Paper-result reproducibility | Frozen sample-level predictions, split membership, explicit checkpoint-status registry, and metric recomputation | Classification, post-paper fixed MIC reconstruction, and high-confidence synergy replay released; exact 2025 MIC/synergy membership remains unproven |
 | Full model rerun/retraining | Every ensemble binary, training dataset, accelerator environment and training run | Not the default public contract |

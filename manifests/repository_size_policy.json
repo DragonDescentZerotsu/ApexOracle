@@ -117,6 +117,15 @@
         "scripts",
         "tests"
       ]
+    },
+    "virus": {
+      "path": "modules/virus",
+      "max_file_count": 50,
+      "max_total_bytes": 1048576,
+      "allowed_top_level_directories": [
+        "docs",
+        "scripts"
+      ]
     }
   },
   "large_file_allowlist": {

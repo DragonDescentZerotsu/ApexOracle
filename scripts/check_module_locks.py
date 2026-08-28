@@ -34,6 +34,28 @@ def load_gitmodules() -> dict[str, str]:
     return result
 
 
+def indexed_gitlink(path: str) -> str | None:
+    """Return the commit recorded by the super-repository index."""
+    line = git("ls-files", "--stage", "--", path, check=False)
+    if not line:
+        return None
+    metadata, recorded_path = line.split("\t", 1)
+    mode, commit, stage = metadata.split()
+    if mode != "160000" or stage != "0" or recorded_path != path:
+        return None
+    return commit
+
+
+def initialized_checkout_head(path: str) -> str | None:
+    module_path = ROOT / path
+    if not module_path.is_dir():
+        return None
+    top_level = git("rev-parse", "--show-toplevel", cwd=module_path, check=False)
+    if not top_level or Path(top_level).resolve() != module_path.resolve():
+        return None
+    return git("rev-parse", "HEAD", cwd=module_path, check=False) or None
+
+
 def main() -> None:
     manifest = json.loads(LOCK_PATH.read_text(encoding="utf-8"))
     modules = manifest["modules"]
@@ -41,6 +63,7 @@ def main() -> None:
     pending = {item["path"]: item for item in modules if item["status"] == "pending"}
     gitmodules = load_gitmodules()
     errors = []
+    uninitialized = []
 
     if set(gitmodules) != set(ready):
         errors.append(
@@ -53,13 +76,16 @@ def main() -> None:
             continue
         if gitmodules.get(path) != item["url"]:
             errors.append(f"URL mismatch for {path}")
-        module_path = ROOT / path
-        if not module_path.is_dir():
-            errors.append(f"module is not initialized: {path}")
-            continue
-        actual = git("rev-parse", "HEAD", cwd=module_path, check=False)
-        if actual != expected:
-            errors.append(f"commit mismatch for {path}: {actual} != {expected}")
+        gitlink = indexed_gitlink(path)
+        if gitlink != expected:
+            errors.append(f"gitlink mismatch for {path}: {gitlink} != {expected}")
+        checkout_head = initialized_checkout_head(path)
+        if checkout_head is None:
+            uninitialized.append(path)
+        elif checkout_head != expected:
+            errors.append(
+                f"checkout mismatch for {path}: {checkout_head} != {expected}"
+            )
     for path, item in pending.items():
         if item["commit"] is not None:
             errors.append(f"pending module has a commit: {path}")
@@ -71,6 +97,7 @@ def main() -> None:
         "status": "passed" if not errors else "failed",
         "ready_modules": sorted(ready),
         "pending_modules": sorted(pending),
+        "uninitialized_modules": sorted(uninitialized),
         "errors": errors,
     }
     print(json.dumps(summary, indent=2, sort_keys=True))

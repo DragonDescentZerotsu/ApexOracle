@@ -62,6 +62,15 @@
   MDLM、Evo2、Generation 分别只增加 symlink commit `6a7cc4b`、`ea8d9c0`、`d60301b`、`bfff9b9`。
   `AGENTS.md` 继续作为唯一维护源，不得把 `CLAUDE.md` 改为独立副本；该分支不改变科学代码、资产、协议、
   默认分支或 release tags。
+- **2026-08-28 Virus extension 六模块收口：** `virus-extension` 是非 release 开发线；它保留原论文五模块，
+  另加入 `ApexOracle-Virus` 作为第六个 active submodule。当前分支的 module lock、source archive、anti-bloat
+  policy 和 root tests 必须覆盖全部六个模块，同时明确 Virus 不属于 `v0.2.3` 五模块论文 release。Core
+  maintenance 合入 `4358cc737c06242231cf849d940dfdf20d3ae1c1`，MDLM resolver 修复推进到
+  `8125f8f281e5c7558e5eac252344983e8a0f5de2`，Evo2/Generation/DLM-Pretraining/Virus 分别固定到
+  `280939ddff6d14512c3d0f6b856dd4f3043627b0`、`bfff9b98717c4f1487031b028d9c2a5d743add87`、
+  `6a7cc4be7f30ba9dc807a932fb2fe06176a71e0b`、`0c5fffb7309e5a12b695daf4461a60ba60db563c`。
+  `check_module_locks.py` 必须从 super-repo index 读取 gitlink，使刻意 deinit 的 Core 不再误解析为 root HEAD；
+  完整 checkout/anti-bloat/archive gate 仍必须在 disposable recursive clone 中完成。
 - **2026-08-11 发布后维护复核：** Generation `706e06f` 只修正 README 中两个仍指向旧
   `guidance_eval/` 位置的 shell-script 链接，实际脚本始终位于 `scripts/`；15 tests 与 module release checker
   通过，未改 sampler/config/API。Root 恢复 `manifests/model_ready_capsule_sources.json` 为 Zenodo v5 发布时的

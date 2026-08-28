@@ -1,14 +1,17 @@
 # Reviewer response draft: code, data, and reproducibility
 
-> Internal working draft synchronized to public assets on 2026-08-11. All
+> Internal working draft synchronized to public assets on 2026-08-11 and rechecked against the formal
+> manuscript/response on 2026-08-28. All
 > code/data release items below are closed. The separately tracked new-strain
-> study is not part of this code-release ledger.
+> study and the non-release Virus extension are not part of this code-release ledger. The
+> `virus-extension` development branch therefore has one additional module beyond the five
+> paper-release modules described below.
 
 ## Consolidated question ledger
 
 | Reviewer | Question or requested material | Current action and evidence | Status |
 | --- | --- | --- | --- |
-| Reviewer 1, reproducibility | Report compute requirements and runtimes. | Both public quickstarts were rerun from empty caches. MIC computation took 7.27 s with 5.77 GiB peak RSS; one-sample 256-step H100 generation took 40.34 s with 12,281 MiB peak GPU memory. Downloads are reported separately in `manifests/quickstart_benchmarks_2026-08-11.json`. | **DONE** |
+| Reviewer 1, reproducibility | Report compute requirements and runtimes. | The formal manuscript and response now report training GPU-hours for the 1-million-step DLM, hierarchical MIC, small-molecule classification, peptide classifier, MIC guidance, candidate scoring and synergy workflows, together with the public MIC and generation quickstart runtimes. | **DONE; FORMAL TEX/DOCX VERIFIED** |
 | Reviewer 1, code; Reviewer 2 and Reviewer 3, code availability | The repository was incomplete and lacked Evo-2 extraction, Me-LLaMA extraction, fusion, MIC/classification/synergy heads, and guided generation. | Existing `DragonDescentZerotsu/ApexOracle` was converted in place into a super-repository that pins five public modules. The missing implementations now have public module entry points and immutable gitlinks. | **DONE** |
 | Reviewer 1; Reviewer 2 and Reviewer 3 | Provide click-and-run MIC prediction and guided-generation quickstarts. | Root `quickstarts/README.md` provides a CPU MIC inference example and a compact 256-step BAA-3170 generation smoke using immutable Hugging Face revisions and hashes. | **DONE** |
 | Reviewer 4, minor point 2 | Release the full training-set layout, processed tables, standardized strain mapping, small-molecule and synergy data, frozen splits, preprocessing, and strain-description texts. | Zenodo releases the paper-listed genome embeddings and strain descriptions. The compact Core strain mapping is public at immutable commit `8751c80`. Zenodo v2.0.0 (`10.5281/zenodo.21882300`) releases exact classification folds and predictions; v3.0.0 (`10.5281/zenodo.21883545`) adds the post-paper fixed MIC reconstruction; v4.0.0 (`10.5281/zenodo.21883954`) adds the complete 21-member synergy replay and checker; v5.0.0 (`10.5281/zenodo.21891064`) adds source-partitioned public model-ready MIC, classification and synergy tables. All 15,718 private in-house MIC rows are excluded. | **DONE** |
@@ -145,11 +148,22 @@ predictions, checkpoint provenance and metric recomputation under an explicit
 high-confidence-candidate split boundary. This avoids
 requiring reviewers to download hundreds of gigabytes of duplicated optimizer
 and backbone state while preserving direct recomputation of the reported
-results. On our documented AMD EPYC 9534/H100 host, the public MIC computation
-completed in 7.27 s with 5.77 GiB peak resident memory, and the one-sample
-256-step generation computation completed in 40.34 s with 12,281 MiB peak GPU
-memory. Empty-cache download time is reported separately in the public
-machine-readable benchmark manifest.
+results.
+
+We thank the reviewer for this suggestion. Training the 1-million-step DLM
+required 244.1 h on eight NVIDIA A100 80-GB GPUs (1,952.6 GPU-hours). The
+strain-, species-, and phylum-wise MIC experiments required 76.0, 302.4, and
+78.5 GPU-hours, respectively. The small-molecule classification experiments
+required approximately 530 GPU-hours for ApexOracle fine-tuning, 95.6
+GPU-hours for strict zero-shot training, and 42.8 GPU-hours for the Chemprop
+baselines. Peptide-classifier, MIC-guidance, candidate-scoring, and synergy
+training required 54.0, 29.5, 5.6, and 1.7 GPU-hours, respectively. The public
+MIC and guided-generation quickstarts required 7.27 s and 40.34 s per example,
+respectively.
+
+> Synchronization verified on 2026-08-28: the compute paragraph is present in the formal TeX, and the formal
+> response DOCX includes both the matching numbers and “These compute requirements have now been added to the
+> revised manuscript.”
 
 ## Reviewer 4 English response: training data and strain mapping
 

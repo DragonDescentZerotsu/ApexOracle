@@ -23,5 +23,6 @@ def test_module_lock_checker_passes():
         "modules/evo2",
         "modules/generation",
         "modules/mdlm",
+        "modules/virus",
     ]
     assert summary["pending_modules"] == []

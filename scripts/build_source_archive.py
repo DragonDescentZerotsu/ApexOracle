@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a deterministic source archive from the five locked submodules."""
+"""Build a deterministic source archive from all locked submodules."""
 
 from __future__ import annotations
 

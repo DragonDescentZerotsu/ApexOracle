@@ -24,7 +24,7 @@ FORBIDDEN_ACTIVE_ROOTS = (
 FORBIDDEN_SUFFIXES = (".ckpt", ".pth", ".pt", ".bin", ".xlsx", ".png", ".pdf")
 FORBIDDEN_README_SUBMODULE_LINKS = tuple(
     f"](modules/{module})"
-    for module in ("core", "dlm_pretrain", "mdlm", "evo2", "generation")
+    for module in ("core", "dlm_pretrain", "mdlm", "evo2", "generation", "virus")
 )
 REQUIRED_VISUAL_ASSETS = {
     "assets/ApexOracle_1.png": "761da4c0dfbf92bb2e6d4d5f536cc426b8cca159d0946fcd7c798a7e8504b0be",

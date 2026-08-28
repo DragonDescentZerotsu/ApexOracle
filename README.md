@@ -158,7 +158,8 @@ ApexOracle/
 │   ├── dlm_pretrain/     # DLM + MTR pretraining producer
 │   ├── mdlm/             # embeddings, guidance heads, and scoring
 │   ├── evo2/             # genome embedding extraction
-│   └── generation/       # guided discrete diffusion
+│   ├── generation/       # guided discrete diffusion
+│   └── virus/            # viral corpus and DRAVP target/genome preparation
 ├── quickstarts/          # runnable public examples
 ├── environments/        # per-module environment policy
 ├── manifests/           # immutable module and asset records
@@ -173,7 +174,8 @@ ApexOracle/
 
 The latest maintenance release is `v0.2.3`; it corrects the name of a fixed-`t=1e-3` downstream MIC scorer without
 changing checkpoint bytes, model behavior, or scientific protocols. To create a source-only archive that expands
-all five fixed submodules:
+all modules locked by the checked-out branch. The `v0.2.3` paper release contains five modules; the
+non-release `virus-extension` branch contains those five plus the Virus data-preparation module:
 
 ```bash
 python scripts/build_source_archive.py --output ApexOracle-source.tar.gz

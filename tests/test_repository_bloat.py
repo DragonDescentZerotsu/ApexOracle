@@ -27,6 +27,7 @@ def test_repository_bloat_checker_passes() -> None:
         "mdlm",
         "evo2",
         "generation",
+        "virus",
     }
     assert all(
         not record["untracked_nonignored"]

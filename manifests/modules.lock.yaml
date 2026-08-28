@@ -6,7 +6,7 @@
       "path": "modules/core",
       "status": "ready",
       "url": "https://github.com/DragonDescentZerotsu/ApexOracle-Core.git",
-      "commit": "bbaaedf6030c7606c31db35f285041a715db9249",
+      "commit": "4358cc737c06242231cf849d940dfdf20d3ae1c1",
       "source_repository": "https://github.com/DragonDescentZerotsu/ApexOracle-Core.git"
     },
     {
@@ -21,14 +21,14 @@
       "path": "modules/mdlm",
       "status": "ready",
       "url": "https://github.com/DragonDescentZerotsu/ApexOracle-MDLM.git",
-      "commit": "ea8d9c0de3916d2070215a6804f82ad979812d5b"
+      "commit": "8125f8f281e5c7558e5eac252344983e8a0f5de2"
     },
     {
       "id": "evo2",
       "path": "modules/evo2",
       "status": "ready",
       "url": "https://github.com/DragonDescentZerotsu/ApexOracle-Evo2.git",
-      "commit": "d60301b51977e79c051e566099698c132d52d54a"
+      "commit": "280939ddff6d14512c3d0f6b856dd4f3043627b0"
     },
     {
       "id": "generation",
@@ -36,6 +36,13 @@
       "status": "ready",
       "url": "https://github.com/DragonDescentZerotsu/ApexOracle-Generation.git",
       "commit": "bfff9b98717c4f1487031b028d9c2a5d743add87"
+    },
+    {
+      "id": "virus",
+      "path": "modules/virus",
+      "status": "ready",
+      "url": "https://github.com/DragonDescentZerotsu/ApexOracle-Virus.git",
+      "commit": "0c5fffb7309e5a12b695daf4461a60ba60db563c"
     }
   ]
 }

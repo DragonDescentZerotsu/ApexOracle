@@ -17,6 +17,7 @@ REQUIRED = {
     "ApexOracle-source/modules/mdlm/pyproject.toml",
     "ApexOracle-source/modules/evo2/pyproject.toml",
     "ApexOracle-source/modules/generation/main.py",
+    "ApexOracle-source/modules/virus/AGENTS.md",
 }
 FORBIDDEN_SUFFIXES = {
     ".pt", ".pth", ".ckpt", ".safetensors", ".npz", ".whl", ".zip"
@@ -45,8 +46,8 @@ def main() -> None:
             "ApexOracle-source/SOURCE_ARCHIVE_MANIFEST.json"
         )
         manifest = json.load(archive.extractfile(manifest_member))
-        if len(manifest.get("modules", [])) != 5:
-            errors.append("source manifest does not contain five modules")
+        if len(manifest.get("modules", [])) != 6:
+            errors.append("source manifest does not contain six modules")
     result = {
         "schema_version": 1,
         "status": "failed" if errors else "passed",

@@ -149,7 +149,7 @@ Do not replace the gitlink with a copied directory or a filesystem symlink.
 After running `git submodule deinit modules/core`, this is expected:
 
 ```text
--23be2738a10385ac216db9933f632276c0aa1452 modules/core
+-4358cc737c06242231cf849d940dfdf20d3ae1c1 modules/core
 ```
 
 The leading `-` means that the fixed submodule is not initialized in that local
@@ -158,7 +158,8 @@ missing. Running `scripts/bootstrap.sh` would initialize it again, so do that
 only in a disposable verification clone when the no-second-checkout maintenance
 mode is intended.
 
-Some root checks require the checked-out contents of all five modules. In a
+Some root checks require the checked-out contents of every module locked by the current branch (six on
+`virus-extension`). In a
 deliberately deinitialized working copy, the Core-dependent module-lock,
 source-archive and repository-bloat tests are therefore not a complete release
 gate. Run the authoritative gate in a fresh recursive clone:

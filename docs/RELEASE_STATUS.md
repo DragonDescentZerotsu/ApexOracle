@@ -1,5 +1,12 @@
 # Release status
 
+## Virus-extension development branch
+
+The non-release `virus-extension` branch keeps the five paper-release modules and adds a sixth active module,
+`ApexOracle-Virus`, for viral-corpus and DRAVP target/genome preparation. Its current machine-readable lock is
+`manifests/modules.lock.yaml`. This branch does not retroactively change the five-module `v0.2.3` release or its
+scientific claims. All current-branch module-lock, archive, anti-bloat and recursive-clone gates cover six modules.
+
 ## Verified facts
 
 - The existing `DragonDescentZerotsu/ApexOracle` repository was converted in place; no second super-repository was
@@ -122,11 +129,12 @@
 
 ## Module gates
 
-All five module repositories are public and pinned to immutable commits. No module uses a floating placeholder.
+The five paper module repositories and the Virus extension repository are public and pinned to immutable commits.
+No active module uses a floating placeholder.
 
 ## Final release gates
 
-- all five gitlinks match the lock manifest;
+- all active gitlinks match the lock manifest;
 - MIC prediction and compact guided generation run from fixed public assets; full paper condition-bank distribution
   remains separate;
 - weights and data have stable URIs, revisions, SHA-256 values, and redistribution decisions;

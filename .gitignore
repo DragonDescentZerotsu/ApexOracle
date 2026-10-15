@@ -24,3 +24,6 @@ PUBLICATION_HANDOFF.md
 .local/
 /docs/RELEASE_STATUS.md
 /docs/PAPER_DATA_CAPSULE_PLAN.md
+
+# Super-repository working documents are retained locally.
+/docs/

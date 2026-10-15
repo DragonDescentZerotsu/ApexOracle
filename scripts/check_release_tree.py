@@ -37,8 +37,6 @@ REQUIRED = (
     "NOTICE",
     "README.md",
     *REQUIRED_VISUAL_ASSETS,
-    "docs/LEGACY_MONOREPO.md",
-    "docs/RELEASE_PROVENANCE.md",
     "manifests/data_assets.yaml",
     "manifests/model_weights.yaml",
     "manifests/modules.lock.yaml",

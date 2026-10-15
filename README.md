@@ -106,9 +106,7 @@ Already cloned without submodules? Run `./scripts/bootstrap.sh`.
 | **ApexOracle-Evo2** | Record-aware genome embedding extraction | [GitHub repository](https://github.com/DragonDescentZerotsu/ApexOracle-Evo2) |
 | **ApexOracle-Generation** | Guided discrete diffusion, remasking, and paper sampling presets | [GitHub repository](https://github.com/DragonDescentZerotsu/ApexOracle-Generation) |
 
-The exact gitlink for every module is fixed in [`manifests/modules.lock.yaml`](manifests/modules.lock.yaml). Scientific
-implementation commits, release documentation commits, model revisions, and recovery refs are kept distinct in the
-[`release provenance`](docs/RELEASE_PROVENANCE.md).
+The exact gitlink for every module is fixed in [`manifests/modules.lock.yaml`](manifests/modules.lock.yaml).
 
 ## Models and data
 
@@ -133,15 +131,13 @@ do not need to download earlier versions separately. It includes the exact Fig. 
 post-paper fixed-split MIC reconstruction, the high-confidence synergy replay, and the source-partitioned public
 model-ready tables. The paper reports 121,265 MIC measurements before token-length filtering; the frozen model-ready
 table contains 120,955 rows after excluding 310 structures over 1,024 tokens, and all 15,718 private in-house MIC
-rows are excluded from the public capsule. Immutable v1--v4 DOIs and their incremental release history remain in
-the [release provenance](docs/RELEASE_PROVENANCE.md); all versions belong to the same concept DOI
-`10.5281/zenodo.15612047`, not separate Zenodo projects. See the
-[reproducibility scope](docs/REPRODUCIBILITY_SCOPE.md) and
-[compute requirements](docs/COMPUTE_REQUIREMENTS.md). Fresh quickstart wall time and peak RAM/VRAM are frozen in
-[`manifests/quickstart_benchmarks_2026-08-11.json`](manifests/quickstart_benchmarks_2026-08-11.json). The external
-[paper-data capsule manifest](manifests/paper_data_capsule_plan.json) records which splits are exact, reconstructed, or still
-unrecovered; the [repository hygiene policy](docs/REPOSITORY_HYGIENE.md) prevents those assets from being duplicated
-into Git.
+rows are excluded from the public capsule. All dataset versions belong to the same concept DOI
+`10.5281/zenodo.15612047`; immutable version DOIs and hashes are recorded in the
+[data manifest](manifests/data_assets.yaml). Fresh quickstart wall time and peak RAM/VRAM are frozen in
+[`manifests/quickstart_benchmarks_2026-08-11.json`](manifests/quickstart_benchmarks_2026-08-11.json).
+The [paper-data capsule manifest](manifests/paper_data_capsule_plan.json) records which splits are exact,
+reconstructed, or still unrecovered. Exact 2025 MIC/synergy split membership remains unproven;
+recomputation from frozen predictions is not a fresh inference or full retraining reproduction.
 
 > [!IMPORTANT]
 > The public MIC quickstart demonstrates one inference member. The paper metrics use the frozen seven-member
@@ -162,8 +158,7 @@ ApexOracle/
 ├── quickstarts/          # runnable public examples
 ├── environments/        # per-module environment policy
 ├── manifests/           # immutable module and asset records
-├── scripts/             # bootstrap, validation, and archive tools
-└── docs/                # release status and provenance
+└── scripts/             # bootstrap, validation, and archive tools
 ```
 
 </details>

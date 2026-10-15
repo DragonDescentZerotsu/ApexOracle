@@ -120,8 +120,7 @@ The exact gitlink for every module is fixed in [`manifests/modules.lock.yaml`](m
 
 Immutable revisions, file sizes, checksums, licenses, and release scope are recorded in
 [`manifests/model_weights.yaml`](manifests/model_weights.yaml) and
-[`manifests/data_assets.yaml`](manifests/data_assets.yaml). Model weights, datasets, embeddings, caches, and raw
-outputs are not stored as Git objects.
+[`manifests/data_assets.yaml`](manifests/data_assets.yaml).
 
 The release distinguishes runnable inference from recomputation of paper numbers. Representative inference-only
 weights power the public quickstarts; paper-result recomputation uses frozen sample-level predictions, splits,
@@ -130,8 +129,8 @@ The latest [Zenodo v5.0.0](https://doi.org/10.5281/zenodo.21891064) retains the 
 do not need to download earlier versions separately. It includes the exact Fig. 1b classification capsule, the
 post-paper fixed-split MIC reconstruction, the high-confidence synergy replay, and the source-partitioned public
 model-ready tables. The paper reports 121,265 MIC measurements before token-length filtering; the frozen model-ready
-table contains 120,955 rows after excluding 310 structures over 1,024 tokens, and all 15,718 private in-house MIC
-rows are excluded from the public capsule. All dataset versions belong to the same concept DOI
+table contains 120,955 rows after excluding 310 structures over 1,024 tokens. The published source partitions
+and their record counts are specified in the data manifests. All dataset versions belong to the same concept DOI
 `10.5281/zenodo.15612047`; immutable version DOIs and hashes are recorded in the
 [data manifest](manifests/data_assets.yaml). Fresh quickstart wall time and peak RAM/VRAM are frozen in
 [`manifests/quickstart_benchmarks_2026-08-11.json`](manifests/quickstart_benchmarks_2026-08-11.json).

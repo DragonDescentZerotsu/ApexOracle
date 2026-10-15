@@ -114,9 +114,9 @@ yield, antimicrobial activity, or experimental validation.
   replay. Record `21891064` is v5.0.0 and adds the public model-ready tables. None of these dataset version DOIs is the DOI of the GitHub
   software snapshot.
 
-## Documentation audit
+## 2026-10-15 documentation maintenance
 
-The 2026-08-10 audit checked public default branches, release tags, recovery refs, module locks, Hugging Face
-revisions, per-file quickstart hashes, clone/install boundaries, and source-archive policy. A follow-up against the
-formal manuscript found the omitted Zenodo link and corrected README, citation metadata, Core planning records, and
-the data manifest. Validation commands are recorded in `docs/RELEASE_STATUS.md` and each owning module.
+The current module locks include documentation-only maintenance commits. Scientific
+source, model configurations and numerical assets are unchanged from the previously
+pinned paper modules. Historical release tags and external asset revisions remain
+unchanged; the current lock file records the exact maintained source snapshots.

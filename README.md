@@ -139,7 +139,7 @@ the [release provenance](docs/RELEASE_PROVENANCE.md); all versions belong to the
 [reproducibility scope](docs/REPRODUCIBILITY_SCOPE.md) and
 [compute requirements](docs/COMPUTE_REQUIREMENTS.md). Fresh quickstart wall time and peak RAM/VRAM are frozen in
 [`manifests/quickstart_benchmarks_2026-08-11.json`](manifests/quickstart_benchmarks_2026-08-11.json). The external
-[paper-data capsule plan](docs/PAPER_DATA_CAPSULE_PLAN.md) records which splits are exact, reconstructed, or still
+[paper-data capsule manifest](manifests/paper_data_capsule_plan.json) records which splits are exact, reconstructed, or still
 unrecovered; the [repository hygiene policy](docs/REPOSITORY_HYGIENE.md) prevents those assets from being duplicated
 into Git.
 

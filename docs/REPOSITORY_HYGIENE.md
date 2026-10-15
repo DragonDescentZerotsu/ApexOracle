@@ -177,3 +177,12 @@ python scripts/build_source_archive.py --plan-only
 Move that disposable directory to the system trash after verification. Never
 reuse the maintained Core worktree for this gate when it contains unfinished
 reviewer or experiment work, and never commit from the temporary clone.
+
+## Local working documentation
+
+Agent instructions, refactoring plans, manuscript response drafts and local working
+records are excluded through each repository's `.gitignore`. Public documentation
+contains installation, usage, scientific results and reproducibility contracts.
+Local backups belong under `.local/`, which is excluded from version control.
+The size-policy checker also rejects agent instructions and refactoring plans if
+they are force-added to a release tree.

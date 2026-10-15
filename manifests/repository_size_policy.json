@@ -20,7 +20,12 @@
     "__pycache__",
     "build",
     "dist",
-    "wandb"
+    "wandb",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "REFACTOR_PLAN.md",
+    "PUBLICATION_HANDOFF.md",
+    ".local"
   ],
   "repositories": {
     "root": {

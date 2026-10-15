@@ -32,7 +32,6 @@ REQUIRED_VISUAL_ASSETS = {
 }
 REQUIRED = (
     ".gitmodules",
-    "AGENTS.md",
     "CITATION.cff",
     "LICENSE",
     "NOTICE",
@@ -40,7 +39,6 @@ REQUIRED = (
     *REQUIRED_VISUAL_ASSETS,
     "docs/LEGACY_MONOREPO.md",
     "docs/RELEASE_PROVENANCE.md",
-    "docs/RELEASE_STATUS.md",
     "manifests/data_assets.yaml",
     "manifests/model_weights.yaml",
     "manifests/modules.lock.yaml",
